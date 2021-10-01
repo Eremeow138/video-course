@@ -1,0 +1,12 @@
+.header {
+  background: #303240;
+  padding: 1.6rem 0;
+  &__content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    max-width: 108rem;
+    margin: 0 auto;
+    padding: 0 1.5rem;
+  }
+}
