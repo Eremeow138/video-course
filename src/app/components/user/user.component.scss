@@ -1,7 +1,11 @@
 .user {
   display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
   &__button {
     display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
     align-items: center;
     background-color: transparent;
     border: none;
