@@ -12,6 +12,16 @@
   overflow-x: auto;
   overflow-y: hidden;
 
+  &__header-wrapper {
+    background: #303240;
+  }
+
+  &__header {
+    max-width: 1080px;
+    margin: 0 auto;
+    padding: 1.6rem 1.5rem;
+  }
+
   &__breadcrumbs {
     max-width: 1080px;
     margin: 0 auto;
