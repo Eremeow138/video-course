@@ -17,4 +17,16 @@
     margin: 0 auto;
     padding: 2rem 1.5rem;
   }
+
+  &__courses-page-wrapper {
+    background-color: #f5f6fa;
+    width: 100%;
+    height: 100%;
+  }
+
+  &__courses-page {
+    max-width: 1080px;
+    margin: 0 auto;
+    padding: 0 1.5rem;
+  }
 }
