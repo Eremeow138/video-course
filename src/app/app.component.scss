@@ -11,4 +11,10 @@
   height: 100%;
   overflow-x: auto;
   overflow-y: hidden;
+
+  &__breadcrumbs {
+    max-width: 1080px;
+    margin: 0 auto;
+    padding: 2rem 1.5rem;
+  }
 }
