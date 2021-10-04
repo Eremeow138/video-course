@@ -39,4 +39,14 @@
     margin: 0 auto;
     padding: 0 1.5rem;
   }
+
+  &__footer-wrapper {
+    background: #303240;
+  }
+
+  &__footer {
+    max-width: 1080px;
+    margin: 0 auto;
+    padding: 1.6rem 1.5rem 2rem;
+  }
 }

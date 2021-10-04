@@ -1,0 +1,11 @@
+.footer {
+  &__content {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    justify-content: flex-end;
+  }
+  &__copyright {
+    color: #ffffff;
+  }
+}
