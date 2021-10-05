@@ -13,13 +13,17 @@
   overflow-y: hidden;
 
   &__header-wrapper {
-    background: #303240;
+    background-color: #303240;
+    width: 100%;
+    height: 6rem;
   }
 
   &__header {
+    width: 100%;
+    height: 100%;
     max-width: 1080px;
+    padding: 0 1.5rem;
     margin: 0 auto;
-    padding: 1.6rem 1.5rem;
   }
 
   &__breadcrumbs {
