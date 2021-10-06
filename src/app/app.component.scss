@@ -26,19 +26,25 @@
     margin: 0 auto;
   }
 
+  &__main {
+    height: calc(100% - 12rem);
+  }
+
   &__breadcrumbs {
     max-width: 1080px;
     margin: 0 auto;
     padding: 2rem 1.5rem;
+    height: 5.6rem;
   }
 
   &__courses-page-wrapper {
     background-color: #f5f6fa;
     width: 100%;
-    height: 100%;
+    height: calc(100% - 5.6rem);
   }
 
   &__courses-page {
+    height: 100%;
     max-width: 1080px;
     margin: 0 auto;
     padding: 0 1.5rem;
@@ -46,6 +52,7 @@
 
   &__footer-wrapper {
     background: #303240;
+    height: 6rem;
   }
 
   &__footer {
