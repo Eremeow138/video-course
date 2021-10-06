@@ -1,0 +1,45 @@
+.course-card {
+  border-radius: 6px;
+  background: #ffffff;
+  box-shadow: 0 1px 2px 0 rgba(29, 30, 38, 0.1),
+    0 2px 10px 0 rgba(29, 30, 38, 0.15);
+  margin: 1.2rem 0;
+  padding: 2.4rem 2.1rem 2.3rem 2.4rem;
+
+  &__content {
+    display: flex;
+    flex-direction: column;
+  }
+
+  &__up {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    justify-content: space-between;
+    align-items: flex-start;
+    margin-bottom: 0.8rem;
+  }
+  &__down {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    justify-content: space-between;
+  }
+
+  &__title {
+    color: #333333;
+    font-size: 24px;
+    font-weight: 600;
+  }
+
+  &__description {
+    padding-right: 1rem;
+    line-height: 1.8rem;
+    letter-spacing: 0;
+    color: #474a59;
+    font-size: 1.4rem;
+    text-transform: none;
+    max-width: 876px;
+  }
+
+}

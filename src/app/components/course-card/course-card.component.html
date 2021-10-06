@@ -1,1 +1,17 @@
-<p>course-card works!</p>
+<div *ngIf="course" class="course-card">
+  <div class="course-card__content">
+    <div class="course-card__up">
+      <div class="course-card__title">{{ course.title }}</div>
+      <app-course-tools [course]="course"></app-course-tools>
+    </div>
+    <div class="course-card__down">
+      <div class="course-card__description">
+        {{ course.description }}
+      </div>
+      <app-course-actions
+        [course]="course"
+        (deleteEmitter)="onDeleted($event)"
+      ></app-course-actions>
+    </div>
+  </div>
+</div>

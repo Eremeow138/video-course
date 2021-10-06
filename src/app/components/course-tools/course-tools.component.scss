@@ -1,0 +1,31 @@
+.course-tools {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+
+  &__tool {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    align-items: center;
+    min-width: 7.8rem;
+    &:not(:first-child) {
+      margin: 0 0 0 2.4rem;
+    }
+  }
+
+  &__icon {
+    margin-right: 0.5rem;
+    height: 1.6rem;
+    width: 1.6rem;
+    filter: invert(56%) sepia(12%) saturate(327%) hue-rotate(189deg)
+      brightness(94%) contrast(88%);
+  }
+
+  &__value {
+    letter-spacing: 0;
+    color: #858997;
+    font-size: 1.4rem;
+    white-space: nowrap;
+  }
+}
