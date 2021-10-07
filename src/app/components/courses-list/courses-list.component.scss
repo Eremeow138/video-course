@@ -1,9 +1,9 @@
-:host{
+:host {
   height: 100%;
 }
 .courses-list {
-  overflow-y: auto;
-  height: 100%;
+  overflow-y: overlay;
+  height: calc(100% - 5rem);
   &__load-more-button {
     display: block;
     width: 100%;
