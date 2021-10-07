@@ -1,6 +1,12 @@
-:host{
+:host {
   height: 100%;
 }
 .courses-page {
   height: 100%;
+
+  &__filters-actions-wrapper {
+    height: 10.4rem;
+    padding: 2.1rem 0 1.7rem;
+    margin-right: 0.5rem;
+  }
 }
