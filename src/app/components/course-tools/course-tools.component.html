@@ -1,9 +1,7 @@
 <div *ngIf="course" class="course-tools">
   <div class="course-tools__tool">
     <img class="course-tools__icon" src="assets/icons/clock.svg" alt="" />
-    <span class="course-tools__value">{{
-      course.duration | minutesToHours
-    }}</span>
+    <span class="course-tools__value">{{ course.duration | durationPipe }}</span>
   </div>
   <div class="course-tools__tool">
     <img class="course-tools__icon" src="assets/icons/calendar.svg" alt="" />
