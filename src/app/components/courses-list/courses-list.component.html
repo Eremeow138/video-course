@@ -1,7 +1,12 @@
 <div class="courses-list">
   <app-course-card
-    *ngFor="let currentCourse of courses"
+    *ngFor="let currentCourse of courses; trackBy: trackByFn"
     [course]="currentCourse"
   ></app-course-card>
-  <button class="courses-list__load-more-button" (click)="getCoursesFromServer()">load more</button>
+  <button
+    class="courses-list__load-more-button"
+    (click)="getCoursesFromServer()"
+  >
+    load more
+  </button>
 </div>
