@@ -17,7 +17,7 @@ import { CourseToolsComponent } from './components/course-tools/course-tools.com
 import { CourseActionsComponent } from './components/course-actions/course-actions.component';
 import { CoursesPageComponent } from './components/courses-page/courses-page.component';
 import { FooterComponent } from './components/footer/footer.component';
-import { DurationPrettierPipe } from './pipes/duration-prettier.pipe';
+import { DurationPipe } from './pipes/duration.pipe';
 
 @NgModule({
   declarations: [
@@ -35,7 +35,7 @@ import { DurationPrettierPipe } from './pipes/duration-prettier.pipe';
     CourseActionsComponent,
     CoursesPageComponent,
     FooterComponent,
-    DurationPrettierPipe,
+    DurationPipe,
   ],
   imports: [BrowserModule, FormsModule, AppRoutingModule, HttpClientModule],
   providers: [],
