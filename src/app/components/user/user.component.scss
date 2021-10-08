@@ -1,7 +1,14 @@
+:host {
+  width: 100%;
+  height: 100%;
+}
 .user {
+  width: 100%;
+  height: 100%;
   display: flex;
   flex-direction: row;
   flex-wrap: nowrap;
+  align-items: center;
   &__button {
     display: flex;
     flex-direction: row;
@@ -11,7 +18,7 @@
     border: none;
     cursor: pointer;
     &:not(:first-child) {
-      margin: 0 0 0 0.5rem;
+      margin: 0 0 0 2.4rem;
     }
   }
 
