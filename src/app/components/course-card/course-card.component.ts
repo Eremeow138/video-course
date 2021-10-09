@@ -1,4 +1,4 @@
-import { Component, Input } from '@angular/core';
+import { Component, EventEmitter, Input, Output } from '@angular/core';
 import { ICourse } from 'src/app/interfaces/course.interface';
 
 @Component({
@@ -7,10 +7,13 @@ import { ICourse } from 'src/app/interfaces/course.interface';
   styleUrls: ['./course-card.component.scss'],
 })
 export class CourseCardComponent {
-  @Input() course?: ICourse;
+  @Input()
+  public course!: ICourse;
 
-  // eslint-disable-next-line class-methods-use-this
-  onDeleted(id: number): void {
-    console.log(id);
+  @Output()
+  private deleteCourseEvent = new EventEmitter<ICourse>();
+
+  public emitCourseDeletion(): void {
+    this.deleteCourseEvent.emit(this.course);
   }
 }

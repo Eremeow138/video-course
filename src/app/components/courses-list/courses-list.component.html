@@ -3,7 +3,10 @@
     *ngFor="let currentCourse of courses; trackBy: trackByFn"
     class="courses-list__course-card-wrapper"
   >
-    <app-course-card [course]="currentCourse"></app-course-card>
+    <app-course-card
+      [course]="currentCourse"
+      (deleteCourseEvent)="deleteCourse($event)"
+    ></app-course-card>
   </div>
 
   <button

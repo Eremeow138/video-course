@@ -7,5 +7,6 @@ import { ICourse } from 'src/app/interfaces/course.interface';
   styleUrls: ['./course-tools.component.scss'],
 })
 export class CourseToolsComponent {
-  @Input() course?: ICourse;
+  @Input()
+  course!: ICourse;
 }

@@ -15,10 +15,7 @@
         </p>
       </div>
       <div class="course-card__actions-wrapper">
-        <app-course-actions
-          [course]="course"
-          (deleteEmitter)="onDeleted($event)"
-        ></app-course-actions>
+        <app-course-actions (deleteEvent)="emitCourseDeletion()"></app-course-actions>
       </div>
     </div>
   </div>

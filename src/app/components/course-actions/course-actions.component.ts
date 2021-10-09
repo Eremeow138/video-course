@@ -1,5 +1,4 @@
-import { Component, EventEmitter, Input, Output } from '@angular/core';
-import { ICourse } from 'src/app/interfaces/course.interface';
+import { Component, EventEmitter, Output } from '@angular/core';
 
 @Component({
   selector: 'app-course-actions',
@@ -7,13 +6,10 @@ import { ICourse } from 'src/app/interfaces/course.interface';
   styleUrls: ['./course-actions.component.scss'],
 })
 export class CourseActionsComponent {
-  @Input() course?: ICourse;
+  @Output()
+  private deleteEvent = new EventEmitter<void>();
 
-  @Output() deleteEmitter = new EventEmitter<number>();
-
-  delete(): void {
-    if (this.course) {
-      this.deleteEmitter.emit(this.course.id);
-    }
+  public delete(): void {
+    this.deleteEvent.emit();
   }
 }

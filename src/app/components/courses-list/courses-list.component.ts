@@ -36,11 +36,11 @@ export class CoursesListComponent implements OnInit {
   }
 
   // eslint-disable-next-line class-methods-use-this
-  trackByFn(index: number, course: ICourse): number {
+  public trackByFn(index: number, course: ICourse): number {
     return course.id;
   }
 
-  getCoursesFromServer() {
+  public getCoursesFromServer() {
     this.courses = [
       ...this.courses,
       {
@@ -51,5 +51,10 @@ export class CoursesListComponent implements OnInit {
         description: `Learn about where you can find course descriptions, what information they include, how they work, and details about various components of a course description. Course descriptions report information about a university or college's classes. They're published both in course catalogs that outline degree requirements and in course schedules that contain descriptions for all courses offered during a particular semester.`,
       },
     ];
+  }
+
+  // eslint-disable-next-line class-methods-use-this
+  public deleteCourse(course: ICourse): void {
+    console.log(course.id);
   }
 }
