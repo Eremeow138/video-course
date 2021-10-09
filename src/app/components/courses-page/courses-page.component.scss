@@ -1,12 +1,25 @@
 :host {
   height: 100%;
+  width: 100%;
 }
 .courses-page {
   height: 100%;
+  width: 100%;
 
   &__filters-actions-wrapper {
     height: 10.4rem;
+    width: 100%;
     padding: 2.1rem 0 1.7rem;
-    margin-right: 0.5rem;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+  }
+  &__filter {
+    height: 100%;
+    width: 100%;
+  }
+  &__actions {
+    height: 100%;
+    width: 100%;
   }
 }
