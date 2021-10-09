@@ -10,15 +10,30 @@
   flex-wrap: nowrap;
   align-items: center;
   &__button {
+    position: relative;
     display: flex;
     flex-direction: row;
     flex-wrap: nowrap;
     align-items: center;
     background-color: transparent;
     border: none;
-    cursor: pointer;
+
+    transition: all 0.3s;
     &:not(:first-child) {
       margin: 0 0 0 2.4rem;
+    }
+    &::after {
+      content: "";
+      position: absolute;
+      bottom: -0.5rem;
+      width: 100%;
+      height: 100%;
+      border-bottom: 2px solid transparent;
+      cursor: pointer;
+      transition: all 0.3s;
+    }
+    &:hover::after {
+      border-color: #ffffff;
     }
   }
 
