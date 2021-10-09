@@ -1,8 +1,11 @@
 <div class="courses-list">
-  <app-course-card
+  <div
     *ngFor="let currentCourse of courses; trackBy: trackByFn"
-    [course]="currentCourse"
-  ></app-course-card>
+    class="courses-list__course-card-wrapper"
+  >
+    <app-course-card [course]="currentCourse"></app-course-card>
+  </div>
+
   <button
     class="courses-list__load-more-button"
     (click)="getCoursesFromServer()"

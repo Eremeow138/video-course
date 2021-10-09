@@ -1,6 +1,16 @@
+:host {
+  height: 100%;
+  width: 100%;
+}
 .course-actions {
   display: flex;
   flex-direction: row;
   flex-wrap: nowrap;
   justify-content: flex-end;
+  height: 100%;
+  width: 100%;
+
+  &__button {
+    height: min-content;
+  }
 }
