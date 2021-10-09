@@ -8,7 +8,7 @@ import { Component } from '@angular/core';
 export class SearchComponent {
   public inputValue = '';
 
-  search(): void {
+  public search(): void {
     console.log(this.inputValue);
   }
 }

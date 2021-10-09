@@ -8,5 +8,5 @@ import { ICourse } from 'src/app/interfaces/course.interface';
 })
 export class CourseToolsComponent {
   @Input()
-  course!: ICourse;
+  public course!: ICourse;
 }
