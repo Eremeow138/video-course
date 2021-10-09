@@ -1,6 +1,17 @@
+:host {
+  width: 100%;
+  height: 100%;
+}
 .actions {
+  width: 100%;
+  height: 100%;
   display: flex;
   flex-direction: row;
   flex-wrap: nowrap;
   justify-content: flex-end;
+  align-items: flex-end;
+
+  &__button {
+    height: min-content;
+  }
 }
