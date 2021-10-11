@@ -4,12 +4,12 @@ import { Pipe, PipeTransform } from '@angular/core';
   name: 'durationPipe',
 })
 export class DurationPipe implements PipeTransform {
-  transform(duration: number): string {
-    return this.convertToPrettyString(duration);
+  public transform(duration: number): string {
+    return this.convertToString(duration);
   }
 
   // eslint-disable-next-line class-methods-use-this
-  convertToPrettyString(duration: number): string {
+  private convertToString(duration: number): string {
     if (duration < 60) {
       return `${duration}min`;
     }
