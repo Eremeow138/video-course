@@ -13,7 +13,7 @@ export class CourseCardComponent {
   @Output()
   private deleteCourseEvent = new EventEmitter<ICourse>();
 
-  public emitCourseDeletion(): void {
+  public deleteCourse(): void {
     this.deleteCourseEvent.emit(this.course);
   }
 }
