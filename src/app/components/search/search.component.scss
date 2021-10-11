@@ -8,17 +8,15 @@
   display: flex;
   justify-content: space-between;
   &__input {
-    display: block;
-    width: 100%;
+    flex-grow: 1;
     height: min-content;
-    margin-right: 1.2rem;
+    min-height: 3.6rem;
     border-radius: 3px;
     border: 1px solid #ced0db;
     background-color: #ffffff;
     outline: none;
-    letter-spacing: 0;
     color: #474a59;
-    padding: 0.9rem 1.2rem;
+    padding: 0 1.2rem;
     font-size: 1.4rem;
     transition-duration: 0.3s;
 
