@@ -11,13 +11,13 @@ export class DurationPipe implements PipeTransform {
   // eslint-disable-next-line class-methods-use-this
   convertToPrettyString(duration: number): string {
     if (duration < 60) {
-      return `${duration} min`;
+      return `${duration}min`;
     }
 
     const minutes = duration % 60;
     const prettyMinutes = minutes > 9 ? minutes : `0${minutes}`;
     const hours = Math.floor(duration / 60);
 
-    return `${hours}h ${prettyMinutes} min`;
+    return `${hours}h ${prettyMinutes}min`;
   }
 }
