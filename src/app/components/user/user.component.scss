@@ -17,30 +17,25 @@
     align-items: center;
     background-color: transparent;
     border: none;
-
-    transition: all 0.3s;
+    cursor: pointer;
     &:not(:first-child) {
       margin: 0 0 0 2.4rem;
     }
-    &::after {
-      content: "";
-      position: absolute;
-      bottom: -0.5rem;
-      width: 100%;
-      height: 100%;
-      border-bottom: 2px solid transparent;
-      cursor: pointer;
-      transition: all 0.3s;
-    }
-    &:hover::after {
-      border-color: #ffffff;
-    }
+  }
+  &__button:hover &__text {
+    color: #009ecc;
+  }
+  &__button:hover &__icon {
+    filter: invert(41%) sepia(90%) saturate(3190%) hue-rotate(167deg)
+      brightness(101%) contrast(101%);
   }
 
   &__icon {
     width: 1.2rem;
     height: 1.2rem;
     margin-right: 0.8rem;
+    filter: invert(99%) sepia(1%) saturate(1742%) hue-rotate(141deg)
+      brightness(116%) contrast(100%);
   }
 
   &__text {
