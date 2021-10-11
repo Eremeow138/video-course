@@ -17,9 +17,7 @@
     background-color: transparent;
     border: none;
     cursor: pointer;
-    &:not(:first-child) {
-      margin: 0 0 0 2.4rem;
-    }
+    padding: 0 1.2rem;
   }
   &__button:hover &__text {
     color: #009ecc;
