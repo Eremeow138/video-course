@@ -6,7 +6,8 @@
   height: 100%;
   width: 100%;
   display: flex;
-  justify-content: space-between;
+  flex-direction: row;
+  flex-wrap: nowrap;
   &__input {
     flex-grow: 1;
     height: min-content;
