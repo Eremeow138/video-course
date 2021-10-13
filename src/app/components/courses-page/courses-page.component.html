@@ -1,13 +1,17 @@
 <div class="courses-page">
-  <div class="courses-page__header">
-    <div class="courses-page__filters">
-      <app-filters></app-filters>
-    </div>
-    <div class="courses-page__actions">
-      <app-actions></app-actions>
+  <div class="courses-page__header-wrapper">
+    <div class="courses-page__header">
+      <div class="courses-page__filters">
+        <app-filters></app-filters>
+      </div>
+      <div class="courses-page__actions">
+        <app-actions></app-actions>
+      </div>
     </div>
   </div>
   <div class="courses-page__list-wrapper">
-    <app-courses-list></app-courses-list>
+    <div class="courses-page__list">
+      <app-courses-list></app-courses-list>
+    </div>
   </div>
 </div>

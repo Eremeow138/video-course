@@ -47,19 +47,10 @@
     max-width: 1110px;
   }
 
-  &__courses-page-wrapper {
-    display: flex;
-    justify-content: center;
+  &__courses-page {
     background-color: #f5f6fa;
     width: 100%;
     height: calc(100% - 5.6rem);
-    padding: 0 1.5rem;
-  }
-
-  &__courses-page {
-    height: 100%;
-    width: 100%;
-    max-width: 1110px;
   }
 
   &__footer-wrapper {
