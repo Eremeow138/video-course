@@ -8,8 +8,7 @@
 ::-webkit-scrollbar-thumb {
   background-color: rgba(71, 74, 89, 0.3);
   border-radius: 2rem;
-}
-
-::-webkit-scrollbar-thumb:hover {
-  background-color: rgba(71, 74, 89, 0.4);
+  &:hover {
+    background-color: rgba(71, 74, 89, 0.4);
+  }
 }
