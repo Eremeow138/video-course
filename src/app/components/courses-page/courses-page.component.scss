@@ -22,13 +22,13 @@
     display: flex;
     flex-direction: row;
     flex-wrap: nowrap;
+    justify-content: space-between;
   }
   &__filters {
     height: 100%;
     display: flex;
     flex-direction: row;
     align-items: flex-start;
-    flex-grow: 1;
   }
   &__actions {
     height: 100%;
