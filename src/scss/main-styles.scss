@@ -11,4 +11,8 @@ html {
 body {
   font-family: "SourceSansPro";
   overflow-x: overlay;
+  overflow-y: overlay;
+  @-moz-document url-prefix() {
+    overflow-x: auto;
+  }
 }

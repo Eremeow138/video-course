@@ -51,5 +51,9 @@
     max-width: 1130px;
     padding: 1rem 1rem 2.1rem;
     overflow-y: overlay;
+
+    @-moz-document url-prefix() {
+      overflow-y: auto;
+    }
   }
 }
