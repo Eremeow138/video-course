@@ -1,3 +1,4 @@
+@import "variables";
 :host {
   height: min-content;
   width: 100%;
@@ -10,14 +11,14 @@
   width: 100%;
 
   &__button {
-    padding: 0 1.2rem 0 0.9rem;
-    min-height: 2.4rem;
+    padding: $btn-secondary-paddings;
+    min-height: $btn-secondary-min-height;
   }
   &__icon {
-    width: 1rem;
-    height: 1rem;
+    width: $btn-third-icon-width;
+    height: $btn-third-icon-height;
   }
   &__text {
-    font-size: 1.2rem;
+    font-size: $btn-secondary-font-size;
   }
 }

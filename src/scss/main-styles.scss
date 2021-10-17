@@ -1,3 +1,5 @@
+@import "variables";
+
 * {
   box-sizing: border-box;
   margin: 0;
@@ -9,7 +11,7 @@ html {
 }
 
 body {
-  font-family: "SourceSansPro";
+  font-family: $primary-font-family;
   overflow-x: overlay;
   overflow-y: overlay;
   @-moz-document url-prefix() {

@@ -1,4 +1,5 @@
 @import "colors";
+@import "variables";
 
 :host {
   width: 100%;
@@ -25,14 +26,14 @@
 
   &__icon {
     margin-right: 0.5rem;
-    height: 1.6rem;
-    width: 1.6rem;
+    height: $icon-height;
+    width: $icon-width;
     filter: invert(56%) sepia(12%) saturate(327%) hue-rotate(189deg)
       brightness(94%) contrast(88%);
   }
 
   &__value {
     color: $tools-text-color;
-    font-size: 1.4rem;
+    font-size: $primary-font-size;
   }
 }

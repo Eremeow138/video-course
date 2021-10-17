@@ -1,4 +1,5 @@
 @import "colors";
+@import "variables";
 
 :host {
   width: 100%;
@@ -18,7 +19,7 @@
     flex-wrap: nowrap;
     align-items: center;
     transition: letter-spacing 0.5s cubic-bezier(0.68, -0.55, 0.265, 1.55);
-    padding: 0 1.5rem;
+    padding: $wrapper-paddings;
 
     &:hover {
       letter-spacing: 0.5rem;
@@ -26,14 +27,14 @@
   }
 
   &__image {
-    width: 2.8rem;
-    height: 2.8rem;
+    width: $logo-width;
+    height: $logo-height;
     margin-right: 1.2rem;
   }
 
   &__text {
     color: $text-third-color;
-    font-size: 1.8rem;
+    font-size: $title-secondary-font-size;
     font-weight: 700;
     text-transform: uppercase;
   }

@@ -1,4 +1,5 @@
 @import "colors";
+@import "variables";
 
 :host {
   width: 100%;
@@ -19,7 +20,7 @@
     background-color: $btn-third-bg-color;
     border: none;
     cursor: pointer;
-    padding: 0 1.5rem;
+    padding: $wrapper-paddings;
   }
   &__button:hover &__text {
     color: $btn-text-hover-color;
@@ -30,8 +31,8 @@
   }
 
   &__icon {
-    width: 1.2rem;
-    height: 1.2rem;
+    width: $btn-secondary-icon-width;
+    height: $btn-secondary-icon-height;
     margin-right: 0.8rem;
     filter: invert(99%) sepia(1%) saturate(1742%) hue-rotate(141deg)
       brightness(116%) contrast(100%);
@@ -39,6 +40,6 @@
 
   &__text {
     color: $btn-text-color;
-    font-size: 1.4rem;
+    font-size: $primary-font-size;
   }
 }
