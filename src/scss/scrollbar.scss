@@ -1,24 +1,26 @@
+@import "colors";
+
 ::-webkit-scrollbar {
   width: 0.5rem;
   height: 0.5rem;
-  background-color: transparent;
+  background-color: $scroll-primary-bg-color;
   border-radius: 2rem;
 }
 
 ::-webkit-scrollbar-corner {
-  background-color: transparent;
+  background-color: $scroll-primary-bg-color;
 }
 ::-webkit-scrollbar-thumb {
-  background-color: rgba(71, 74, 89, 0.3);
+  background-color: $scroll-secondary-bg-color;
   border-radius: 2rem;
   &:hover {
-    background-color: rgba(71, 74, 89, 0.4);
+    background-color: $scroll-secondary-bg-hover-color;
   }
 }
 
 * {
   @-moz-document url-prefix() {
-    scrollbar-color: #474a59 #303240;
+    scrollbar-color: $scroll-secondary-bg-mozilla-color $secondary-bg-color;
     scrollbar-width: thin;
   }
 }

@@ -1,3 +1,5 @@
+@import "colors";
+
 :host {
   width: 100%;
   height: 100%;
@@ -14,13 +16,13 @@
     flex-direction: row;
     flex-wrap: nowrap;
     align-items: center;
-    background-color: transparent;
+    background-color: $btn-third-bg-color;
     border: none;
     cursor: pointer;
     padding: 0 1.5rem;
   }
   &__button:hover &__text {
-    color: #009ecc;
+    color: $btn-text-hover-color;
   }
   &__button:hover &__icon {
     filter: invert(41%) sepia(90%) saturate(3190%) hue-rotate(167deg)
@@ -36,7 +38,7 @@
   }
 
   &__text {
-    color: #ffffff;
+    color: $btn-text-color;
     font-size: 1.4rem;
   }
 }
