@@ -27,8 +27,8 @@
   }
 
   &__icon {
-    width: $btn-primary-icon-width;
-    height: $btn-primary-icon-height;
+    width: $btn-primary-icon-size;
+    height: $btn-primary-icon-size;
     margin-right: 0.7rem;
     filter: invert(100%) sepia(0%) saturate(7488%) hue-rotate(118deg)
       brightness(104%) contrast(106%);

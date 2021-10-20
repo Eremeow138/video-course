@@ -31,8 +31,8 @@
   }
 
   &__icon {
-    width: $btn-secondary-icon-width;
-    height: $btn-secondary-icon-height;
+    width: $btn-secondary-icon-size;
+    height: $btn-secondary-icon-size;
     margin-right: 0.8rem;
     filter: invert(99%) sepia(1%) saturate(1742%) hue-rotate(141deg)
       brightness(116%) contrast(100%);
