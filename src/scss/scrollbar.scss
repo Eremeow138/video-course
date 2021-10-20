@@ -20,7 +20,7 @@
 
 * {
   @-moz-document url-prefix() {
-    scrollbar-color: $scroll-secondary-bg-mozilla-color $secondary-bg-color;
+    scrollbar-color: $scroll-secondary-bg-color $scroll-primary-bg-color;
     scrollbar-width: thin;
   }
 }

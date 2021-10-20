@@ -1,29 +1,45 @@
-$primary-bg-color: #f5f6fa;
-$secondary-bg-color: #303240;
-$third-bg-color: #ffffff;
+$primary-color: rgb(245 246 250);
+$secondary-color: rgb(48 50 64);
+$third-color: #FFF;
+$fourth-color: rgb(71 74 89);
 
-$text-primary-color: #474a59;
-$text-secondary-color: #464a5a;
-$text-third-color: #ffffff;
+$primary-bg-color: $primary-color;
+$secondary-bg-color: $secondary-color;
+$third-bg-color: $third-color;
+$third-bg-color-hover: darken($third-color, 5);
+$third-bg-color-focus: darken($third-color, 15);
 
-$title-text-primary-color: #333333;
+$primary-shadow-color: rgb(29 30 38 / 0.1);
+$secondary-shadow-color: rgb(29 30 38 / 0.15);
 
-$input-bg-color: #ffffff;
-$input-text-color: #474a59;
-$input-placeholder-color: #acafbf;
-$input-border-color: #ced0db;
-$input-border-focus-color: #474a59;
+$text-primary-color: $fourth-color;
+$text-secondary-color: rgb(70 74 90);
+$text-third-color: $third-color;
 
-$btn-primary-bg-color: #009ecc;
-$btn-secondary-bg-color: #67a300;
+$title-text-primary-color: #333;
+
+$input-bg-color: $third-bg-color;
+$input-text-color: $text-primary-color;
+$input-placeholder-color: rgb(172 175 191);
+$input-border-color: rgb(206 208 219);
+$input-border-color-hover: darken($input-border-color, 10);
+$input-border-focus-color: $fourth-color;
+
+$btn-primary-color: rgb(0 158 204);
+
+$btn-primary-bg-color: $btn-primary-color;
+$btn-primary-bg-color-hover: darken($btn-primary-color, 5);
+$btn-primary-bg-color-focus: darken($btn-primary-color, 15);
+$btn-secondary-bg-color: rgb(103 163 0);
+$btn-secondary-bg-color-hover: darken($btn-secondary-bg-color, 5);
+$btn-secondary-bg-color-focus: darken($btn-secondary-bg-color, 15);
 $btn-third-bg-color: transparent;
 
-$btn-text-color: #ffffff;
-$btn-text-hover-color: #009ecc;
+$btn-text-color: $third-color;
+$btn-text-hover-color: $btn-primary-color;
 
 $scroll-primary-bg-color: transparent;
-$scroll-secondary-bg-color: rgba(71, 74, 89, 0.3);
-$scroll-secondary-bg-hover-color: rgba(71, 74, 89, 0.4);
-$scroll-secondary-bg-mozilla-color: #474a59;
+$scroll-secondary-bg-color: rgb(71 74 89 / 0.3);
+$scroll-secondary-bg-hover-color: rgb(71 74 89 / 0.4);
 
-$tools-text-color: #858997;
+$tools-text-color: rgb(133 137 151);

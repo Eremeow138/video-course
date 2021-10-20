@@ -29,7 +29,7 @@
     }
 
     &:hover {
-      border-color: darken($input-border-color, 10);
+      border-color: $input-border-color-hover;
     }
 
     &:focus {
@@ -40,10 +40,10 @@
   &__button {
     background-color: $btn-secondary-bg-color;
     &:hover {
-      background-color: darken($btn-secondary-bg-color, 5);
+      background-color: $btn-secondary-bg-color-hover;
     }
     &:active {
-      background-color: darken($btn-secondary-bg-color, 15);
+      background-color: $btn-secondary-bg-color-focus;
     }
   }
 }
