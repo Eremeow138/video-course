@@ -12,9 +12,8 @@ html {
 
 body {
   font-family: $primary-font-family;
-  overflow-x: overlay;
-  overflow-y: overlay;
+  overflow: overlay;
   @-moz-document url-prefix() {
-    overflow-x: auto;
+    overflow: auto;
   }
 }
