@@ -1,3 +1,4 @@
+@import "colors";
 $primary-font-family: "SourceSansPro";
 $primary-font-size: 1.4rem;
 $secondary-font-size: 1.2rem;
@@ -49,3 +50,4 @@ $page-min-height: 768px;
 
 $card-border-radius: 6px;
 $card-margin-top: 2.4rem;
+$card-shadow: 0 1px 2px 0 $primary-shadow-color, 0 2px 10px 0 $secondary-shadow-color;
