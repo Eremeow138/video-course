@@ -10,6 +10,16 @@ $content-max-width: 1100px;
 
 $wrapper-paddings: 0 1.5rem;
 
+$icon-size: 1.6rem;
+$icon-primary-filter: invert(100%) sepia(0%) saturate(7488%) hue-rotate(118deg)
+brightness(104%) contrast(106%);
+$icon-secondary-filter: invert(99%) sepia(1%) saturate(1742%) hue-rotate(141deg)
+brightness(116%) contrast(100%);
+$icon-secondary-filter-hover: invert(41%) sepia(90%) saturate(3190%) hue-rotate(167deg)
+brightness(101%) contrast(101%);
+$icon-third-filter: invert(56%) sepia(12%) saturate(327%) hue-rotate(189deg)
+brightness(94%) contrast(88%);
+
 $btn-primary-font-size: 1.4rem;
 $btn-secondary-font-size: 1.2rem;
 $btn-primary-min-height: 3.6rem;
@@ -22,7 +32,8 @@ $btn-secondary-icon-size: 1.2rem;
 $btn-third-icon-size: 1rem;
 $btn-border-radius: 3px;
 
-$icon-size: 1.6rem;
+
+
 
 $logo-width: 2.8rem;
 $logo-height: 2.8rem;

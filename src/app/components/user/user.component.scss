@@ -26,16 +26,14 @@
     color: $btn-text-hover-color;
   }
   &__button:hover &__icon {
-    filter: invert(41%) sepia(90%) saturate(3190%) hue-rotate(167deg)
-      brightness(101%) contrast(101%);
+    filter: $icon-secondary-filter-hover;
   }
 
   &__icon {
     width: $btn-secondary-icon-size;
     height: $btn-secondary-icon-size;
     margin-right: 0.8rem;
-    filter: invert(99%) sepia(1%) saturate(1742%) hue-rotate(141deg)
-      brightness(116%) contrast(100%);
+    filter: $icon-secondary-filter;
   }
 
   &__text {
