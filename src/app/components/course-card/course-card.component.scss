@@ -37,7 +37,7 @@
   &__title-wrapper {
     height: 100%;
     flex-grow: 1;
-    padding-right: 2rem;
+    padding-right: $course-card-title-padding;
   }
 
   &__title {
