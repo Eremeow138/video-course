@@ -32,7 +32,7 @@
   &__icon {
     width: $btn-secondary-icon-size;
     height: $btn-secondary-icon-size;
-    margin-right: 0.8rem;
+    margin-right: $secondary-content-margin;
     filter: $icon-secondary-filter;
   }
 

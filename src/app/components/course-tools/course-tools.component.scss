@@ -20,7 +20,7 @@
     flex-wrap: nowrap;
     align-items: center;
     &:not(:first-child) {
-      margin-left: $content-margin;
+      margin-left:$primary-content-margin;
     }
   }
 

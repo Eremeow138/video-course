@@ -46,7 +46,7 @@
       100% - #{$courses-page-header-height} - #{$courses-page-header-margin-bottom}
     );
     width: 100%;
-    padding: 0 0.8rem;
+    padding: 0 $content-padding;
   }
   &__list {
     width: 100%;
