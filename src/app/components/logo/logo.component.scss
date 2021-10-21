@@ -29,7 +29,7 @@
   &__image {
     width: $logo-size;
     height: $logo-size;
-    margin-right: 1.2rem;
+    margin-right: $logo-image-margin;
   }
 
   &__text {
