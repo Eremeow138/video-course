@@ -20,7 +20,7 @@
     background-color: $btn-third-bg-color;
     border: none;
     cursor: pointer;
-    padding: $wrapper-paddings;
+    padding: $user-buttons-paddings;
   }
   &__button:hover &__text {
     color: $btn-text-hover-color;

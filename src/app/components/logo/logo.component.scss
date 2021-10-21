@@ -19,7 +19,7 @@
     flex-wrap: nowrap;
     align-items: center;
     transition: letter-spacing 0.5s cubic-bezier(0.68, -0.55, 0.265, 1.55);
-    padding: $wrapper-paddings;
+    padding: $logo-link-paddings;
 
     &:hover {
       letter-spacing: 0.5rem;
