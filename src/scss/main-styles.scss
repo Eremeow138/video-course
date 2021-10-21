@@ -11,7 +11,7 @@ html {
 }
 
 body {
-  font-family: $primary-font-family;
+  font-family: $default-font-family;
   overflow: overlay;
   @-moz-document url-prefix() {
     overflow: auto;
