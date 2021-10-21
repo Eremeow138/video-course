@@ -22,7 +22,7 @@
     color: $input-text-color;
     padding: $input-paddings;
     font-size: $primary-font-size;
-    transition-duration: $primary-transition;
+    transition-duration: $primary-duration;
 
     &::-webkit-input-placeholder {
       color: $input-placeholder-color;

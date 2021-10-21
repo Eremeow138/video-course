@@ -13,7 +13,7 @@
   align-items: center;
   border: none;
   cursor: pointer;
-  transition-duration: $primary-transition;
+  transition-duration: $primary-duration;
 
   &:not(:first-child) {
     margin-left: $btn-margin;
