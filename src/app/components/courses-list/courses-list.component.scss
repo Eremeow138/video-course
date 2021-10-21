@@ -11,7 +11,7 @@
   &__cards-wrapper {
     width: 100%;
     & > :not(:first-child) {
-      margin-top: $card-margin-top;
+      margin-top: $content-margin;
       display: block;
     }
   }
@@ -22,7 +22,7 @@
     border-radius: $card-border-radius;
     background-color: $third-bg-color;
     box-shadow: $card-shadow;
-    margin-top: $card-margin-top;
+    margin-top: $content-margin;
     border: none;
     cursor: pointer;
     transition-duration: $primary-transition;
