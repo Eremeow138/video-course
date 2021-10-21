@@ -16,7 +16,7 @@
   transition-duration: $primary-transition;
 
   &:not(:first-child) {
-    margin: $btn-margins;
+    margin-left: $btn-margin;
   }
 
   &:hover {
