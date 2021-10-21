@@ -4,6 +4,9 @@ $default-font-size: 10px;
 $primary-font-size: 1.4rem;
 $secondary-font-size: 1.2rem;
 
+$primary-border-radius: 6px;
+$secondary-border-radius: 3px;
+
 $primary-shadow: 0 1px 2px 0 $primary-shadow-color, 0 2px 10px 0 $secondary-shadow-color;
 
 $title-primary-font-size: 2.4rem;
@@ -40,7 +43,7 @@ $btn-margin: 1.2rem;
 $btn-primary-icon-size: 1.4rem;
 $btn-secondary-icon-size: 1.2rem;
 $btn-third-icon-size: 1rem;
-$btn-border-radius: 3px;
+$btn-border-radius: $secondary-border-radius;
 
 $logo-size: 2.8rem;
 $logo-image-margin: 1.2rem;
@@ -62,7 +65,7 @@ $courses-page-header-margin-bottom: 1.7rem;
 $window-min-width: 1024px;
 $window-min-height: 768px;
 
-$card-border-radius: 6px;
+
 
 
 $course-card-title-padding: 2rem;
