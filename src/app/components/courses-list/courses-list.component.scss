@@ -29,9 +29,7 @@
 
     color: $text-primary-color;
     border: none;
-    border-radius: $primary-border-radius;
-    background-color: $third-bg-color;
-    box-shadow: $primary-shadow;
+    @include card-field;
     &:hover {
       background-color: $third-bg-color-hover;
     }

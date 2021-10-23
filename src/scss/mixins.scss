@@ -129,3 +129,9 @@
   text-transform: uppercase;
   color: $text-third-color;
 }
+
+@mixin card-field {
+  border-radius: $primary-border-radius;
+  background-color: $third-bg-color;
+  box-shadow: $primary-shadow;
+}
