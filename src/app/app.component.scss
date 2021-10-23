@@ -3,11 +3,7 @@
 @import "mixins";
 
 .app {
-  position: absolute;
-  top: 0;
-  right: 0;
-  bottom: 0;
-  left: 0;
+  @include absolute-zero-position;
 
   @include flex-column;
   overflow-x: auto;
