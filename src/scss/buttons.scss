@@ -5,26 +5,10 @@
   @include flex-row;
   align-items: center;
 
-  height: min-content;
-  min-height: $btn-primary-min-height;
-  padding: $btn-primary-paddings;
-
-  cursor: pointer;
-  transition-duration: $primary-duration;
-
-  border: none;
-  border-radius: $btn-border-radius;
-  background-color: $btn-primary-bg-color;
+  @include button-field;
 
   &:not(:first-child) {
     margin-left: $btn-margin;
-  }
-
-  &:hover {
-    background-color: $btn-primary-bg-color-hover;
-  }
-  &:active {
-    background-color: $btn-primary-bg-color-focus;
   }
 
   &__icon {
@@ -35,11 +19,6 @@
   }
 
   &__text {
-    font-size: $btn-primary-font-size;
-    font-weight: 600;
-
-    letter-spacing: -0.1px;
-
-    color: $btn-text-color;
+    @include button-text;
   }
 }
