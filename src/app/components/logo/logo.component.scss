@@ -24,8 +24,7 @@
   }
 
   &__image {
-    width: $logo-size;
-    height: $logo-size;
+    @include icon-size($logo-size);
     margin-right: $logo-image-margin;
   }
 

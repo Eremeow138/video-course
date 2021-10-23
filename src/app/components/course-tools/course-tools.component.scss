@@ -21,8 +21,7 @@
   }
 
   &__icon {
-    width: $icon-size;
-    height: $icon-size;
+    @include icon-size($icon-size);
     margin-right: 0.5rem;
 
     filter: $icon-third-filter;

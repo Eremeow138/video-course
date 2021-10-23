@@ -15,8 +15,7 @@
     padding: $btn-secondary-paddings;
   }
   &__icon {
-    width: $btn-third-icon-size;
-    height: $btn-third-icon-size;
+    @include icon-size($btn-third-icon-size);
   }
   &__text {
     font-size: $btn-secondary-font-size;

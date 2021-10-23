@@ -28,8 +28,7 @@
   }
 
   &__icon {
-    width: $btn-primary-icon-size;
-    height: $btn-primary-icon-size;
+    @include icon-size($btn-primary-icon-size);
     margin-right: 0.7rem;
 
     filter: $icon-primary-filter;
