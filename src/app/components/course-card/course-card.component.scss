@@ -39,12 +39,8 @@
   }
 
   &__title {
-    font-size: $h3-font-size;
-    font-weight: 600;
-
+    @include h3-title;
     height: min-content;
-
-    color: $h3-color;
   }
 
   &__description-wrapper {

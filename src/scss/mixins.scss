@@ -116,3 +116,9 @@
     background-color: $btn-primary-bg-color-focus;
   }
 }
+
+@mixin h3-title {
+  font-size: $h3-font-size;
+  font-weight: 600;
+  color: $h3-color;
+}
