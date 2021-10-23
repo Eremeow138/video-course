@@ -75,3 +75,8 @@
 
   @include field;
 }
+
+@mixin tools-text {
+  font-size: $primary-font-size;
+  color: $tools-text-color;
+}
