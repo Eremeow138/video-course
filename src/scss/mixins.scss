@@ -122,3 +122,10 @@
   font-weight: 600;
   color: $h3-color;
 }
+
+@mixin logo-text {
+  font-size: $logo-font-size;
+  font-weight: 700;
+  text-transform: uppercase;
+  color: $text-third-color;
+}

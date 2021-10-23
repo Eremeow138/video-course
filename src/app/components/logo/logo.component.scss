@@ -29,11 +29,6 @@
   }
 
   &__text {
-    font-size: $logo-font-size;
-    font-weight: 700;
-
-    text-transform: uppercase;
-
-    color: $text-third-color;
+    @include logo-text;
   }
 }
