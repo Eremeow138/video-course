@@ -9,33 +9,9 @@
 
   @include height-width-100-percent;
   &__input {
-    font-size: $primary-font-size;
+    @include input-field;
 
     flex-grow: 1;
-
-    height: min-content;
-    min-height: $input-min-height;
-    padding: $input-paddings;
-
-    transition-duration: $primary-duration;
-
-    color: $input-text-color;
-    border: 1px solid $input-border-color;
-    border-radius: $input-border-radius;
-    outline: none;
-    background-color: $input-bg-color;
-
-    @include placeholder {
-      color: $input-placeholder-color;
-    }
-
-    &:hover {
-      border-color: $input-border-color-hover;
-    }
-
-    &:focus {
-      border-color: $input-border-focus-color;
-    }
   }
 
   &__button {

@@ -18,12 +18,13 @@ $text-third-color: $third-color;
 
 $h3-color: #333;
 
-$input-bg-color: $third-bg-color;
 $input-text-color: $text-primary-color;
 $input-placeholder-color: rgb(172 175 191);
-$input-border-color: rgb(206 208 219);
-$input-border-color-hover: darken($input-border-color, 10);
-$input-border-focus-color: $fourth-color;
+
+$field-bg-color: $third-bg-color;
+$field-border-color: rgb(206 208 219);
+$field-border-color-hover: darken($field-border-color, 10);
+$field-border-focus-color: $fourth-color;
 
 $btn-primary-color: rgb(0 158 204);
 
