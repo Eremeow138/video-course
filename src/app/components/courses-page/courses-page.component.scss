@@ -1,12 +1,10 @@
 @import "variables";
 @import "mixins";
 :host {
-  width: 100%;
-  height: 100%;
+  @include height-width-100-percent;
 }
 .courses-page {
-  width: 100%;
-  height: 100%;
+  @include height-width-100-percent;
   padding-top: 2.1rem;
   &__header-wrapper {
     @include flex-column;
@@ -21,9 +19,9 @@
     @include flex-row;
     justify-content: space-between;
 
-    width: 100%;
+    @include height-width-100-percent;
     max-width: $content-max-width;
-    height: 100%;
+    
   }
   &__filters {
     @include flex-row;
@@ -51,9 +49,8 @@
   &__list {
     overflow-y: overlay;
 
-    width: 100%;
+    @include height-width-100-percent;
     max-width: 1130px;
-    height: 100%;
     padding: 1rem 1rem 2.1rem;
 
     @-moz-document url-prefix() {

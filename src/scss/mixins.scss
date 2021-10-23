@@ -8,3 +8,8 @@
   display: flex;
   flex-direction: column;
 }
+
+@mixin height-width-100-percent {
+  width: 100%;
+  height: 100%;
+}

@@ -2,14 +2,12 @@
 @import "variables";
 @import "mixins";
 :host {
-  width: 100%;
-  height: 100%;
+  @include height-width-100-percent;
 }
 .search {
   @include flex-row;
 
-  width: 100%;
-  height: 100%;
+  @include height-width-100-percent;
   &__input {
     font-size: $primary-font-size;
 

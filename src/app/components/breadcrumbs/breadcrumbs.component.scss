@@ -3,15 +3,13 @@
 @import "mixins";
 
 :host {
-  width: 100%;
-  height: 100%;
+  @include height-width-100-percent;
 }
 .breadcrumbs {
   @include flex-row;
   align-items: center;
 
-  width: 100%;
-  height: 100%;
+  @include height-width-100-percent;
 
   &__path {
     font-size: $primary-font-size;

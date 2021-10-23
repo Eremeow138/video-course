@@ -15,9 +15,8 @@
   align-items: stretch;
 
 
-  width: 100%;
+  @include height-width-100-percent;
   min-width: $window-min-width;
-  height: 100%;
   min-height: $window-min-height;
 
   &__header-wrapper {
@@ -32,9 +31,8 @@
   }
 
   &__header {
-    width: 100%;
+    @include height-width-100-percent;
     max-width: 1140px;
-    height: 100%;
   }
 
   &__main {
@@ -54,9 +52,8 @@
   }
 
   &__breadcrumbs {
-    width: 100%;
+    @include height-width-100-percent;
     max-width: $content-max-width;
-    height: 100%;
   }
 
   &__courses-page {
@@ -78,8 +75,7 @@
   }
 
   &__footer {
-    width: 100%;
+    @include height-width-100-percent;
     max-width: $content-max-width;
-    height: 100%;
   }
 }
