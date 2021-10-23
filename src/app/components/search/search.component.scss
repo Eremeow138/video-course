@@ -25,7 +25,7 @@
     outline: none;
     background-color: $input-bg-color;
 
-    &::-webkit-input-placeholder {
+    @include placeholder {
       color: $input-placeholder-color;
     }
 
