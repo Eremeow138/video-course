@@ -6,21 +6,26 @@
   height: 100%;
 }
 .user {
-  width: 100%;
-  height: 100%;
   display: flex;
   flex-direction: row;
   flex-wrap: nowrap;
+
+  width: 100%;
+  height: 100%;
   &__button {
     position: relative;
+
     display: flex;
+    align-items: center;
     flex-direction: row;
     flex-wrap: nowrap;
-    align-items: center;
-    background-color: $btn-third-bg-color;
-    border: none;
-    cursor: pointer;
+
     padding: $user-buttons-paddings;
+
+    cursor: pointer;
+
+    border: none;
+    background-color: $btn-third-bg-color;
   }
   &__button:hover &__text {
     color: $btn-text-hover-color;
@@ -33,11 +38,13 @@
     width: $btn-secondary-icon-size;
     height: $btn-secondary-icon-size;
     margin-right: $secondary-content-margin;
+
     filter: $icon-secondary-filter;
   }
 
   &__text {
-    color: $btn-text-color;
     font-size: $primary-font-size;
+
+    color: $btn-text-color;
   }
 }

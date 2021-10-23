@@ -9,16 +9,18 @@
   width: 100%;
   height: 100%;
   &__content {
-    width: 100%;
-    height: 100%;
     display: flex;
+    align-items: center;
     flex-direction: row;
     flex-wrap: nowrap;
     justify-content: flex-end;
-    align-items: center;
+
+    width: 100%;
+    height: 100%;
   }
   &__copyright {
-    color: $text-third-color;
     font-size: $secondary-font-size;
+
+    color: $text-third-color;
   }
 }

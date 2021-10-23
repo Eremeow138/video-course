@@ -2,18 +2,21 @@
 @import "variables";
 
 .button {
+  display: flex;
+  align-items: center;
+  flex-direction: row;
+  flex-wrap: nowrap;
+
   height: min-content;
   min-height: $btn-primary-min-height;
   padding: $btn-primary-paddings;
-  border-radius: $btn-border-radius;
-  background-color: $btn-primary-bg-color;
-  display: flex;
-  flex-direction: row;
-  flex-wrap: nowrap;
-  align-items: center;
-  border: none;
+
   cursor: pointer;
   transition-duration: $primary-duration;
+
+  border: none;
+  border-radius: $btn-border-radius;
+  background-color: $btn-primary-bg-color;
 
   &:not(:first-child) {
     margin-left: $btn-margin;
@@ -30,13 +33,16 @@
     width: $btn-primary-icon-size;
     height: $btn-primary-icon-size;
     margin-right: 0.7rem;
+
     filter: $icon-primary-filter;
   }
 
   &__text {
-    letter-spacing: -0.1px;
-    color: $btn-text-color;
     font-size: $btn-primary-font-size;
     font-weight: 600;
+
+    letter-spacing: -0.1px;
+
+    color: $btn-text-color;
   }
 }

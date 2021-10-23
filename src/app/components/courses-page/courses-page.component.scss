@@ -1,59 +1,65 @@
 @import "variables";
 :host {
-  height: 100%;
   width: 100%;
+  height: 100%;
 }
 .courses-page {
-  height: 100%;
   width: 100%;
+  height: 100%;
   padding-top: 2.1rem;
   &__header-wrapper {
     display: flex;
-    flex-direction: column;
     align-items: center;
-    height: $courses-page-header-height;
+    flex-direction: column;
+
     width: 100%;
+    height: $courses-page-header-height;
     margin-bottom: $courses-page-header-margin-bottom;
     padding: $wrapper-paddings;
   }
   &__header {
-    width: 100%;
-    height: 100%;
-    max-width: $content-max-width;
     display: flex;
     flex-direction: row;
     flex-wrap: nowrap;
     justify-content: space-between;
+
+    width: 100%;
+    max-width: $content-max-width;
+    height: 100%;
   }
   &__filters {
-    height: 100%;
     display: flex;
-    flex-direction: row;
     align-items: flex-start;
+    flex-direction: row;
+
+    height: 100%;
   }
   &__actions {
-    height: 100%;
     display: flex;
-    flex-direction: row;
     align-items: flex-end;
+    flex-direction: row;
+
+    height: 100%;
   }
 
   &__list-wrapper {
     display: flex;
-    flex-direction: column;
     align-items: center;
-    height: calc(
-      100% - #{$courses-page-header-height} - #{$courses-page-header-margin-bottom}
-    );
+    flex-direction: column;
+
     width: 100%;
+    height: calc(
+    100% - #{$courses-page-header-height} - #{$courses-page-header-margin-bottom}
+    );
     padding: 0 $content-padding;
   }
   &__list {
-    width: 100%;
-    height: 100%;
-    max-width: 1130px;
-    padding: 1rem 1rem 2.1rem;
     overflow-y: overlay;
+
+    width: 100%;
+    max-width: 1130px;
+    height: 100%;
+    padding: 1rem 1rem 2.1rem;
 
     @-moz-document url-prefix() {
       overflow-y: auto;

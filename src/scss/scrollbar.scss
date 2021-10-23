@@ -3,16 +3,17 @@
 ::-webkit-scrollbar {
   width: 0.5rem;
   height: 0.5rem;
-  background-color: $scroll-primary-bg-color;
+
   border-radius: 2rem;
+  background-color: $scroll-primary-bg-color;
 }
 
 ::-webkit-scrollbar-corner {
   background-color: $scroll-primary-bg-color;
 }
 ::-webkit-scrollbar-thumb {
-  background-color: $scroll-secondary-bg-color;
   border-radius: 2rem;
+  background-color: $scroll-secondary-bg-color;
   &:hover {
     background-color: $scroll-secondary-bg-hover-color;
   }

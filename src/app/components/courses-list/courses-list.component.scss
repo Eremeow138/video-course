@@ -11,23 +11,27 @@
   &__cards-wrapper {
     width: 100%;
     & > :not(:first-child) {
-      margin-top: $primary-content-margin;
       display: block;
+
+      margin-top: $primary-content-margin;
     }
   }
 
   &__load-more-button {
+    font-size: $primary-font-size;
+
     width: 100%;
     min-height: $btn-primary-min-height;
+    margin-top: $primary-content-margin;
+
+    cursor: pointer;
+    transition-duration: $primary-duration;
+
+    color: $text-primary-color;
+    border: none;
     border-radius: $primary-border-radius;
     background-color: $third-bg-color;
     box-shadow: $primary-shadow;
-    margin-top: $primary-content-margin;
-    border: none;
-    cursor: pointer;
-    transition-duration: $primary-duration;
-    color: $text-primary-color;
-    font-size: $primary-font-size;
     &:hover {
       background-color: $third-bg-color-hover;
     }

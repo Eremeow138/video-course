@@ -1,18 +1,19 @@
 @import "variables";
 :host {
-  height: min-content;
   width: 100%;
+  height: min-content;
 }
 .course-actions {
   display: flex;
   flex-direction: row;
   flex-wrap: nowrap;
-  height: min-content;
+
   width: 100%;
+  height: min-content;
 
   &__button {
-    padding: $btn-secondary-paddings;
     min-height: $btn-secondary-min-height;
+    padding: $btn-secondary-paddings;
   }
   &__icon {
     width: $btn-third-icon-size;
