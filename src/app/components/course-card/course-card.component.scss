@@ -54,9 +54,6 @@
     padding-right: 2rem;
   }
   &__description {
-    font-size: $primary-font-size;
-    line-height: 1.8rem;
-
-    color: $text-primary-color;
+    @include description-text;
   }
 }

@@ -80,3 +80,10 @@
   font-size: $primary-font-size;
   color: $tools-text-color;
 }
+
+@mixin description-text {
+  font-size: $primary-font-size;
+  line-height: 1.8rem;
+
+  color: $text-primary-color;
+}
