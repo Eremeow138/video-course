@@ -1,12 +1,11 @@
 @import "variables";
+@import "mixins";
 :host {
   width: 100%;
   height: min-content;
 }
 .course-actions {
-  display: flex;
-  flex-direction: row;
-  flex-wrap: nowrap;
+  @include flex-row;
 
   width: 100%;
   height: min-content;

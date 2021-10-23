@@ -9,10 +9,8 @@
   width: 100%;
   height: 100%;
   &__content {
-    display: flex;
+    @include flex-row;
     align-items: center;
-    flex-direction: row;
-    flex-wrap: nowrap;
     justify-content: flex-end;
 
     width: 100%;

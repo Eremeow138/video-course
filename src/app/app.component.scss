@@ -1,5 +1,6 @@
 @import "colors";
 @import "variables";
+@import "mixins";
 
 .app {
   position: absolute;
@@ -8,11 +9,11 @@
   bottom: 0;
   left: 0;
 
-  display: flex;
+  @include flex-column;
   overflow-x: auto;
   overflow-y: hidden;
   align-items: stretch;
-  flex-direction: column;
+
 
   width: 100%;
   min-width: $window-min-width;
@@ -20,9 +21,9 @@
   min-height: $window-min-height;
 
   &__header-wrapper {
-    display: flex;
+
+    @include flex-column;
     align-items: center;
-    flex-direction: column;
 
     width: 100%;
     height: $header-height;
@@ -42,7 +43,7 @@
   }
 
   &__breadcrumbs-wrapper {
-    display: flex;
+    @include flex-row;
     justify-content: center;
 
     width: 100%;
@@ -66,9 +67,8 @@
   }
 
   &__footer-wrapper {
-    display: flex;
+    @include flex-column;
     align-items: center;
-    flex-direction: column;
 
     width: 100%;
     height: $footer-height;

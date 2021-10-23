@@ -2,10 +2,8 @@
 @import "variables";
 
 .button {
-  display: flex;
+  @include flex-row;
   align-items: center;
-  flex-direction: row;
-  flex-wrap: nowrap;
 
   height: min-content;
   min-height: $btn-primary-min-height;

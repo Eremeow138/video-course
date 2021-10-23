@@ -1,4 +1,5 @@
 @import "variables";
+@import "mixins";
 :host {
   width: 100%;
   height: 100%;
@@ -8,9 +9,8 @@
   height: 100%;
   padding-top: 2.1rem;
   &__header-wrapper {
-    display: flex;
+    @include flex-column;
     align-items: center;
-    flex-direction: column;
 
     width: 100%;
     height: $courses-page-header-height;
@@ -18,9 +18,7 @@
     padding: $wrapper-paddings;
   }
   &__header {
-    display: flex;
-    flex-direction: row;
-    flex-wrap: nowrap;
+    @include flex-row;
     justify-content: space-between;
 
     width: 100%;
@@ -28,24 +26,21 @@
     height: 100%;
   }
   &__filters {
-    display: flex;
+    @include flex-row;
     align-items: flex-start;
-    flex-direction: row;
 
     height: 100%;
   }
   &__actions {
-    display: flex;
+    @include flex-row;
     align-items: flex-end;
-    flex-direction: row;
 
     height: 100%;
   }
 
   &__list-wrapper {
-    display: flex;
+    @include flex-column;
     align-items: center;
-    flex-direction: column;
 
     width: 100%;
     height: calc(
