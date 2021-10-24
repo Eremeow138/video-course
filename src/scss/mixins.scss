@@ -73,6 +73,12 @@
   @include field;
 }
 
+@mixin default-text {
+  font-size: $default-font-size;
+  font-family: $default-font-family;
+  font-weight: 400;
+}
+
 @mixin tools-text {
   font-size: $primary-font-size;
   color: $tools-text-color;

@@ -7,12 +7,10 @@
 }
 
 html {
-  font-size: $default-font-size;
+  @include default-text;
 }
 
 body {
-  font-family: $default-font-family;
-
   overflow: overlay;
   @-moz-document url-prefix() {
     overflow: auto;
