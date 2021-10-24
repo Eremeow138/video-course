@@ -101,26 +101,66 @@
   letter-spacing: -0.1px;
 
   color: $btn-text-color;
+
+  &--small {
+    font-size: $btn-secondary-font-size;
+  }
+
+}
+
+@mixin button-icon {
+  @include icon-size($btn-primary-icon-size);
+  margin-right: 0.7rem;
+
+  filter: $icon-primary-filter;
+
+  &--small {
+    @include icon-size($btn-third-icon-size);
+  }
+}
+
+@mixin button-default {
+  height: min-content;
+  cursor: pointer;
+  transition-duration: $primary-duration;
+  border: none;
 }
 
 @mixin button {
-  height: min-content;
+  @include flex-row;
+
+  @include button-default;
+
+  align-items: center;
   min-height: $btn-primary-min-height;
   padding: $btn-primary-paddings;
-
-  cursor: pointer;
-  transition-duration: $primary-duration;
-
-  border: none;
   border-radius: $btn-border-radius;
   background-color: $btn-primary-bg-color;
 
+  &:not(:first-child) {
+    margin-left: $btn-margin;
+  }
   &:hover {
     background-color: $btn-primary-bg-color-hover;
   }
   &:active {
     background-color: $btn-primary-bg-color-focus;
   }
+
+  &--small {
+    min-height: $btn-secondary-min-height;
+    padding: $btn-secondary-paddings;
+  }
+  &--green {
+    background-color: $btn-secondary-bg-color;
+    &:hover {
+      background-color: $btn-secondary-bg-color-hover;
+    }
+    &:active {
+      background-color: $btn-secondary-bg-color-focus;
+    }
+  }
+
 }
 
 @mixin h3-title {

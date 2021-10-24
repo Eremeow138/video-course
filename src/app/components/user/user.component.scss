@@ -9,21 +9,20 @@
 
   @include height-width-100-percent;
   &__button {
-    position: relative;
 
-    @include flex-row;
-    align-items: center;
-
+    height: 100%;
     padding: $user-buttons-paddings;
-
-    cursor: pointer;
-
-    border: none;
     background-color: $btn-third-bg-color;
-
+    &:not(:first-child) {
+      margin-left: 0;
+    }
     &:hover {
-      .user__text{color: $btn-text-hover-color;}
-      .user__icon {filter: $icon-secondary-filter-hover;}
+      background-color: transparent;
+      .button__text{color: $btn-text-hover-color;}
+      .button__icon {filter: $icon-secondary-filter-hover;}
+    }
+    &:active {
+      background-color: transparent;
     }
   }
 
@@ -37,7 +36,7 @@
 
   &__text {
     font-size: $primary-font-size;
-
-    color: $btn-text-color;
+    letter-spacing: 0;
+    font-weight: 400;
   }
 }

@@ -3,20 +3,10 @@
 @import "mixins";
 
 .button {
-  @include flex-row;
-  align-items: center;
-
   @include button;
-
-  &:not(:first-child) {
-    margin-left: $btn-margin;
-  }
-
+  
   &__icon {
-    @include icon-size($btn-primary-icon-size);
-    margin-right: 0.7rem;
-
-    filter: $icon-primary-filter;
+    @include button-icon;
   }
 
   &__text {

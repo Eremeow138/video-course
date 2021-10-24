@@ -13,14 +13,4 @@
 
     flex-grow: 1;
   }
-
-  &__button {
-    background-color: $btn-secondary-bg-color;
-    &:hover {
-      background-color: $btn-secondary-bg-color-hover;
-    }
-    &:active {
-      background-color: $btn-secondary-bg-color-focus;
-    }
-  }
 }

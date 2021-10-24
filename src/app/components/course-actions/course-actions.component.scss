@@ -10,14 +10,4 @@
   width: 100%;
   height: min-content;
 
-  &__button {
-    min-height: $btn-secondary-min-height;
-    padding: $btn-secondary-paddings;
-  }
-  &__icon {
-    @include icon-size($btn-third-icon-size);
-  }
-  &__text {
-    font-size: $btn-secondary-font-size;
-  }
 }
