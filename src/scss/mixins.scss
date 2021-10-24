@@ -210,3 +210,9 @@
   background-color: $third-bg-color;
   box-shadow: $primary-shadow;
 }
+
+@mixin breadcrumbs-text{
+  font-size: $primary-font-size;
+  font-weight: 700;
+  color: $text-secondary-color;
+}

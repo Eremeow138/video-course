@@ -12,9 +12,6 @@
   @include height-width-100-percent;
 
   &__path {
-    font-size: $primary-font-size;
-    font-weight: 700;
-
-    color: $text-secondary-color;
+    @include breadcrumbs-text;
   }
 }
