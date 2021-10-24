@@ -100,7 +100,7 @@
   color: $btn-text-color;
 }
 
-@mixin button-field {
+@mixin button {
   height: min-content;
   min-height: $btn-primary-min-height;
   padding: $btn-primary-paddings;
