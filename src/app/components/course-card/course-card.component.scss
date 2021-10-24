@@ -7,9 +7,8 @@
 }
 .course-card {
   @include height-width-100-percent;
-  padding: 2.4rem 2.1rem 2.3rem 2.4rem;
 
-  @include card-field;
+  @include container-content;
 
   &__content {
     @include flex-column;

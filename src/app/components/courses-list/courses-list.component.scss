@@ -29,7 +29,8 @@
 
     color: $text-primary-color;
     border: none;
-    @include card-field;
+    @include container-content;
+    padding: 0;
     &:hover {
       background-color: $third-bg-color-hover;
     }
