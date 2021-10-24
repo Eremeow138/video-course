@@ -15,8 +15,6 @@
     @include height-width-100-percent;
   }
   &__copyright {
-    font-size: $secondary-font-size;
-
-    color: $text-third-color;
+    @include copyright-text;
   }
 }

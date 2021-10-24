@@ -96,6 +96,10 @@
   color: $text-primary-color;
 }
 
+@mixin copyright-text {
+  font-size: $secondary-font-size;
+  color: $text-third-color;
+}
 @mixin button-text {
   font-size: $btn-primary-font-size;
   font-weight: 600;
