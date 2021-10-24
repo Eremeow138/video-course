@@ -44,7 +44,7 @@
     flex-grow: 1;
 
     height: 100%;
-    padding-right: 2rem;
+    padding-right: $description-padding-right;
   }
   &__description {
     @include description-text;
