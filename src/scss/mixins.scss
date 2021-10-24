@@ -74,6 +74,8 @@
   @include input;
 
   @include field;
+
+  width: 100%;
 }
 
 @mixin default-text {
