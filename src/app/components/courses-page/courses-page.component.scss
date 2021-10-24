@@ -5,7 +5,7 @@
 }
 .courses-page {
   @include height-width-100-percent;
-  padding-top: 2.1rem;
+  
   &__header-wrapper {
     @include flex-column;
     align-items: center;
@@ -21,7 +21,7 @@
 
     @include height-width-100-percent;
     max-width: $content-max-width;
-    
+
   }
   &__filters {
     @include flex-row;

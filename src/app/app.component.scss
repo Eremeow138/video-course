@@ -55,7 +55,7 @@
   &__courses-page {
     width: 100%;
     height: calc(100% - #{$breadcrumbs-height});
-
+    padding-top: 2.1rem;
     background-color: $primary-bg-color;
   }
 
