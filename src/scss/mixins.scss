@@ -169,6 +169,28 @@
 
 }
 
+@mixin load-more-button {
+
+  @include button-default;
+
+  font-size: $primary-font-size;
+
+  width: 100%;
+  min-height: $btn-primary-min-height;
+  margin-top: $primary-content-margin;
+
+  color: $text-primary-color;
+
+  @include container-content;
+  padding: 0;
+  &:hover {
+    background-color: $third-bg-color-hover;
+  }
+  &:active {
+    background-color: $third-bg-color-focus;
+  }
+}
+
 @mixin h3-title {
   font-size: $h3-font-size;
   font-weight: 600;
