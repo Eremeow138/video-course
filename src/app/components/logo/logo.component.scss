@@ -13,7 +13,7 @@
     @include flex-row;
     align-items: center;
 
-    padding: $logo-link-paddings;
+    padding: $wrapper-paddings;
 
     transition: letter-spacing 0.5s cubic-bezier(0.68, -0.55, 0.265, 1.55);
     text-decoration: none;

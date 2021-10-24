@@ -11,7 +11,7 @@
   &__button {
 
     height: 100%;
-    padding: $user-buttons-paddings;
+    padding: $wrapper-paddings;
     background-color: $btn-third-bg-color;
     &:not(:first-child) {
       margin-left: 0;
