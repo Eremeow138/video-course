@@ -7,9 +7,10 @@
 }
 .breadcrumbs {
   @include flex-row;
-  align-items: center;
 
   @include height-width-100-percent;
+
+  align-items: center;
 
   &__path {
     @include breadcrumbs-text;

@@ -9,10 +9,11 @@
   @include height-width-100-percent;
   &__content {
     @include flex-row;
+    @include height-width-100-percent;
+    
     align-items: center;
     justify-content: flex-end;
 
-    @include height-width-100-percent;
   }
   &__copyright {
     @include copyright-text;

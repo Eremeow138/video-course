@@ -6,9 +6,10 @@
 }
 .course-tools {
   @include flex-row;
-  justify-content: flex-end;
 
   @include height-width-100-percent;
+
+  justify-content: flex-end;
 
   &__tool {
     @include flex-row;

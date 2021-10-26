@@ -7,9 +7,9 @@
   @include height-width-100-percent;
   &__content {
     @include flex-row;
-    justify-content: space-between;
-
     @include height-width-100-percent;
+
+    justify-content: space-between;
   }
   &__logo {
     height: 100%;

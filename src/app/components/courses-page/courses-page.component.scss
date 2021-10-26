@@ -5,7 +5,7 @@
 }
 .courses-page {
   @include height-width-100-percent;
-  
+
   &__header-wrapper {
     @include flex-column;
     align-items: center;
@@ -17,9 +17,10 @@
   }
   &__header {
     @include flex-row;
+    @include height-width-100-percent;
+
     justify-content: space-between;
 
-    @include height-width-100-percent;
     max-width: $content-max-width;
 
   }
@@ -47,9 +48,10 @@
     padding: 0 $content-padding;
   }
   &__list {
+    @include height-width-100-percent;
+
     overflow-y: overlay;
 
-    @include height-width-100-percent;
     max-width: 1130px;
     padding: 1rem 1rem 2.1rem;
 

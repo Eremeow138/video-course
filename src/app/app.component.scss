@@ -6,12 +6,13 @@
   @include absolute-zero-position;
 
   @include flex-column;
+
+  @include height-width-100-percent;
+  
   overflow-x: auto;
   overflow-y: hidden;
   align-items: stretch;
 
-
-  @include height-width-100-percent;
   min-width: $window-min-width;
   min-height: $window-min-height;
 
