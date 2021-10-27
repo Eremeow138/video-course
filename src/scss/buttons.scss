@@ -3,13 +3,54 @@
 @import "mixins";
 
 .button {
+  @include flex-row;
+
   @include button;
-  
+
+  height: min-content;
+  align-items: center;
+  min-height: $btn-primary-min-height;
+  padding: $btn-primary-paddings;
+  border-radius: $btn-border-radius;
+  background-color: $btn-primary-bg-color;
+
+  &:not(:first-child) {
+    margin-left: $btn-margin;
+  }
+  &:hover {
+    background-color: $btn-primary-bg-color-hover;
+  }
+  &:active {
+    background-color: $btn-primary-bg-color-focus;
+  }
+
+  &--small {
+    min-height: $btn-secondary-min-height;
+    padding: $btn-secondary-paddings;
+  }
+  &--green {
+    background-color: $btn-secondary-bg-color;
+    &:hover {
+      background-color: $btn-secondary-bg-color-hover;
+    }
+    &:active {
+      background-color: $btn-secondary-bg-color-focus;
+    }
+  }
+
   &__icon {
     @include button-icon;
+
+    &--small {
+      @include icon-size($btn-third-icon-size);
+    }
   }
 
   &__text {
     @include button-text;
+
+    &--small {
+      font-size: $btn-secondary-font-size;
+    }
   }
 }
