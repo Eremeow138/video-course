@@ -44,12 +44,10 @@
 
 @mixin input {
   @include input-text;
-
-  outline: none;
-
   @include input-placeholder {
     color: $input-placeholder-color;
   }
+  outline: none;
 }
 
 @mixin field {
