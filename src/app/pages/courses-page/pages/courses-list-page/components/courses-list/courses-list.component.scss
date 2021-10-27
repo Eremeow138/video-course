@@ -18,6 +18,18 @@
   }
 
   &__load-more-button {
-    @include load-more-button;
+    @include button;
+    @include load-more-button-text;
+    @include content-container;
+    width: 100%;
+    min-height: $btn-primary-min-height;
+    margin-top: $primary-content-margin;
+    padding: 0;
+    &:hover {
+      background-color: $third-bg-color-hover;
+    }
+    &:active {
+      background-color: $third-bg-color-focus;
+    }
   }
 }
