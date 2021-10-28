@@ -1,0 +1,42 @@
+@import "colors";
+@import "variables";
+@import "mixins";
+:host {
+  @include height-width-100-percent;
+}
+.user {
+  @include flex-row;
+
+  @include height-width-100-percent;
+  &__button {
+
+    height: 100%;
+    padding: $wrapper-paddings;
+    background-color: $btn-third-bg-color;
+    &:not(:first-child) {
+      margin-left: 0;
+    }
+    &:hover {
+      background-color: transparent;
+      .user__text{color: $btn-text-hover-color;}
+      .user__icon {filter: $icon-secondary-filter-hover;}
+    }
+    &:active {
+      background-color: transparent;
+    }
+  }
+
+
+  &__icon {
+    @include icon-size($btn-secondary-icon-size);
+    margin-right: $secondary-content-margin;
+
+    filter: $icon-secondary-filter;
+  }
+
+  &__text {
+    font-size: $primary-font-size;
+    letter-spacing: 0;
+    font-weight: 400;
+  }
+}

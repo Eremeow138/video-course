@@ -1,0 +1,34 @@
+@import "colors";
+@import "variables";
+@import "mixins";
+:host {
+  @include height-width-100-percent;
+}
+.logo {
+  @include flex-row;
+
+  @include height-width-100-percent;
+
+  &__link {
+    @include flex-row;
+    align-items: center;
+
+    padding: $wrapper-paddings;
+
+    transition: letter-spacing 0.5s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+    text-decoration: none;
+
+    &:hover {
+      letter-spacing: 0.5rem;
+    }
+  }
+
+  &__image {
+    @include icon-size($logo-size);
+    margin-right: $logo-image-margin;
+  }
+
+  &__text {
+    @include logo-text;
+  }
+}

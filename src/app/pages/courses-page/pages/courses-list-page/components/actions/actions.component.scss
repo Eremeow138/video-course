@@ -1,0 +1,11 @@
+@import "mixins";
+
+:host {
+  width: 100%;
+  height: min-content;
+}
+.actions {
+  @include flex-row;
+
+  @include height-width-100-percent;
+}

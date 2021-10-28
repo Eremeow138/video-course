@@ -1,0 +1,151 @@
+@mixin absolute-zero-position {
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 1;
+}
+@mixin flex-row {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+}
+
+@mixin flex-column {
+  display: flex;
+  flex-direction: column;
+}
+
+@mixin height-width-100-percent {
+  width: 100%;
+  height: 100%;
+}
+
+@mixin icon-size($size) {
+	width: $size;
+	height: $size;
+}
+
+@mixin input-placeholder {
+	&::placeholder {@content};
+	&::-webkit-input-placeholder {@content};
+	&:-moz-placeholder {@content};
+  &::-moz-placeholder {@content};
+	&:-ms-input-placeholder {@content};
+}
+
+@mixin input-text {
+  font-size: $primary-font-size;
+  color: $input-text-color;
+}
+
+@mixin input {
+  @include input-text;
+  @include input-placeholder {
+    color: $input-placeholder-color;
+  }
+  outline: none;
+}
+
+@mixin field {
+  width: 100%;
+  height: min-content;
+  min-height: $field-min-height;
+  padding: $field-paddings;
+  border: 1px solid $field-border-color;
+  border-radius: $field-border-radius;
+  background-color: $field-bg-color;
+  transition-duration: $primary-duration;
+  &:hover {
+    border-color: $field-border-color-hover;
+  }
+
+  &:focus {
+    border-color: $field-border-focus-color;
+  }
+
+}
+
+@mixin input-field {
+  @include input;
+  @include field;
+}
+
+@mixin default-text {
+  font-size: $default-font-size;
+  font-family: $default-font-family;
+  font-weight: 400;
+}
+
+@mixin tools-text {
+  font-size: $primary-font-size;
+  color: $tools-text-color;
+}
+
+@mixin description-text {
+  font-size: $primary-font-size;
+  line-height: 1.8rem;
+
+  color: $text-primary-color;
+}
+
+@mixin copyright-text {
+  font-size: $secondary-font-size;
+  color: $text-third-color;
+}
+@mixin button-text {
+  font-size: $btn-primary-font-size;
+  font-weight: 600;
+
+  letter-spacing: -0.1px;
+
+  color: $btn-text-color;
+
+}
+
+@mixin button-icon {
+  @include icon-size($btn-primary-icon-size);
+  margin-right: 0.7rem;
+
+  filter: $icon-primary-filter;
+}
+
+@mixin button {
+  cursor: pointer;
+  transition-duration: $primary-duration;
+  border: none;
+}
+
+@mixin load-more-button-text {
+  font-size: $primary-font-size;
+  color: $text-primary-color;
+}
+
+@mixin h3-title {
+  font-size: $h3-font-size;
+  font-weight: 600;
+  color: $h3-color;
+}
+
+@mixin logo-text {
+  font-size: $logo-font-size;
+  font-weight: 700;
+  text-transform: uppercase;
+  color: $text-third-color;
+}
+
+@mixin content-container {
+  padding: 2.4rem 2.1rem 2.3rem 2.4rem;
+  border-radius: $primary-border-radius;
+  background-color: $third-bg-color;
+  box-shadow: $primary-shadow;
+}
+
+@mixin breadcrumbs-text {
+  font-size: $primary-font-size;
+  font-weight: 700;
+  color: $text-secondary-color;
+}

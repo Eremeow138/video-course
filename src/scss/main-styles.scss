@@ -1,0 +1,19 @@
+@import "variables";
+@import "mixins";
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  @include default-text;
+}
+
+body {
+  overflow: overlay;
+  @-moz-document url-prefix() {
+    overflow: auto;
+  }
+}

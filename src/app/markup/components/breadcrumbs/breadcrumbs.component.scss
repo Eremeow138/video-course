@@ -1,0 +1,18 @@
+@import "colors";
+@import "variables";
+@import "mixins";
+
+:host {
+  @include height-width-100-percent;
+}
+.breadcrumbs {
+  @include flex-row;
+
+  @include height-width-100-percent;
+
+  align-items: center;
+
+  &__path {
+    @include breadcrumbs-text;
+  }
+}

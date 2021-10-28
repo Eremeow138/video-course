@@ -1,0 +1,16 @@
+@import "colors";
+@import "variables";
+@import "mixins";
+:host {
+  @include height-width-100-percent;
+}
+.search {
+  @include flex-row;
+
+  @include height-width-100-percent;
+  &__input {
+    @include input-field;
+
+    flex-grow: 1;
+  }
+}

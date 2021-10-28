@@ -1,0 +1,16 @@
+@import "mixins";
+:host {
+  width: 100%;
+  height: min-content;
+}
+.filters {
+  @include flex-row;
+
+  @include height-width-100-percent;
+
+  &__search-wrapper {
+    width: 32.5rem;
+    min-width: 32.5rem;
+    height: 100%;
+  }
+}

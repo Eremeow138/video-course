@@ -1,0 +1,16 @@
+<div class="courses-list">
+  <div class="courses-list__cards-wrapper">
+    <app-course-card
+      *ngFor="let course of courses; trackBy: trackByFn"
+      [course]="course"
+      (deleteCourseEvent)="deleteCourse($event)"
+    ></app-course-card>
+  </div>
+
+  <button
+    class="courses-list__load-more-button"
+    (click)="getCoursesFromServer()"
+  >
+    Load more
+  </button>
+</div>
