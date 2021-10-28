@@ -51,6 +51,7 @@
 }
 
 @mixin field {
+  width: 100%;
   height: min-content;
   min-height: $field-min-height;
   padding: $field-paddings;
@@ -70,10 +71,7 @@
 
 @mixin input-field {
   @include input;
-
   @include field;
-
-  width: 100%;
 }
 
 @mixin default-text {
