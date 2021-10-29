@@ -14,7 +14,7 @@
     "lint:fix": "ng lint --fix",
     "lint:all": "npm run lint && npm run stylelint",
     "stylelint": "stylelint ./src/**/*.scss",
-    "stylelint:fix": "npm run stylelint --fix"
+    "stylelint:fix": "stylelint ./src/**/*.scss --fix"
   },
   "private": true,
   "dependencies": {
