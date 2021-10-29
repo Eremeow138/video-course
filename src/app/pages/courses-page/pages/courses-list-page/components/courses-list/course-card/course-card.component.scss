@@ -5,17 +5,15 @@
 :host {
   @include height-width-100-percent;
 }
+
 .course-card {
   @include height-width-100-percent;
-
   @include content-container;
 
   &__content {
     @include flex-column;
-
     @include height-width-100-percent;
   }
-
   &__header {
     @include flex-row;
 
@@ -27,22 +25,18 @@
 
     width: 100%;
   }
-
   &__title-wrapper {
     flex-grow: 1;
-
     height: 100%;
     padding-right: $course-card-title-padding;
   }
-
   &__title {
     @include h3-title;
+
     height: min-content;
   }
-
   &__description-wrapper {
     flex-grow: 1;
-
     height: 100%;
     padding-right: $description-padding-right;
   }

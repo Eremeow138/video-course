@@ -4,7 +4,6 @@
 
 .button {
   @include flex-row;
-
   @include button;
 
   height: min-content;
@@ -23,13 +22,13 @@
   &:active {
     background-color: $btn-primary-bg-color-focus;
   }
-
   &--small {
     min-height: $btn-secondary-min-height;
     padding: $btn-secondary-paddings;
   }
   &--green {
     background-color: $btn-secondary-bg-color;
+
     &:hover {
       background-color: $btn-secondary-bg-color-hover;
     }
@@ -37,7 +36,6 @@
       background-color: $btn-secondary-bg-color-focus;
     }
   }
-
   &__icon {
     @include button-icon;
 
@@ -45,7 +43,6 @@
       @include icon-size($btn-third-icon-size);
     }
   }
-
   &__text {
     @include button-text;
 

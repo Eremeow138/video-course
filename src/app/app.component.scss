@@ -4,75 +4,64 @@
 
 .app {
   @include absolute-zero-position;
-
   @include flex-column;
-
   @include height-width-100-percent;
-  
+
   overflow-x: auto;
   overflow-y: hidden;
   align-items: stretch;
-
   min-width: $window-min-width;
   min-height: $window-min-height;
 
   &__header-wrapper {
-
     @include flex-column;
-    align-items: center;
 
+    align-items: center;
     width: 100%;
     height: $header-height;
-
     background-color: $secondary-bg-color;
   }
-
   &__header {
     @include height-width-100-percent;
+
     max-width: 1140px;
   }
-
   &__main {
     width: 100%;
     height: calc(100% - #{$header-height} - #{$footer-height});
   }
-
   &__breadcrumbs-wrapper {
     @include flex-row;
-    justify-content: center;
 
+    justify-content: center;
     width: 100%;
     height: $breadcrumbs-height;
     padding: $wrapper-paddings;
-
     background-color: $third-bg-color;
   }
-
   &__breadcrumbs {
     @include height-width-100-percent;
+
     max-width: $content-max-width;
   }
-
   &__courses-page {
     width: 100%;
     height: calc(100% - #{$breadcrumbs-height});
     padding-top: 2.1rem;
     background-color: $primary-bg-color;
   }
-
   &__footer-wrapper {
     @include flex-column;
-    align-items: center;
 
+    align-items: center;
     width: 100%;
     height: $footer-height;
     padding: $wrapper-paddings;
-
     background-color: $secondary-bg-color;
   }
-
   &__footer {
     @include height-width-100-percent;
+
     max-width: $content-max-width;
   }
 }
