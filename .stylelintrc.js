@@ -52,7 +52,7 @@ module.exports = {
       ignore: ["custom-properties"]
     }],
     "linebreaks": "unix",
-    "max-line-length": 80,
+    "max-line-length": 120,
     "max-nesting-depth": [
       3,
       {
