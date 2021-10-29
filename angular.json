@@ -188,9 +188,10 @@
         "lint": {
           "builder": "@angular-eslint/builder:lint",
           "options": {
+            "eslintConfig": "./.eslintrc.js",
             "lintFilePatterns": [
               "src/**/*.ts",
-              "src/**/*.component.html"
+              "src/**/*.html"
             ]
           }
         }
