@@ -20,15 +20,32 @@
         "build": {
           "builder": "@angular-devkit/build-angular:browser",
           "options": {
-            "outputPath": "dist/video-course",
+            "crossOrigin": "use-credentials",
+            "outputPath": "dist",
             "index": "src/index.html",
             "main": "src/main.ts",
             "polyfills": "src/polyfills.ts",
             "tsConfig": "tsconfig.app.json",
             "inlineStyleLanguage": "scss",
+            "resourcesOutputPath": "resources",
+            "aot": false,
+            "buildOptimizer": false,
             "assets": [
-              "src/favicon.ico",
-              "src/assets"
+              {
+                "glob": "**/*",
+                "input": "src/assets/fonts/",
+                "output": "/assets/fonts/"
+              },
+              {
+                "glob": "**/*",
+                "input": "src/assets/icons/",
+                "output": "/assets/icons/"
+              },
+              {
+                "glob": "**/*",
+                "input": "src/assets/images/",
+                "output": "/assets/images/"
+              }
             ],
             "styles": [
               "src/styles.scss"
@@ -42,34 +59,86 @@
             "scripts": []
           },
           "configurations": {
-            "production": {
-              "budgets": [
+            "standalone": {
+              "baseHref": "/",
+              "assets": [
                 {
-                  "type": "initial",
-                  "maximumWarning": "500kb",
-                  "maximumError": "1mb"
+                  "glob": "**/*",
+                  "input": "src/assets/fonts/",
+                  "output": "/assets/fonts/"
                 },
                 {
+                  "glob": "**/*",
+                  "input": "src/assets/icons/",
+                  "output": "/assets/icons/"
+                },
+                {
+                  "glob": "**/*",
+                  "input": "src/assets/images/",
+                  "output": "/assets/images/"
+                }
+              ],
+              "budgets": [
+                {
                   "type": "anyComponentStyle",
-                  "maximumWarning": "2kb",
-                  "maximumError": "4kb"
+                  "maximumWarning": "6kb"
                 }
               ],
               "fileReplacements": [
                 {
-                  "replace": "src/environments/environment.ts",
-                  "with": "src/environments/environment.prod.ts"
+                  "replace": "./src/environments/environment.ts",
+                  "with": "./src/environments/environment.standalone.ts"
                 }
-              ],
-              "outputHashing": "all"
+              ]
             },
-            "development": {
-              "buildOptimizer": false,
-              "optimization": false,
+            "dev": {
+              "baseHref": "/",
+              "optimization": true,
               "vendorChunk": true,
               "extractLicenses": false,
               "sourceMap": true,
-              "namedChunks": true
+              "namedChunks": true,
+              "budgets": [
+                {
+                  "type": "anyComponentStyle",
+                  "maximumWarning": "6kb"
+                }
+              ],
+              "fileReplacements": [
+                {
+                  "replace": "./src/environments/environment.ts",
+                  "with": "./src/environments/environment.dev.ts"
+                }
+              ]
+            },
+            "production": {
+              "fileReplacements": [
+                {
+                  "replace": "./src/environments/environment.ts",
+                  "with": "./src/environments/environment.prod.ts"
+                }
+              ],
+              "baseHref": "/",
+              "aot": true,
+              "optimization": true,
+              "outputHashing": "all",
+              "sourceMap": false,
+              "namedChunks": false,
+              "extractLicenses": true,
+              "vendorChunk": false,
+              "buildOptimizer": true,
+              "budgets": [
+                {
+                  "type": "initial",
+                  "maximumWarning": "2mb",
+                  "maximumError": "5mb"
+                },
+                {
+                  "type": "anyComponentStyle",
+                  "maximumWarning": "6kb",
+                  "maximumError": "10kb"
+                }
+              ]
             }
           },
           "defaultConfiguration": "production"
@@ -81,7 +150,7 @@
               "browserTarget": "video-course:build:production"
             },
             "development": {
-              "browserTarget": "video-course:build:development"
+              "browserTarget": "video-course:build:dev"
             }
           },
           "defaultConfiguration": "development"
