@@ -1,7 +1,7 @@
-import { Pipe, PipeTransform } from '@angular/core';
+import { Pipe, PipeTransform } from "@angular/core";
 
 @Pipe({
-  name: 'durationPipe',
+  name: "durationPipe",
 })
 export class DurationPipe implements PipeTransform {
   public transform(duration: number): string {
