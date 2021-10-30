@@ -1,5 +1,5 @@
 import { Component, Input } from "@angular/core";
-import { ICourse } from "src/app/pages/courses-page/courses/interfaces/course.interface";
+import { ICourse } from "@courses/interfaces/course.interface";
 
 @Component({
   selector: "app-course-tools",

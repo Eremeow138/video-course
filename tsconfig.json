@@ -27,9 +27,27 @@
       "node_modules/@types"
     ],
     "paths": {
-      "@folder/*": [
-        "./src/folder/*"
-      ]
+      "@app/*": [
+        "src/app/*"
+      ],
+      "@commons/*": [
+        "src/app/commons/*"
+      ],
+      "@markup/*": [
+        "src/app/markup/*"
+      ],
+      "@pages/*": [
+        "src/app/pages/*"
+      ],
+      "@courses-list-page/*": [
+        "src/app/pages/courses-page/pages/courses-list-page/*"
+      ],
+      "@courses/*": [
+        "src/app/pages/courses-page/courses/*"
+      ],
+      "@environments/*": [
+        "src/environments/*"
+      ],
     },
   },
   "angularCompilerOptions": {
