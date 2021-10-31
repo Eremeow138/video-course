@@ -5,16 +5,20 @@
   "author": "Alexey Eremin",
   "email": "eremeow138@yandex.ru",
   "scripts": {
-    "ng": "ng",
     "start": "ng serve",
+    "start:standalone": "ng serve --configuration-standalone",
+    "watch:dev": "ng build --configuration=dev --watch ",
+    "watch:prod": "ng build --configuration=production --watch ",
+    "watch:standalone": "ng build --configuration=standalone --watch ",
     "build": "ng build",
-    "watch": "ng build --watch --configuration development",
-    "test": "ng test",
+    "build:dev": "ng build --configuration=dev",
+    "build:prod": "ng build --configuration=production",
     "lint": "ng lint",
     "lint:fix": "ng lint --fix",
     "lint:all": "npm run lint && npm run stylelint",
     "stylelint": "stylelint ./src/**/*.scss",
-    "stylelint:fix": "stylelint ./src/**/*.scss --fix"
+    "stylelint:fix": "stylelint ./src/**/*.scss --fix",
+    "test": "ng test"
   },
   "private": true,
   "dependencies": {
