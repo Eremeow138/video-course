@@ -1,9 +1,23 @@
 {
   "name": "video-course",
   "version": "0.0.1",
-  "repository": "https://github.com/Eremeow138/video-course",
+  "license": "MIT",
+  "description": "Video courses site",
+  "repository": "https://github.com/Eremeow138/video-course.git",
   "author": "Alexey Eremin",
   "email": "eremeow138@yandex.ru",
+  "keywords": [
+    "angular",
+    "rxjs",
+    "eslint",
+    "stylelint",
+    "jasmine",
+    "karma"
+  ],
+  "bugs": {
+    "url": "https://github.com/Eremeow138/video-course/issues"
+  },
+  "homepage": "https://github.com/Eremeow138/video-course#readme",
   "scripts": {
     "start": "ng serve",
     "start:standalone": "ng serve --configuration-standalone",
