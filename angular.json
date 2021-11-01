@@ -28,6 +28,9 @@
             "tsConfig": "tsconfig.app.json",
             "inlineStyleLanguage": "scss",
             "resourcesOutputPath": "resources",
+            "sourceMap":true,
+            "vendorChunk": true,
+            "namedChunks": true,
             "aot": false,
             "buildOptimizer": false,
             "assets": [
@@ -94,10 +97,6 @@
             "dev": {
               "baseHref": "/",
               "optimization": true,
-              "vendorChunk": true,
-              "extractLicenses": false,
-              "sourceMap": true,
-              "namedChunks": true,
               "budgets": [
                 {
                   "type": "anyComponentStyle",
@@ -125,7 +124,6 @@
               "sourceMap": false,
               "namedChunks": false,
               "extractLicenses": true,
-              "vendorChunk": false,
               "buildOptimizer": true,
               "budgets": [
                 {
@@ -149,11 +147,11 @@
             "production": {
               "browserTarget": "video-course:build:production"
             },
-            "development": {
+            "dev": {
               "browserTarget": "video-course:build:dev"
             }
           },
-          "defaultConfiguration": "development"
+          "defaultConfiguration": "dev"
         },
         "extract-i18n": {
           "builder": "@angular-devkit/build-angular:extract-i18n",
@@ -170,8 +168,21 @@
             "karmaConfig": "karma.conf.js",
             "inlineStyleLanguage": "scss",
             "assets": [
-              "src/favicon.ico",
-              "src/assets"
+              {
+                "glob": "**/*",
+                "input": "src/assets/fonts/",
+                "output": "/assets/fonts/"
+              },
+              {
+                "glob": "**/*",
+                "input": "src/assets/icons/",
+                "output": "/assets/icons/"
+              },
+              {
+                "glob": "**/*",
+                "input": "src/assets/images/",
+                "output": "/assets/images/"
+              }
             ],
             "styles": [
               "src/styles.scss"
