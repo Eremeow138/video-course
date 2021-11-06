@@ -7,7 +7,8 @@ $secondary-font-size: 1.2rem;
 $primary-border-radius: 6px;
 $secondary-border-radius: 3px;
 
-$primary-shadow: 0 1px 2px 0 $primary-shadow-color, 0 2px 10px 0 $secondary-shadow-color;
+$primary-shadow: 0 1px 2px 0 $primary-shadow-color,
+  0 2px 10px 0 $secondary-shadow-color;
 
 $h3-font-size: 2.4rem;
 
@@ -26,13 +27,14 @@ $description-padding-right: 2rem;
 
 $icon-size: 1.6rem;
 $icon-primary-filter: invert(100%) sepia(0%) saturate(7488%) hue-rotate(118deg)
-brightness(104%) contrast(106%);
+  brightness(104%) contrast(106%);
 $icon-secondary-filter: invert(99%) sepia(1%) saturate(1742%) hue-rotate(141deg)
-brightness(116%) contrast(100%);
-$icon-secondary-filter-hover: invert(41%) sepia(90%) saturate(3190%) hue-rotate(167deg)
-brightness(101%) contrast(101%);
+  brightness(116%) contrast(100%);
+$icon-secondary-filter-hover: invert(41%) sepia(90%) saturate(3190%)
+  hue-rotate(167deg)
+  brightness(101%) contrast(101%);
 $icon-third-filter: invert(56%) sepia(12%) saturate(327%) hue-rotate(189deg)
-brightness(94%) contrast(88%);
+  brightness(94%) contrast(88%);
 
 $btn-primary-font-size: 1.4rem;
 $btn-secondary-font-size: 1.2rem;
@@ -65,8 +67,5 @@ $courses-page-header-margin-bottom: 1.7rem;
 
 $window-min-width: 1024px;
 $window-min-height: 768px;
-
-
-
 
 $course-card-title-padding: 2rem;

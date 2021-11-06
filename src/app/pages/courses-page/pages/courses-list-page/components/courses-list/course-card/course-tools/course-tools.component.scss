@@ -1,33 +1,33 @@
 @import "colors";
 @import "variables";
 @import "mixins";
+
 :host {
   @include height-width-100-percent;
 }
+
 .course-tools {
   @include flex-row;
-
   @include height-width-100-percent;
 
   justify-content: flex-end;
 
   &__tool {
     @include flex-row;
-    align-items: center;
 
+    align-items: center;
     height: 100%;
+
     &:not(:first-child) {
       margin-left: $primary-content-margin;
     }
   }
-
   &__icon {
     @include icon-size($icon-size);
-    margin-right: 0.5rem;
 
+    margin-right: 0.5rem;
     filter: $icon-third-filter;
   }
-
   &__value {
     @include tools-text;
   }

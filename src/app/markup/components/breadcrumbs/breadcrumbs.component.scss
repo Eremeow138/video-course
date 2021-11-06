@@ -5,9 +5,9 @@
 :host {
   @include height-width-100-percent;
 }
+
 .breadcrumbs {
   @include flex-row;
-
   @include height-width-100-percent;
 
   align-items: center;

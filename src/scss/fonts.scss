@@ -1,37 +1,28 @@
-
-
-@font-face {
-  font-family: "SourceSansPro";
-  font-weight: bold;
-  font-style: normal;
-
-  src: url("../assets/fonts/SourceSansPro/SourceSansPro-Bold.ttf");
-  font-display: swap;
-}
-
-@font-face {
-  font-family: "SourceSansPro";
-  font-weight: 900;
-  font-style: normal;
-
-  src: url("../assets/fonts/SourceSansPro/SourceSansPro-Black.ttf");
-  font-display: swap;
-}
-
 @font-face {
   font-family: "SourceSansPro";
   font-weight: 300;
   font-style: normal;
-
   src: url("../assets/fonts/SourceSansPro/SourceSansPro-Light.ttf");
   font-display: swap;
 }
-
 @font-face {
   font-family: "SourceSansPro";
-  font-weight: normal;
+  font-weight: 400;
   font-style: normal;
-
   src: url("../assets/fonts/SourceSansPro/SourceSansPro-Regular.ttf");
+  font-display: swap;
+}
+@font-face {
+  font-family: "SourceSansPro";
+  font-weight: 700;
+  font-style: normal;
+  src: url("../assets/fonts/SourceSansPro/SourceSansPro-Bold.ttf");
+  font-display: swap;
+}
+@font-face {
+  font-family: "SourceSansPro";
+  font-weight: 900;
+  font-style: normal;
+  src: url("../assets/fonts/SourceSansPro/SourceSansPro-Black.ttf");
   font-display: swap;
 }

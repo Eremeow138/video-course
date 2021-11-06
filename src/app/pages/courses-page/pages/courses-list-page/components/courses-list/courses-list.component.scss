@@ -5,26 +5,28 @@
 :host {
   @include height-width-100-percent;
 }
+
 .courses-list {
   width: 100%;
 
   &__cards-wrapper {
     width: 100%;
+
     & > :not(:first-child) {
       display: block;
-
       margin-top: $primary-content-margin;
     }
   }
-
   &__load-more-button {
     @include button;
     @include load-more-button-text;
     @include content-container;
+
     width: 100%;
     min-height: $btn-primary-min-height;
     margin-top: $primary-content-margin;
     padding: 0;
+
     &:hover {
       background-color: $third-bg-color-hover;
     }

@@ -1,10 +1,12 @@
 @import "mixins";
+
 :host {
   @include height-width-100-percent;
-
 }
+
 .header {
   @include height-width-100-percent;
+
   &__content {
     @include flex-row;
     @include height-width-100-percent;

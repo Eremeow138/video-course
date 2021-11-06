@@ -1,8 +1,8 @@
-import { ComponentFixture, TestBed } from '@angular/core/testing';
+import { ComponentFixture, TestBed } from "@angular/core/testing";
 
-import { CourseToolsComponent } from './course-tools.component';
+import { CourseToolsComponent } from "./course-tools.component";
 
-describe('CourseToolsComponent', () => {
+describe("CourseToolsComponent", () => {
   let component: CourseToolsComponent;
   let fixture: ComponentFixture<CourseToolsComponent>;
 
@@ -18,7 +18,7 @@ describe('CourseToolsComponent', () => {
     fixture.detectChanges();
   });
 
-  it('should create', () => {
+  it("should create", () => {
     expect(component).toBeTruthy();
   });
 });

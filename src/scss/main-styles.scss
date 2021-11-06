@@ -13,7 +13,8 @@ html {
 
 body {
   overflow: overlay;
-  @-moz-document url-prefix() {
+
+  @-moz-document url-prefix("") {
     overflow: auto;
   }
 }

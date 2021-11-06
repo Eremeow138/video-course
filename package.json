@@ -1,16 +1,38 @@
 {
   "name": "video-course",
   "version": "0.0.1",
-  "repository": "https://github.com/Eremeow138/video-course",
+  "license": "MIT",
+  "description": "Video courses site",
+  "repository": "https://github.com/Eremeow138/video-course.git",
   "author": "Alexey Eremin",
   "email": "eremeow138@yandex.ru",
+  "keywords": [
+    "angular",
+    "rxjs",
+    "eslint",
+    "stylelint",
+    "jasmine",
+    "karma"
+  ],
+  "bugs": {
+    "url": "https://github.com/Eremeow138/video-course/issues"
+  },
+  "homepage": "https://github.com/Eremeow138/video-course#readme",
   "scripts": {
-    "ng": "ng",
     "start": "ng serve",
+    "start:standalone": "ng serve --configuration-standalone",
+    "watch:dev": "ng build --configuration=dev --watch ",
+    "watch:prod": "ng build --configuration=production --watch ",
+    "watch:standalone": "ng build --configuration=standalone --watch ",
     "build": "ng build",
-    "watch": "ng build --watch --configuration development",
-    "test": "ng test",
-    "lint": "ng lint"
+    "build:dev": "ng build --configuration=dev",
+    "build:prod": "ng build --configuration=production",
+    "lint": "ng lint",
+    "lint:fix": "ng lint --fix",
+    "lint:all": "npm run lint && npm run stylelint",
+    "stylelint": "stylelint ./src/**/*.scss",
+    "stylelint:fix": "stylelint ./src/**/*.scss --fix",
+    "test": "ng test"
   },
   "private": true,
   "dependencies": {
@@ -41,17 +63,25 @@
     "@typescript-eslint/eslint-plugin": "4.23.0",
     "@typescript-eslint/parser": "4.23.0",
     "eslint": "^7.32.0",
-    "eslint-config-airbnb-typescript": "^12.3.1",
-    "eslint-config-prettier": "^8.3.0",
     "eslint-plugin-import": "^2.23.4",
-    "eslint-plugin-prettier": "^3.4.0",
+    "eslint-plugin-jasmine": "^4.1.2",
+    "eslint-plugin-jsdoc": "^36.0.7",
+    "eslint-plugin-prefer-arrow": "^1.2.3",
+    "eslint-plugin-rxjs": "^3.3.6",
+    "eslint-plugin-rxjs-angular": "^1.0.6",
     "jasmine-core": "~3.8.0",
     "karma": "~6.3.0",
     "karma-chrome-launcher": "~3.1.0",
     "karma-coverage": "~2.0.3",
     "karma-jasmine": "~4.0.0",
     "karma-jasmine-html-reporter": "^1.7.0",
-    "prettier": "^2.3.1",
+    "stylelint": "^13.13.1",
+    "stylelint-config-recommended": "^5.0.0",
+    "stylelint-config-recommended-scss": "^4.3.0",
+    "stylelint-config-sass-guidelines": "^8.0.0",
+    "stylelint-config-standard": "^22.0.0",
+    "stylelint-order": "^4.1.0",
+    "stylelint-scss": "^3.20.1",
     "typescript": "~4.2.3"
   }
 }
