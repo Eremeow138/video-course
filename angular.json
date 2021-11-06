@@ -28,7 +28,7 @@
             "tsConfig": "tsconfig.app.json",
             "inlineStyleLanguage": "scss",
             "resourcesOutputPath": "resources",
-            "sourceMap":true,
+            "sourceMap": true,
             "vendorChunk": true,
             "namedChunks": true,
             "aot": false,
