@@ -1,8 +1,10 @@
-<div *ngIf="course" [appCourseHighlight]="course.creationDate" class="course-card">
+<div *ngIf="course" [appCourseHighlight]="course.creationDate" [ngClass]="{'course-card--top-rated':course.isTopRated}"
+  class="course-card">
   <div class="course-card__content">
     <div class="course-card__header">
       <div class="course-card__title-wrapper">
-        <h3 class="course-card__title">{{ course.title }}</h3>
+        <h3 class="course-card__title">{{ course.title }} </h3>
+        <img *ngIf="course.isTopRated" class="course-card__favorite" src="assets/icons/favorite.svg" alt="favorite">
       </div>
       <div class="course-card__tools-wrapper">
         <app-course-tools [course]="course"></app-course-tools>

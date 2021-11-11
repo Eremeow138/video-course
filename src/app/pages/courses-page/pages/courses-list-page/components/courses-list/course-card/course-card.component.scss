@@ -26,6 +26,9 @@
     width: 100%;
   }
   &__title-wrapper {
+    @include flex-row;
+
+    align-items: center;
     flex-grow: 1;
     height: 100%;
     padding-right: $course-card-title-padding;
@@ -34,6 +37,9 @@
     @include h3-title;
 
     height: min-content;
+  }
+  &__favorite {
+    @include icon-size($h3-font-size);
   }
   &__description-wrapper {
     flex-grow: 1;
@@ -48,5 +54,8 @@
   }
   &--upcoming {
     border: 1px solid $primary-border-color;
+  }
+  &--top-rated {
+    background-color: $fourth-bg-color;
   }
 }
