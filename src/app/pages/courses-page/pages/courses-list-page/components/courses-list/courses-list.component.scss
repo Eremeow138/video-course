@@ -17,6 +17,13 @@
       margin-top: $primary-content-margin;
     }
   }
+  &__no-data-message {
+    @include content-container;
+    @include h3-title;
+
+    text-transform: uppercase;
+    text-align: center;
+  }
   &__load-more-button {
     @include button;
     @include load-more-button-text;
