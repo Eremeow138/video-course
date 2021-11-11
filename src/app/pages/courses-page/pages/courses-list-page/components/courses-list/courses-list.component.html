@@ -1,6 +1,6 @@
 <div class="courses-list">
   <div class="courses-list__cards-wrapper">
-    <app-course-card *ngFor="let course of courses; trackBy: trackByFn" [course]="course"
+    <app-course-card *ngFor="let course of courses | orderBy:'creationDate'; trackBy: trackByFn" [course]="course"
       (deleteCourseEvent)="deleteCourse($event)"></app-course-card>
     <div *ngIf="!courses.length" class="courses-list__no-data-message">No data. Feel free to add new course</div>
   </div>

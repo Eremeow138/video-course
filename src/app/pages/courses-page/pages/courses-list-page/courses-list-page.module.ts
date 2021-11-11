@@ -11,6 +11,7 @@ import { DurationPipe } from "./pipes/duration.pipe";
 import { FiltersComponent } from "./components/filters/filters.component";
 import { SearchComponent } from "./components/filters/search/search.component";
 import { CourseHighlightDirective } from "./directives/course-highlight.directive";
+import { OrderByPipe } from "./pipes/order-by.pipe";
 
 const COMPONENTS = [CoursesListPageComponent];
 
@@ -26,6 +27,7 @@ const COMPONENTS = [CoursesListPageComponent];
     CourseActionsComponent,
     DurationPipe,
     CourseHighlightDirective,
+    OrderByPipe,
   ],
   imports: [CommonModule, FormsModule],
   exports: [...COMPONENTS],
