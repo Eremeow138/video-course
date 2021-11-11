@@ -10,7 +10,7 @@ import { CourseToolsComponent } from "./components/courses-list/course-card/cour
 import { DurationPipe } from "./pipes/duration.pipe";
 import { FiltersComponent } from "./components/filters/filters.component";
 import { SearchComponent } from "./components/filters/search/search.component";
-import { BorderHighlightDirective } from "./directives/border-highlight.directive";
+import { CourseHighlightDirective } from "./directives/course-highlight.directive";
 
 const COMPONENTS = [CoursesListPageComponent];
 
@@ -25,7 +25,7 @@ const COMPONENTS = [CoursesListPageComponent];
     CourseToolsComponent,
     CourseActionsComponent,
     DurationPipe,
-    BorderHighlightDirective,
+    CourseHighlightDirective,
   ],
   imports: [CommonModule, FormsModule],
   exports: [...COMPONENTS],
