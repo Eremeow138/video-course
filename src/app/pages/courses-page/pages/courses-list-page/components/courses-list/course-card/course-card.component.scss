@@ -44,9 +44,9 @@
     @include description-text;
   }
   &--fresh {
-    border: 1px solid $primary-border-color;
+    border: 1px solid $secondary-border-color;
   }
   &--upcoming {
-    border: 1px solid $secondary-border-color;
+    border: 1px solid $primary-border-color;
   }
 }
