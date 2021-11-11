@@ -2,7 +2,7 @@
   <div class="courses-list-page__header-wrapper">
     <div class="courses-list-page__header">
       <div class="courses-list-page__filters">
-        <app-filters></app-filters>
+        <app-filters (searchEvent)="filter($event)"></app-filters>
       </div>
       <div class="courses-list-page__actions">
         <app-actions></app-actions>
@@ -11,7 +11,7 @@
   </div>
   <div class="courses-list-page__list-wrapper">
     <div class="courses-list-page__list">
-      <app-courses-list></app-courses-list>
+      <app-courses-list [courses]="filteredCourses"></app-courses-list>
     </div>
   </div>
 </div>
