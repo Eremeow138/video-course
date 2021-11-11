@@ -23,8 +23,8 @@ export class CourseHighlightDirective implements OnInit {
     const isFresh = creationDate < currentDate && creationDate >= freshnessDate;
     const isUpcoming = creationDate > currentDate;
 
-    const freshClass = CourseStatusEnum.FreshClass;
-    const upcomingClass = CourseStatusEnum.UpcomingClass;
+    const freshClass = `course-card--${CourseStatusEnum.Fresh}`;
+    const upcomingClass = `course-card--${CourseStatusEnum.Upcoming}`;
 
     this.removeClasses(freshClass, upcomingClass);
 

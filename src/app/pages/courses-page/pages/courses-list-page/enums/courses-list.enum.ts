@@ -1,4 +1,4 @@
 export enum CourseStatusEnum {
-  FreshClass = "course-card--fresh",
-  UpcomingClass = "course-card--upcoming"
+  Fresh = "fresh",
+  Upcoming = "upcoming"
 }
