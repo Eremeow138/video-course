@@ -10,6 +10,15 @@
   @include height-width-100-percent;
   @include content-container;
 
+  &--fresh {
+    border: 1px solid $secondary-border-color;
+  }
+  &--upcoming {
+    border: 1px solid $primary-border-color;
+  }
+  &--top-rated {
+    background-color: $fourth-bg-color;
+  }
   &__content {
     @include flex-column;
     @include height-width-100-percent;
@@ -48,14 +57,5 @@
   }
   &__description {
     @include description-text;
-  }
-  &--fresh {
-    border: 1px solid $secondary-border-color;
-  }
-  &--upcoming {
-    border: 1px solid $primary-border-color;
-  }
-  &--top-rated {
-    background-color: $fourth-bg-color;
   }
 }
