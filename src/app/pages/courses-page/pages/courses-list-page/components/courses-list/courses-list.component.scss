@@ -18,10 +18,8 @@
     }
   }
   &__no-data-message {
-    @include content-container;
     @include h3-title;
 
-    text-transform: uppercase;
     text-align: center;
   }
   &__load-more-button {
