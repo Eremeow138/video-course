@@ -10,7 +10,7 @@ import { CourseToolsComponent } from "./components/courses-list/course-card/cour
 import { DurationPipe } from "./pipes/duration.pipe";
 import { FiltersComponent } from "./components/filters/filters.component";
 import { SearchComponent } from "./components/filters/search/search.component";
-import { CourseHighlightDirective } from "./directives/course-highlight.directive";
+import { CourseHighlightDirective } from "./directives/course-highlight/course-highlight.directive";
 import { OrderByPipe } from "./pipes/order-by.pipe";
 import { FilterPipe } from "./pipes/filter.pipe";
 

@@ -1,5 +1,5 @@
 import { Directive, ElementRef, Input, OnInit, Renderer2 } from "@angular/core";
-import { CourseStatusEnum } from "../enums/courses-list.enum";
+import { CourseStatusEnum } from "../../enums/courses-list.enum";
 
 @Directive({
   selector: "[appCourseHighlight]"
