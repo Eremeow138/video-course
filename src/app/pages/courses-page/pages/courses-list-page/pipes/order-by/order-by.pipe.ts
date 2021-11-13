@@ -7,10 +7,19 @@ import { ICourse } from "@app/pages/courses-page/courses/interfaces/course.inter
 export class OrderByPipe implements PipeTransform {
 
   transform(courses: ICourse[], field: keyof ICourse): ICourse[] {
-    return courses.sort(this.byField(field));
-  }
+    return courses.sort((courseA: ICourse, courseB: ICourse) => {
 
-  byField(field: keyof ICourse) {
-    return (courseA: ICourse, courseB: ICourse) => courseA[field] > courseB[field] ? 1 : -1;
+      if (!courseA[field] || !courseB[field]) {
+        return 0;
+      }
+
+      if (courseA[field] < courseB[field]) {
+        return 1;
+      } else if (courseA[field] > courseB[field]) {
+        return -1;
+      }
+
+      return 0;
+    });
   }
 }
