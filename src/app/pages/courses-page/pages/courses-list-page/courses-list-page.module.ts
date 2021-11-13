@@ -14,9 +14,9 @@ import { CoursesListPageComponent } from "./components/courses-list-page.compone
 
 import { CourseHighlightDirective } from "./directives/course-highlight/course-highlight.directive";
 
-import { OrderByPipe } from "./pipes/order-by.pipe";
-import { FilterPipe } from "./pipes/filter.pipe";
-import { DurationPipe } from "./pipes/duration.pipe";
+import { OrderByPipe } from "./pipes/order-by/order-by.pipe";
+import { FilterPipe } from "./pipes/filter/filter.pipe";
+import { DurationPipe } from "./pipes/duration/duration.pipe";
 
 const COMPONENTS = [CoursesListPageComponent];
 
