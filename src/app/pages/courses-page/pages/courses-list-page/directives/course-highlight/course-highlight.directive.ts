@@ -9,17 +9,16 @@ export class CourseHighlightDirective implements OnInit {
   private creationDate!: string;
 
   private readonly freshnessInDays = 14;
-  private readonly className = "course-card";
-  private readonly separator = "--";
+  private readonly className = "course-card--";
   private readonly millisecondsInDay = 1000 * 60 * 60 * 24;
 
-  constructor(private readonly elementRef: ElementRef, private readonly renderer: Renderer2) { }
+  constructor(private elementRef: ElementRef, private renderer: Renderer2) { }
 
   ngOnInit() {
     this.changeCourseHighlight();
   }
 
-  private changeCourseHighlight() {
+  private changeCourseHighlight(): void {
     this.removeClasses(...Object.values(CourseStatusEnum));
 
     const className = this.getClassName();
@@ -29,7 +28,7 @@ export class CourseHighlightDirective implements OnInit {
     }
   }
 
-  private getClassName() {
+  private getClassName(): CourseStatusEnum | null {
     const currentTimeStamp = new Date().getTime();
     const creationTimeStamp = new Date(this.creationDate).getTime();
     const freshnessOfTimeStamp = currentTimeStamp - (this.millisecondsInDay * this.freshnessInDays);
@@ -41,16 +40,19 @@ export class CourseHighlightDirective implements OnInit {
       return CourseStatusEnum.Fresh;
     } else if (isUpcoming) {
       return CourseStatusEnum.Upcoming;
-    } else {
-      return null;
     }
+    return null;
   }
 
   private addClass(status: CourseStatusEnum): void {
-    this.renderer.addClass(this.elementRef.nativeElement, `${this.className}${this.separator}${status}`);
+    const className = `${this.className}${status}`;
+
+    this.renderer.addClass(this.elementRef.nativeElement, className);
   }
 
   private removeClasses(...statuses: CourseStatusEnum[]): void {
-    statuses.forEach(status => this.renderer.removeClass(this.elementRef.nativeElement, `${this.className}${this.separator}${status}`));
+    const classNames = statuses.map(status => `${this.className}${status}`);
+
+    classNames.forEach(className => this.renderer.removeClass(this.elementRef.nativeElement, className));
   }
 }
