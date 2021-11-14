@@ -51,8 +51,9 @@ export class CourseHighlightDirective implements OnInit {
   }
 
   private removeClasses(...statuses: CourseStatusEnum[]): void {
-    const classNames = statuses.map(status => `${this.className}${status}`);
-
-    classNames.forEach(className => this.renderer.removeClass(this.elementRef.nativeElement, className));
+    statuses.forEach(status => {
+      const className = `${this.className}${status}`;
+      this.renderer.removeClass(this.elementRef.nativeElement, className);
+    });
   }
 }
