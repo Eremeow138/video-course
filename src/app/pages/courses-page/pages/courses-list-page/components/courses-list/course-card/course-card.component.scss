@@ -50,6 +50,9 @@
   &__favorite {
     @include icon-size($h3-font-size);
   }
+  &__tools-wrapper {
+    flex-shrink: 0;
+  }
   &__description-wrapper {
     flex-grow: 1;
     height: 100%;
