@@ -21,14 +21,14 @@ export class CourseHighlightDirective implements OnInit {
   private changeCourseHighlight(): void {
     this.removeClasses(...Object.values(CourseStatusEnum));
 
-    const className = this.getClassName();
+    const statusCourse = this.getStatusCourse();
 
-    if (className) {
-      this.addClass(className);
+    if (statusCourse) {
+      this.addClass(statusCourse);
     }
   }
 
-  private getClassName(): CourseStatusEnum | null {
+  private getStatusCourse(): CourseStatusEnum | null {
     const currentTimeStamp = new Date().getTime();
     const creationTimeStamp = new Date(this.creationDate).getTime();
     const freshnessOfTimeStamp = currentTimeStamp - (this.millisecondsInDay * this.freshnessInDays);
