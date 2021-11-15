@@ -2,12 +2,15 @@ $primary-color: rgb(245 246 250);
 $secondary-color: rgb(48 50 64);
 $third-color: #FFF;
 $fourth-color: rgb(71 74 89);
+$fifth-color: rgb(0 158 204);
+$sixth-color: rgb(103 163 0);
 
 $primary-bg-color: $primary-color;
 $secondary-bg-color: $secondary-color;
 $third-bg-color: $third-color;
 $third-bg-color-hover: darken($third-color, 5);
 $third-bg-color-focus: darken($third-color, 15);
+$fourth-bg-color: #FCFCFC;
 
 $primary-shadow-color: rgb(29 30 38 / 0.1);
 $secondary-shadow-color: rgb(29 30 38 / 0.15);
@@ -26,12 +29,12 @@ $field-border-color: rgb(206 208 219);
 $field-border-color-hover: darken($field-border-color, 10);
 $field-border-focus-color: $fourth-color;
 
-$btn-primary-color: rgb(0 158 204);
+$btn-primary-color: $fifth-color;
 
 $btn-primary-bg-color: $btn-primary-color;
 $btn-primary-bg-color-hover: darken($btn-primary-color, 5);
 $btn-primary-bg-color-focus: darken($btn-primary-color, 15);
-$btn-secondary-bg-color: rgb(103 163 0);
+$btn-secondary-bg-color: $sixth-color;
 $btn-secondary-bg-color-hover: darken($btn-secondary-bg-color, 5);
 $btn-secondary-bg-color-focus: darken($btn-secondary-bg-color, 15);
 $btn-third-bg-color: transparent;
@@ -44,3 +47,6 @@ $scroll-secondary-bg-color: rgb(71 74 89 / 0.3);
 $scroll-secondary-bg-hover-color: rgb(71 74 89 / 0.4);
 
 $tools-text-color: rgb(133 137 151);
+
+$primary-border-color: $fifth-color;
+$secondary-border-color: $sixth-color;

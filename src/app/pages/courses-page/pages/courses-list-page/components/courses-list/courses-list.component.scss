@@ -17,6 +17,11 @@
       margin-top: $primary-content-margin;
     }
   }
+  &__no-data-message {
+    @include h3-title;
+
+    text-align: center;
+  }
   &__load-more-button {
     @include button;
     @include load-more-button-text;
@@ -26,6 +31,7 @@
     min-height: $btn-primary-min-height;
     margin-top: $primary-content-margin;
     padding: 0;
+    border: none;
 
     &:hover {
       background-color: $third-bg-color-hover;

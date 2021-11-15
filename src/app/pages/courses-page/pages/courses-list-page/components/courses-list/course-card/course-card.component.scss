@@ -10,6 +10,15 @@
   @include height-width-100-percent;
   @include content-container;
 
+  &--fresh {
+    border: 1px solid $secondary-border-color;
+  }
+  &--upcoming {
+    border: 1px solid $primary-border-color;
+  }
+  &--top-rated {
+    background-color: $fourth-bg-color;
+  }
   &__content {
     @include flex-column;
     @include height-width-100-percent;
@@ -26,6 +35,9 @@
     width: 100%;
   }
   &__title-wrapper {
+    @include flex-row;
+
+    align-items: center;
     flex-grow: 1;
     height: 100%;
     padding-right: $course-card-title-padding;
@@ -34,6 +46,12 @@
     @include h3-title;
 
     height: min-content;
+  }
+  &__favorite {
+    @include icon-size($h3-font-size);
+  }
+  &__tools-wrapper {
+    flex-shrink: 0;
   }
   &__description-wrapper {
     flex-grow: 1;

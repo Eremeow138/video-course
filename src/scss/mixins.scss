@@ -119,6 +119,7 @@
   font-size: $h3-font-size;
   font-weight: 600;
   color: $h3-color;
+  margin-right: 0.5rem;
 }
 @mixin logo-text {
   font-size: $logo-font-size;
@@ -128,6 +129,7 @@
 }
 @mixin content-container {
   padding: 2.4rem 2.1rem 2.3rem 2.4rem;
+  border: 1px solid $third-bg-color;
   border-radius: $primary-border-radius;
   background-color: $third-bg-color;
   box-shadow: $primary-shadow;

@@ -1,5 +1,6 @@
 import { NgModule } from "@angular/core";
 import { CommonModule } from "@angular/common";
+
 import { LogoComponent } from "./components/logo/logo.component";
 
 const COMPONENTS = [LogoComponent];
@@ -9,4 +10,4 @@ const COMPONENTS = [LogoComponent];
   imports: [CommonModule],
   exports: [...COMPONENTS],
 })
-export class CommonsModule {}
+export class CommonsModule { }
