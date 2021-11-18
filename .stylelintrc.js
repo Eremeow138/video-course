@@ -126,6 +126,7 @@ module.exports = {
     // Под вопросом
 
     "scss/selector-no-redundant-nesting-selector": null,
+    "scss/no-global-function-names": null,
     // Специально отключенные параметры
   }
 }
