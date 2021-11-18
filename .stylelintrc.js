@@ -120,13 +120,13 @@ module.exports = {
     "selector-descendant-combinator-no-non-space": null,
     "value-no-vendor-prefix": null,
     "order/properties-alphabetical-order": null,
-    "scss/no-global-function-names": null,
 
     // Под вопросом
     "order/order": null,
     // Под вопросом
 
     "scss/selector-no-redundant-nesting-selector": null,
+    "scss/no-global-function-names": null,
     // Специально отключенные параметры
   }
 }
