@@ -11,9 +11,9 @@ export class CourseCardComponent {
   public course!: ICourse;
 
   @Output()
-  private deleteCourseEvent = new EventEmitter<ICourse>();
+  private deleteCourseEvent = new EventEmitter<number>();
 
   public deleteCourse(): void {
-    this.deleteCourseEvent.emit(this.course);
+    this.deleteCourseEvent.emit(this.course.id);
   }
 }

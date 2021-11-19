@@ -18,6 +18,8 @@ import { OrderByPipe } from "./pipes/order-by/order-by.pipe";
 import { FilterPipe } from "./pipes/filter/filter.pipe";
 import { DurationPipe } from "./pipes/duration/duration.pipe";
 
+import { CoursesService } from "./services/courses.service";
+
 const COMPONENTS = [CoursesListPageComponent];
 
 @NgModule({
@@ -36,6 +38,7 @@ const COMPONENTS = [CoursesListPageComponent];
     FilterPipe,
   ],
   imports: [CommonModule, FormsModule],
+  providers: [CoursesService],
   exports: [...COMPONENTS],
 })
 export class CoursesListPageModule { }

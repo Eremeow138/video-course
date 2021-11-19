@@ -11,7 +11,8 @@
   </div>
   <div class="courses-list-page__list-wrapper">
     <div class="courses-list-page__list">
-      <app-courses-list [courses]="filteredCourses"></app-courses-list>
+      <app-courses-list [courses]="filteredCourses" (deleteCourseEvent)="deleteCourse($event)"
+        (loadMoreCoursesEvent)="loadMoreCourses()"> </app-courses-list>
     </div>
   </div>
 </div>
