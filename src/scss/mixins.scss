@@ -10,7 +10,7 @@
 }
 @mixin flex-row {
   display: flex;
-  flex-flow: row, nowrap;
+  flex-flow: row nowrap;
 }
 @mixin flex-column {
   display: flex;
