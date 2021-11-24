@@ -1,0 +1,19 @@
+@import "variables";
+@import "mixins";
+
+:host {
+  @include height-width-100-percent;
+}
+
+.login-page {
+  @include height-width-100-percent;
+
+  &__login-wrapper {
+    @include flex-column;
+
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    height: 100%;
+  }
+}

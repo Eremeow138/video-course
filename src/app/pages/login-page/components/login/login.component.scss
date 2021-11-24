@@ -1,0 +1,75 @@
+@import "colors";
+@import "variables";
+@import "mixins";
+
+:host {
+  @include height-width-100-percent;
+}
+
+.login {
+  @include content-container;
+  @include height-width-100-percent;
+
+  &__header {
+    @include flex-row;
+
+    justify-content: space-between;
+    align-items: center;
+  }
+  &__header-title {
+    @include h3-title;
+  }
+  &__warning {
+    color: $text-warning-color;
+    font-size: $secondary-font-size;
+  }
+  &__field-list {
+    margin: $primary-content-margin 0;
+  }
+  &__field {
+
+    &:not(:first-child) {
+      margin-top: 1.2rem;
+    }
+  }
+  &__field-info {
+    @include flex-row;
+
+    justify-content: space-between;
+    color: $text-primary-color;
+    margin-bottom: 1rem;
+  }
+  &__field-title {
+    font-size: $primary-font-size;
+    font-weight: 600;
+  }
+  &__field-required {
+    font-size: $secondary-font-size;
+  }
+  &__input {
+    @include input-field;
+  }
+  &__actions {
+    @include flex-row;
+
+    justify-content: space-between;
+  }
+  &__forgot-password {
+    @include button;
+
+    color: $text-link-color;
+    font-size: $secondary-font-size;
+    text-decoration: underline;
+    background-color: transparent;
+
+    &:hover {
+      color: $text-link-color-hover;
+    }
+    &:active {
+      color: $text-link-color-focus;
+    }
+  }
+  &__button {
+    padding: 0 2.3rem;
+  }
+}

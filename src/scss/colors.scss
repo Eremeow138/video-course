@@ -4,6 +4,8 @@ $third-color: #FFF;
 $fourth-color: rgb(71 74 89);
 $fifth-color: rgb(0 158 204);
 $sixth-color: rgb(103 163 0);
+$seventh-color: rgb(255 78 51);
+$eighth-color: rgb(86 129 238);
 
 $primary-bg-color: $primary-color;
 $secondary-bg-color: $secondary-color;
@@ -18,6 +20,10 @@ $secondary-shadow-color: rgb(29 30 38 / 0.15);
 $text-primary-color: $fourth-color;
 $text-secondary-color: rgb(70 74 90);
 $text-third-color: $third-color;
+$text-warning-color: $seventh-color;
+$text-link-color: $eighth-color;
+$text-link-color-hover: darken($text-link-color, 5);
+$text-link-color-focus: darken($text-link-color, 15);
 
 $h3-color: #333;
 

@@ -50,6 +50,20 @@
     padding-top: 2.1rem;
     background-color: $primary-bg-color;
   }
+  &__login-page-wrapper {
+    @include flex-column;
+    @include height-width-100-percent;
+
+    align-items: center;
+    justify-content: center;
+    padding: $wrapper-paddings;
+    background-color: $primary-bg-color;
+  }
+  &__login-page {
+    width: 100%;
+    height: min-content;
+    max-width: $login-page-max-width;
+  }
   &__footer-wrapper {
     @include flex-column;
 

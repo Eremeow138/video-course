@@ -5,6 +5,7 @@ import { CommonsModule } from "./commons/commons.module";
 import { MarkupModule } from "./markup/markup.module";
 import { CoursesListPageModule } from "./pages/courses-page/pages/courses-list-page/courses-list-page.module";
 import { AuthenticationModule } from "./authentication/authentication.module";
+import { LoginPageModule } from "./pages/login-page/login-page.module";
 
 import { AppComponent } from "./app.component";
 
@@ -16,6 +17,7 @@ import { AppComponent } from "./app.component";
     AppRoutingModule,
     MarkupModule,
     CoursesListPageModule,
+    LoginPageModule,
     AuthenticationModule
   ],
   providers: [],
