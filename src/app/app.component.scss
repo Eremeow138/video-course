@@ -11,6 +11,7 @@
   align-items: stretch;
   min-width: $window-min-width;
   min-height: $window-min-height;
+  z-index: $app-z-index;
 
   &__header-wrapper {
     @include flex-column;

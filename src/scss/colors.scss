@@ -6,6 +6,9 @@ $fifth-color: rgb(0 158 204);
 $sixth-color: rgb(103 163 0);
 $seventh-color: rgb(255 78 51);
 $eighth-color: rgb(86 129 238);
+$ninth-color: rgb(172 175 191);
+$tenth-color: rgb(108 111 128);
+$eleventh-color: rgb(29 30 38 / 0.7);
 
 $primary-bg-color: $primary-color;
 $secondary-bg-color: $secondary-color;
@@ -13,6 +16,9 @@ $third-bg-color: $third-color;
 $third-bg-color-hover: darken($third-color, 5);
 $third-bg-color-focus: darken($third-color, 15);
 $fourth-bg-color: #FCFCFC;
+$fifth-bg-color: $eleventh-color;
+
+$modals-overlay-bg-color: $fifth-bg-color;
 
 $primary-shadow-color: rgb(29 30 38 / 0.1);
 $secondary-shadow-color: rgb(29 30 38 / 0.15);
@@ -44,9 +50,17 @@ $btn-secondary-bg-color: $sixth-color;
 $btn-secondary-bg-color-hover: darken($btn-secondary-bg-color, 5);
 $btn-secondary-bg-color-focus: darken($btn-secondary-bg-color, 15);
 $btn-third-bg-color: transparent;
+$btn-fourth-bg-color: $third-color;
+$btn-fourth-bg-color-hover: darken($btn-fourth-bg-color, 5);
+$btn-fourth-bg-color-focus: darken($btn-fourth-bg-color, 15);
+
+$btn-primary-border-color: $ninth-color;
+$btn-primary-border-color-hover: darken($btn-primary-border-color, 5);
+$btn-primary-border-color-focus: darken($btn-primary-border-color, 15);
 
 $btn-text-color: $third-color;
 $btn-text-hover-color: $btn-primary-color;
+$btn-secondary-text-color: $tenth-color;
 
 $scroll-primary-bg-color: transparent;
 $scroll-secondary-bg-color: rgb(71 74 89 / 0.3);

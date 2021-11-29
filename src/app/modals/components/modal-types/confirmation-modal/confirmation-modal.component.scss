@@ -1,0 +1,36 @@
+@import "colors";
+@import "variables";
+@import "mixins";
+
+:host {
+  position: fixed;
+  width: 100%;
+  height: min-content;
+  max-width: $confirmation-modal-max-width;
+  z-index: $modal-z-index;
+}
+
+.confirmation-modal {
+  @include height-width-100-percent;
+  @include flex-column;
+
+  background-color: $third-bg-color;
+  border-radius: $primary-border-radius;
+
+  &__container {
+    @include height-width-100-percent;
+
+    padding: $modal-container-paddings;
+
+    &--border-top {
+      border-top: 1px solid $ninth-color;
+    }
+    &--border-bottom {
+      border-bottom: 1px solid $ninth-color;
+    }
+  }
+  &__text {
+    @include height-width-100-percent;
+    @include modal-text;
+  }
+}

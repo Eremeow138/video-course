@@ -1,0 +1,51 @@
+@import "variables";
+@import "mixins";
+
+:host {
+  @include height-width-100-percent;
+}
+
+.modal-header {
+  @include height-width-100-percent;
+  @include flex-row;
+
+  justify-content: space-between;
+  align-items: center;
+
+  &__title {
+    @include h3-title;
+  }
+  &__button {
+    @include icon-size(1.4rem);
+    @include button;
+
+    position: relative;
+    background-color: $btn-third-bg-color;
+
+    &::before {
+      transform: rotate(45deg);
+    }
+    &::after {
+      transform: rotate(-45deg);
+    }
+    &::after,
+    &::before {
+      content: "";
+      position: absolute;
+      left: 0;
+      top: 50%;
+      width: 100%;
+      border-top: 2px solid $tenth-color;
+      margin-top: -1px;
+      transition: all $primary-duration;
+    }
+    &:hover::after,
+    &:hover::before {
+      border-color: darken($tenth-color, 5);
+    }
+    &:active::after,
+    &:active::before {
+      border-color: darken($tenth-color, 15);
+    }
+  }
+}

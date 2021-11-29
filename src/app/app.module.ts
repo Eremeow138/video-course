@@ -6,6 +6,7 @@ import { MarkupModule } from "./markup/markup.module";
 import { CoursesListPageModule } from "./pages/courses-page/pages/courses-list-page/courses-list-page.module";
 import { AuthenticationModule } from "./authentication/authentication.module";
 import { LoginPageModule } from "./pages/login-page/login-page.module";
+import { ModalsModule } from "./modals/modals.module";
 
 import { AppComponent } from "./app.component";
 
@@ -18,7 +19,8 @@ import { AppComponent } from "./app.component";
     MarkupModule,
     CoursesListPageModule,
     LoginPageModule,
-    AuthenticationModule
+    AuthenticationModule,
+    ModalsModule
   ],
   providers: [],
   bootstrap: [AppComponent],

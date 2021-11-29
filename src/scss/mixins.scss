@@ -1,12 +1,20 @@
-@mixin absolute-zero-position {
-  position: absolute;
+@mixin all-sides-zero {
   top: 0;
   right: 0;
   bottom: 0;
   left: 0;
-  width: 100%;
-  height: 100%;
-  z-index: 1;
+}
+@mixin absolute-zero-position {
+  @include all-sides-zero;
+  @include height-width-100-percent;
+
+  position: absolute;
+}
+@mixin fixed-zero-position {
+  @include all-sides-zero;
+  @include height-width-100-percent;
+
+  position: fixed;
 }
 @mixin flex-row {
   display: flex;
@@ -137,4 +145,10 @@
   font-size: $primary-font-size;
   font-weight: 700;
   color: $text-secondary-color;
+}
+@mixin modal-text {
+  line-height: 2.4rem;
+  letter-spacing: 0.01rem;
+  color: $text-primary-color;
+  font-size: $primary-font-size;
 }

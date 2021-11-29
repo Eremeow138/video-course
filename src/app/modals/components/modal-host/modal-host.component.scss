@@ -1,0 +1,18 @@
+@import "colors";
+@import "variables";
+@import "mixins";
+
+:host {
+  @include absolute-zero-position;
+  @include flex-row;
+
+  align-items: center;
+  justify-content: center;
+}
+
+.modals-overlay {
+  @include fixed-zero-position;
+
+  background-color: $modals-overlay-bg-color;
+  z-index: $modals-overlay-z-index;
+}
