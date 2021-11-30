@@ -2,7 +2,9 @@ import { Injectable, OnDestroy } from "@angular/core";
 import { IModalData, IModalResultData } from "@app/modals/interfaces/modals.interface";
 import { Observable, Subject } from "rxjs";
 
-@Injectable()
+@Injectable({
+  providedIn: "root"
+})
 export class ModalsService implements OnDestroy {
   private showModalSubject = new Subject<IModalData>();
   private hideModalsSubject = new Subject<void>();

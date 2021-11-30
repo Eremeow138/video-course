@@ -2,7 +2,9 @@
 import { Injectable } from "@angular/core";
 import { ICourse } from "@app/pages/courses-page/courses/interfaces/course.interface";
 
-@Injectable()
+@Injectable({
+  providedIn: "root"
+})
 export class CoursesService {
 
   private collectionOfCourses = [

@@ -4,7 +4,9 @@ import { ConfirmationModalComponent } from "@app/modals/components/modal-types/c
 import { ModalComponentEnum } from "@app/modals/enams/modal-component.enum";
 import { ModalMapperComponentType } from "@app/modals/types/modal-mapper-component.type";
 
-@Injectable()
+@Injectable({
+  providedIn: "root"
+})
 export class ModalMapperService {
 
   private modalComponents: ModalMapperComponentType = {
