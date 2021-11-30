@@ -72,7 +72,6 @@ export class AuthService implements OnDestroy {
       this.authenticatedUsername = username;
       this.isAuthenticatedSubject.next(true);
     } else {
-      this.isAuthenticatedSubject.next(false);
       this.logout();
     }
   }
