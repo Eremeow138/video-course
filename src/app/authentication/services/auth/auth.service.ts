@@ -1,8 +1,11 @@
 import { Injectable } from "@angular/core";
+import { Observable, ReplaySubject } from "rxjs";
 
-@Injectable()
+@Injectable({
+  providedIn: "root"
+})
 export class AuthService {
-  private readonly users = [
+  private users = [
     {
       username: "admin",
       password: "admin",
@@ -14,13 +17,15 @@ export class AuthService {
       role: "user"
     },
   ];
-  private readonly localStorageUsernameKey = "username";
+  private localStorageUsernameKey = "username";
 
-  private readonly localStorageTokenKey = "token";
+  private localStorageTokenKey = "token";
 
-  private readonly token = "secretToken";
+  private token = "secretToken";
 
   private authenticatedUsername = "";
+
+  private isAuthenticatedSubject = new ReplaySubject<boolean>(1);
 
   constructor() {
     this.tokenCheck();
@@ -28,11 +33,15 @@ export class AuthService {
 
   public login(username: string, password: string): void {
     const user = this.users.find(currentUser => currentUser.username === username && currentUser.password === password);
+
     if (user) {
       localStorage.setItem(this.localStorageUsernameKey, user.username);
       localStorage.setItem(this.localStorageTokenKey, this.token);
+
       this.authenticatedUsername = user.username;
-      console.log("logged in successfully");
+      this.isAuthenticatedSubject.next(true);
+    } else {
+      this.isAuthenticatedSubject.next(false);
     }
   }
 
@@ -40,10 +49,11 @@ export class AuthService {
     localStorage.removeItem(this.localStorageUsernameKey);
     localStorage.removeItem(this.localStorageTokenKey);
     this.authenticatedUsername = "";
+    this.isAuthenticatedSubject.next(false);
   }
 
-  public isAuthenticated(): boolean {
-    return !!this.authenticatedUsername;
+  get isAuthenticated$(): Observable<boolean> {
+    return this.isAuthenticatedSubject.asObservable();
   }
 
   public getUserInfo(): string {
@@ -53,9 +63,12 @@ export class AuthService {
   private tokenCheck(): void {
     const token = localStorage.getItem(this.localStorageTokenKey);
     const username = localStorage.getItem(this.localStorageUsernameKey);
+
     if (token && username) {
       this.authenticatedUsername = username;
+      this.isAuthenticatedSubject.next(true);
     } else {
+      this.isAuthenticatedSubject.next(false);
       this.logout();
     }
   }

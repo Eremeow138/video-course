@@ -1,7 +1,7 @@
 <form class="login">
   <div class="login__header">
     <h3 class="login__header-title">Login</h3>
-    <div *ngIf="!isSuccessfulLogin" class="login__warning">Wrong e-mail or password</div>
+    <div *ngIf="isVisibleWarning" class="login__warning">Wrong e-mail or password</div>
   </div>
   <div class="login__field-list">
     <div class="login__field">
@@ -9,14 +9,14 @@
         <div class="login__field-title">Email:</div>
         <div class="login__field-required">* required</div>
       </div>
-      <input [(ngModel)]="username" type="text" placeholder="Enter e-mail" class="login__input">
+      <input [(ngModel)]="username" (input)="hideWarning()" type="text" placeholder="Enter e-mail" class="login__input">
     </div>
     <div class="login__field">
       <div class="login__field-info">
         <div class="login__field-title">Password:</div>
         <div class="login__field-required">* required</div>
       </div>
-      <input [(ngModel)]="password" type="password" placeholder="Enter password"
+      <input [(ngModel)]="password" (input)="hideWarning()" type="password" placeholder="Enter password"
         class="login__input">
     </div>
   </div>

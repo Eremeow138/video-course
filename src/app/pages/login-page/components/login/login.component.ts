@@ -1,23 +1,36 @@
-import { Component } from "@angular/core";
+import { Component, OnInit } from "@angular/core";
 import { AuthService } from "@app/authentication/services/auth/auth.service";
+import { skip } from "rxjs/operators";
 
 @Component({
   selector: "app-login",
   templateUrl: "./login.component.html",
   styleUrls: ["./login.component.scss"]
 })
-export class LoginComponent {
+export class LoginComponent implements OnInit {
 
-  public isSuccessfulLogin = true;
+  public isVisibleWarning = false;
 
   public username = "";
 
   public password = "";
 
-  constructor(private auth: AuthService) { }
+  constructor(private authService: AuthService) { }
+
+  ngOnInit() {
+    this.authService.isAuthenticated$.pipe(
+      skip(1)
+    ).subscribe(isAuthenticated => {
+      this.isVisibleWarning = !isAuthenticated;
+    });
+  }
 
   public login(): void {
-    this.auth.login(this.username, this.password);
-    this.isSuccessfulLogin = this.auth.isAuthenticated();
+    this.authService.login(this.username, this.password);
+  }
+  public hideWarning(): void {
+    if (this.isVisibleWarning) {
+      this.isVisibleWarning = false;
+    }
   }
 }
