@@ -1,10 +1,10 @@
-import { Injectable } from "@angular/core";
+import { Injectable, OnDestroy } from "@angular/core";
 import { Observable, ReplaySubject } from "rxjs";
 
 @Injectable({
   providedIn: "root"
 })
-export class AuthService {
+export class AuthService implements OnDestroy {
   private users = [
     {
       username: "admin",
@@ -29,6 +29,10 @@ export class AuthService {
 
   constructor() {
     this.tokenCheck();
+  }
+
+  ngOnDestroy() {
+    this.isAuthenticatedSubject.complete();
   }
 
   public login(username: string, password: string): void {
