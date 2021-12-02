@@ -9,7 +9,7 @@ import { AuthService } from "@app/authentication/services/auth/auth.service";
 export class UserComponent {
   constructor(private authService: AuthService) { }
 
-  public logout() {
+  public logout(): void {
     this.authService.logout();
   }
 }

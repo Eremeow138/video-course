@@ -31,7 +31,7 @@ export class AuthService implements OnDestroy {
     this.tokenCheck();
   }
 
-  ngOnDestroy() {
+  ngOnDestroy(): void {
     this.isAuthenticatedSubject.complete();
   }
 

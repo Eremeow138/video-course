@@ -27,7 +27,7 @@ export class IfAuthenticatedDirective implements OnDestroy {
     this.unsubscribe$.complete();
   }
 
-  private showOrHide(isAuthenticated: boolean) {
+  private showOrHide(isAuthenticated: boolean): void {
     if (this.condition && isAuthenticated) {
       this.viewContainer.createEmbeddedView(this.templateRef);
     } else if (!this.condition && isAuthenticated) {

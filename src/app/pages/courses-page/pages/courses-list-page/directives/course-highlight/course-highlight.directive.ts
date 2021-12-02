@@ -14,7 +14,7 @@ export class CourseHighlightDirective implements OnInit {
 
   constructor(private elementRef: ElementRef, private renderer: Renderer2) { }
 
-  ngOnInit() {
+  ngOnInit(): void {
     this.changeCourseHighlight();
   }
 

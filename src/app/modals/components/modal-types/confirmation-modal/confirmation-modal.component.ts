@@ -14,7 +14,7 @@ export class ConfirmationModalComponent extends AbstractModalComponent {
     super(modalService);
   }
 
-  confirm() {
+  confirm(): void {
     const data: IModalResultData = {
       key: this.metadata.initialResult?.key,
       value: this.metadata.initialResult?.value

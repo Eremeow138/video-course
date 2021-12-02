@@ -38,7 +38,7 @@ export class LoginComponent implements OnInit, OnDestroy {
     }
   }
 
-  private subscribeToAuthentication() {
+  private subscribeToAuthentication(): void {
     this.authService.isAuthenticated$.pipe(
       skip(1),
       takeUntil(this.unsubscribe$)

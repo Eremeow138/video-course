@@ -19,7 +19,7 @@ export class CoursesListComponent {
     return course.id;
   }
 
-  public loadMoreCourses() {
+  public loadMoreCourses(): void {
     this.loadMoreCoursesEvent.emit();
   }
 

@@ -10,7 +10,7 @@ export abstract class AbstractModalComponent {
 
   constructor(protected modalService: ModalsService) { }
 
-  hideModal() {
+  hideModal(): void {
     this.modalService.hideModals();
   }
 }
