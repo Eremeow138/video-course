@@ -1,4 +1,6 @@
 <div class="modal-header">
-  <h3 *ngIf="title" class="modal-header__title">{{title}}</h3>
+  <div class="modal-header__title-wrapper">
+    <h3 *ngIf="title" class="modal-header__title">{{title}}</h3>
+  </div>
   <button (click)="cancel()" type="button" class="modal-header__button"></button>
 </div>

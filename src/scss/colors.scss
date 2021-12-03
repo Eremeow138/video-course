@@ -31,8 +31,8 @@ $text-link-color: $eighth-color;
 $text-link-color-hover: darken($text-link-color, 5);
 $text-link-color-focus: darken($text-link-color, 15);
 
-$h3-color: #333;
-
+$primary-title-color: #333;
+$secondary-title-color: $text-primary-color;
 $input-text-color: $text-primary-color;
 $input-placeholder-color: rgb(172 175 191);
 

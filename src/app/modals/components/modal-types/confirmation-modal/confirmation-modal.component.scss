@@ -17,17 +17,22 @@
   background-color: $third-bg-color;
   border-radius: $primary-border-radius;
 
-  &__container {
+  &__header {
     @include height-width-100-percent;
 
-    padding: $modal-container-paddings;
+    border-bottom: 1px solid $ninth-color;
+    padding: $modal-paddings;
+  }
+  &__content {
+    @include height-width-100-percent;
 
-    &--border-top {
-      border-top: 1px solid $ninth-color;
-    }
-    &--border-bottom {
-      border-bottom: 1px solid $ninth-color;
-    }
+    padding: $modal-content-paddings;
+  }
+  &__footer {
+    @include height-width-100-percent;
+
+    border-top: 1px solid $ninth-color;
+    padding: $modal-paddings;
   }
   &__text {
     @include height-width-100-percent;

@@ -40,15 +40,17 @@
     align-items: center;
     flex-grow: 1;
     height: 100%;
-    padding-right: $course-card-title-padding;
+    padding-right: $modal-title-padding;
   }
   &__title {
-    @include h3-title;
+    @include primary-title;
 
     height: min-content;
   }
   &__favorite {
-    @include icon-size($h3-font-size);
+    @include icon-size($primary-title-font-size);
+
+    margin-left: 0.5rem;
   }
   &__tools-wrapper {
     flex-shrink: 0;

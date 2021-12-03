@@ -122,11 +122,15 @@
   font-size: $primary-font-size;
   color: $text-primary-color;
 }
-@mixin h3-title {
-  font-size: $h3-font-size;
+@mixin primary-title {
+  font-size: $primary-title-font-size;
   font-weight: 600;
-  color: $h3-color;
-  margin-right: 0.5rem;
+  color: $primary-title-color;
+}
+@mixin secondary-title {
+  font-size: $secondary-title-font-size;
+  font-weight: 600;
+  color: $secondary-title-color;
 }
 @mixin logo-text {
   font-size: $logo-font-size;

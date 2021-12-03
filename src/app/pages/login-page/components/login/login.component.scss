@@ -17,7 +17,7 @@
     align-items: center;
   }
   &__header-title {
-    @include h3-title;
+    @include primary-title;
   }
   &__warning {
     color: $text-warning-color;

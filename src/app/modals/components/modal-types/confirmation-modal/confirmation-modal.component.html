@@ -1,11 +1,11 @@
 <div class="confirmation-modal">
-  <div class="confirmation-modal__container confirmation-modal__container--border-bottom">
+  <div class="confirmation-modal__header">
     <app-modal-header (cancelEvent)="hideModal()" [title]="metadata.title"></app-modal-header>
   </div>
-  <div class="confirmation-modal__container">
+  <div class="confirmation-modal__content">
     <p *ngFor="let text of metadata.text" class="confirmation-modal__text">{{text}}</p>
   </div>
-  <div class="confirmation-modal__container confirmation-modal__container--border-top">
+  <div class="confirmation-modal__footer">
     <app-modal-footer (cancelEvent)="hideModal()" (confirmEvent)="confirm()" [buttonsText]="metadata.buttonsText">
     </app-modal-footer>
   </div>

@@ -9,11 +9,17 @@
   @include height-width-100-percent;
   @include flex-row;
 
-  justify-content: space-between;
+  // justify-content: space-between;
   align-items: center;
 
+  &__title-wrapper {
+    @include height-width-100-percent;
+
+    flex-grow: 1;
+    padding-right: $course-card-title-padding;
+  }
   &__title {
-    @include h3-title;
+    @include secondary-title;
   }
   &__button {
     @include icon-size(1.4rem);
