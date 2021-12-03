@@ -55,7 +55,7 @@ export class CoursesListPageComponent implements OnInit {
       title: "Delete course?",
       text: ["Are you sure you want to delete", `${titleOfCourseForDeletion}?`],
       buttonsText: {
-        canel: "Canel",
+        cancel: "Cancel",
         confirm: "Yes, delete"
       },
       initialResult: {

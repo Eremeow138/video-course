@@ -11,10 +11,10 @@ export class ModalHeaderComponent {
   public title!: string;
 
   @Output()
-  private canelEvent = new EventEmitter<void>();
+  private cancelEvent = new EventEmitter<void>();
 
-  public canel(): void {
-    this.canelEvent.emit();
+  public cancel(): void {
+    this.cancelEvent.emit();
   }
 
 }

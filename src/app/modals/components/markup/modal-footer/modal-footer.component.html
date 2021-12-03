@@ -1,11 +1,9 @@
 <div class="modal-footer">
   <div *ngIf="buttonsText" class="modal-footer__btn-container">
-    <button *ngIf="buttonsText.canel" (click)="canel()" type="button"
-      class="button button--white-gray">
-      <span class="button__text button__text--gray">{{buttonsText.canel}}</span>
+    <button *ngIf="buttonsText.cancel" (click)="cancel()" type="button" class="button button--white-gray">
+      <span class="button__text button__text--gray">{{buttonsText.cancel}}</span>
     </button>
-    <button *ngIf="buttonsText.confirm" (click)="confirm()" type="button"
-      class="button button--green">
+    <button *ngIf="buttonsText.confirm" (click)="confirm()" type="button" class="button button--green">
       <span class="button__text">{{buttonsText.confirm}}</span>
     </button>
   </div>

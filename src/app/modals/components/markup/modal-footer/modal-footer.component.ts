@@ -15,10 +15,10 @@ export class ModalFooterComponent {
   private confirmEvent = new EventEmitter<void>();
 
   @Output()
-  private canelEvent = new EventEmitter<void>();
+  private cancelEvent = new EventEmitter<void>();
 
-  public canel(): void {
-    this.canelEvent.emit();
+  public cancel(): void {
+    this.cancelEvent.emit();
   }
 
   public confirm(): void {

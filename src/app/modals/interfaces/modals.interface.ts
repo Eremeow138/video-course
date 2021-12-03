@@ -20,5 +20,5 @@ export interface IModalResultData {
 
 export interface IModalButtonsText {
   confirm?: string;
-  canel?: string;
+  cancel?: string;
 }
