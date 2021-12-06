@@ -22,7 +22,7 @@
     @include secondary-title;
   }
   &__button {
-    @include icon-size(1.4rem);
+    @include icon-size(2rem);
     @include button;
 
     position: relative;
