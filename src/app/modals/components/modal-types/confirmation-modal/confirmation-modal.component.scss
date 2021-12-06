@@ -26,7 +26,9 @@
   &__content {
     @include height-width-100-percent;
 
+    max-height: 95px;
     padding: $modal-content-paddings;
+    overflow-y: scroll;
   }
   &__footer {
     @include height-width-100-percent;
