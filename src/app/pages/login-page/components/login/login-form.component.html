@@ -9,16 +9,16 @@
     <div class="login-form__field-list">
       <div class="login-form__field">
         <div class="login-form__field-info">
-          <div class="login-form__field-title">Email:</div>
-          <div class="login-form__field-required">* required</div>
+          <span class="login-form__field-title">Email:</span>
+          <span class="login-form__field-required">* required</span>
         </div>
         <input [(ngModel)]="username" (input)="hideWarning()" type="text" placeholder="Enter e-mail"
           class="login-form__input">
       </div>
       <div class="login-form__field">
         <div class="login-form__field-info">
-          <div class="login-form__field-title">Password:</div>
-          <div class="login-form__field-required">* required</div>
+          <span class="login-form__field-title">Password:</span>
+          <span class="login-form__field-required">* required</span>
         </div>
         <input [(ngModel)]="password" (input)="hideWarning()" type="password" placeholder="Enter password"
           class="login-form__input">
