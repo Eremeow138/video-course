@@ -58,14 +58,11 @@
     @include flex-row;
 
     justify-content: space-between;
+    align-items: center;
   }
   &__forgot-password {
-    @include button;
-
     color: $text-link-color;
     font-size: $secondary-font-size;
-    text-decoration: underline;
-    background-color: transparent;
 
     &:hover {
       color: $text-link-color-hover;
