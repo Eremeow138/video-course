@@ -31,25 +31,11 @@
   &__field-list {
     margin: $primary-content-margin 0;
   }
-  &__field {
+  &__field-wrapper {
 
     &:not(:first-child) {
       margin-top: 1.2rem;
     }
-  }
-  &__field-info {
-    @include flex-row;
-
-    justify-content: space-between;
-    color: $text-primary-color;
-    margin-bottom: 1rem;
-  }
-  &__field-title {
-    font-size: $primary-font-size;
-    font-weight: 600;
-  }
-  &__field-required {
-    font-size: $secondary-font-size;
   }
   &__input {
     @include input-field;
