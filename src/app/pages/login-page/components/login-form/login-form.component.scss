@@ -17,6 +17,7 @@
     @include flex-row;
 
     align-items: center;
+    margin-bottom: $primary-content-margin;
   }
   &__header-title-wrapper {
     flex-grow: 1;
@@ -29,7 +30,8 @@
     font-size: $secondary-font-size;
   }
   &__field-list {
-    margin: $primary-content-margin 0;
+    width: 100%;
+    height: min-content;
   }
   &__field-wrapper {
 
@@ -45,6 +47,7 @@
 
     justify-content: space-between;
     align-items: center;
+    margin-top: $primary-content-margin;
   }
   &__forgot-password {
     color: $text-link-color;
