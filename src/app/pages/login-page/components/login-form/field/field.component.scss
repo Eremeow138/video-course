@@ -8,6 +8,7 @@
 
 .field {
   @include height-width-100-percent;
+  @include flex-column;
 
   &__info {
     @include flex-row;
