@@ -49,6 +49,9 @@
     align-items: center;
     margin-top: $primary-content-margin;
   }
+  &__buttons-wrapper {
+    @include flex-row;
+  }
   &__forgot-password {
     color: $text-link-color;
     font-size: $secondary-font-size;
