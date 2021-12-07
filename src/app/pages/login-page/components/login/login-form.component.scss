@@ -16,8 +16,10 @@
   &__header {
     @include flex-row;
 
-    justify-content: space-between;
     align-items: center;
+  }
+  &__header-title-wrapper {
+    flex-grow: 1;
   }
   &__header-title {
     @include primary-title;
