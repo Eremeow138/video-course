@@ -8,11 +8,18 @@
 .login-page {
   @include height-width-100-percent;
 
-  &__login-wrapper {
-    @include flex-column;
+  padding: $wrapper-paddings;
+
+  &__content {
     @include height-width-100-percent;
+    @include flex-column;
 
     align-items: center;
     justify-content: center;
+  }
+  &__login-form-wrapper {
+    width: 100%;
+    height: min-content;
+    max-width: $login-form-max-width;
   }
 }

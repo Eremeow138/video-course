@@ -6,10 +6,13 @@
   @include height-width-100-percent;
 }
 
-.login {
-  @include content-container;
+.login-form {
   @include height-width-100-percent;
+  @include content-container;
 
+  &__form {
+    @include height-width-100-percent;
+  }
   &__header {
     @include flex-row;
 

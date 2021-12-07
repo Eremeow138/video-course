@@ -3,14 +3,14 @@ import { CommonModule } from "@angular/common";
 import { FormsModule } from "@angular/forms";
 
 import { LoginPageComponent } from "./components/login-page.component";
-import { LoginComponent } from "./components/login/login.component";
+import { LoginFormComponent } from "./components/login/login-form.component";
 
 const COMPONENTS = [LoginPageComponent];
 
 @NgModule({
   declarations: [
     ...COMPONENTS,
-    LoginComponent
+    LoginFormComponent
   ],
   imports: [
     CommonModule,

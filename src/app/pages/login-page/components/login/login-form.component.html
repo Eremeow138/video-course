@@ -1,0 +1,32 @@
+<div class="login-form">
+  <form class="login-form__form">
+    <div class="login-form__header">
+      <h3 class="login-form__header-title">Login</h3>
+      <div *ngIf="isVisibleWarning" class="login-form__warning">Wrong e-mail or password</div>
+    </div>
+    <div class="login-form__field-list">
+      <div class="login-form__field">
+        <div class="login-form__field-info">
+          <div class="login-form__field-title">Email:</div>
+          <div class="login-form__field-required">* required</div>
+        </div>
+        <input [(ngModel)]="username" (input)="hideWarning()" type="text" placeholder="Enter e-mail"
+          class="login-form__input">
+      </div>
+      <div class="login-form__field">
+        <div class="login-form__field-info">
+          <div class="login-form__field-title">Password:</div>
+          <div class="login-form__field-required">* required</div>
+        </div>
+        <input [(ngModel)]="password" (input)="hideWarning()" type="password" placeholder="Enter password"
+          class="login-form__input">
+      </div>
+    </div>
+    <div class="login-form__actions">
+      <button type="button" class="login-form__forgot-password">Forgot password?</button>
+      <button (click)="login()" type="submit" class="button button--green login__button">
+        <span class="button__text">Login</span>
+      </button>
+    </div>
+  </form>
+</div>
