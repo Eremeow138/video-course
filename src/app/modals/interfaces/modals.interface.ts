@@ -1,5 +1,5 @@
 import { Type } from "@angular/core";
-import { AbstractModalComponent } from "../components/modal-types/abstract-modal/abstract-modal.component";
+import { AbstractModalComponent } from "@modals/components/modal-types/abstract-modal/abstract-modal.component";
 
 export interface IModalData {
   component: Type<AbstractModalComponent>;

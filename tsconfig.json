@@ -24,9 +24,6 @@
       "node_modules/@types"
     ],
     "paths": {
-      "@app/*": [
-        "src/app/*"
-      ],
       "@commons/*": [
         "src/app/commons/*"
       ],
@@ -44,6 +41,15 @@
       ],
       "@environments/*": [
         "src/environments/*"
+      ],
+      "@modals/*": [
+        "src/app/modals/*"
+      ],
+      "@authentication/*": [
+        "src/app/authentication/*"
+      ],
+      "@app/*": [
+        "src/app/*"
       ],
     },
   },

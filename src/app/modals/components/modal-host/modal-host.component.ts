@@ -1,7 +1,7 @@
 import { Component, ComponentFactoryResolver, OnDestroy, OnInit, ViewChild } from "@angular/core";
-import { ModalHostDirective } from "@app/modals/directives/modal-host/modal-host.directive";
-import { IModalData } from "@app/modals/interfaces/modals.interface";
-import { ModalsService } from "@app/modals/services/modals/modals.service";
+import { ModalHostDirective } from "@modals/directives/modal-host/modal-host.directive";
+import { IModalData } from "@modals/interfaces/modals.interface";
+import { ModalsService } from "@modals/services/modals/modals.service";
 import { Subject } from "rxjs";
 import { takeUntil } from "rxjs/operators";
 

@@ -1,7 +1,7 @@
 import { Component } from "@angular/core";
-import { IModalResultData } from "@app/modals/interfaces/modals.interface";
-import { ModalsService } from "@app/modals/services/modals/modals.service";
-import { AbstractModalComponent } from "../abstract-modal/abstract-modal.component";
+import { IModalResultData } from "@modals/interfaces/modals.interface";
+import { ModalsService } from "@modals/services/modals/modals.service";
+import { AbstractModalComponent } from "@modals/components/modal-types/abstract-modal/abstract-modal.component";
 
 @Component({
   selector: "app-confirmation-modal",

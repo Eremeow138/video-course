@@ -1,6 +1,6 @@
 import { Directive, Input } from "@angular/core";
-import { IModalMetadata } from "@app/modals/interfaces/modals.interface";
-import { ModalsService } from "@app/modals/services/modals/modals.service";
+import { IModalMetadata } from "@modals/interfaces/modals.interface";
+import { ModalsService } from "@modals/services/modals/modals.service";
 
 @Directive()
 export abstract class AbstractModalComponent {

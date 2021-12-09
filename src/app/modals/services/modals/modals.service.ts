@@ -1,5 +1,5 @@
 import { Injectable, OnDestroy } from "@angular/core";
-import { IModalData, IModalResultData } from "@app/modals/interfaces/modals.interface";
+import { IModalData, IModalResultData } from "@modals/interfaces/modals.interface";
 import { Observable, Subject } from "rxjs";
 
 @Injectable({

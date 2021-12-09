@@ -1,5 +1,6 @@
 import { Component, EventEmitter, Input, Output } from "@angular/core";
-import { IModalButtonsText } from "@app/modals/interfaces/modals.interface";
+import { IModalButtonsText } from "@modals/interfaces/modals.interface";
+
 
 @Component({
   selector: "app-modal-footer",

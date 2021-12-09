@@ -1,12 +1,12 @@
 import { Component, OnInit } from "@angular/core";
-import { ModalComponentEnum } from "@app/modals/enams/modal-component.enum";
-import { IModalData, IModalMetadata } from "@app/modals/interfaces/modals.interface";
-import { ModalMapperService } from "@app/modals/services/modal-mapper/modal-mapper.service";
-import { ModalsService } from "@app/modals/services/modals/modals.service";
-import { ICourse } from "@app/pages/courses-page/courses/interfaces/course.interface";
+import { ModalComponentEnum } from "@modals/enams/modal-component.enum";
+import { IModalData, IModalMetadata } from "@modals/interfaces/modals.interface";
+import { ICourse } from "@pages/courses-page/courses/interfaces/course.interface";
+import { ModalMapperService } from "@modals/services/modal-mapper/modal-mapper.service";
+import { ModalsService } from "@modals/services/modals/modals.service";
+import { CoursesService } from "@courses-list-page/services/courses.service";
 import { takeUntil } from "rxjs/operators";
-import { FilterPipe } from "../pipes/filter/filter.pipe";
-import { CoursesService } from "../services/courses.service";
+import { FilterPipe } from "@courses-list-page/pipes/filter/filter.pipe";
 
 @Component({
   selector: "app-courses-list-page",

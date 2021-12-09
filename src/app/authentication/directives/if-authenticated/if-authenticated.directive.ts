@@ -1,5 +1,6 @@
 import { Directive, Input, OnDestroy, TemplateRef, ViewContainerRef } from "@angular/core";
-import { AuthService } from "@app/authentication/services/auth/auth.service";
+import { AuthService } from "@authentication/services/auth/auth.service";
+
 import { Subject } from "rxjs";
 import { distinctUntilChanged, takeUntil } from "rxjs/operators";
 

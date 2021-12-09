@@ -1,6 +1,6 @@
 import { Component, OnDestroy, OnInit } from "@angular/core";
 import { FormControl, FormGroup, Validators } from "@angular/forms";
-import { AuthService } from "@app/authentication/services/auth/auth.service";
+import { AuthService } from "@authentication/services/auth/auth.service";
 import { Subject } from "rxjs";
 import { skip, takeUntil } from "rxjs/operators";
 
