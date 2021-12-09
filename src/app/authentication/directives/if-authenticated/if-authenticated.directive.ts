@@ -12,15 +12,15 @@ export class IfAuthenticatedDirective implements OnDestroy {
 
   private condition = false;
 
-  constructor(
-    private templateRef: TemplateRef<any>,
-    private viewContainer: ViewContainerRef,
-    private authService: AuthService) { }
-
   @Input() set appIfAuthenticated(condition: boolean) {
     this.condition = condition;
     this.subscribeToAuthentication();
   }
+
+  constructor(
+    private templateRef: TemplateRef<any>,
+    private viewContainer: ViewContainerRef,
+    private authService: AuthService) { }
 
   ngOnDestroy(): void {
     this.unsubscribe$.next();

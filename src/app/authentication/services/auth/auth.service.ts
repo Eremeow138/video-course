@@ -27,6 +27,10 @@ export class AuthService implements OnDestroy {
 
   private isAuthenticatedSubject = new ReplaySubject<boolean>(1);
 
+  get isAuthenticated$(): Observable<boolean> {
+    return this.isAuthenticatedSubject.asObservable();
+  }
+
   constructor() {
     this.tokenCheck();
   }
@@ -54,10 +58,6 @@ export class AuthService implements OnDestroy {
     localStorage.removeItem(this.localStorageTokenKey);
     this.authenticatedUsername = "";
     this.isAuthenticatedSubject.next(false);
-  }
-
-  get isAuthenticated$(): Observable<boolean> {
-    return this.isAuthenticatedSubject.asObservable();
   }
 
   public getUserInfo(): string {
