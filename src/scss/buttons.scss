@@ -49,12 +49,9 @@
       border-color: $btn-primary-border-color-focus;
     }
   }
-  &__icon {
-    @include button-icon;
-
-    &--small {
-      @include icon-size($btn-third-icon-size);
-    }
+  &[disabled] {
+    background-color: $btn-disable-bg-color;
+    cursor: default;
   }
   &__text {
     @include button-text;
@@ -64,6 +61,16 @@
     }
     &--gray {
       color: $btn-secondary-text-color;
+    }
+  }
+  &[disabled] &__text {
+    color: $btn-disable-text-color;
+  }
+  &__icon {
+    @include button-icon;
+
+    &--small {
+      @include icon-size($btn-third-icon-size);
     }
   }
 }

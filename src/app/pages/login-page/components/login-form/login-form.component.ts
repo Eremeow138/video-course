@@ -1,4 +1,5 @@
 import { Component, OnDestroy, OnInit } from "@angular/core";
+import { FormControl, FormGroup, Validators } from "@angular/forms";
 import { AuthService } from "@app/authentication/services/auth/auth.service";
 import { Subject } from "rxjs";
 import { skip, takeUntil } from "rxjs/operators";
@@ -12,9 +13,10 @@ export class LoginFormComponent implements OnInit, OnDestroy {
 
   public isVisibleWarning = false;
 
-  public username = "";
-
-  public password = "";
+  public loginForm = new FormGroup({
+    username: new FormControl("", Validators.required),
+    password: new FormControl("", Validators.required)
+  });
 
   private unsubscribe$ = new Subject<void>();
 
@@ -30,7 +32,7 @@ export class LoginFormComponent implements OnInit, OnDestroy {
   }
 
   public login(): void {
-    this.authService.login(this.username, this.password);
+    this.authService.login(this.loginForm.controls.username.value, this.loginForm.controls.password.value);
   }
   public hideWarning(): void {
     if (this.isVisibleWarning) {

@@ -1,5 +1,5 @@
 <div class="login-form">
-  <form class="login-form__form">
+  <form [formGroup]="loginForm" class="login-form__form">
     <div class="login-form__header">
       <div class="login-form__header-title-wrapper">
         <h3 class="login-form__header-title">Login</h3>
@@ -9,13 +9,13 @@
     <div class="login-form__field-list">
       <div class="login-form__field-wrapper">
         <app-field title="Email">
-          <input #fieldContent [(ngModel)]="username" (input)="hideWarning()" type="text" placeholder="Enter e-mail"
+          <input #fieldContent formControlName="username" (input)="hideWarning()" type="text" placeholder="Enter e-mail"
             class="login-form__input" required>
         </app-field>
       </div>
       <div class="login-form__field-wrapper">
         <app-field title="Password">
-          <input #fieldContent [(ngModel)]="password" (input)="hideWarning()" type="password"
+          <input #fieldContent formControlName="password" (input)="hideWarning()" type="password"
             placeholder="Enter password" class="login-form__input" required>
         </app-field>
       </div>
@@ -23,7 +23,8 @@
     <div class="login-form__actions">
       <a href="#" class="login-form__forgot-password">Forgot password?</a>
       <div class="login-form__buttons-wrapper">
-        <button (click)="login()" type="submit" class="button button--green login-form__button">
+        <button [disabled]="loginForm.invalid" (click)="login()" type="submit"
+          class="button button--green login-form__button">
           <span class="button__text">Login</span>
         </button>
       </div>
