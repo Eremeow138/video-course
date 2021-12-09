@@ -26,8 +26,7 @@
     @include primary-title;
   }
   &__warning {
-    color: $text-warning-color;
-    font-size: $secondary-font-size;
+    @include warning-text;
   }
   &__field-list {
     width: 100%;

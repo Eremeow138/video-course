@@ -165,3 +165,7 @@
   font-size: $secondary-font-size;
   color: $text-primary-color;
 }
+@mixin warning-text {
+  font-size: $secondary-font-size;
+  color: $text-warning-color;
+}
