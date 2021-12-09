@@ -14,14 +14,12 @@
     @include flex-row;
 
     justify-content: space-between;
-    color: $text-primary-color;
     margin-bottom: 1rem;
   }
   &__title {
-    font-size: $primary-font-size;
-    font-weight: 600;
+    @include field-title-text;
   }
   &__required {
-    font-size: $secondary-font-size;
+    @include field-required-text;
   }
 }

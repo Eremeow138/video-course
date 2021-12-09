@@ -156,3 +156,12 @@
   color: $text-primary-color;
   font-size: $primary-font-size;
 }
+@mixin field-title-text {
+  font-size: $primary-font-size;
+  color: $text-primary-color;
+  font-weight: 600;
+}
+@mixin field-required-text {
+  font-size: $secondary-font-size;
+  color: $text-primary-color;
+}
