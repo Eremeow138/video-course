@@ -32,7 +32,7 @@ export class AuthService implements OnDestroy {
   }
 
   constructor() {
-    this.tokenCheck();
+    this.checkToken();
   }
 
   ngOnDestroy(): void {
@@ -61,7 +61,7 @@ export class AuthService implements OnDestroy {
     return this.authenticatedUsername;
   }
 
-  private tokenCheck(): void {
+  private checkToken(): void {
     const token = this.getTokenFromLocalStorage();
     const username = this.getUsernameFromLocalStorage();
 
