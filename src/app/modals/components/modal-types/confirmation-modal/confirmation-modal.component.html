@@ -3,7 +3,7 @@
     <app-modal-header [title]="metadata.title" (cancelEvent)="hideModal()"></app-modal-header>
   </div>
   <div class="confirmation-modal__content">
-    <p *ngFor="let text of metadata.text" class="confirmation-modal__text">{{text}}</p>
+    <p *ngFor="let text of metadata.text | stringToStringArray" class="confirmation-modal__text">{{text}}</p>
   </div>
   <div class="confirmation-modal__footer">
     <app-modal-footer [buttonsText]="metadata.buttonsText" (cancelEvent)="hideModal()" (confirmEvent)="confirm()">

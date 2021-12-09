@@ -8,7 +8,7 @@ export interface IModalData {
 
 export interface IModalMetadata {
   title: string;
-  text: string[];
+  text: string[] | string;
   initialResult?: IModalResultData;
   buttonsText: IModalButtonsText;
 }

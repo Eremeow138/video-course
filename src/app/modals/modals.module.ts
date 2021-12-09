@@ -9,6 +9,8 @@ import { ModalHostDirective } from "./directives/modal-host/modal-host.directive
 
 import { CommonModule } from "@angular/common";
 
+import { StringToStringArrayPipe } from "./pipes/string-to-string-array/string-to-string-array.pipe";
+
 const EXTERNAL_API = [
   ModalHostDirective,
   ModalHostComponent
@@ -28,6 +30,7 @@ const IMPORTS = [
     ...MODALS,
     ModalFooterComponent,
     ModalHeaderComponent,
+    StringToStringArrayPipe,
   ],
   imports: [...IMPORTS],
   entryComponents: [...MODALS],
