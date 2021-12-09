@@ -12,7 +12,7 @@ import { takeUntil } from "rxjs/operators";
 })
 export class ModalHostComponent implements OnInit, OnDestroy {
 
-  @ViewChild(ModalHostDirective) modalHostDirective!: ModalHostDirective;
+  @ViewChild(ModalHostDirective) modalHostDirective: ModalHostDirective | null = null;
 
   public isOverlayVisible = false;
 
@@ -33,18 +33,22 @@ export class ModalHostComponent implements OnInit, OnDestroy {
   }
 
   public showModal(data: IModalData): void {
-    this.isOverlayVisible = true;
-    const modalFactory = this.factoryResolver.resolveComponentFactory(data.component);
-    const viewContainerRef = this.modalHostDirective.viewContainerRef;
-    viewContainerRef.clear();
-    const modalComponent = viewContainerRef.createComponent(modalFactory);
-    modalComponent.instance.metadata = data.metadata;
+    if (this.modalHostDirective) {
+      this.isOverlayVisible = true;
+      const modalFactory = this.factoryResolver.resolveComponentFactory(data.component);
+      const viewContainerRef = this.modalHostDirective.viewContainerRef;
+      viewContainerRef.clear();
+      const modalComponent = viewContainerRef.createComponent(modalFactory);
+      modalComponent.instance.metadata = data.metadata;
+    }
   }
 
   public hideModals(): void {
-    const viewContainerRef = this.modalHostDirective.viewContainerRef;
-    viewContainerRef.clear();
-    this.isOverlayVisible = false;
+    if (this.modalHostDirective) {
+      const viewContainerRef = this.modalHostDirective.viewContainerRef;
+      viewContainerRef.clear();
+      this.isOverlayVisible = false;
+    }
   }
 
   private subscribeToModals(): void {

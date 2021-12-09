@@ -8,12 +8,14 @@ import { ICourse } from "@courses/interfaces/course.interface";
 })
 export class CourseCardComponent {
   @Input()
-  public course!: ICourse;
+  public course: ICourse | null = null;
 
   @Output()
   private deleteCourseEvent = new EventEmitter<number>();
 
   public deleteCourse(): void {
-    this.deleteCourseEvent.emit(this.course.id);
+    if (this.course) {
+      this.deleteCourseEvent.emit(this.course.id);
+    }
   }
 }

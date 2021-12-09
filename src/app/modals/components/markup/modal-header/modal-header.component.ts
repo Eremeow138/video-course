@@ -8,7 +8,7 @@ import { Component, EventEmitter, Input, Output } from "@angular/core";
 export class ModalHeaderComponent {
 
   @Input()
-  public title!: string;
+  public title = "";
 
   @Output()
   private cancelEvent = new EventEmitter<void>();

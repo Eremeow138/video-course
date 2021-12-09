@@ -9,15 +9,15 @@ export class FieldComponent implements AfterContentInit {
 
 
   @Input()
-  public title!: string;
+  public title = "";
 
   public isRequired = false;
 
   @ContentChild("fieldContent")
-  private contentRef!: ElementRef;
+  private contentRef: ElementRef | null = null;
 
   ngAfterContentInit() {
-    if (this.contentRef.nativeElement.required) {
+    if (this.contentRef && this.contentRef.nativeElement.required) {
       this.isRequired = true;
     }
   }

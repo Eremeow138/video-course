@@ -9,7 +9,7 @@ import { IModalButtonsText } from "@app/modals/interfaces/modals.interface";
 export class ModalFooterComponent {
 
   @Input()
-  public buttonsText!: IModalButtonsText;
+  public buttonsText: IModalButtonsText | null = null;
 
   @Output()
   private confirmEvent = new EventEmitter<void>();

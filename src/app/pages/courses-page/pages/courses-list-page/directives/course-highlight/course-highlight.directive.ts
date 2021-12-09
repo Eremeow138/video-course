@@ -6,7 +6,7 @@ import { CourseStatusEnum } from "../../enums/courses-list.enum";
 })
 export class CourseHighlightDirective implements OnInit {
   @Input("appCourseHighlight")
-  private creationDate!: string;
+  private creationDate: string | null = null;
 
   private readonly freshnessInDays = 14;
   private readonly className = "course-card--";
@@ -29,6 +29,9 @@ export class CourseHighlightDirective implements OnInit {
   }
 
   private getStatusCourse(): CourseStatusEnum | null {
+    if (!this.creationDate) {
+      return null;
+    }
     const currentTimeStamp = new Date().getTime();
     const creationTimeStamp = new Date(this.creationDate).getTime();
     const freshnessOfTimeStamp = currentTimeStamp - (this.millisecondsInDay * this.freshnessInDays);

@@ -6,7 +6,7 @@ import { ModalsService } from "@app/modals/services/modals/modals.service";
 export abstract class AbstractModalComponent {
 
   @Input()
-  public metadata!: IModalMetadata;
+  public metadata: IModalMetadata | null = null;
 
   constructor(protected modalService: ModalsService) { }
 

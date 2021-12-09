@@ -15,11 +15,13 @@ export class ConfirmationModalComponent extends AbstractModalComponent {
   }
 
   confirm(): void {
-    const data: IModalResultData = {
-      key: this.metadata.initialResult?.key,
-      value: this.metadata.initialResult?.value
-    };
+    if (this.metadata) {
+      const data: IModalResultData = {
+        key: this.metadata.initialResult?.key,
+        value: this.metadata.initialResult?.value
+      };
 
-    this.modalService.confirmModalValue(data);
+      this.modalService.confirmModalValue(data);
+    }
   }
 }
