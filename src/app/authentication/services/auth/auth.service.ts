@@ -43,9 +43,7 @@ export class AuthService implements OnDestroy {
     const user = this.users.find(currentUser => currentUser.username === username && currentUser.password === password);
 
     if (user) {
-      localStorage.setItem(this.localStorageUsernameKey, user.username);
-      localStorage.setItem(this.localStorageTokenKey, this.token);
-
+      this.setUsernameAndTokenToLocalStorage(user.username, this.token);
       this.authenticatedUsername = user.username;
       this.isAuthenticatedSubject.next(true);
     } else {
@@ -54,8 +52,7 @@ export class AuthService implements OnDestroy {
   }
 
   public logout(): void {
-    localStorage.removeItem(this.localStorageUsernameKey);
-    localStorage.removeItem(this.localStorageTokenKey);
+    this.clearLocalStorage();
     this.authenticatedUsername = "";
     this.isAuthenticatedSubject.next(false);
   }
@@ -65,8 +62,8 @@ export class AuthService implements OnDestroy {
   }
 
   private tokenCheck(): void {
-    const token = localStorage.getItem(this.localStorageTokenKey);
-    const username = localStorage.getItem(this.localStorageUsernameKey);
+    const token = this.getTokenFromLocalStorage();
+    const username = this.getUsernameFromLocalStorage();
 
     if (token && username) {
       this.authenticatedUsername = username;
@@ -74,5 +71,22 @@ export class AuthService implements OnDestroy {
     } else {
       this.logout();
     }
+  }
+
+  private setUsernameAndTokenToLocalStorage(username: string, token: string = this.token): void {
+    localStorage.setItem(this.localStorageUsernameKey, username);
+    localStorage.setItem(this.localStorageTokenKey, token);
+  }
+
+  private clearLocalStorage(): void {
+    localStorage.removeItem(this.localStorageUsernameKey);
+    localStorage.removeItem(this.localStorageTokenKey);
+  }
+
+  private getTokenFromLocalStorage(): string | null {
+    return localStorage.getItem(this.localStorageTokenKey);
+  }
+  private getUsernameFromLocalStorage(): string | null {
+    return localStorage.getItem(this.localStorageUsernameKey);
   }
 }
