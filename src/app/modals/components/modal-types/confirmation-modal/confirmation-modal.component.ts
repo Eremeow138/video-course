@@ -1,5 +1,4 @@
 import { Component } from "@angular/core";
-import { IModalResultData } from "@modals/interfaces/modals.interface";
 import { ModalsService } from "@modals/services/modals/modals.service";
 import { AbstractModalComponent } from "@modals/components/modal-types/abstract-modal/abstract-modal.component";
 
@@ -16,12 +15,7 @@ export class ConfirmationModalComponent extends AbstractModalComponent {
 
   confirm(): void {
     if (this.metadata) {
-      const data: IModalResultData = {
-        key: this.metadata.initialResult?.key,
-        value: this.metadata.initialResult?.value
-      };
-
-      this.modalService.confirmModalValue(data);
+      this.modalService.confirmModalValue(this.metadata);
     }
   }
 }

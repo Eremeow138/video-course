@@ -74,8 +74,11 @@ export class CoursesListPageComponent implements OnInit {
     this.modalService.showModal(data).pipe(
       takeUntil(this.modalService.hideModals$)
     ).subscribe(resultData => {
-      this.deleteCourse(resultData.value);
-      this.modalService.hideModals();
+      const initialResult = resultData.initialResult;
+      if (initialResult) {
+        this.deleteCourse(initialResult.value);
+        this.modalService.hideModals();
+      }
     });
   }
 

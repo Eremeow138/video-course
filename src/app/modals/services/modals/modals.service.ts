@@ -1,5 +1,5 @@
 import { Injectable, OnDestroy } from "@angular/core";
-import { IModalData, IModalResultData } from "@modals/interfaces/modals.interface";
+import { IModalData, IModalMetadata } from "@modals/interfaces/modals.interface";
 import { Observable, Subject } from "rxjs";
 
 @Injectable({
@@ -8,7 +8,7 @@ import { Observable, Subject } from "rxjs";
 export class ModalsService implements OnDestroy {
   private showModalSubject = new Subject<IModalData>();
   private hideModalsSubject = new Subject<void>();
-  private modalConfirmResultSubject = new Subject<IModalResultData>();
+  private modalConfirmResultSubject = new Subject<IModalMetadata>();
 
   get showModal$(): Observable<IModalData> {
     return this.showModalSubject.asObservable();
@@ -24,7 +24,7 @@ export class ModalsService implements OnDestroy {
     this.completeAllStreams();
   }
 
-  public showModal(data: IModalData): Observable<IModalResultData> {
+  public showModal(data: IModalData): Observable<IModalMetadata> {
     this.showModalSubject.next(data);
     return this.modalConfirmResultSubject.asObservable();
   }
@@ -33,7 +33,7 @@ export class ModalsService implements OnDestroy {
     this.hideModalsSubject.next();
   }
 
-  public confirmModalValue(data: IModalResultData): void {
+  public confirmModalValue(data: IModalMetadata): void {
     this.modalConfirmResultSubject.next(data);
   }
 
