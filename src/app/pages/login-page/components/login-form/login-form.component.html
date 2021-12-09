@@ -9,14 +9,14 @@
     <div class="login-form__field-list">
       <div class="login-form__field-wrapper">
         <app-field title="Email">
-          <input #content [(ngModel)]="username" (input)="hideWarning()" type="text" placeholder="Enter e-mail"
+          <input #fieldContent [(ngModel)]="username" (input)="hideWarning()" type="text" placeholder="Enter e-mail"
             class="login-form__input" required>
         </app-field>
       </div>
       <div class="login-form__field-wrapper">
         <app-field title="Password">
-          <input #content [(ngModel)]="password" (input)="hideWarning()" type="password" placeholder="Enter password"
-            class="login-form__input" required>
+          <input #fieldContent [(ngModel)]="password" (input)="hideWarning()" type="password"
+            placeholder="Enter password" class="login-form__input" required>
         </app-field>
       </div>
     </div>

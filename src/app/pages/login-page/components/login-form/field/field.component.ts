@@ -13,7 +13,7 @@ export class FieldComponent implements AfterContentInit {
 
   public isRequired = false;
 
-  @ContentChild("content")
+  @ContentChild("fieldContent")
   private contentRef!: ElementRef;
 
   ngAfterContentInit() {
