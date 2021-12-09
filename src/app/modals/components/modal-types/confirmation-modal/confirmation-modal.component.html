@@ -1,4 +1,4 @@
-<div class="confirmation-modal">
+<div *ngIf="metadata" class="confirmation-modal">
   <div class="confirmation-modal__header">
     <app-modal-header (cancelEvent)="hideModal()" [title]="metadata.title"></app-modal-header>
   </div>
