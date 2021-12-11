@@ -7,15 +7,15 @@
   </header>
   <main class="app__main">
     <div class="app__pages-wrapper">
-      <div *appIfAuthenticated="true" class="app__breadcrumbs-wrapper">
+      <div *ngIf="isAuthenticated$ | async" class="app__breadcrumbs-wrapper">
         <div class="app__breadcrumbs">
           <app-breadcrumbs></app-breadcrumbs>
         </div>
       </div>
-      <div *appIfAuthenticated="true" class="app__courses-page-wrapper">
+      <div *ngIf="isAuthenticated$ | async" class="app__courses-page-wrapper">
         <app-courses-list-page></app-courses-list-page>
       </div>
-      <div *appIfAuthenticated="false" class="app__login-page-wrapper">
+      <div *ngIf="(isAuthenticated$ | async) === false" class="app__login-page-wrapper">
         <app-login-page></app-login-page>
       </div>
     </div>
