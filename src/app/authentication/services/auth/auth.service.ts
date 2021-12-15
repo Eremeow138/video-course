@@ -45,10 +45,8 @@ export class AuthService implements OnDestroy {
     if (user) {
       this.setUsernameAndTokenToLocalStorage(user.username, this.token);
       this.authenticatedUsername = user.username;
-      this.isAuthenticatedSubject.next(true);
-    } else {
-      this.isAuthenticatedSubject.next(false);
     }
+    this.isAuthenticatedSubject.next(!!user);
   }
 
   public logout(): void {
@@ -68,9 +66,9 @@ export class AuthService implements OnDestroy {
     if (token && username) {
       this.authenticatedUsername = username;
       this.isAuthenticatedSubject.next(true);
-    } else {
-      this.logout();
+      return;
     }
+    this.logout();
   }
 
   private setUsernameAndTokenToLocalStorage(username: string, token: string = this.token): void {
