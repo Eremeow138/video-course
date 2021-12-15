@@ -14,6 +14,7 @@
     @include height-width-100-percent;
     @include flex-column;
 
+    padding: $wrapper-padding 0;
     align-items: center;
     justify-content: center;
   }
