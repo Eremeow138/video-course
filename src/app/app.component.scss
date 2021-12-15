@@ -54,7 +54,7 @@
     height: calc(100% - #{$breadcrumbs-height});
     padding-top: 2.1rem;
   }
-  &__login-page-wrapper {
+  &__login-page {
     @include height-width-100-percent;
   }
   &__footer-wrapper {

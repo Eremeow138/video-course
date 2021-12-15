@@ -17,7 +17,9 @@
     align-items: center;
     justify-content: center;
   }
-  &__login-form-wrapper {
+  &__form {
+    @include content-container;
+
     width: 100%;
     height: min-content;
     max-width: $login-form-max-width;

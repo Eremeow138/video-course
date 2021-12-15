@@ -15,7 +15,7 @@
       <div *ngIf="isAuthenticated$ | async" class="app__courses-page-wrapper">
         <app-courses-list-page></app-courses-list-page>
       </div>
-      <div *ngIf="(isAuthenticated$ | async) === false" class="app__login-page-wrapper">
+      <div *ngIf="(isAuthenticated$ | async) === false" class="app__login-page">
         <app-login-page></app-login-page>
       </div>
     </div>

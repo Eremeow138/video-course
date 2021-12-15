@@ -8,7 +8,6 @@
 
 .login-form {
   @include height-width-100-percent;
-  @include content-container;
 
   &__form {
     @include height-width-100-percent;
