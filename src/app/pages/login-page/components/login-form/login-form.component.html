@@ -8,15 +8,15 @@
     </div>
     <div class="login-form__field-list">
       <div class="login-form__field-wrapper">
-        <app-field title="Email" [isRequired]="hasRequiredField(loginForm.controls.username)">
-          <input formControlName="username" (input)="hideWarning()" type="text" placeholder="Enter e-mail"
+        <app-field title="Email" [isRequired]="hasRequiredField(loginForm.controls.email)">
+          <input formControlName="email" (input)="hideWarning()" type="text" placeholder="Enter e-mail"
             class="login-form__input">
         </app-field>
       </div>
       <div class="login-form__field-wrapper">
         <app-field title="Password" [isRequired]="hasRequiredField(loginForm.controls.password)">
-          <input formControlName="password" (input)="hideWarning()" type="password"
-            placeholder="Enter password" class="login-form__input">
+          <input formControlName="password" (input)="hideWarning()" type="password" placeholder="Enter password"
+            class="login-form__input">
         </app-field>
       </div>
     </div>

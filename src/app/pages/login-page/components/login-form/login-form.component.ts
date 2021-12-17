@@ -14,7 +14,7 @@ export class LoginFormComponent implements OnInit, OnDestroy {
   public isVisibleWarning = false;
 
   public loginForm = new FormGroup({
-    username: new FormControl("", Validators.required),
+    email: new FormControl("", Validators.required),
     password: new FormControl("", Validators.required)
   });
 
@@ -32,7 +32,7 @@ export class LoginFormComponent implements OnInit, OnDestroy {
   }
 
   public login(): void {
-    this.authService.login(this.loginForm.controls.username.value, this.loginForm.controls.password.value);
+    this.authService.login(this.loginForm.controls.email.value, this.loginForm.controls.password.value);
   }
 
   public hideWarning(): void {
