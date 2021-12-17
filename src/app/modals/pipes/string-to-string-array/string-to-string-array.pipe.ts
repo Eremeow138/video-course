@@ -8,8 +8,7 @@ export class StringToStringArrayPipe implements PipeTransform {
   transform(text: string | string[]): string[] {
     if (Array.isArray(text)) {
       return text;
-    } else {
-      return [text];
     }
+    return [text];
   }
 }
