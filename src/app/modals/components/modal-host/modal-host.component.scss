@@ -14,7 +14,7 @@
   justify-content: center;
 
   &__overlay {
-    @include fixed-zero-position;
+    @include fixed-position;
 
     background-color: $modals-overlay-bg-color;
     z-index: $modals-overlay-z-index;

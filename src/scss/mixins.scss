@@ -10,8 +10,7 @@
 
   position: absolute;
 }
-@mixin fixed-zero-position {
-  @include all-sides-zero;
+@mixin fixed-position {
   @include height-width-100-percent;
 
   position: fixed;
