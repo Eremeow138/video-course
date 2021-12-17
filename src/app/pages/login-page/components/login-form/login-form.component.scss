@@ -18,10 +18,11 @@
     align-items: center;
     margin-bottom: $primary-content-margin;
   }
-  &__header-title-wrapper {
+  &__title-wrapper {
     flex-grow: 1;
+    padding-right: $wrapper-padding;
   }
-  &__header-title {
+  &__title {
     @include primary-title;
   }
   &__warning {
