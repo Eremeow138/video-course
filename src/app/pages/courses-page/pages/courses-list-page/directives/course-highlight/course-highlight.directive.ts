@@ -6,7 +6,7 @@ import { CourseStatusEnum } from "@courses-list-page/enums/courses-list.enum";
 })
 export class CourseHighlightDirective implements OnInit {
   @Input("appCourseHighlight")
-  private creationDate: string | null = null;
+  private creationDate = "";
 
   private readonly freshnessInDays = 14;
   private readonly className = "course-card--";
