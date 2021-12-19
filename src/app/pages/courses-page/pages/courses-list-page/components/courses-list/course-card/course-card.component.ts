@@ -14,8 +14,6 @@ export class CourseCardComponent {
   private deleteCourseEvent = new EventEmitter<number>();
 
   public deleteCourse(): void {
-    if (this.course) {
-      this.deleteCourseEvent.emit(this.course.id);
-    }
+    this.deleteCourseEvent.emit(this.course.id);
   }
 }

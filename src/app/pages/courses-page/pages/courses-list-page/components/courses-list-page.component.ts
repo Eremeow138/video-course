@@ -49,7 +49,7 @@ export class CoursesListPageComponent implements OnInit {
 
     const courseForDeletion = this.courses.find(course => course.id === courseId);
 
-    const titleOfCourseForDeletion = (<ICourse>courseForDeletion).title;
+    const titleOfCourseForDeletion = (courseForDeletion).title;
 
     const modalMetadata: IModalMetadata = {
       title: "Delete course?",
@@ -75,10 +75,8 @@ export class CoursesListPageComponent implements OnInit {
       takeUntil(this.modalService.hideModals$)
     ).subscribe(resultData => {
       const initialResult = resultData.initialResult;
-      if (initialResult) {
-        this.deleteCourse(initialResult.value);
-        this.modalService.hideModals();
-      }
+      this.deleteCourse(initialResult.value);
+      this.modalService.hideModals();
     });
   }
 

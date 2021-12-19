@@ -33,22 +33,18 @@ export class ModalHostComponent implements OnInit, OnDestroy {
   }
 
   public showModal(data: IModalData): void {
-    if (this.modalHostDirective) {
-      this.isOverlayVisible = true;
-      const modalFactory = this.factoryResolver.resolveComponentFactory(data.component);
-      const viewContainerRef = this.modalHostDirective.viewContainerRef;
-      viewContainerRef.clear();
-      const modalComponent = viewContainerRef.createComponent(modalFactory);
-      modalComponent.instance.metadata = data.metadata;
-    }
+    this.isOverlayVisible = true;
+    const modalFactory = this.factoryResolver.resolveComponentFactory(data.component);
+    const viewContainerRef = this.modalHostDirective.viewContainerRef;
+    viewContainerRef.clear();
+    const modalComponent = viewContainerRef.createComponent(modalFactory);
+    modalComponent.instance.metadata = data.metadata;
   }
 
   public hideModals(): void {
-    if (this.modalHostDirective) {
-      const viewContainerRef = this.modalHostDirective.viewContainerRef;
-      viewContainerRef.clear();
-      this.isOverlayVisible = false;
-    }
+    const viewContainerRef = this.modalHostDirective.viewContainerRef;
+    viewContainerRef.clear();
+    this.isOverlayVisible = false;
   }
 
   private subscribeToModals(): void {

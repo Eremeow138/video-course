@@ -14,8 +14,6 @@ export class ConfirmationModalComponent extends AbstractModalComponent {
   }
 
   confirm(): void {
-    if (this.metadata) {
-      this.modalService.confirmModalValue(this.metadata);
-    }
+    this.modalService.confirmModalValue(this.metadata);
   }
 }
