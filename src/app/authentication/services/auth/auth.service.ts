@@ -39,8 +39,8 @@ export class AuthService implements OnDestroy {
     this.isAuthenticatedSubject.complete();
   }
 
-  public login(username: string, password: string): void {
-    const user = this.users.find(currentUser => currentUser.username === username && currentUser.password === password);
+  public login(loginData: { email: string; password: string }): void {
+    const user = this.users.find(currentUser => currentUser.username === loginData.email && currentUser.password === loginData.password);
 
     if (user) {
       this.setUsernameAndTokenToLocalStorage(user.username, this.token);

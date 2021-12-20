@@ -1,5 +1,5 @@
 import { Component, OnDestroy, OnInit } from "@angular/core";
-import { AbstractControl, FormControl, FormGroup, Validators } from "@angular/forms";
+import { FormControl, FormGroup, Validators } from "@angular/forms";
 import { AuthService } from "@authentication/services/auth/auth.service";
 import { Subject } from "rxjs";
 import { skip, takeUntil } from "rxjs/operators";
@@ -32,7 +32,7 @@ export class LoginFormComponent implements OnInit, OnDestroy {
   }
 
   public login(): void {
-    this.authService.login(this.loginForm.controls.email.value, this.loginForm.controls.password.value);
+    this.authService.login(this.loginForm.getRawValue());
   }
 
   public hideWarning(): void {
@@ -40,15 +40,6 @@ export class LoginFormComponent implements OnInit, OnDestroy {
       this.isVisibleWarning = false;
     }
   }
-  public hasRequiredField = (abstractControl: AbstractControl): boolean => {
-    if (abstractControl.validator) {
-      const validator = abstractControl.validator({} as AbstractControl);
-      if (validator && validator.required) {
-        return true;
-      }
-    }
-    return false;
-  };
 
   private subscribeToAuthentication(): void {
     this.authService.isAuthenticated$.pipe(
