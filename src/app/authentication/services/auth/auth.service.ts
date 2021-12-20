@@ -7,23 +7,23 @@ import { BehaviorSubject, Observable } from "rxjs";
 export class AuthService implements OnDestroy {
   private users = [
     {
-      username: "admin",
+      email: "admin@vc.com",
       password: "admin",
       role: "admin"
     },
     {
-      username: "user",
+      email: "user@vc.com",
       password: "user",
       role: "user"
     },
   ];
-  private localStorageUsernameKey = "username";
+  private localStorageEmailKey = "email";
 
   private localStorageTokenKey = "token";
 
   private token = "secretToken";
 
-  private authenticatedUsername = "";
+  private authenticatedUserEmail = "";
 
   private isAuthenticatedSubject = new BehaviorSubject<boolean>(false);
 
@@ -40,51 +40,51 @@ export class AuthService implements OnDestroy {
   }
 
   public login(loginData: { email: string; password: string }): void {
-    const user = this.users.find(currentUser => currentUser.username === loginData.email && currentUser.password === loginData.password);
+    const user = this.users.find(currentUser => currentUser.email === loginData.email && currentUser.password === loginData.password);
 
     if (user) {
-      this.setUsernameAndTokenToLocalStorage(user.username, this.token);
-      this.authenticatedUsername = user.username;
+      this.setEmailAndTokenToLocalStorage(user.email, this.token);
+      this.authenticatedUserEmail = user.email;
     }
     this.isAuthenticatedSubject.next(!!user);
   }
 
   public logout(): void {
     this.clearLocalStorage();
-    this.authenticatedUsername = "";
+    this.authenticatedUserEmail = "";
     this.isAuthenticatedSubject.next(false);
   }
 
   public getUserInfo(): string {
-    return this.authenticatedUsername;
+    return this.authenticatedUserEmail;
   }
 
   private checkToken(): void {
     const token = this.getTokenFromLocalStorage();
-    const username = this.getUsernameFromLocalStorage();
+    const email = this.getEmailFromLocalStorage();
 
-    if (token && username) {
-      this.authenticatedUsername = username;
+    if (token && email) {
+      this.authenticatedUserEmail = email;
       this.isAuthenticatedSubject.next(true);
       return;
     }
     this.logout();
   }
 
-  private setUsernameAndTokenToLocalStorage(username: string, token: string = this.token): void {
-    localStorage.setItem(this.localStorageUsernameKey, username);
+  private setEmailAndTokenToLocalStorage(email: string, token: string = this.token): void {
+    localStorage.setItem(this.localStorageEmailKey, email);
     localStorage.setItem(this.localStorageTokenKey, token);
   }
 
   private clearLocalStorage(): void {
-    localStorage.removeItem(this.localStorageUsernameKey);
+    localStorage.removeItem(this.localStorageEmailKey);
     localStorage.removeItem(this.localStorageTokenKey);
   }
 
   private getTokenFromLocalStorage(): string | null {
     return localStorage.getItem(this.localStorageTokenKey);
   }
-  private getUsernameFromLocalStorage(): string | null {
-    return localStorage.getItem(this.localStorageUsernameKey);
+  private getEmailFromLocalStorage(): string | null {
+    return localStorage.getItem(this.localStorageEmailKey);
   }
 }
