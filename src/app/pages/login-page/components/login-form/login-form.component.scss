@@ -20,7 +20,10 @@
   }
   &__title-wrapper {
     flex-grow: 1;
-    padding-right: $wrapper-padding;
+
+    &:not(:only-child) {
+      padding-right: $wrapper-padding;
+    }
   }
   &__title {
     @include primary-title;
