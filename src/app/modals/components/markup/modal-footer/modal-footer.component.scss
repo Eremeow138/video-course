@@ -1,0 +1,16 @@
+@import "mixins";
+
+:host {
+  @include height-width-100-percent;
+}
+
+.modal-footer {
+  @include height-width-100-percent;
+
+  &__btn-container {
+    @include height-width-100-percent;
+    @include flex-row;
+
+    justify-content: flex-end;
+  }
+}

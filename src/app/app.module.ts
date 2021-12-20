@@ -4,6 +4,9 @@ import { AppRoutingModule } from "./app-routing.module";
 import { CommonsModule } from "./commons/commons.module";
 import { MarkupModule } from "./markup/markup.module";
 import { CoursesListPageModule } from "./pages/courses-page/pages/courses-list-page/courses-list-page.module";
+import { LoginPageModule } from "./pages/login-page/login-page.module";
+import { ModalsModule } from "./modals/modals.module";
+import { AuthenticationModule } from "./authentication/authentication.module";
 
 import { AppComponent } from "./app.component";
 
@@ -15,6 +18,9 @@ import { AppComponent } from "./app.component";
     AppRoutingModule,
     MarkupModule,
     CoursesListPageModule,
+    LoginPageModule,
+    ModalsModule,
+    AuthenticationModule
   ],
   providers: [],
   bootstrap: [AppComponent],

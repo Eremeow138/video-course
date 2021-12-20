@@ -1,0 +1,22 @@
+@import "colors";
+@import "variables";
+@import "mixins";
+
+:host {
+  @include height-width-100-percent;
+}
+
+.modal-host {
+  @include absolute-zero-position;
+  @include flex-row;
+
+  align-items: center;
+  justify-content: center;
+
+  &__overlay {
+    @include fixed-position;
+
+    background-color: $modals-overlay-bg-color;
+    z-index: $modals-overlay-z-index;
+  }
+}

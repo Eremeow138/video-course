@@ -10,7 +10,8 @@ $secondary-border-radius: 3px;
 $primary-shadow: 0 1px 2px 0 $primary-shadow-color,
   0 2px 10px 0 $secondary-shadow-color;
 
-$h3-font-size: 2.4rem;
+$primary-title-font-size: 2.4rem;
+$secondary-title-font-size: 1.8rem;
 
 $logo-font-size: 1.8rem;
 
@@ -21,7 +22,9 @@ $content-padding: 0.8rem;
 
 $content-max-width: 1100px;
 
-$wrapper-paddings: 0 1.5rem;
+$wrapper-padding: 1.5rem;
+
+$wrapper-paddings: 0 $wrapper-padding;
 
 $description-padding-right: 2rem;
 
@@ -69,3 +72,15 @@ $window-min-width: 1024px;
 $window-min-height: 768px;
 
 $course-card-title-padding: 2rem;
+
+$login-form-max-width: 368px;
+
+$app-z-index: 1;
+$modals-overlay-z-index: 2;
+$modal-z-index: 3;
+
+$confirmation-modal-max-width: 370px;
+
+$modal-content-paddings: 1.8rem 2.4rem;
+$modal-paddings: 1.4rem 2.4rem;
+$modal-title-padding: 1rem;

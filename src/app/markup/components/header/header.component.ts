@@ -1,4 +1,6 @@
 import { Component } from "@angular/core";
+import { AuthService } from "@authentication/services/auth/auth.service";
+import { Observable } from "rxjs";
 
 @Component({
   selector: "app-header",
@@ -6,5 +8,9 @@ import { Component } from "@angular/core";
   styleUrls: ["./header.component.scss"],
 })
 export class HeaderComponent {
-  constructor() { }
+  public isAuthenticated$: Observable<boolean>;
+
+  constructor(private authService: AuthService) {
+    this.isAuthenticated$ = this.authService.isAuthenticated$;
+  }
 }

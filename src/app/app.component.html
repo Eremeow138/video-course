@@ -1,3 +1,4 @@
+<app-modal-host></app-modal-host>
 <div class="app">
   <header class="app__header-wrapper">
     <div class="app__header">
@@ -5,13 +6,18 @@
     </div>
   </header>
   <main class="app__main">
-    <div class="app__breadcrumbs-wrapper">
-      <div class="app__breadcrumbs">
-        <app-breadcrumbs></app-breadcrumbs>
+    <div class="app__pages-wrapper">
+      <div *ngIf="isAuthenticated$ | async" class="app__breadcrumbs-wrapper">
+        <div class="app__breadcrumbs">
+          <app-breadcrumbs></app-breadcrumbs>
+        </div>
       </div>
-    </div>
-    <div class="app__courses-page">
-      <app-courses-list-page></app-courses-list-page>
+      <div *ngIf="isAuthenticated$ | async" class="app__courses-page-wrapper">
+        <app-courses-list-page></app-courses-list-page>
+      </div>
+      <div *ngIf="(isAuthenticated$ | async) === false" class="app__login-page">
+        <app-login-page></app-login-page>
+      </div>
     </div>
   </main>
   <footer class="app__footer-wrapper">

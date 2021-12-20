@@ -1,12 +1,12 @@
 import { Directive, ElementRef, Input, OnInit, Renderer2 } from "@angular/core";
-import { CourseStatusEnum } from "../../enums/courses-list.enum";
+import { CourseStatusEnum } from "@courses-list-page/enums/courses-list.enum";
 
 @Directive({
   selector: "[appCourseHighlight]"
 })
 export class CourseHighlightDirective implements OnInit {
   @Input("appCourseHighlight")
-  private creationDate!: string;
+  private creationDate = "";
 
   private readonly freshnessInDays = 14;
   private readonly className = "course-card--";
@@ -14,7 +14,7 @@ export class CourseHighlightDirective implements OnInit {
 
   constructor(private elementRef: ElementRef, private renderer: Renderer2) { }
 
-  ngOnInit() {
+  ngOnInit(): void {
     this.changeCourseHighlight();
   }
 
@@ -29,6 +29,9 @@ export class CourseHighlightDirective implements OnInit {
   }
 
   private getStatusCourse(): CourseStatusEnum | null {
+    if (!this.creationDate) {
+      return null;
+    }
     const currentTimeStamp = new Date().getTime();
     const creationTimeStamp = new Date(this.creationDate).getTime();
     const freshnessOfTimeStamp = currentTimeStamp - (this.millisecondsInDay * this.freshnessInDays);

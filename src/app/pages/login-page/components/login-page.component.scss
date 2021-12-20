@@ -1,0 +1,30 @@
+@import "variables";
+@import "mixins";
+
+:host {
+  @include height-width-100-percent;
+}
+
+.login-page {
+  @include height-width-100-percent;
+
+  &__content-wrapper {
+    @include height-width-100-percent;
+
+    padding: $wrapper-padding;
+  }
+  &__content {
+    @include height-width-100-percent;
+    @include flex-column;
+
+    align-items: center;
+    justify-content: center;
+  }
+  &__form {
+    @include content-container;
+
+    width: 100%;
+    height: min-content;
+    max-width: $login-form-max-width;
+  }
+}
