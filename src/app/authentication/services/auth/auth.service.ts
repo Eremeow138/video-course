@@ -1,4 +1,5 @@
 import { Injectable, OnDestroy } from "@angular/core";
+import { ILoginData } from "@authentication/interfaces/login-data";
 import { BehaviorSubject, Observable } from "rxjs";
 
 @Injectable({
@@ -39,7 +40,7 @@ export class AuthService implements OnDestroy {
     this.isAuthenticatedSubject.complete();
   }
 
-  public login(loginData: { email: string; password: string }): void {
+  public login(loginData: ILoginData): void {
     const user = this.users.find(currentUser => currentUser.email === loginData.email && currentUser.password === loginData.password);
 
     if (user) {
