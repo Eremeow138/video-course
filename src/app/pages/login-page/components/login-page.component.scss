@@ -8,13 +8,15 @@
 .login-page {
   @include height-width-100-percent;
 
-  padding: $wrapper-paddings;
+  &__content-wrapper {
+    @include height-width-100-percent;
 
+    padding: $wrapper-padding;
+  }
   &__content {
     @include height-width-100-percent;
     @include flex-column;
 
-    padding: $wrapper-padding 0;
     align-items: center;
     justify-content: center;
   }
