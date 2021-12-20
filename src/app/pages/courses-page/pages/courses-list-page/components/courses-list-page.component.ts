@@ -1,5 +1,5 @@
 import { Component, OnInit } from "@angular/core";
-import { ModalComponentEnum } from "@modals/enams/modal-component.enum";
+import { ModalComponentEnum } from "@modals/enums/modal-component.enum";
 import { IModalData, IModalMetadata } from "@modals/interfaces/modals.interface";
 import { ICourse } from "@pages/courses-page/courses/interfaces/course.interface";
 import { ModalMapperService } from "@modals/services/modal-mapper/modal-mapper.service";

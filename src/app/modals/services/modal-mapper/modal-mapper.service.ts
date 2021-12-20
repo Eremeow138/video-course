@@ -1,6 +1,6 @@
 import { Injectable, Type } from "@angular/core";
 import { ConfirmationModalComponent } from "@modals/components/modal-types/confirmation-modal/confirmation-modal.component";
-import { ModalComponentEnum } from "@modals/enams/modal-component.enum";
+import { ModalComponentEnum } from "@modals/enums/modal-component.enum";
 import { ModalMapperComponentType } from "@modals/types/modal-mapper-component.type";
 import { AbstractModalComponent } from "@modals/components/modal-types/abstract-modal/abstract-modal.component";
 
