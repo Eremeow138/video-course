@@ -15,6 +15,6 @@ export class ModalMapperService {
   };
 
   public getModalType(modalType: ModalComponentEnum): Type<AbstractModalComponent> {
-    return this.modalComponents[modalType] || this.modalComponents.default;
+    return this.modalComponents[modalType] || this.modalComponents[ModalComponentEnum.Default];
   }
 }
