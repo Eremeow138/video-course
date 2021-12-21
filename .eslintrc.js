@@ -209,6 +209,7 @@ module.exports = {
             format: ["camelCase"],
           },
         ],
+        "@typescript-eslint/explicit-function-return-type": ["error"],
 
         // Специально отключенные параметры
         "@typescript-eslint/comma-dangle": "off",
