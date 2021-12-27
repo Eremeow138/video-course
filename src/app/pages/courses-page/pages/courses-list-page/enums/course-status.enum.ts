@@ -1,4 +1,4 @@
-export enum CourseStatusEnum {
+export enum CourseStatus {
   Fresh = "fresh",
   Upcoming = "upcoming"
 }

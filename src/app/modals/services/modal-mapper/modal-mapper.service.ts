@@ -1,6 +1,6 @@
 import { Injectable, Type } from "@angular/core";
 import { ConfirmationModalComponent } from "@modals/components/modal-types/confirmation-modal/confirmation-modal.component";
-import { ModalComponentEnum } from "@modals/enums/modal-component.enum";
+import { ModalComponent } from "@modals/enums/modal-component.enum";
 import { ModalMapperComponentType } from "@modals/types/modal-mapper-component.type";
 import { AbstractModalComponent } from "@modals/components/modal-types/abstract-modal/abstract-modal.component";
 
@@ -10,11 +10,11 @@ import { AbstractModalComponent } from "@modals/components/modal-types/abstract-
 export class ModalMapperService {
 
   private modalComponents: ModalMapperComponentType = {
-    [ModalComponentEnum.Default]: ConfirmationModalComponent,
-    [ModalComponentEnum.ConfirmationModal]: ConfirmationModalComponent
+    [ModalComponent.Default]: ConfirmationModalComponent,
+    [ModalComponent.ConfirmationModal]: ConfirmationModalComponent
   };
 
-  public getModalType(modalType: ModalComponentEnum): Type<AbstractModalComponent> {
-    return this.modalComponents[modalType] || this.modalComponents[ModalComponentEnum.Default];
+  public getModalType(modalType: ModalComponent): Type<AbstractModalComponent> {
+    return this.modalComponents[modalType] || this.modalComponents[ModalComponent.Default];
   }
 }

@@ -1,5 +1,5 @@
 import { Directive, ElementRef, Input, OnInit, Renderer2 } from "@angular/core";
-import { CourseStatusEnum } from "@courses-list-page/enums/courses-list.enum";
+import { CourseStatus } from "@pages/courses-page/pages/courses-list-page/enums/course-status.enum";
 
 @Directive({
   selector: "[appCourseHighlight]"
@@ -19,7 +19,7 @@ export class CourseHighlightDirective implements OnInit {
   }
 
   private changeCourseHighlight(): void {
-    this.removeClasses(...Object.values(CourseStatusEnum));
+    this.removeClasses(...Object.values(CourseStatus));
 
     const statusCourse = this.getStatusCourse();
 
@@ -28,7 +28,7 @@ export class CourseHighlightDirective implements OnInit {
     }
   }
 
-  private getStatusCourse(): CourseStatusEnum | null {
+  private getStatusCourse(): CourseStatus | null {
     if (!this.creationDate) {
       return null;
     }
@@ -40,20 +40,20 @@ export class CourseHighlightDirective implements OnInit {
     const isUpcoming = creationTimeStamp > currentTimeStamp;
 
     if (isFresh) {
-      return CourseStatusEnum.Fresh;
+      return CourseStatus.Fresh;
     } else if (isUpcoming) {
-      return CourseStatusEnum.Upcoming;
+      return CourseStatus.Upcoming;
     }
     return null;
   }
 
-  private addClass(status: CourseStatusEnum): void {
+  private addClass(status: CourseStatus): void {
     const className = `${this.className}${status}`;
 
     this.renderer.addClass(this.elementRef.nativeElement, className);
   }
 
-  private removeClasses(...statuses: CourseStatusEnum[]): void {
+  private removeClasses(...statuses: CourseStatus[]): void {
     statuses.forEach(status => {
       const className = `${this.className}${status}`;
       this.renderer.removeClass(this.elementRef.nativeElement, className);
