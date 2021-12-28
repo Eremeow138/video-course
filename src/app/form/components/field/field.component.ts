@@ -11,16 +11,12 @@ export class FieldComponent {
   public title = "";
 
   @Input()
-  public field: AbstractControl = null;
+  public fieldControl: AbstractControl = null;
 
   @Input()
   public id = "";
 
-  get isRequired(): boolean {
-    if (!this.field.validator) {
-      return false;
-    }
-    const validator = this.field.validator({} as AbstractControl);
-    return !!(validator && validator.required);
-  }
+  @Input()
+  public isRequired = false;
+
 }

@@ -1,0 +1,15 @@
+@import "colors";
+@import "variables";
+@import "mixins";
+
+:host {
+  @include height-width-100-percent;
+}
+
+.string-field {
+  @include height-width-100-percent;
+
+  &__input {
+    @include input-field;
+  }
+}

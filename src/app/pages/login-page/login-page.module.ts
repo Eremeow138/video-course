@@ -4,7 +4,7 @@ import { ReactiveFormsModule } from "@angular/forms";
 
 import { LoginPageComponent } from "./components/login-page.component";
 import { LoginFormComponent } from "./components/login-form/login-form.component";
-import { FieldComponent } from "./components/login-form/field/field.component";
+import { FormModule } from "@app/form/form.module";
 
 const COMPONENTS = [LoginPageComponent];
 
@@ -12,11 +12,11 @@ const COMPONENTS = [LoginPageComponent];
   declarations: [
     ...COMPONENTS,
     LoginFormComponent,
-    FieldComponent
   ],
   imports: [
     CommonModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    FormModule
   ],
   exports: [...COMPONENTS]
 })

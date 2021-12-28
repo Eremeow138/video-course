@@ -1,5 +1,6 @@
 import { Component, OnDestroy, OnInit } from "@angular/core";
-import { FormControl, FormGroup, Validators } from "@angular/forms";
+import { LoginFormControl } from "@app/form/enums/login-form-control.enum";
+import { LoginForm } from "@app/form/models/login-form.model";
 import { AuthService } from "@authentication/services/auth/auth.service";
 import { Subject } from "rxjs";
 import { skip, takeUntil } from "rxjs/operators";
@@ -13,20 +14,24 @@ export class LoginFormComponent implements OnInit, OnDestroy {
 
   public isVisibleWarning = false;
 
-  public loginForm = new FormGroup({
-    email: new FormControl("", Validators.required),
-    password: new FormControl("", Validators.required)
+  public emailFormControlName = LoginFormControl.Email;
+  public passwordFormControlName = LoginFormControl.Password;
+
+  public loginForm = new LoginForm().createForm({
+    [LoginFormControl.Email]: "",
+    [LoginFormControl.Password]: ""
   });
 
   private unsubscribe$ = new Subject<void>();
 
   constructor(private authService: AuthService) { }
 
-  ngOnInit(): void {
+  public ngOnInit(): void {
     this.subscribeToAuthentication();
+    this.subscribeToFormControls();
   }
 
-  ngOnDestroy(): void {
+  public ngOnDestroy(): void {
     this.unsubscribe$.next();
     this.unsubscribe$.complete();
   }
@@ -47,6 +52,14 @@ export class LoginFormComponent implements OnInit, OnDestroy {
       takeUntil(this.unsubscribe$)
     ).subscribe(isAuthenticated => {
       this.isVisibleWarning = !isAuthenticated;
+    });
+  }
+
+  private subscribeToFormControls(): void {
+    this.loginForm.valueChanges.pipe(
+      takeUntil(this.unsubscribe$)
+    ).subscribe(() => {
+      this.hideWarning();
     });
   }
 }
