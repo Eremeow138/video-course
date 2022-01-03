@@ -1,0 +1,31 @@
+@import "variables";
+@import "mixins";
+@import "colors";
+
+:host {
+  @include height-width-100-percent;
+}
+
+.courses-page {
+  @include height-width-100-percent;
+
+  &__breadcrumbs-wrapper {
+    @include flex-row;
+
+    justify-content: center;
+    width: 100%;
+    height: $breadcrumbs-height;
+    padding: $wrapper-paddings;
+    background-color: $third-bg-color;
+  }
+  &__breadcrumbs {
+    @include height-width-100-percent;
+
+    max-width: $content-max-width;
+  }
+  &__pages {
+    width: 100%;
+    height: calc(100% - #{$breadcrumbs-height});
+    padding-top: 2.1rem;
+  }
+}
