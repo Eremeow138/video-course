@@ -11,6 +11,7 @@ const routes: Routes = [
   {
     path: RouterPath.CoursesPage,
     canActivate: [AuthGuard],
+    canActivateChild: [AuthGuard],
     component: CoursesPageComponent
   },
   {
