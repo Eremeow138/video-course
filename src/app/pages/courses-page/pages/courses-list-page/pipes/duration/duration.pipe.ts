@@ -8,7 +8,6 @@ export class DurationPipe implements PipeTransform {
     return this.convertToString(duration);
   }
 
-  // eslint-disable-next-line class-methods-use-this
   private convertToString(duration: number): string {
     if (duration < 60) {
       return `${duration}min`;
