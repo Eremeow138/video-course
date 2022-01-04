@@ -14,6 +14,15 @@ export class AuthGuard implements CanActivate, CanActivateChild {
 
   public canActivate(route: ActivatedRouteSnapshot): Observable<boolean | UrlTree> | Promise<boolean | UrlTree> | boolean | UrlTree {
 
+    return this.checkPage(route);
+  }
+
+  public canActivateChild(next: ActivatedRouteSnapshot): Observable<boolean | UrlTree> | Promise<boolean | UrlTree> | boolean | UrlTree {
+    return this.canActivate(next);
+  }
+
+  private checkPage(route: ActivatedRouteSnapshot): Observable<boolean | UrlTree> {
+
     const isLoginPath = route.routeConfig.path === RouterPath.LoginPage;
 
     return this.authService.isAuthenticated$.pipe(
@@ -30,9 +39,5 @@ export class AuthGuard implements CanActivate, CanActivateChild {
         return this.router.parseUrl(RouterPath.LoginPage);
       })
     );
-  }
-
-  public canActivateChild(next: ActivatedRouteSnapshot): Observable<boolean | UrlTree> | Promise<boolean | UrlTree> | boolean | UrlTree {
-    return this.canActivate(next);
   }
 }
