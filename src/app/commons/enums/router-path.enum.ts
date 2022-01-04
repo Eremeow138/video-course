@@ -1,4 +1,4 @@
-export enum Paths {
+export enum RouterPath {
   CoursesPage = "courses",
   LoginPage = "login"
 }

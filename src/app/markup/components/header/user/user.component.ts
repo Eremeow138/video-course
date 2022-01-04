@@ -1,6 +1,6 @@
 import { Component } from "@angular/core";
 import { Router } from "@angular/router";
-import { Paths } from "@commons/enums/paths.enum";
+import { RouterPath } from "@commons/enums/router-path.enum";
 import { AuthService } from "@authentication/services/auth/auth.service";
 
 @Component({
@@ -13,6 +13,6 @@ export class UserComponent {
 
   public logout(): void {
     this.authService.logout();
-    this.router.navigate([Paths.LoginPage]);
+    this.router.navigate([RouterPath.LoginPage]);
   }
 }

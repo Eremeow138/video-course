@@ -2,7 +2,7 @@ import { Component, OnDestroy, OnInit } from "@angular/core";
 import { Router } from "@angular/router";
 import { LoginFormControl } from "@app/form/enums/login-form-control.enum";
 import { LoginForm } from "@app/form/models/login-form.model";
-import { Paths } from "@commons/enums/paths.enum";
+import { RouterPath } from "@commons/enums/router-path.enum";
 import { AuthService } from "@authentication/services/auth/auth.service";
 import { Subject } from "rxjs";
 import { skip, takeUntil } from "rxjs/operators";
@@ -50,7 +50,7 @@ export class LoginFormComponent implements OnInit, OnDestroy {
 
   private navigateToHomePage(isAuthenticated: boolean): void {
     if (isAuthenticated) {
-      this.router.navigate([Paths.CoursesPage]);
+      this.router.navigate([RouterPath.CoursesPage]);
     }
   }
 

@@ -1,6 +1,6 @@
 import { Injectable, OnDestroy } from "@angular/core";
 import { ActivatedRouteSnapshot, CanActivate, CanActivateChild, Router, UrlTree } from "@angular/router";
-import { Paths } from "@commons/enums/paths.enum";
+import { RouterPath } from "@commons/enums/router-path.enum";
 import { AuthService } from "@authentication/services/auth/auth.service";
 import { Observable, Subject } from "rxjs";
 import { takeUntil } from "rxjs/operators";
@@ -25,10 +25,10 @@ export class AuthGuard implements CanActivate, CanActivateChild, OnDestroy {
 
   public canActivate(route: ActivatedRouteSnapshot,): Observable<boolean | UrlTree> | Promise<boolean | UrlTree> | boolean | UrlTree {
 
-    const isLoginPath = route.routeConfig.path === Paths.LoginPage;
+    const isLoginPath = route.routeConfig.path === RouterPath.LoginPage;
 
     if (this.isAuthenticated && isLoginPath) {
-      return this.router.parseUrl(Paths.CoursesPage);
+      return this.router.parseUrl(RouterPath.CoursesPage);
     }
 
     if (this.isAuthenticated && !isLoginPath) {
@@ -39,7 +39,7 @@ export class AuthGuard implements CanActivate, CanActivateChild, OnDestroy {
       return true;
     }
 
-    return this.router.parseUrl(Paths.LoginPage);
+    return this.router.parseUrl(RouterPath.LoginPage);
   }
 
   public canActivateChild(next: ActivatedRouteSnapshot): Observable<boolean | UrlTree> | Promise<boolean | UrlTree> | boolean | UrlTree {
