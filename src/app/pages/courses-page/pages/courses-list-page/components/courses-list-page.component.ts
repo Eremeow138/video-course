@@ -4,7 +4,7 @@ import { IModalData, IModalMetadata } from "@modals/interfaces/modals.interface"
 import { ICourse } from "@pages/courses-page/courses/interfaces/course.interface";
 import { ModalMapperService } from "@modals/services/modal-mapper/modal-mapper.service";
 import { ModalsService } from "@modals/services/modals/modals.service";
-import { CoursesService } from "@courses-list-page/services/courses.service";
+import { CoursesService } from "@app/courses/services/courses.service";
 import { takeUntil } from "rxjs/operators";
 import { FilterPipe } from "@courses-list-page/pipes/filter/filter.pipe";
 
