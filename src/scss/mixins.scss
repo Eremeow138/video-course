@@ -31,6 +31,13 @@
   width: $size;
   height: $size;
 }
+@mixin base-animation($animation-name) {
+  animation: $animation-name 1s ease-in-out 0s infinite alternate;
+}
+@mixin svg-center {
+  transform-box: fill-box;
+  transform-origin: center;
+}
 @mixin input-placeholder {
 
   &::placeholder {
@@ -130,6 +137,11 @@
   font-size: $secondary-title-font-size;
   font-weight: 600;
   color: $secondary-title-color;
+}
+@mixin third-title {
+  font-size: $third-title-font-size;
+  font-weight: 400;
+  color: $primary-title-color;
 }
 @mixin logo-text {
   font-size: $logo-font-size;

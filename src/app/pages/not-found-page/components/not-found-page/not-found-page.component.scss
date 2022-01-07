@@ -1,0 +1,189 @@
+@import "variables";
+@import "mixins";
+
+:host {
+  @include height-width-100-percent;
+}
+
+.not-found-page {
+  @include height-width-100-percent;
+
+  &__content-wrapper {
+    @include height-width-100-percent;
+    @include flex-column;
+
+    align-items: center;
+    justify-content: center;
+    padding: $wrapper-padding;
+  }
+  &__content {
+    @include height-width-100-percent;
+    @include flex-column;
+
+    align-items: center;
+    justify-content: center;
+    max-width: $content-max-width;
+  }
+  &__main {
+    @include height-width-100-percent;
+    @include flex-row;
+  }
+  &__cell {
+    @include height-width-100-percent;
+    @include flex-row;
+
+    align-items: center;
+    justify-content: flex-start;
+
+    &:not(:first-child) {
+      margin-left: $primary-content-margin;
+    }
+  }
+  &__information {
+    width: 100%;
+    max-width: 450px;
+    height: min-content;
+  }
+  &__title-wrapper {
+    @include height-width-100-percent;
+
+    margin-bottom: $secondary-content-margin;
+  }
+  &__title {
+    @include third-title;
+  }
+  &__subtitle-wrapper {
+    @include height-width-100-percent;
+
+    margin-bottom: $secondary-content-margin;
+  }
+  &__subtitle {
+    @include primary-title;
+  }
+  &__description-wrapper {
+    @include height-width-100-percent;
+
+    margin-bottom: $secondary-content-margin;
+  }
+  &__description {
+    @include description-text;
+  }
+  &__actions {
+    @include flex-row;
+  }
+  &__button {
+    text-decoration: none;
+  }
+}
+
+#spaceman {
+  @include base-animation(spaceman);
+}
+
+#head-stripe {
+  @include base-animation(head-stripe);
+}
+
+#crater-small {
+  @include base-animation(crater-small);
+}
+
+#crater-big {
+  @include base-animation(crater-big);
+}
+
+#planet {
+  @include base-animation(planet);
+  @include svg-center;
+}
+
+#stars-big g {
+  @include base-animation(stars-big);
+  @include svg-center;
+}
+
+#stars-small g {
+  @include base-animation(stars-small);
+  @include svg-center;
+}
+
+#circles-small {
+  @include base-animation(circles-small);
+}
+
+#circles-big {
+  @include base-animation(circles-big);
+}
+
+@keyframes spaceman {
+
+  to {
+    transform: translateY(0.5rem);
+  }
+}
+@keyframes circles-small {
+
+  to {
+    transform: translateY(-0.5rem);
+  }
+}
+@keyframes circles-big {
+
+  to {
+    transform: translateY(-0.3rem);
+  }
+}
+@keyframes head-stripe {
+
+  to {
+    transform: translateY(0.1rem);
+  }
+}
+@keyframes glass-shine {
+
+  to {
+    transform: translateX(12rem);
+  }
+}
+@keyframes crater-small {
+
+  to {
+    transform: translateX(-0.2rem);
+  }
+}
+@keyframes crater-big {
+
+  to {
+    transform: translateX(0.2rem);
+  }
+}
+@keyframes stars-big {
+
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(-30deg);
+  }
+}
+@keyframes stars-small {
+
+  from {
+    transform: scale(1);
+  }
+  to {
+    transform: scale(0);
+  }
+}
+@keyframes planet {
+
+  0% {
+    transform: rotate(0deg);
+  }
+  50% {
+    transform: rotate(2deg);
+  }
+  100% {
+    transform: rotate(-2deg);
+  }
+}

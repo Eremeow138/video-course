@@ -4,6 +4,7 @@ import { AuthenticationModule } from "@authentication/authentication.module";
 import { AuthGuard } from "@authentication/guards/auth.guard";
 import { CoursesPageComponent } from "@pages/courses-page/components/courses-page/courses-page.component";
 import { LoginPageComponent } from "@pages/login-page/components/login-page.component";
+import { NotFoundPageComponent } from "@pages/not-found-page/components/not-found-page/not-found-page.component";
 import { RouterPath } from "./commons/enums/router-path.enum";
 
 const routes: Routes = [
@@ -22,7 +23,7 @@ const routes: Routes = [
 
   { path: "", redirectTo: RouterPath.CoursesPage, pathMatch: "full" },
 
-  { path: "**", redirectTo: RouterPath.CoursesPage },
+  { path: "**", component: NotFoundPageComponent },
 ];
 
 @NgModule({

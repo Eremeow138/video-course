@@ -9,6 +9,7 @@ import { ModalsModule } from "./modals/modals.module";
 import { AuthenticationModule } from "./authentication/authentication.module";
 
 import { AppComponent } from "./app.component";
+import { NotFoundPageModule } from "@pages/not-found-page/not-found-page.module";
 
 @NgModule({
   declarations: [AppComponent],
@@ -19,6 +20,7 @@ import { AppComponent } from "./app.component";
     MarkupModule,
     CoursesPageModule,
     LoginPageModule,
+    NotFoundPageModule,
     ModalsModule,
     AuthenticationModule
   ],
