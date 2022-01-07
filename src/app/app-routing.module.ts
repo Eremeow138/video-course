@@ -5,7 +5,7 @@ import { AuthGuard } from "@authentication/guards/auth.guard";
 import { CoursesPageComponent } from "@pages/courses-page/components/courses-page/courses-page.component";
 import { LoginPageComponent } from "@pages/login-page/components/login-page.component";
 import { NotFoundPageComponent } from "@pages/not-found-page/components/not-found-page/not-found-page.component";
-import { RouterPath } from "./commons/enums/router-path.enum";
+import { RouterPath } from "./commons/enums/routers.enum";
 
 const routes: Routes = [
 

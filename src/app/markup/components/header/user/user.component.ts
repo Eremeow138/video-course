@@ -1,6 +1,6 @@
 import { Component } from "@angular/core";
 import { Router } from "@angular/router";
-import { RouterPath } from "@commons/enums/router-path.enum";
+import { RouterPath } from "@commons/enums/routers.enum";
 import { AuthService } from "@authentication/services/auth/auth.service";
 
 @Component({

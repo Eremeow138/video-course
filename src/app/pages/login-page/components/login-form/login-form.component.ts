@@ -2,7 +2,7 @@ import { Component, OnDestroy, OnInit } from "@angular/core";
 import { Router } from "@angular/router";
 import { LoginFormControl } from "@app/form/enums/login-form-control.enum";
 import { LoginForm } from "@app/form/models/login-form.model";
-import { RouterPath } from "@commons/enums/router-path.enum";
+import { RouterPath } from "@commons/enums/routers.enum";
 import { AuthService } from "@authentication/services/auth/auth.service";
 import { Subject } from "rxjs";
 import { skip, takeUntil } from "rxjs/operators";
