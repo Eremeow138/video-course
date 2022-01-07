@@ -14,30 +14,27 @@ export class AuthGuard implements CanActivate, CanActivateChild {
 
   public canActivate(route: ActivatedRouteSnapshot): Observable<boolean | UrlTree> | Promise<boolean | UrlTree> | boolean | UrlTree {
 
-    return this.checkPage(route);
+    return this.checkAccess(route);
   }
 
-  public canActivateChild(next: ActivatedRouteSnapshot): Observable<boolean | UrlTree> | Promise<boolean | UrlTree> | boolean | UrlTree {
-    return this.canActivate(next);
+  public canActivateChild(route: ActivatedRouteSnapshot): Observable<boolean | UrlTree> | Promise<boolean | UrlTree> | boolean | UrlTree {
+    return this.canActivate(route);
   }
 
-  private checkPage(route: ActivatedRouteSnapshot): Observable<boolean | UrlTree> {
-
-    const isLoginPath = route.routeConfig.path === RouterPath.LoginPage;
-
+  private checkAccess(route: ActivatedRouteSnapshot): Observable<boolean | UrlTree> {
     return this.authService.isAuthenticated$.pipe(
-      map(isAuth => {
-        if (isAuth && isLoginPath) {
-          return this.router.parseUrl(RouterPath.CoursesPage);
-        }
-        if (isAuth && !isLoginPath) {
-          return true;
-        }
-        if (!isAuth && isLoginPath) {
-          return true;
-        }
-        return this.router.parseUrl(RouterPath.LoginPage);
-      })
+      map(isAuth => this.determineAccessToPage(isAuth, route.routeConfig.path))
     );
+  }
+
+  private determineAccessToPage(isAuth: boolean, currentPath: string): boolean | UrlTree {
+    const isLoginPath = currentPath === RouterPath.LoginPage;
+    if (isAuth && isLoginPath) {
+      return this.router.parseUrl(RouterPath.CoursesPage);
+    }
+    if (!isAuth && !isLoginPath) {
+      return this.router.parseUrl(RouterPath.LoginPage);
+    }
+    return true;
   }
 }
