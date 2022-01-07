@@ -16,7 +16,7 @@ import { CourseHighlightDirective } from "./directives/course-highlight/course-h
 
 import { OrderByPipe } from "./pipes/order-by/order-by.pipe";
 import { FilterPipe } from "./pipes/filter/filter.pipe";
-import { CoursesModule } from "@app/courses/courses.module";
+import { CoursesModule } from "@pages/courses-page/courses/courses.module";
 
 const COMPONENTS = [CoursesListPageComponent];
 
