@@ -1,8 +1,9 @@
 import { FormGroup } from "@angular/forms";
-import { LoginFormValue } from "../types/login-form-value.type";
 
-export abstract class AbstractForm {
+export abstract class AbstractForm extends FormGroup {
 
-  abstract createForm(formParameters: LoginFormValue): FormGroup;
+  constructor() {
+    super({});
+  }
 
 }

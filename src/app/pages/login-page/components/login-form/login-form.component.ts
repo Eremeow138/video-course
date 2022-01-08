@@ -19,18 +19,15 @@ export class LoginFormComponent implements OnInit, OnDestroy {
   public emailFormControlName = LoginFormControl.Email;
   public passwordFormControlName = LoginFormControl.Password;
 
-  public loginForm = new LoginForm().createForm({
-    [LoginFormControl.Email]: "",
-    [LoginFormControl.Password]: ""
-  });
+  public loginForm: LoginForm = null;
 
   private unsubscribe$ = new Subject<void>();
 
   constructor(private authService: AuthService, private router: Router) { }
 
   public ngOnInit(): void {
-    this.subscribeToAuthentication();
-    this.subscribeToFormControls();
+    this.createForm();
+    this.subscribeToEvents();
   }
 
   public ngOnDestroy(): void {
@@ -48,27 +45,32 @@ export class LoginFormComponent implements OnInit, OnDestroy {
     }
   }
 
+  public createForm(): void {
+    this.loginForm = new LoginForm({
+      [LoginFormControl.Email]: "",
+      [LoginFormControl.Password]: ""
+    });
+  }
+
   private navigateToHomePage(isAuthenticated: boolean): void {
     if (isAuthenticated) {
       this.router.navigate([RouterPath.CoursesPage]);
     }
   }
 
-  private subscribeToAuthentication(): void {
+  private subscribeToEvents(): void {
+    this.loginForm.valueChanges.pipe(
+      takeUntil(this.unsubscribe$)
+    ).subscribe(() => {
+      this.hideWarning();
+    });
+
     this.authService.isAuthenticated$.pipe(
       skip(1),
       takeUntil(this.unsubscribe$)
     ).subscribe(isAuthenticated => {
       this.isVisibleWarning = !isAuthenticated;
       this.navigateToHomePage(isAuthenticated);
-    });
-  }
-
-  private subscribeToFormControls(): void {
-    this.loginForm.valueChanges.pipe(
-      takeUntil(this.unsubscribe$)
-    ).subscribe(() => {
-      this.hideWarning();
     });
   }
 }
