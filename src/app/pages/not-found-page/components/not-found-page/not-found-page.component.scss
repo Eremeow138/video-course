@@ -18,10 +18,7 @@
   }
   &__content {
     @include height-width-100-percent;
-    @include flex-column;
 
-    align-items: center;
-    justify-content: center;
     max-width: $content-max-width;
   }
   &__main {
@@ -29,9 +26,10 @@
     @include flex-row;
   }
   &__cell {
-    @include height-width-100-percent;
     @include flex-row;
 
+    height: 100%;
+    width: 50%;
     align-items: center;
     justify-content: flex-start;
 
@@ -42,6 +40,10 @@
   &__information {
     width: 100%;
     max-width: 450px;
+    height: min-content;
+  }
+  &__picture {
+    width: 100%;
     height: min-content;
   }
   &__title-wrapper {
@@ -84,25 +86,17 @@
   @include base-animation(head-stripe);
 }
 
-#crater-small {
-  @include base-animation(crater-small);
-}
-
-#crater-big {
-  @include base-animation(crater-big);
-}
-
 #planet {
   @include base-animation(planet);
   @include svg-center;
 }
 
-#stars-big g {
+#stars-big line {
   @include base-animation(stars-big);
   @include svg-center;
 }
 
-#stars-small g {
+#stars-small line {
   @include base-animation(stars-small);
   @include svg-center;
 }

@@ -26,10 +26,6 @@
     min-height: $btn-secondary-min-height;
     padding: $btn-secondary-paddings;
   }
-  &--large {
-    min-height: $btn-third-min-height;
-    padding: $btn-third-paddings;
-  }
   &--green {
     background-color: $btn-secondary-bg-color;
 
@@ -62,9 +58,6 @@
 
     &--small {
       font-size: $btn-secondary-font-size;
-    }
-    &--large {
-      font-size: $btn-third-font-size;
     }
     &--gray {
       color: $btn-secondary-text-color;
