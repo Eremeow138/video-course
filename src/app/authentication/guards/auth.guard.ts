@@ -12,13 +12,13 @@ export class AuthGuard implements CanActivate, CanActivateChild {
 
   constructor(private authService: AuthService, private router: Router) { }
 
-  public canActivate(route: ActivatedRouteSnapshot): Observable<boolean | UrlTree> | Promise<boolean | UrlTree> | boolean | UrlTree {
+  public canActivate(route: ActivatedRouteSnapshot): Observable<boolean | UrlTree> {
 
     return this.checkAccess(route);
   }
 
-  public canActivateChild(route: ActivatedRouteSnapshot): Observable<boolean | UrlTree> | Promise<boolean | UrlTree> | boolean | UrlTree {
-    return this.canActivate(route);
+  public canActivateChild(route: ActivatedRouteSnapshot): Observable<boolean | UrlTree> {
+    return this.checkAccess(route);
   }
 
   private checkAccess(route: ActivatedRouteSnapshot): Observable<boolean | UrlTree> {
