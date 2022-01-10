@@ -1,7 +1,7 @@
 <div class="field">
   <div *ngIf="title" class="field__info">
     <label class="field__title" for="{{id}}">{{title}}:</label>
-    <span *ngIf="!fieldControl.value && fieldControl.invalid && isRequired && fieldControl.touched" class="field__required">* required</span>
+    <span *ngIf="!control.value && control.invalid && isRequired && control.touched" class="field__required">* required</span>
   </div>
   <ng-content></ng-content>
 </div>

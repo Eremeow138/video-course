@@ -11,7 +11,7 @@ export class FieldComponent {
   public title = "";
 
   @Input()
-  public fieldControl: AbstractControl = null;
+  public control: AbstractControl = null;
 
   @Input()
   public id = "";

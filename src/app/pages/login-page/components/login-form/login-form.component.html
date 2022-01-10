@@ -8,13 +8,12 @@
     </div>
     <div class="login-form__field-list">
       <div class="login-form__field-wrapper">
-        <app-string-field [formControlName]="emailFormControlName" [fieldControl]="loginForm.get(emailFormControlName)"
-          [id]="emailFormControlName" [title]="emailFormControlName | titlecase" placeholder="Enter email">
+        <app-string-field [fieldName]="emailFormControlName" [control]="loginForm.get(emailFormControlName)"
+          [title]="emailFormControlName | titlecase" placeholder="Enter email">
         </app-string-field>
       </div>
       <div class="login-form__field-wrapper">
-        <app-string-field [formControlName]="passwordFormControlName"
-          [fieldControl]="loginForm.get(passwordFormControlName)" [id]="passwordFormControlName"
+        <app-string-field [fieldName]="passwordFormControlName" [control]="loginForm.get(passwordFormControlName)"
           [title]="passwordFormControlName | titlecase" placeholder="Enter password">
         </app-string-field>
       </div>

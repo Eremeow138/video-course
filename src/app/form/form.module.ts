@@ -1,6 +1,6 @@
 import { NgModule } from "@angular/core";
 import { CommonModule } from "@angular/common";
-import { StringFieldComponent } from "./components/string-field/string-field.component";
+import { StringFieldComponent } from "./components/field-types/string-field/string-field.component";
 import { FieldComponent } from "./components/field/field.component";
 import { ReactiveFormsModule } from "@angular/forms";
 

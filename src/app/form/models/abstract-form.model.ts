@@ -1,4 +1,4 @@
-import { FormGroup } from "@angular/forms";
+import { FormControl, FormGroup } from "@angular/forms";
 
 export abstract class AbstractForm extends FormGroup {
 
@@ -6,4 +6,7 @@ export abstract class AbstractForm extends FormGroup {
     super({});
   }
 
+  public get(controlName: string): FormControl {
+    return <FormControl>super.get(controlName);
+  }
 }
