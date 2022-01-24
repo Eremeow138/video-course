@@ -59,6 +59,7 @@
 @mixin input-text {
   font-size: $primary-font-size;
   color: $input-text-color;
+  font-family: inherit;
 }
 @mixin input {
   @include input-text;
@@ -72,10 +73,11 @@
   width: 100%;
   height: min-content;
   min-height: $field-min-height;
-  padding: $field-paddings;
+  padding: 0 $field-padding;
   border: 1px solid $field-border-color;
   border-radius: $field-border-radius;
   background-color: $field-bg-color;
+  transition-property: border-color;
   transition-duration: $primary-duration;
 
   &:hover {
@@ -84,10 +86,21 @@
   &:focus {
     border-color: $field-border-focus-color;
   }
+  &--invalid {
+    border-color: $warning-border-color;
+  }
 }
 @mixin input-field {
   @include input;
   @include field;
+}
+@mixin textarea-field {
+  @include input;
+  @include field;
+
+  resize: none;
+  min-height: $textarea-min-height;
+  padding: $field-padding;
 }
 @mixin default-text {
   font-size: $default-font-size;
@@ -179,4 +192,24 @@
 @mixin warning-text {
   font-size: $secondary-font-size;
   color: $text-warning-color;
+}
+@mixin tag {
+  @include flex-row;
+
+  flex-shrink: 0;
+  align-items: center;
+  min-height: $tag-min-height;
+  border-radius: $tag-border-radius;
+  background-color: $tag-bg-color;
+  padding: $tag-paddings;
+  margin: $tag-margins;
+}
+@mixin tag-text {
+  color: $tag-text-color;
+  font-size: $tag-font-size;
+}
+@mixin tag-button {
+  @include icon-size(1rem);
+
+  margin-left: 1rem;
 }

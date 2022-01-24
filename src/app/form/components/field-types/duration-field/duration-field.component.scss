@@ -1,0 +1,36 @@
+@import "colors";
+@import "variables";
+@import "mixins";
+
+:host {
+  @include height-width-100-percent;
+}
+
+.duration-field {
+  @include height-width-100-percent;
+  @include flex-row;
+
+  align-items: flex-end;
+
+  &__field-wrapper {
+    max-width: $primary-field-max-width;
+  }
+  &__content {
+    @include height-width-100-percent;
+    @include flex-row;
+  }
+  &__input {
+    @include input-field;
+  }
+  &__time-wrapper {
+    @include flex-row;
+
+    align-items: center;
+    margin-left: 1.9rem;
+    min-height: $field-min-height;
+  }
+  &__time {
+    color: $text-primary-color;
+    font-size: $primary-font-size;
+  }
+}

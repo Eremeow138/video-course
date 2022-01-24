@@ -1,0 +1,42 @@
+<div class="course-form">
+  <form [formGroup]="courseForm" class="course-form__form">
+    <div class="course-form__header">
+      <div class="course-form__title-wrapper">
+        <h2 class="course-form__title">New course</h2>
+      </div>
+    </div>
+    <div class="course-form__field-list">
+      <div class="course-form__field-wrapper">
+        <app-string-field [fieldName]="titleFormControlName" [control]="courseForm.get(titleFormControlName)"
+          [title]="titleFormControlName | titlecase" placeholder="Text input">
+        </app-string-field>
+      </div>
+      <div class="course-form__field-wrapper">
+        <app-text-field [fieldName]="descriptionFormControlName" [control]="courseForm.get(descriptionFormControlName)"
+          [title]="descriptionFormControlName | titlecase" placeholder="Add description"></app-text-field>
+      </div>
+      <div class="course-form__field-wrapper">
+        <app-duration-field [fieldName]="durationFormControlName" [control]="courseForm.get(durationFormControlName)"
+          [title]="durationFormControlName | titlecase" placeholder="minutes"></app-duration-field>
+      </div>
+      <div class="course-form__field-wrapper">
+        <app-datepicker-field [fieldName]="dateFormControlName" [control]="courseForm.get(dateFormControlName)"
+          [title]="dateFormControlName | titlecase" placeholder="MM/DD/YYYY"></app-datepicker-field>
+      </div>
+      <div class="course-form__field-wrapper">
+        <app-tag-field [fieldName]="authorsFormControlName" [control]="courseForm.get(authorsFormControlName)"
+          [title]="authorsFormControlName | titlecase" placeholder="Start typing"></app-tag-field>
+      </div>
+    </div>
+    <div class="course-form__actions">
+      <div class="course-form__buttons-wrapper">
+        <button type="submit" class="button button button--white-gray course-form__button">
+          <span class="button__text button__text--gray">Cancel</span>
+        </button>
+        <button [disabled]="courseForm.invalid" type="submit" class="button button--green course-form__button">
+          <span class="button__text">Save</span>
+        </button>
+      </div>
+    </div>
+  </form>
+</div>

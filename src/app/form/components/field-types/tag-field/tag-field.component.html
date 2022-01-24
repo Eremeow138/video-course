@@ -1,0 +1,14 @@
+<div class="tag-field">
+  <div class="tag-field__field-wrapper">
+    <app-field [title]="title" [control]="control" [id]="fieldName" [isRequired]="isRequired">
+      <div #tagContainer class="tag-field__container" (click)="activateInput($event)">
+        <div *ngFor="let author of control.value" class="tag-field__tag">
+          <span class="tag-field__tag-text">{{author}}</span>
+          <button type="button" class="cross-button tag-field__tag-button" (click)="removeAuthor(author)"></button>
+        </div>
+        <input #tagInput type="text" placeholder="{{placeholder}}" class="tag-field__input" id="{{fieldName}}"
+          (change)="addAuthor()" (blur)="touchControl()">
+      </div>
+    </app-field>
+  </div>
+</div>

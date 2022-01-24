@@ -1,0 +1,36 @@
+@import "variables";
+@import "mixins";
+
+:host {
+  @include height-width-100-percent;
+}
+
+.course-page {
+  @include height-width-100-percent;
+
+  &__content-wrapper {
+    @include height-width-100-percent;
+
+    padding: $wrapper-padding;
+  }
+  &__content {
+    @include height-width-100-percent;
+    @include flex-column;
+
+    align-items: center;
+    justify-content: center;
+  }
+  &__form-wrapper {
+    @include height-width-100-percent;
+
+    padding: 1rem;
+    overflow-y: overlay;
+    height: min-content;
+    max-width: $course-form-max-width;
+  }
+  &__form {
+    @include content-container;
+
+    width: 100%;
+  }
+}

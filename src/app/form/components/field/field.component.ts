@@ -19,4 +19,11 @@ export class FieldComponent {
   @Input()
   public isRequired = false;
 
+  public get isControlValueExist(): boolean {
+    if (Array.isArray(this.control.value)) {
+      return !!this.control.value.length;
+    }
+    return !!this.control.value;
+  }
+
 }

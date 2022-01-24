@@ -1,0 +1,42 @@
+@import "colors";
+@import "variables";
+@import "mixins";
+
+:host {
+  @include height-width-100-percent;
+}
+
+.tag-field {
+  @include height-width-100-percent;
+
+  &__field-wrapper {
+    max-width: $secondary-field-max-width;
+  }
+  &__container {
+    @include field;
+    @include flex-row;
+
+    padding: 0;
+    align-items: flex-start;
+    flex-wrap: wrap;
+    cursor: text;
+  }
+  &__input {
+    @include input;
+
+    min-height: $field-min-height;
+    padding: 0 $field-padding;
+    flex-grow: 1;
+    border: none;
+    background-color: transparent;
+  }
+  &__tag {
+    @include tag;
+  }
+  &__tag-text {
+    @include tag-text;
+  }
+  &__tag-button {
+    @include tag-button;
+  }
+}
