@@ -31,9 +31,7 @@ export class CourseForm extends AbstractForm {
         return { valid: false };
       }
 
-      // TODO maybe ban only digits?
-      // eslint-disable-next-line no-useless-escape
-      const authorRgEx = /^[a-zA-Z\-]+$/;
+      const authorRgEx = /^\D+$/;
 
       const authors = control.value as string[];
 
