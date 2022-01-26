@@ -15,6 +15,7 @@ export class CoursesService {
       duration: 88,
       description: `Learn about where you can find course descriptions, what information they include, how they work, and details about various components of a course description. Course descriptions report information about a university or college's classes. They're published both in course catalogs that outline degree requirements and in course schedules that contain descriptions for all courses offered during a particular semester.`,
       isTopRated: true,
+      authors: ["John Doe", "Yohan Smitz"]
     },
     {
       id: 2,
@@ -23,6 +24,7 @@ export class CoursesService {
       duration: 34,
       description: `Learn about where you can find course descriptions, what information they include, how they work, and details about various components of a course description. Course descriptions report information about a university or college's classes. They're published both in course catalogs that outline degree requirements and in course schedules that contain descriptions for all courses offered during a particular semester.`,
       isTopRated: false,
+      authors: ["Alexandr Pushkin"]
     },
     {
       id: 3,
@@ -31,6 +33,7 @@ export class CoursesService {
       duration: 120,
       description: `Learn about where you can find course descriptions, what information they include, how they work, and details about various components of a course description. Course descriptions report information about a university or college's classes. They're published both in course catalogs that outline degree requirements and in course schedules that contain descriptions for all courses offered during a particular semester.`,
       isTopRated: false,
+      authors: ["John Doe", "Elon Mask"]
     },
   ];
   constructor() { }
@@ -43,7 +46,8 @@ export class CoursesService {
     newTitle: string,
     newCreationDate: string,
     newDuration: number,
-    newDescription: string): void {
+    newDescription: string,
+    newAuthors: string[]): void {
 
     const newId = this.generateNewId();
 
@@ -53,7 +57,8 @@ export class CoursesService {
       creationDate: newCreationDate,
       duration: newDuration,
       description: newDescription,
-      isTopRated: false
+      isTopRated: false,
+      authors: newAuthors
     };
 
     this.collectionOfCourses.push(newCourse);
@@ -84,6 +89,7 @@ export class CoursesService {
       duration: 1250,
       description: `Learn about where you can find course descriptions, what information they include, how they work, and details about various components of a course description. Course descriptions report information about a university or college's classes. They're published both in course catalogs that outline degree requirements and in course schedules that contain descriptions for all courses offered during a particular semester.`,
       isTopRated: true,
+      authors: ["John Doe", "Yohan Smitz"]
     };
     this.collectionOfCourses.push(newCourse);
   }
