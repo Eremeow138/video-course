@@ -25,7 +25,7 @@ export abstract class AbstractFieldComponent implements OnInit, OnDestroy {
     return !!(validator && validator.required);
   }
 
-  constructor(private cd: ChangeDetectorRef) { }
+  constructor(protected cd: ChangeDetectorRef) { }
 
   public ngOnInit(): void {
     this.subscribeToValueUpdating();

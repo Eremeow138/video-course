@@ -1,6 +1,6 @@
 import { NgModule } from "@angular/core";
 import { CommonModule } from "@angular/common";
-import { ReactiveFormsModule } from "@angular/forms";
+import { FormsModule, ReactiveFormsModule } from "@angular/forms";
 import { CommonsModule } from "@commons/commons.module";
 import { BsDatepickerModule } from "ngx-bootstrap/datepicker";
 
@@ -21,6 +21,7 @@ const COMPONENTS = [StringFieldComponent, TextFieldComponent, DurationFieldCompo
   imports: [
     CommonModule,
     CommonsModule,
+    FormsModule,
     ReactiveFormsModule,
     BsDatepickerModule.forRoot(),
   ],

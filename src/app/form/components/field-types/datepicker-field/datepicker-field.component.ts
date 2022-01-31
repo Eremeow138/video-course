@@ -1,38 +1,65 @@
-import { DatePipe } from "@angular/common";
-import { AfterViewInit, ChangeDetectorRef, Component, ElementRef, Renderer2, ViewChild } from "@angular/core";
+import { ChangeDetectorRef, Component, OnInit } from "@angular/core";
+import { BsDatepickerConfig } from "ngx-bootstrap/datepicker";
 import { AbstractFieldComponent } from "../abstract-field/abstract-field.component";
 
 @Component({
   selector: "app-datepicker-field",
   templateUrl: "./datepicker-field.component.html",
   styleUrls: ["./datepicker-field.component.scss"],
-  providers: [DatePipe]
 })
-export class DatepickerFieldComponent extends AbstractFieldComponent implements AfterViewInit {
+export class DatepickerFieldComponent extends AbstractFieldComponent implements OnInit {
 
-  @ViewChild("datePickerInput")
-  public datePickerInput: ElementRef<HTMLInputElement>;
+  public bsConfig: Partial<BsDatepickerConfig>;
+  public minDate: Date;
 
-  constructor(private renderer: Renderer2, cd: ChangeDetectorRef, private datePipe: DatePipe) {
+  constructor(protected cd: ChangeDetectorRef) {
     super(cd);
   }
 
-  ngAfterViewInit(): void {
-    const initDate = this.datePipe.transform(this.control.value, "MM/dd/yyyy");
-    this.renderer.setProperty(this.datePickerInput.nativeElement, "value", initDate);
+  public ngOnInit(): void {
+    super.ngOnInit();
+    this.setMinDate();
+    this.getConfig();
   }
 
-  // TODO make it better
-  setDate(date: Date): void {
-    if (!isNaN(date.getTime())) {
-      const formatedDate = this.datePipe.transform(date, "yyyy-MM-ddThh:mm:sszzzz").replace("GMT", "");
-      this.control.setValue(formatedDate);
+  public setValue(value: Date): void {
+    if (!this.isDateValue(value)) {
+      this.control.patchValue(value);
       return;
     }
-    this.control.setValue(date);
+    const newValue = this.getDateValue(value);
+    if (newValue !== this.control.value) {
+      this.control.patchValue(newValue);
+    }
   }
 
   public touchControl(): void {
     this.control.markAsTouched();
+  }
+
+  private getDateValue(date: Date): string {
+    const newDate = new Date(date);
+    newDate.setHours(0, 0, 0, 0);
+    const differenceTimeZone = newDate.getTime() - (newDate.getTimezoneOffset() * 60000);
+    const dateString = new Date(differenceTimeZone).toISOString();
+
+    return dateString.slice(0, dateString.length - 1);
+  }
+
+  private setMinDate(): void {
+    this.minDate = new Date();
+    this.minDate.setHours(0, 0, 0, 0);
+  }
+
+  private getConfig(): void {
+    this.bsConfig = Object.assign({}, {
+      dateInputFormat: "MM/DD/YYYY",
+      containerClass: "bs-datepicker",
+      isAnimated: true
+    });
+  }
+
+  private isDateValue(value: Date): boolean {
+    return value && value instanceof Date && !isNaN(value.getTime());
   }
 }
