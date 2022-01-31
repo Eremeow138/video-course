@@ -2,7 +2,8 @@
   <div class="tag-field__field-wrapper">
     <app-field [title]="title" [control]="control" [id]="fieldName" [isRequired]="isRequired">
       <div #tagContainer class="tag-field__container" (click)="activateInput($event)">
-        <app-tag *ngFor="let author of control.value" [value]="author" (deleteEvent)="removeAuthor($event)"></app-tag>
+        <app-tag *ngFor="let author of control.value; trackBy: trackByFn" [value]="author"
+          (deleteEvent)="removeAuthor($event)"></app-tag>
         <input #tagInput type="text" placeholder="{{placeholder}}" class="tag-field__input" id="{{fieldName}}"
           (change)="addAuthor()" (blur)="touchControl()">
       </div>

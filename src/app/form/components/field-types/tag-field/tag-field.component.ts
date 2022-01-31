@@ -45,4 +45,8 @@ export class TagFieldComponent extends AbstractFieldComponent {
       this.input.nativeElement.focus();
     }
   }
+
+  public trackByFn(index: number, item: any): any {
+    return item;
+  }
 }
