@@ -2,11 +2,11 @@
   <div class="datepicker-field__field-wrapper">
     <app-field [title]="title" [control]="control" [id]="fieldName" [isRequired]="isRequired">
       <div class="datepicker-field__content">
-        <input #datePickerInput [formControl]="control" type="text" placeholder="{{placeholder}}"
-          class="datepicker-field__input" id="{{fieldName}}" #dp="bsDatepicker" bsDatepicker placement="right"
+        <input #datePickerInput type="text" placeholder="{{placeholder}}" class="datepicker-field__input"
+          id="{{fieldName}}" #dp="bsDatepicker" bsDatepicker placement="right"
           [bsConfig]="{containerClass:'custom-theme'}"
           [ngClass]="{'datepicker-field__input--invalid':control.value && control.invalid && control.touched}"
-          (keyup)="onDateChange()">
+          (bsValueChange)="setDate($event)" (blur)=" touchControl()">
         <img (click)=" dp.toggle()" class="datepicker-field__icon" src="assets/icons/calendar.svg" alt="calendar" />
       </div>
     </app-field>
