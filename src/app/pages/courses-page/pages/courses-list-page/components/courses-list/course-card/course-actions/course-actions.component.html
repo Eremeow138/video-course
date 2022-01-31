@@ -1,18 +1,10 @@
 <div class="course-actions">
-  <button class="button button--small">
-    <img
-      class="button__icon button__icon--small"
-      src="assets/icons/edit.svg"
-      alt="edit"
-    />
+  <button (click)="edit()" class="button button--small">
+    <img class="button__icon button__icon--small" src="assets/icons/edit.svg" alt="edit" />
     <span class="button__text button__text--small">Edit</span>
   </button>
   <button (click)="delete()" class="button button--small">
-    <img
-      class="button__icon button__icon--small"
-      src="assets/icons/bin.svg"
-      alt="bin"
-    />
+    <img class="button__icon button__icon--small" src="assets/icons/bin.svg" alt="bin" />
     <span class="button__text button__text--small">Delete</span>
   </button>
 </div>

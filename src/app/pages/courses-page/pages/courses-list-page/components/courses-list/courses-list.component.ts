@@ -13,6 +13,8 @@ export class CoursesListComponent {
   @Output()
   private deleteCourseEvent = new EventEmitter<number>();
   @Output()
+  private editCourseEvent = new EventEmitter<number>();
+  @Output()
   private loadMoreCoursesEvent = new EventEmitter();
 
   public trackByFn(index: number, course: ICourse): number {
@@ -25,5 +27,8 @@ export class CoursesListComponent {
 
   public deleteCourse(courseId: number): void {
     this.deleteCourseEvent.emit(courseId);
+  }
+  public editCourse(courseId: number): void {
+    this.editCourseEvent.emit(courseId);
   }
 }

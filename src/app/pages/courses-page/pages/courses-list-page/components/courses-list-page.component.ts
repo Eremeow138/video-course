@@ -7,6 +7,7 @@ import { ModalsService } from "@modals/services/modals/modals.service";
 import { CoursesService } from "@pages/courses-page/courses/services/courses.service";
 import { takeUntil } from "rxjs/operators";
 import { FilterPipe } from "@courses-list-page/pipes/filter/filter.pipe";
+import { ActivatedRoute, Router } from "@angular/router";
 
 @Component({
   selector: "app-courses-list-page",
@@ -24,7 +25,9 @@ export class CoursesListPageComponent implements OnInit {
   constructor(
     private coursesService: CoursesService,
     private modalMapperService: ModalMapperService,
-    private modalService: ModalsService) { }
+    private modalService: ModalsService,
+    private router: Router,
+    private route: ActivatedRoute) { }
 
   ngOnInit(): void {
     this.getFreshData();
@@ -38,6 +41,10 @@ export class CoursesListPageComponent implements OnInit {
   public deleteCourse(id: number): void {
     this.coursesService.deleteCourse(id);
     this.getFreshData();
+  }
+
+  public redirectToCoursePage(courseId: number): void {
+    this.router.navigate([courseId], { relativeTo: this.route });
   }
 
   public loadMoreCourses(): void {

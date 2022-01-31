@@ -9,7 +9,13 @@ export class CourseActionsComponent {
   @Output()
   private deleteEvent = new EventEmitter<void>();
 
+  @Output()
+  private editEvent = new EventEmitter<void>();
+
   public delete(): void {
     this.deleteEvent.emit();
+  }
+  public edit(): void {
+    this.editEvent.emit();
   }
 }
