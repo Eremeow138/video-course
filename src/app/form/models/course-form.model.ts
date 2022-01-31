@@ -22,6 +22,8 @@ export class CourseForm extends AbstractForm {
     this.get(CourseFormControl.Duration).setValidators([Validators.required, Validators.pattern("^[0-9]*$")]);
 
     this.get(CourseFormControl.Authors).setValidators([Validators.required, this.authorsValidator()]);
+
+    this.get(CourseFormControl.Date).setValidators([Validators.required, this.dateValidator()]);
   }
 
   private authorsValidator(): ValidatorFn {
@@ -41,4 +43,17 @@ export class CourseForm extends AbstractForm {
     };
   }
 
+  private dateValidator(): ValidatorFn {
+    return (control: AbstractControl): ValidationErrors | null => {
+      const date = new Date(control.value);
+
+      if (Object.prototype.toString.call(date) === "[object Date]") {
+        if (isNaN(date.getTime())) {
+          return { bsDate: { invalid: date } };
+        }
+        return null;
+      }
+      return { bsDate: { invalid: date } };
+    };
+  }
 }
