@@ -1,0 +1,14 @@
+@import "colors";
+@import "variables";
+@import "mixins";
+
+.tag {
+  @include tag;
+
+  &__text {
+    @include tag-text;
+  }
+  &__button {
+    @include tag-button;
+  }
+}
