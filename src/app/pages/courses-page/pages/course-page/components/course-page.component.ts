@@ -36,6 +36,9 @@ export class CoursePageComponent implements OnInit, OnDestroy {
     this.unsubscribe$.complete();
   }
 
+  public navigateToCoursesListPage(): void {
+    this.router.navigateByUrl(`/${RouterPath.CoursesListPage}`);
+  }
 
   private subscribeToRoute(): void {
     this.route.params.pipe(
@@ -59,10 +62,6 @@ export class CoursePageComponent implements OnInit, OnDestroy {
     if (routeParams.id && routeParams.id !== RouterPath.CourseCreationPage) {
       this.navigateToCoursesListPage();
     }
-  }
-
-  private navigateToCoursesListPage(): void {
-    this.router.navigateByUrl(`/${RouterPath.CoursesListPage}`);
   }
 
 }

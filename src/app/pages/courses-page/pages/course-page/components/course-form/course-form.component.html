@@ -30,7 +30,7 @@
     </div>
     <div class="course-form__actions">
       <div class="course-form__buttons-wrapper">
-        <button type="button" class="button button button--white-gray course-form__button">
+        <button type="button" class="button button button--white-gray course-form__button" (click)="cancel()">
           <span class="button__text button__text--gray">Cancel</span>
         </button>
         <button [disabled]="courseForm.invalid" type="submit" class="button button--green course-form__button">

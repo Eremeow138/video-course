@@ -1,4 +1,4 @@
-import { Component, Input, OnInit } from "@angular/core";
+import { Component, EventEmitter, Input, OnInit, Output } from "@angular/core";
 import { CourseFormControl } from "@app/form/enums/course-form-control.enum";
 import { CourseForm } from "@app/form/models/course-form.model";
 import { ICourse } from "@pages/courses-page/courses/interfaces/course.interface";
@@ -29,10 +29,17 @@ export class CourseFormComponent implements OnInit {
 
   public courseForm: CourseForm = null;
 
+  @Output()
+  private cancelEvent = new EventEmitter<void>();
+
   constructor() { }
 
   public ngOnInit(): void {
     this.createForm();
+  }
+
+  public cancel(): void {
+    this.cancelEvent.emit();
   }
 
   public createForm(): void {
