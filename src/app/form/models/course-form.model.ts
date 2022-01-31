@@ -47,12 +47,10 @@ export class CourseForm extends AbstractForm {
     return (control: AbstractControl): ValidationErrors | null => {
       const date = new Date(control.value);
 
-      if (Object.prototype.toString.call(date) === "[object Date]") {
-        if (isNaN(date.getTime())) {
-          return { bsDate: { invalid: date } };
-        }
+      if (date && date instanceof Date && !isNaN(date.getTime())) {
         return null;
       }
+
       return { bsDate: { invalid: date } };
     };
   }
