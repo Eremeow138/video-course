@@ -1,6 +1,6 @@
 export enum RouterPath {
   CoursesPage = "courses",
-  CoursesListPage = "list",
+  CoursesListPage = "",
   CourseCreationPage = "new",
   CourseEditPage = ":id",
   LoginPage = "login"

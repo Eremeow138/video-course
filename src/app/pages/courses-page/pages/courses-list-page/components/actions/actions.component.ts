@@ -7,5 +7,5 @@ import { RouterPath } from "@commons/enums/routers.enum";
   styleUrls: ["./actions.component.scss"],
 })
 export class ActionsComponent {
-  public readonly addCourseUrl = `../${RouterPath.CourseCreationPage}`;
+  public readonly addCourseUrl = RouterPath.CourseCreationPage;
 }
