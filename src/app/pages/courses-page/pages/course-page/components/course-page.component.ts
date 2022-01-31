@@ -19,7 +19,7 @@ export class CoursePageComponent implements OnInit, OnDestroy {
     description: null,
     duration: null,
     creationDate: null,
-    authors: null,
+    authors: [],
     isTopRated: false
   };
 

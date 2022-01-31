@@ -17,7 +17,7 @@ export class CourseFormComponent implements OnInit {
     description: null,
     duration: null,
     creationDate: null,
-    authors: null,
+    authors: [],
     isTopRated: false
   };
 
