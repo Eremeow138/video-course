@@ -17,16 +17,12 @@ const routes: Routes = [
       {
         path: RouterPath.CourseCreationPage,
         component: CoursePageComponent,
+        pathMatch: "full",
       },
       {
         path: RouterPath.CourseEditPage,
         component: CoursePageComponent,
       },
-      {
-        path: "",
-        redirectTo: RouterPath.CoursesListPage,
-        pathMatch: "full",
-      }
     ],
   },
 ];
