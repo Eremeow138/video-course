@@ -3,11 +3,11 @@ import { BsDatepickerConfig } from "ngx-bootstrap/datepicker";
 import { AbstractFieldComponent } from "../abstract-field/abstract-field.component";
 
 @Component({
-  selector: "app-datepicker-field",
-  templateUrl: "./datepicker-field.component.html",
-  styleUrls: ["./datepicker-field.component.scss"],
+  selector: "app-date-field",
+  templateUrl: "./date-field.component.html",
+  styleUrls: ["./date-field.component.scss"],
 })
-export class DatepickerFieldComponent extends AbstractFieldComponent implements OnInit {
+export class DateFieldComponent extends AbstractFieldComponent implements OnInit {
 
   public bsConfig: Partial<BsDatepickerConfig>;
   public minDate: Date;

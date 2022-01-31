@@ -20,8 +20,8 @@
           [title]="durationFormControlName | titlecase" placeholder="minutes"></app-duration-field>
       </div>
       <div class="course-form__field-wrapper">
-        <app-datepicker-field [fieldName]="dateFormControlName" [control]="courseForm.get(dateFormControlName)"
-          [title]="dateFormControlName | titlecase" placeholder="MM/DD/YYYY"></app-datepicker-field>
+        <app-date-field [fieldName]="dateFormControlName" [control]="courseForm.get(dateFormControlName)"
+          [title]="dateFormControlName | titlecase" placeholder="MM/DD/YYYY"></app-date-field>
       </div>
       <div class="course-form__field-wrapper">
         <app-tag-field [fieldName]="authorsFormControlName" [control]="courseForm.get(authorsFormControlName)"

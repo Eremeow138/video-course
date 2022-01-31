@@ -8,10 +8,11 @@ import { FieldComponent } from "./components/field/field.component";
 import { StringFieldComponent } from "./components/field-types/string-field/string-field.component";
 import { TextFieldComponent } from "./components/field-types/text-field/text-field.component";
 import { DurationFieldComponent } from "./components/field-types/duration-field/duration-field.component";
-import { DatepickerFieldComponent } from "./components/field-types/datepicker-field/datepicker-field.component";
-import { TagFieldComponent } from "./components/field-types/tag-field/tag-field.component";
 
-const COMPONENTS = [StringFieldComponent, TextFieldComponent, DurationFieldComponent, DatepickerFieldComponent, TagFieldComponent];
+import { TagFieldComponent } from "./components/field-types/tag-field/tag-field.component";
+import { DateFieldComponent } from "./components/field-types/date-field/date-field.component";
+
+const COMPONENTS = [StringFieldComponent, TextFieldComponent, DurationFieldComponent, DateFieldComponent, TagFieldComponent];
 
 @NgModule({
   declarations: [

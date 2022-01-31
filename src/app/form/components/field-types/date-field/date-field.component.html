@@ -1,13 +1,13 @@
-<div class="datepicker-field">
-  <div class="datepicker-field__field-wrapper">
+<div class="date-field">
+  <div class="date-field__field-wrapper">
     <app-field [title]="title" [control]="control" [id]="fieldName" [isRequired]="isRequired">
-      <div class="datepicker-field__content">
-        <input class="datepicker-field__input"
-          [ngClass]="{'datepicker-field__input--invalid':control.value && control.invalid && control.touched}"
+      <div class="date-field__content">
+        <input class="date-field__input"
+          [ngClass]="{'date-field__input--invalid':control.value && control.invalid && control.touched}"
           type="text" autocomplete="off" placeholder="{{placeholder}}" id="{{fieldName}}"
           [ngModel]="control.value | date:'MM/dd/yyyy'" (ngModelChange)="setValue($event)" #dp="bsDatepicker"
           bsDatepicker [bsConfig]="bsConfig" [minDate]="minDate" placement="right" (blur)=" touchControl()">
-        <img (click)=" dp.toggle()" class="datepicker-field__icon" src="assets/icons/calendar.svg" alt="calendar" />
+        <img (click)=" dp.toggle()" class="date-field__icon" src="assets/icons/calendar.svg" alt="calendar" />
       </div>
     </app-field>
   </div>
