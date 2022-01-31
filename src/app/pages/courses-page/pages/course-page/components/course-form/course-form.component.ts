@@ -21,6 +21,13 @@ export class CourseFormComponent implements OnInit {
     isTopRated: false
   };
 
+  public get formTitle(): string {
+    if (this.course.id) {
+      return "Edit course";
+    }
+    return "New course";
+  }
+
   public titleFormControlName = CourseFormControl.Title;
   public descriptionFormControlName = CourseFormControl.Description;
   public durationFormControlName = CourseFormControl.Duration;
