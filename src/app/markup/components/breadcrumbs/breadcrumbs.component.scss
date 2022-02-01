@@ -10,9 +10,23 @@
   @include flex-row;
   @include height-width-100-percent;
 
-  align-items: center;
+  &__breadcrumb {
+    @include flex-row;
 
-  &__path {
+    align-items: center;
+
+    &--separator {
+
+      &::after {
+        @include breadcrumbs-separator;
+      }
+    }
+  }
+  &__link {
     @include breadcrumbs-text;
+
+    &--active {
+      @include breadcrumbs-active-link;
+    }
   }
 }

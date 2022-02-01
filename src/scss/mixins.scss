@@ -171,8 +171,19 @@
 }
 @mixin breadcrumbs-text {
   font-size: $primary-font-size;
-  font-weight: 700;
   color: $text-secondary-color;
+  text-decoration: none;
+}
+@mixin breadcrumbs-separator {
+  content: "/";
+  font-size: $primary-font-size;
+  color: $fifth-color;
+  font-weight: 700;
+  margin: 0 0.3rem;
+}
+@mixin breadcrumbs-active-link {
+  font-weight: 700;
+  pointer-events: none;
 }
 @mixin modal-text {
   line-height: 2.4rem;

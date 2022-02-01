@@ -1,3 +1,8 @@
-<div class="breadcrumbs">
-  <p class="breadcrumbs__path">Courses</p>
-</div>
+<ul class="breadcrumbs">
+  <li class="breadcrumbs__breadcrumb breadcrumbs__breadcrumb--slash"
+    *ngFor="let breadcrumb of (breadcrumbs$ | async); index as i"
+    [ngClass]="{'breadcrumbs__breadcrumb--separator': i !== (breadcrumbs$ | async).length - 1}">
+    <a class="breadcrumbs__link" [routerLink]="breadcrumb.url" [routerLinkActive]="['breadcrumbs__link--active']"
+      [routerLinkActiveOptions]="{exact:true}">{{ breadcrumb.label }}</a>
+  </li>
+</ul>
