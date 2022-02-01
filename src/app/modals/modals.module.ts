@@ -33,7 +33,6 @@ const IMPORTS = [
     StringToStringArrayPipe,
   ],
   imports: [...IMPORTS],
-  entryComponents: [...MODALS],
   exports: [...EXTERNAL_API]
 })
 export class ModalsModule { }

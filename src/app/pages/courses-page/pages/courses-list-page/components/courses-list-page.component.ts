@@ -82,7 +82,7 @@ export class CoursesListPageComponent implements OnInit {
       takeUntil(this.modalService.hideModals$)
     ).subscribe(resultData => {
       const initialResult = resultData.initialResult;
-      this.deleteCourse(initialResult.value);
+      this.deleteCourse(initialResult.value as number);
       this.modalService.hideModals();
     });
   }

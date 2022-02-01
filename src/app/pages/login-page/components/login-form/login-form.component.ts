@@ -6,6 +6,7 @@ import { RouterPath } from "@commons/enums/routers.enum";
 import { AuthService } from "@authentication/services/auth/auth.service";
 import { Subject } from "rxjs";
 import { skip, takeUntil } from "rxjs/operators";
+import { ILoginData } from "@authentication/interfaces/login-data";
 
 @Component({
   selector: "app-login-form",
@@ -36,7 +37,7 @@ export class LoginFormComponent implements OnInit, OnDestroy {
   }
 
   public login(): void {
-    this.authService.login(this.loginForm.getRawValue());
+    this.authService.login(this.loginForm.getRawValue() as ILoginData);
   }
 
   public hideWarning(): void {
