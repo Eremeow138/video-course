@@ -47,20 +47,14 @@ export class CoursePageComponent implements OnInit, OnDestroy {
   }
 
   private resolvePage(routeParams: Params): void {
-    const courseId = Number(routeParams.id);
-
-    if (!isNaN(courseId)) {
+    if (routeParams.id) {
+      const courseId = Number(routeParams.id);
       const course = this.coursesService.getCourse(courseId);
-      if (course) {
-        this.course = course;
+      if (!course) {
+        this.navigateToCoursesListPage();
         return;
       }
-      this.navigateToCoursesListPage();
-      return;
-    }
-
-    if (routeParams.id && routeParams.id !== RouterPath.CourseCreationPage) {
-      this.navigateToCoursesListPage();
+      this.course = course;
     }
   }
 
