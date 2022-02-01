@@ -1,7 +1,7 @@
 import { NgModule } from "@angular/core";
 import { Routes, RouterModule } from "@angular/router";
 import { RouterPath } from "@commons/enums/routers.enum";
-import { Breadcrumb } from "@markup/enums/breadcrumb.enum";
+import { Breadcrumb } from "@app/breadcrumbs/enums/breadcrumb.enum";
 import { CoursesPageComponent } from "./components/courses-page/courses-page.component";
 import { CoursePageComponent } from "./pages/course-page/components/course-page.component";
 import { CoursesListPageComponent } from "./pages/courses-list-page/components/courses-list-page.component";
