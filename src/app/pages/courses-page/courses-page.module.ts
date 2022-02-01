@@ -5,7 +5,6 @@ import { CoursesListPageModule } from "./pages/courses-list-page/courses-list-pa
 import { MarkupModule } from "@markup/markup.module";
 import { CoursePageModule } from "./pages/course-page/course-page.module";
 import { CoursesPageRoutingModule } from "./courses-page-routing.module";
-import { BreadcrumbsModule } from "@app/breadcrumbs/breadcrumbs.module";
 
 const COMPONENTS = [CoursesPageComponent];
 
@@ -16,7 +15,6 @@ const COMPONENTS = [CoursesPageComponent];
     CoursesListPageModule,
     CoursePageModule,
     MarkupModule,
-    BreadcrumbsModule,
     CoursesPageRoutingModule
   ],
   exports: [...COMPONENTS]
