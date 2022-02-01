@@ -45,7 +45,7 @@ export class CourseForm extends AbstractForm {
 
   private dateValidator(): ValidatorFn {
     return (control: AbstractControl): ValidationErrors | null => {
-      const date = new Date(control.value);
+      const date = new Date(control.value as Date);
 
       if (date && date instanceof Date && !isNaN(date.getTime())) {
         return null;
