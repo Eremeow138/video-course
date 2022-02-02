@@ -39,6 +39,9 @@ export class CoursePageComponent implements OnInit, OnDestroy {
   public navigateToCoursesListPage(): void {
     this.router.navigateByUrl(`/${RouterPath.CoursesListPage}`);
   }
+  private navigateToNotFoundPage(): void {
+    this.router.navigateByUrl(`/${RouterPath.NotFoundPage}`);
+  }
 
   private subscribeToRoute(): void {
     this.route.params.pipe(
@@ -51,7 +54,7 @@ export class CoursePageComponent implements OnInit, OnDestroy {
       const courseId = Number(routeParams.id);
       const course = this.coursesService.getCourse(courseId);
       if (!course) {
-        this.navigateToCoursesListPage();
+        this.navigateToNotFoundPage();
         return;
       }
       this.course = course;

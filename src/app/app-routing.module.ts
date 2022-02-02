@@ -19,6 +19,10 @@ const routes: Routes = [
       )
   },
   {
+    path: RouterPath.NotFoundPage,
+    component: NotFoundPageComponent
+  },
+  {
     path: RouterPath.LoginPage,
     canActivate: [AuthGuard],
     component: LoginPageComponent
