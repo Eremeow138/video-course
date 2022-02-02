@@ -18,12 +18,12 @@ export class CourseForm extends AbstractForm {
         this.setControl(key, field);
       }
     }
-    // TODO find how to use addValidators
-    this.get(CourseFormControl.Duration).setValidators([Validators.required, Validators.pattern("^[0-9]*$")]);
 
-    this.get(CourseFormControl.Authors).setValidators([Validators.required, this.authorsValidator()]);
+    this.get(CourseFormControl.Duration).addValidators([Validators.pattern("^[0-9]*$")]);
 
-    this.get(CourseFormControl.Date).setValidators([Validators.required, this.dateValidator()]);
+    this.get(CourseFormControl.Authors).addValidators([this.authorsValidator()]);
+
+    this.get(CourseFormControl.Date).addValidators([this.dateValidator()]);
   }
 
   private authorsValidator(): ValidatorFn {
