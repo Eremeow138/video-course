@@ -1,7 +1,8 @@
-import { AbstractControl, FormControl, ValidationErrors, ValidatorFn, Validators } from "@angular/forms";
+import { FormControl, Validators } from "@angular/forms";
 import { CourseFormControl } from "../enums/course-form-control.enum";
 import { CourseFormValue } from "../types/course-form-value";
 import { AbstractForm } from "./abstract-form.model";
+import { CustomValidators } from "./custom-validators.model";
 
 export class CourseForm extends AbstractForm {
 
@@ -21,37 +22,8 @@ export class CourseForm extends AbstractForm {
 
     this.get(CourseFormControl.Duration).addValidators([Validators.pattern("^[0-9]*$")]);
 
-    this.get(CourseFormControl.Authors).addValidators([this.authorsValidator()]);
+    this.get(CourseFormControl.Authors).addValidators([CustomValidators.authorsValidator()]);
 
-    this.get(CourseFormControl.Date).addValidators([this.dateValidator()]);
-  }
-
-  private authorsValidator(): ValidatorFn {
-    return (control: AbstractControl): ValidationErrors | null => {
-
-      if (!control.value) {
-        return { valid: false };
-      }
-
-      const authorRgEx = /^\D+$/;
-
-      const authors = control.value as string[];
-
-      const isValid = authors.reduce((result, author) => result && authorRgEx.test(author), true);
-
-      return isValid ? null : { valid: false };
-    };
-  }
-
-  private dateValidator(): ValidatorFn {
-    return (control: AbstractControl): ValidationErrors | null => {
-      const date = new Date(control.value as Date);
-
-      if (date && date instanceof Date && !isNaN(date.getTime())) {
-        return null;
-      }
-
-      return { bsDate: { invalid: date } };
-    };
+    this.get(CourseFormControl.Date).addValidators([CustomValidators.dateValidator()]);
   }
 }
