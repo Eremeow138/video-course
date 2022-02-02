@@ -13,8 +13,9 @@
         </app-string-field>
       </div>
       <div class="login-form__field-wrapper">
-        <app-string-field [fieldName]="passwordFormControlName" [control]="loginForm.get(passwordFormControlName)"
-          [title]="passwordFormControlName | titlecase" placeholder="Enter password">
+        <app-string-field [inputType]="'password'" [fieldName]="passwordFormControlName"
+          [control]="loginForm.get(passwordFormControlName)" [title]="passwordFormControlName | titlecase"
+          placeholder="Enter password">
         </app-string-field>
       </div>
     </div>
