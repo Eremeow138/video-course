@@ -10,6 +10,8 @@ import { AuthenticationModule } from "./authentication/authentication.module";
 import { AppComponent } from "./app.component";
 import { NotFoundPageModule } from "@pages/not-found-page/not-found-page.module";
 import { BrowserAnimationsModule } from "@angular/platform-browser/animations";
+import { RouteReuseStrategy } from "@angular/router";
+import { CustomRouteReuseStrategy } from "@app/custom-route-reuse-strategy";
 
 @NgModule({
   declarations: [AppComponent],
@@ -24,7 +26,10 @@ import { BrowserAnimationsModule } from "@angular/platform-browser/animations";
     ModalsModule,
     AuthenticationModule
   ],
-  providers: [],
+  providers: [{
+    provide: RouteReuseStrategy,
+    useClass: CustomRouteReuseStrategy,
+  }],
   bootstrap: [AppComponent],
 })
 export class AppModule { }
