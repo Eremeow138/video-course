@@ -1,13 +1,15 @@
 import { Injectable, OnDestroy } from "@angular/core";
-import { ActivatedRouteSnapshot, NavigationEnd, Router } from "@angular/router";
+import { ActivatedRoute, ActivatedRouteSnapshot, NavigationEnd, Router } from "@angular/router";
 import { IBreadcrumb } from "@markup/interfaces/breadcrumb.interface";
-import { BehaviorSubject, Observable } from "rxjs";
-import { filter } from "rxjs/operators";
+import { BehaviorSubject, Observable, Subject } from "rxjs";
+import { filter, takeUntil } from "rxjs/operators";
 
 @Injectable({
   providedIn: "root"
 })
 export class BreadcrumbService implements OnDestroy {
+
+  private unsubscribe$ = new Subject<void>();
 
   private breadcrumbsSubject = new BehaviorSubject<IBreadcrumb[]>([]);
 
@@ -15,24 +17,29 @@ export class BreadcrumbService implements OnDestroy {
     return this.breadcrumbsSubject.asObservable();
   }
 
-  constructor(private router: Router) {
+  constructor(private router: Router, private route: ActivatedRoute) {
     this.subscribeToNavigationEvents();
   }
 
   public ngOnDestroy(): void {
+    this.unsubscribe$.next();
+    this.unsubscribe$.complete();
     this.breadcrumbsSubject.complete();
   }
 
   private subscribeToNavigationEvents(): void {
     this.router.events.pipe(
-      filter(event => event instanceof NavigationEnd)
+      filter(event => event instanceof NavigationEnd),
+      takeUntil(this.unsubscribe$)
     ).subscribe(() => {
-      const root = this.router.routerState.snapshot.root;
-      const breadcrumbs: IBreadcrumb[] = [];
-      this.addBreadcrumb(root, [], breadcrumbs);
-
-      this.breadcrumbsSubject.next(breadcrumbs);
+      this.createBreadcrumbs(this.route.snapshot);
     });
+  }
+  private createBreadcrumbs(route: ActivatedRouteSnapshot): void {
+    const breadcrumbs: IBreadcrumb[] = [];
+    this.addBreadcrumb(route.root, [], breadcrumbs);
+
+    this.breadcrumbsSubject.next(breadcrumbs);
   }
 
   private addBreadcrumb(route: ActivatedRouteSnapshot, parentUrl: string[], breadcrumbs: IBreadcrumb[]): void {
