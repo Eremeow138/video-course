@@ -1,8 +1,10 @@
-<ul class="breadcrumbs">
-  <li class="breadcrumbs__breadcrumb breadcrumbs__breadcrumb--slash"
-    *ngFor="let breadcrumb of (breadcrumbs$ | async); index as i"
-    [ngClass]="{'breadcrumbs__breadcrumb--separator': i !== (breadcrumbs$ | async).length - 1}">
-    <a class="breadcrumbs__link" [routerLink]="breadcrumb.url" [routerLinkActive]="['breadcrumbs__link--active']"
-      [routerLinkActiveOptions]="{exact:true}">{{ breadcrumb.label }}</a>
-  </li>
-</ul>
+<nav class="breadcrumbs">
+  <ng-container *ngIf="breadcrumbs$ | async as breadcrumbs">
+    <ul *ngIf="breadcrumbs.length" class="breadcrumbs__list">
+      <li class="breadcrumbs__item-list" *ngFor="let breadcrumb of breadcrumbs">
+        <a class="breadcrumbs__link" [routerLink]="breadcrumb.url" [routerLinkActive]="['breadcrumbs__link--active']"
+          [routerLinkActiveOptions]="{exact:true}">{{ breadcrumb.label }}</a>
+      </li>
+    </ul>
+  </ng-container>
+</nav>

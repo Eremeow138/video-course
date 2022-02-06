@@ -7,24 +7,30 @@
 }
 
 .breadcrumbs {
-  @include flex-row;
   @include height-width-100-percent;
 
-  &__breadcrumb {
+  &__list {
+    @include flex-row;
+    @include height-width-100-percent;
+  }
+  &__item-list {
     @include flex-row;
 
     align-items: center;
 
-    &--separator {
-
-      &::after {
-        @include breadcrumbs-separator;
-      }
+    &:not(:last-child)::after {
+      @include breadcrumbs-separator;
     }
   }
   &__link {
     @include breadcrumbs-text;
 
+    &:not(.breadcrumbs-link-active) {
+      @include height-width-100-percent;
+      @include flex-row;
+
+      align-items: center;
+    }
     &--active {
       @include breadcrumbs-active-link;
     }
