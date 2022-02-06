@@ -3,8 +3,6 @@ import { Routes, RouterModule } from "@angular/router";
 import { RouterPath } from "@commons/enums/routers.enum";
 import { Breadcrumb } from "@markup/enums/breadcrumb.enum";
 import { CoursesPageComponent } from "./components/courses-page/courses-page.component";
-import { CoursePageComponent } from "./pages/course-page/components/course-page.component";
-import { CoursesListPageComponent } from "./pages/courses-list-page/components/courses-list-page.component";
 
 const routes: Routes = [
   {
@@ -14,18 +12,27 @@ const routes: Routes = [
     children: [
       {
         path: RouterPath.CoursesListPage,
-        component: CoursesListPageComponent,
+        pathMatch: "full",
+        loadChildren: () =>
+          import("./pages/courses-list-page/courses-list-page.module").then(
+            m => m.CoursesListPageModule
+          ),
         data: { breadcrumb: null }
       },
       {
         path: RouterPath.CourseCreationPage,
-        component: CoursePageComponent,
-        pathMatch: "full",
+        loadChildren: () =>
+          import("./pages/course-page/course-page.module").then(
+            m => m.CoursePageModule
+          ),
         data: { breadcrumb: Breadcrumb.CourseCreationPage }
       },
       {
         path: RouterPath.CourseEditPage,
-        component: CoursePageComponent,
+        loadChildren: () =>
+          import("./pages/course-page/course-page.module").then(
+            m => m.CoursePageModule
+          ),
         data: { breadcrumb: Breadcrumb.CourseEditPage }
       },
     ],

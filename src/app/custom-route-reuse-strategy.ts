@@ -1,26 +1,36 @@
 import { RouteReuseStrategy, ActivatedRouteSnapshot, DetachedRouteHandle } from "@angular/router";
-import { RouterPath } from "@commons/enums/routers.enum";
+import { CoursesListPageComponent } from "@pages/courses-page/pages/courses-list-page/components/courses-list-page.component";
 
 export class CustomRouteReuseStrategy implements RouteReuseStrategy {
   private storedRoutes = new Map<string, DetachedRouteHandle>();
 
   shouldDetach(route: ActivatedRouteSnapshot): boolean {
-    return route.routeConfig.path === RouterPath.CoursesListPage;
+    return this.getKey(route) === CoursesListPageComponent.toString();
+
   }
 
   store(route: ActivatedRouteSnapshot, handle: DetachedRouteHandle): void {
-    this.storedRoutes.set(route.routeConfig.path, handle);
+    this.storedRoutes.set(this.getKey(route), handle);
   }
 
   shouldAttach(route: ActivatedRouteSnapshot): boolean {
-    return !!route.routeConfig && !!this.storedRoutes.get(route.routeConfig.path);
+    return !!route.routeConfig && !!this.storedRoutes.get(this.getKey(route));
   }
 
   retrieve(route: ActivatedRouteSnapshot): DetachedRouteHandle {
-    return this.storedRoutes.get(route.routeConfig.path);
+    return this.storedRoutes.get(this.getKey(route));
   }
 
   shouldReuseRoute(future: ActivatedRouteSnapshot, curr: ActivatedRouteSnapshot): boolean {
     return future.routeConfig === curr.routeConfig;
+  }
+  private getKey(route: ActivatedRouteSnapshot): string {
+    let key: string;
+    if (route.component) {
+      key = route.component.toString();
+    } else {
+      key = route.firstChild.toString();
+    }
+    return key;
   }
 }

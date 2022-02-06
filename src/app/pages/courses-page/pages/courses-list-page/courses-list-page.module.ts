@@ -19,6 +19,7 @@ import { CourseHighlightDirective } from "./directives/course-highlight/course-h
 
 import { OrderByPipe } from "./pipes/order-by/order-by.pipe";
 import { FilterPipe } from "./pipes/filter/filter.pipe";
+import { CoursesListPageRoutingModule } from "./courses-list-page-routing.module";
 
 
 const COMPONENTS = [CoursesListPageComponent];
@@ -37,7 +38,7 @@ const COMPONENTS = [CoursesListPageComponent];
     OrderByPipe,
     FilterPipe,
   ],
-  imports: [CommonModule, FormsModule, CoursesModule, CommonsModule, RouterModule],
+  imports: [CommonModule, FormsModule, CoursesModule, CommonsModule, RouterModule, CoursesListPageRoutingModule],
   exports: [...COMPONENTS],
 })
 export class CoursesListPageModule { }

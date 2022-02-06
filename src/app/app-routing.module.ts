@@ -1,42 +1,42 @@
 import { NgModule } from "@angular/core";
-import { RouterModule, Routes } from "@angular/router";
+import { PreloadAllModules, RouterModule, Routes } from "@angular/router";
 import { AuthenticationModule } from "@authentication/authentication.module";
 import { AuthGuard } from "@authentication/guards/auth.guard";
-import { LoginPageComponent } from "@pages/login-page/components/login-page.component";
-import { NotFoundPageComponent } from "@pages/not-found-page/components/not-found-page/not-found-page.component";
 import { RouterPath } from "./commons/enums/routers.enum";
-import { CoursesPageModule } from "./pages/courses-page/courses-page.module";
 
 const routes: Routes = [
 
   {
     path: RouterPath.CoursesPage,
+    canLoad: [AuthGuard],
     canActivate: [AuthGuard],
     canActivateChild: [AuthGuard],
-    loadChildren: (): Promise<CoursesPageModule> =>
-      import("./pages/courses-page/courses-page.module").then(
-        m => m.CoursesPageModule
-      )
+    loadChildren: () => import("./pages/courses-page/courses-page.module").then(m => m.CoursesPageModule)
   },
   {
     path: RouterPath.NotFoundPage,
-    component: NotFoundPageComponent
+    loadChildren: () => import("./pages/not-found-page/not-found-page.module").then(m => m.NotFoundPageModule)
   },
   {
     path: RouterPath.LoginPage,
+    canLoad: [AuthGuard],
     canActivate: [AuthGuard],
-    component: LoginPageComponent
+    loadChildren: () => import("./pages/login-page/login-page.module").then(m => m.LoginPageModule)
   },
+
 
   { path: "", redirectTo: RouterPath.CoursesPage, pathMatch: "full" },
 
-  { path: "**", component: NotFoundPageComponent },
+  {
+    path: "**",
+    loadChildren: () => import("./pages/not-found-page/not-found-page.module").then(m => m.NotFoundPageModule)
+  },
 ];
 
 @NgModule({
   imports: [
     AuthenticationModule,
-    RouterModule.forRoot(routes)
+    RouterModule.forRoot(routes, { preloadingStrategy: PreloadAllModules })
   ],
   exports: [RouterModule],
 })
