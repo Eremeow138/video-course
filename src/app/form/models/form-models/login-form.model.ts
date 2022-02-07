@@ -1,5 +1,5 @@
 import { FormControl, Validators } from "@angular/forms";
-import { LoginFormValue } from "../types/login-form-value.type";
+import { LoginFormValue } from "../../types/login-form-value.type";
 import { AbstractForm } from "./abstract-form.model";
 
 export class LoginForm extends AbstractForm {

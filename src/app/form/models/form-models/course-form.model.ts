@@ -1,8 +1,8 @@
 import { FormControl, Validators } from "@angular/forms";
-import { CourseFormControl } from "../enums/course-form-control.enum";
-import { CourseFormValue } from "../types/course-form-value";
+import { CourseFormControl } from "../../enums/course-form-control.enum";
+import { CourseFormValue } from "../../types/course-form-value";
 import { AbstractForm } from "./abstract-form.model";
-import { CustomValidators } from "./custom-validators.model";
+import { CustomValidators } from "../form-validators/custom-validators.model";
 
 export class CourseForm extends AbstractForm {
 
