@@ -4,6 +4,7 @@ import { CoursesPageComponent } from "./components/courses-page/courses-page.com
 import { MarkupModule } from "@markup/markup.module";
 import { CoursesPageRoutingModule } from "./courses-page-routing.module";
 import { BreadcrumbService } from "@markup/services/breadcrumb/breadcrumb.service";
+import { CoursesService } from "./courses/services/courses.service";
 
 const COMPONENTS = [CoursesPageComponent];
 
@@ -14,7 +15,10 @@ const COMPONENTS = [CoursesPageComponent];
     MarkupModule,
     CoursesPageRoutingModule
   ],
-  providers: [BreadcrumbService],
+  providers: [
+    CoursesService,
+    BreadcrumbService
+  ],
   exports: [...COMPONENTS]
 })
 export class CoursesPageModule { }
