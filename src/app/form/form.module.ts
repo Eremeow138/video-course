@@ -27,6 +27,10 @@ const COMPONENTS = [StringFieldComponent, TextFieldComponent, DurationFieldCompo
     ReactiveFormsModule,
     BsDatepickerModule.forRoot(),
   ],
-  exports: [...COMPONENTS]
+  exports: [
+    ...COMPONENTS,
+    FormsModule,
+    ReactiveFormsModule
+  ]
 })
 export class FormModule { }
