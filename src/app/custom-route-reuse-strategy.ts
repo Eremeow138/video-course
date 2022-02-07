@@ -24,13 +24,11 @@ export class CustomRouteReuseStrategy implements RouteReuseStrategy {
   shouldReuseRoute(future: ActivatedRouteSnapshot, curr: ActivatedRouteSnapshot): boolean {
     return future.routeConfig === curr.routeConfig;
   }
+
   private getKey(route: ActivatedRouteSnapshot): string {
-    let key: string;
     if (route.component) {
-      key = route.component.toString();
-    } else {
-      key = route.firstChild.toString();
+      return route.component.toString();
     }
-    return key;
+    return route.firstChild.toString();
   }
 }
