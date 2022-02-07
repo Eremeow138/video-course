@@ -4,9 +4,7 @@ import { IBreadcrumb } from "@markup/interfaces/breadcrumb.interface";
 import { BehaviorSubject, Observable, Subject } from "rxjs";
 import { filter, takeUntil } from "rxjs/operators";
 
-@Injectable({
-  providedIn: "root"
-})
+@Injectable()
 export class BreadcrumbService implements OnDestroy {
 
   private unsubscribe$ = new Subject<void>();
