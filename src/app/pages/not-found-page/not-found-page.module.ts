@@ -1,8 +1,8 @@
 import { NgModule } from "@angular/core";
 import { CommonModule } from "@angular/common";
-import { NotFoundPageComponent } from "./components/not-found-page/not-found-page.component";
+import { NotFoundPageComponent } from "./components/not-found-page.component";
 import { RouterModule } from "@angular/router";
-import { SpacemanComponent } from "./components/not-found-page/spaceman/spaceman.component";
+import { SpacemanComponent } from "./components/spaceman/spaceman.component";
 import { NotFoundPageRoutingModule } from "./not-found-page-routing-module";
 
 
