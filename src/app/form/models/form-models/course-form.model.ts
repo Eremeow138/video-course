@@ -20,10 +20,10 @@ export class CourseForm extends AbstractForm {
       }
     }
 
-    this.get(CourseFormControl.Duration).addValidators([Validators.pattern("^[0-9]*$")]);
+    this.get(CourseFormControl.Duration).addValidators(Validators.pattern("^[0-9]*$"));
 
-    this.get(CourseFormControl.Authors).addValidators([CustomValidators.authorsValidator()]);
+    this.get(CourseFormControl.Authors).addValidators(CustomValidators.authorsValidator());
 
-    this.get(CourseFormControl.Date).addValidators([CustomValidators.dateValidator()]);
+    this.get(CourseFormControl.Date).addValidators(CustomValidators.dateValidator());
   }
 }
