@@ -33,6 +33,8 @@
     height: min-content;
   }
   &__field-wrapper {
+    width: 100%;
+    height: min-content;
 
     &:not(:first-child) {
       margin-top: 1.2rem;
