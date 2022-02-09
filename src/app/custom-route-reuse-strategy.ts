@@ -5,24 +5,28 @@ export class CustomRouteReuseStrategy implements RouteReuseStrategy {
   private storedRoutes = new Map<string, DetachedRouteHandle>();
 
   public shouldDetach(route: ActivatedRouteSnapshot): boolean {
-    return this.getKey(route) === CoursesListPageComponent.toString();
+    const routeKey = this.getKey(route);
+    return routeKey === CoursesListPageComponent.toString();
 
   }
 
   public store(route: ActivatedRouteSnapshot, handle: DetachedRouteHandle): void {
-    this.storedRoutes.set(this.getKey(route), handle);
+    const routeKey = this.getKey(route);
+    this.storedRoutes.set(routeKey, handle);
   }
 
   public shouldAttach(route: ActivatedRouteSnapshot): boolean {
-    return !!route.routeConfig && !!this.storedRoutes.get(this.getKey(route));
+    const routeKey = this.getKey(route);
+    return !!route.routeConfig && !!this.storedRoutes.get(routeKey);
   }
 
   public retrieve(route: ActivatedRouteSnapshot): DetachedRouteHandle {
-    return this.storedRoutes.get(this.getKey(route));
+    const routeKey = this.getKey(route);
+    return this.storedRoutes.get(routeKey);
   }
 
-  public shouldReuseRoute(future: ActivatedRouteSnapshot, curr: ActivatedRouteSnapshot): boolean {
-    return future.routeConfig === curr.routeConfig;
+  public shouldReuseRoute(futureRoute: ActivatedRouteSnapshot, currentRoute: ActivatedRouteSnapshot): boolean {
+    return futureRoute.routeConfig === currentRoute.routeConfig;
   }
 
   private getKey(route: ActivatedRouteSnapshot): string {
