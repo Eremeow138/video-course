@@ -2,7 +2,7 @@ import { NgModule } from "@angular/core";
 import { Routes, RouterModule } from "@angular/router";
 import { RouterPath } from "@commons/enums/routers.enum";
 import { Breadcrumb } from "@markup/enums/breadcrumb.enum";
-import { CoursesPageComponent } from "./components/courses-page/courses-page.component";
+import { CoursesPageComponent } from "./components/courses-page.component";
 
 const routes: Routes = [
   {
