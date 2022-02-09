@@ -2,7 +2,7 @@ import { Component, OnDestroy, OnInit } from "@angular/core";
 import { ActivatedRoute, Params, Router } from "@angular/router";
 import { RouterPath } from "@commons/enums/routers.enum";
 import { ICourse } from "@pages/courses-page/courses/interfaces/course.interface";
-import { CoursesService } from "@pages/courses-page/courses/services/courses.service";
+import { CoursesService } from "@pages/courses-page/courses/services/courses/courses.service";
 import { Subject } from "rxjs";
 import { takeUntil } from "rxjs/operators";
 

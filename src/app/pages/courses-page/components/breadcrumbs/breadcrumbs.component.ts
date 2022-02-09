@@ -1,6 +1,6 @@
 import { Component, OnInit } from "@angular/core";
 import { IBreadcrumb } from "@markup/interfaces/breadcrumb.interface";
-import { BreadcrumbService } from "@markup/services/breadcrumb/breadcrumb.service";
+import { BreadcrumbService } from "@pages/courses-page/courses/services/breadcrumb/breadcrumb.service";
 import { Observable } from "rxjs";
 
 @Component({
