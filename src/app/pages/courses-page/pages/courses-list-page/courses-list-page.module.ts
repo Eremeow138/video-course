@@ -1,7 +1,6 @@
 import { NgModule } from "@angular/core";
 import { CommonModule } from "@angular/common";
 import { FormsModule } from "@angular/forms";
-import { CoursesModule } from "@pages/courses-page/courses/courses.module";
 import { CommonsModule } from "@commons/commons.module";
 import { RouterModule } from "@angular/router";
 
@@ -38,7 +37,7 @@ const COMPONENTS = [CoursesListPageComponent];
     OrderByPipe,
     FilterPipe,
   ],
-  imports: [CommonModule, FormsModule, CoursesModule, CommonsModule, RouterModule, CoursesListPageRoutingModule],
+  imports: [CommonModule, FormsModule, CommonsModule, RouterModule, CoursesListPageRoutingModule],
   exports: [...COMPONENTS],
 })
 export class CoursesListPageModule { }
