@@ -15,9 +15,10 @@ export class OnlyIntegerNumberDirective {
   private onKeyDown(event: KeyboardEvent): void {
 
     if (["Delete", "Backspace", "Enter", "ArrowLeft", "ArrowRight", "Control"].indexOf(event.code) !== -1 ||
+      (event.code === "KeyA" && event.ctrlKey) ||
+      (event.code === "KeyC" && event.ctrlKey) ||
       (event.code === "KeyV" && event.ctrlKey) ||
       (event.code === "KeyX" && event.ctrlKey) ||
-      (event.code === "KeyA" && event.ctrlKey) ||
       (event.code === "KeyZ" && event.ctrlKey)) {
       return;
     }
