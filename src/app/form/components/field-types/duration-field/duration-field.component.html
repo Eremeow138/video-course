@@ -3,7 +3,7 @@
     <app-field [title]="title" [control]="control" [id]="fieldName" [isRequired]="isRequired">
       <div class="duration-field__content">
         <div class="duration-field__input-wrapper">
-          <input [appDuration]="control" [formControl]="control" type="text" placeholder="{{placeholder}}"
+          <input appDuration [formControl]="control" type="number" placeholder="{{placeholder}}"
             class="duration-field__input" id="{{fieldName}}"
             [ngClass]="{'duration-field__input--invalid':control.value && control.invalid && control.touched}">
         </div>
