@@ -2,11 +2,11 @@ import { Directive, ElementRef, HostListener, Input } from "@angular/core";
 import { FormControl } from "@angular/forms";
 
 @Directive({
-  selector: "[appOnlyIntegerNumber]"
+  selector: "[appDuration]"
 })
-export class OnlyIntegerNumberDirective {
+export class DurationDirective {
 
-  @Input("appOnlyIntegerNumber")
+  @Input("appDuration")
   private control: FormControl = null;
 
   private regexStr = "^[0-9]*$";
