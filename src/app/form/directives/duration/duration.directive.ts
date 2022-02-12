@@ -1,11 +1,10 @@
 import { Directive, HostListener } from "@angular/core";
+import { Duration } from "@app/form/enums/duration.enum";
 
 @Directive({
   selector: "[appDuration]"
 })
 export class DurationDirective {
-
-  private regexStr = "^[0-9]*$";
 
   @HostListener("keydown", ["$event"])
   private onKeyDown(event: KeyboardEvent): void {
@@ -35,7 +34,7 @@ export class DurationDirective {
   }
 
   private validate(value: string): boolean {
-    const regEx = new RegExp(this.regexStr);
+    const regEx = new RegExp(Duration.Pattern);
     return regEx.test(value);
   }
 

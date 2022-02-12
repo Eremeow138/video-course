@@ -3,6 +3,7 @@ import { CourseFormControl } from "../../enums/course-form-control.enum";
 import { CourseFormValue } from "../../types/course-form-value";
 import { AbstractForm } from "./abstract-form.model";
 import { CustomValidators } from "../form-validators/custom-validators.model";
+import { Duration } from "@app/form/enums/duration.enum";
 
 export class CourseForm extends AbstractForm {
 
@@ -20,7 +21,11 @@ export class CourseForm extends AbstractForm {
       }
     }
 
-    this.get(CourseFormControl.Duration).addValidators(Validators.pattern("^[0-9]*$"));
+    this.get(CourseFormControl.Duration).addValidators([
+      Validators.pattern(Duration.Pattern),
+      Validators.max(Duration.MaxValue),
+      Validators.min(Duration.MinValue)
+    ]);
 
     this.get(CourseFormControl.Authors).addValidators(CustomValidators.authorsValidator());
 
