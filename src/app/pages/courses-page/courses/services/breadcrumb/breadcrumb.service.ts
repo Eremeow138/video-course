@@ -1,6 +1,6 @@
 import { Injectable, OnDestroy } from "@angular/core";
 import { ActivatedRoute, ActivatedRouteSnapshot, NavigationEnd, Router } from "@angular/router";
-import { IBreadcrumb } from "@markup/interfaces/breadcrumb.interface";
+import { IBreadcrumb } from "@pages/courses-page/courses/interfaces/breadcrumb/breadcrumb.interface";
 import { BehaviorSubject, Observable, Subject } from "rxjs";
 import { filter, takeUntil } from "rxjs/operators";
 

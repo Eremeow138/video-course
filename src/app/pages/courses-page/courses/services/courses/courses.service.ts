@@ -1,6 +1,6 @@
 /* eslint-disable max-len */
 import { Injectable } from "@angular/core";
-import { ICourse } from "@pages/courses-page/courses/interfaces/course.interface";
+import { ICourse } from "@pages/courses-page/courses/interfaces/course/course.interface";
 
 @Injectable()
 export class CoursesService {

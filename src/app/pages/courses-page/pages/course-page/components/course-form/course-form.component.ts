@@ -1,7 +1,7 @@
 import { Component, EventEmitter, Input, OnInit, Output } from "@angular/core";
 import { CourseFormControl } from "@app/form/enums/course-form-control.enum";
 import { CourseForm } from "@app/form/models/form-models/course-form.model";
-import { ICourse } from "@pages/courses-page/courses/interfaces/course.interface";
+import { ICourse } from "@pages/courses-page/courses/interfaces/course/course.interface";
 
 @Component({
   selector: "app-course-form",
