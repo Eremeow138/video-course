@@ -8,7 +8,7 @@ export class DurationDirective {
 
   private integerUnsignedRegex = Duration.Pattern.toString();
 
-  private allowedKeys = ["Delete", "Backspace", "Enter", "ArrowLeft", "ArrowUp", "ArrowRight", "ArrowDown", "Control"];
+  private allowedKeys = ["Delete", "Backspace", "Enter", "ArrowLeft", "ArrowUp", "ArrowRight", "ArrowDown", "ControlLeft", "ControlRight"];
 
   @HostListener("keydown", ["$event"])
   private onKeyDown(event: KeyboardEvent): void {
