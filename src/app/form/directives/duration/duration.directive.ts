@@ -6,14 +6,19 @@ import { Duration } from "@app/form/enums/duration.enum";
 })
 export class DurationDirective {
 
+  private integerUnsignedRegex = Duration.Pattern.toString();
+
+  private allowedKeys = ["Delete", "Backspace", "Enter", "ArrowLeft", "ArrowUp", "ArrowRight", "ArrowDown", "Control"];
+
   @HostListener("keydown", ["$event"])
   private onKeyDown(event: KeyboardEvent): void {
 
-    if (["Delete", "Backspace", "Enter", "ArrowLeft", "ArrowUp", "ArrowRight", "ArrowDown", "Control"].indexOf(event.code) !== -1 ||
+    if (this.allowedKeys.indexOf(event.code) !== -1 ||
       (event.code === "KeyA" && event.ctrlKey) ||
       (event.code === "KeyC" && event.ctrlKey) ||
       (event.code === "KeyV" && event.ctrlKey) ||
       (event.code === "KeyX" && event.ctrlKey) ||
+      (event.code === "KeyY" && event.ctrlKey) ||
       (event.code === "KeyZ" && event.ctrlKey)) {
       return;
     }
@@ -34,7 +39,7 @@ export class DurationDirective {
   }
 
   private validate(value: string): boolean {
-    const regEx = new RegExp(Duration.Pattern);
+    const regEx = new RegExp(this.integerUnsignedRegex);
     return regEx.test(value);
   }
 
