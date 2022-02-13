@@ -19,6 +19,9 @@ export class FieldComponent {
   @Input()
   public isRequired = false;
 
+  @Input()
+  public fieldErrors: string[] = null;
+
   public get isRequiredVisible(): boolean {
     return !this.isControlValueExist && this.isRequired && this.control.invalid && this.control.touched;
   }
