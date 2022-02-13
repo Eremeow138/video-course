@@ -3,7 +3,7 @@ import { CourseFormControl } from "../../enums/course-form-control.enum";
 import { CourseFormValue } from "../../types/course-form-value";
 import { AbstractForm } from "./abstract-form.model";
 import { CustomValidators } from "../form-validators/custom-validators.model";
-import { Duration } from "@app/form/enums/duration.enum";
+import { DurationLimit } from "@app/form/enums/duration-limit.enum";
 
 export class CourseForm extends AbstractForm {
 
@@ -22,9 +22,9 @@ export class CourseForm extends AbstractForm {
     }
 
     this.get(CourseFormControl.Duration).addValidators([
-      Validators.pattern(Duration.Pattern),
-      Validators.max(Duration.MaxValue),
-      Validators.min(Duration.MinValue)
+      Validators.pattern("^[0-9]*$"),
+      Validators.max(DurationLimit.MaxValue),
+      Validators.min(DurationLimit.MinValue)
     ]);
 
     this.get(CourseFormControl.Authors).addValidators(CustomValidators.authorsValidator());

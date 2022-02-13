@@ -1,12 +1,11 @@
 import { Directive, HostListener } from "@angular/core";
-import { Duration } from "@app/form/enums/duration.enum";
 
 @Directive({
   selector: "[appDuration]"
 })
 export class DurationDirective {
 
-  private integerUnsignedRegex = Duration.Pattern.toString();
+  private integerUnsignedRegex = "^[0-9]*$";
 
   private allowedKeys = ["Delete", "Backspace", "Enter", "ArrowLeft", "ArrowUp", "ArrowRight", "ArrowDown", "ControlLeft", "ControlRight"];
 

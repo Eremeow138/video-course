@@ -1,5 +1,5 @@
 import { Component } from "@angular/core";
-import { Duration } from "@app/form/enums/duration.enum";
+import { DurationLimit } from "@app/form/enums/duration-limit.enum";
 import { AbstractFieldComponent } from "../abstract-field/abstract-field.component";
 
 @Component({
@@ -8,8 +8,8 @@ import { AbstractFieldComponent } from "../abstract-field/abstract-field.compone
   styleUrls: ["./duration-field.component.scss"]
 })
 export class DurationFieldComponent extends AbstractFieldComponent {
-  public minValue = Duration.MinValue;
-  public maxValue = Duration.MaxValue;
+  public minValue = DurationLimit.MinValue;
+  public maxValue = DurationLimit.MaxValue;
 
   public get errors(): string[] {
     const errors: string[] = [];
