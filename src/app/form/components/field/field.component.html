@@ -5,5 +5,7 @@
       required</span>
   </div>
   <ng-content></ng-content>
-  <span class="field__error" *ngFor="let fieldError of fieldErrors">{{fieldError}}</span>
+  <div class="field__errors-list">
+    <span class="field__error" *ngFor="let fieldError of fieldErrors">{{fieldError}}</span>
+  </div>
 </div>

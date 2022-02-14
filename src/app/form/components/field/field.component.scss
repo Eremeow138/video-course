@@ -22,6 +22,9 @@
   &__required {
     @include field-required-text;
   }
+  &__errors-list {
+    @include flex-column;
+  }
   &__error {
     color: $text-warning-color;
   }
