@@ -2,9 +2,9 @@ import { Directive, ElementRef, HostListener, Input } from "@angular/core";
 import { DurationLimit } from "@app/form/enums/duration-limit.enum";
 
 @Directive({
-  selector: "[appDuration]"
+  selector: "[appIntegerOnly]"
 })
-export class DurationDirective {
+export class IntegerOnlyDirective {
 
   @Input()
   private maxDigitNumbers = DurationLimit.MaxValue;
