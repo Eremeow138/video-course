@@ -15,17 +15,12 @@ export class IntegerOnlyDirective {
 
   private allowedKeys = ["Delete", "Backspace", "Enter", "ArrowLeft", "ArrowUp", "ArrowRight", "ArrowDown", "ControlLeft", "ControlRight"];
 
-  private originValue = "";
-
-  private previousValue = "";
-
   @HostListener("keyup", ["$event"])
   private onKeyUp(): void {
+    const originValue = this.input.value;
 
-    this.originValue = this.input.value;
-
-    if (this.originValue && this.originValue.length > 1 && +this.originValue[0] === 0) {
-      this.input.value = this.originValue.replace(/^0+/, "");
+    if (originValue && originValue.length > 1 && +originValue[0] === 0) {
+      this.input.value = originValue.replace(/^0+/, "");
     }
   }
 
@@ -42,11 +37,11 @@ export class IntegerOnlyDirective {
       return;
     }
 
-    this.previousValue = this.input.value;
+    const previousValue = this.input.value;
     const pressedNumber = Number(event.key);
-    const isSeveralZero = this.previousValue && Number(this.previousValue) === 0 && pressedNumber === 0;
-    const isMaxValueLength = this.previousValue.length >= String(this.maxDigitNumbers).length;
-    const isMaxValue = Number(this.previousValue) > this.maxDigitNumbers;
+    const isSeveralZero = previousValue && Number(previousValue) === 0 && pressedNumber === 0;
+    const isMaxValueLength = previousValue.length >= String(this.maxDigitNumbers).length;
+    const isMaxValue = Number(previousValue) > this.maxDigitNumbers;
 
     if (isSeveralZero || isMaxValueLength || isMaxValue) {
       event.preventDefault();
