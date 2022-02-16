@@ -9,9 +9,8 @@
   @include height-width-100-percent;
 
   &__content-wrapper {
-    @include height-width-100-percent;
-
-    padding: $wrapper-padding;
+    width: 100%;
+    padding: 0 $wrapper-padding $wrapper-padding;
   }
   &__content {
     @include height-width-100-percent;
@@ -24,7 +23,6 @@
     @include height-width-100-percent;
 
     padding: 1rem;
-    overflow-y: overlay;
     height: min-content;
     max-width: $course-form-max-width;
   }

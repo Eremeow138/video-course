@@ -224,3 +224,27 @@
 
   margin-left: 1rem;
 }
+@mixin scrollbar {
+  @-moz-document url-prefix("") {
+    scrollbar-color: $scroll-secondary-bg-color $scroll-primary-bg-color;
+    scrollbar-width: thin;
+  }
+
+  &::-webkit-scrollbar {
+    width: 0.5rem;
+    height: 0.5rem;
+    border-radius: 2rem;
+    background-color: $scroll-primary-bg-color;
+  }
+  &::-webkit-scrollbar-corner {
+    background-color: $scroll-primary-bg-color;
+  }
+  &::-webkit-scrollbar-thumb {
+    border-radius: 2rem;
+    background-color: $scroll-secondary-bg-color;
+
+    &:hover {
+      background-color: $scroll-secondary-bg-hover-color;
+    }
+  }
+}

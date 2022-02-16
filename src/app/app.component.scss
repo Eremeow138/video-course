@@ -6,8 +6,6 @@
   @include absolute-zero-position;
   @include flex-column;
 
-  overflow-x: auto;
-  overflow-y: hidden;
   align-items: stretch;
   min-width: $window-min-width;
   min-height: $window-min-height;

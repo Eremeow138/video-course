@@ -12,11 +12,14 @@
   &__breadcrumbs-wrapper {
     @include flex-row;
 
+    position: sticky;
+    top: 0;
     justify-content: center;
     width: 100%;
     height: $breadcrumbs-height;
     padding: $wrapper-paddings;
     background-color: $third-bg-color;
+    box-shadow: $primary-shadow;
   }
   &__breadcrumbs {
     @include height-width-100-percent;
@@ -24,8 +27,11 @@
     max-width: $content-max-width;
   }
   &__pages {
+    @include scrollbar;
+
     width: 100%;
     height: calc(100% - #{$breadcrumbs-height});
     padding-top: 2.1rem;
+    overflow-y: auto;
   }
 }

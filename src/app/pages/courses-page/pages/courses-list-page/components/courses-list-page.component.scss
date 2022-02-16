@@ -46,13 +46,10 @@
   }
   &__list {
     @include height-width-100-percent;
+    @include scrollbar;
 
     overflow-y: overlay;
     max-width: 1130px;
     padding: 1rem 1rem 2.1rem;
-
-    @-moz-document url-prefix("") {
-      overflow-y: auto;
-    }
   }
 }
