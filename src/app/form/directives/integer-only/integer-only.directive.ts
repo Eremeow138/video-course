@@ -9,6 +9,8 @@ export class IntegerOnlyDirective {
   @Input()
   private maxDigitNumbers = DurationLimit.MaxValue;
 
+  private input = this.elementRef.nativeElement as HTMLInputElement;
+
   private integerUnsignedRegex = "^[0-9]*$";
 
   private allowedKeys = ["Delete", "Backspace", "Enter", "ArrowLeft", "ArrowUp", "ArrowRight", "ArrowDown", "ControlLeft", "ControlRight"];
@@ -20,11 +22,10 @@ export class IntegerOnlyDirective {
   @HostListener("keyup", ["$event"])
   private onKeyUp(): void {
 
-    const input = this.elementRef.nativeElement as HTMLInputElement;
-    this.originValue = input.value;
+    this.originValue = this.input.value;
 
     if (this.originValue && this.originValue.length > 1 && +this.originValue[0] === 0) {
-      input.value = this.originValue.replace(/^0+/, "");
+      this.input.value = this.originValue.replace(/^0+/, "");
     }
   }
 
@@ -41,8 +42,7 @@ export class IntegerOnlyDirective {
       return;
     }
 
-    const input = this.elementRef.nativeElement as HTMLInputElement;
-    this.previousValue = input.value;
+    this.previousValue = this.input.value;
     const pressedNumber = Number(event.key);
     const isSeveralZero = this.previousValue && Number(this.previousValue) === 0 && pressedNumber === 0;
     const isMaxValueLength = this.previousValue.length >= String(this.maxDigitNumbers).length;
