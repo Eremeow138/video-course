@@ -16,6 +16,16 @@
     justify-content: space-between;
     margin-bottom: 1rem;
   }
+  &__limit {
+    @include height-width-100-percent;
+
+    &--short {
+      width: $primary-field-max-width;
+    }
+    &--medium {
+      width: $secondary-field-max-width;
+    }
+  }
   &__title {
     @include field-title-text;
   }

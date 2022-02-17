@@ -10,14 +10,20 @@
   @include height-width-100-percent;
   @include flex-row;
 
+  justify-content: flex-start;
   align-items: flex-end;
 
   &__field-wrapper {
-    max-width: $primary-field-max-width;
+    @include height-width-100-percent;
   }
   &__content {
     @include height-width-100-percent;
     @include flex-row;
+
+    position: relative;
+  }
+  &__input-wrapper {
+    @include height-width-100-percent;
   }
   &__input {
     @include input-field;
@@ -25,6 +31,9 @@
   &__time-wrapper {
     @include flex-row;
 
+    position: absolute;
+    left: 100%;
+    width: max-content;
     align-items: center;
     margin-left: 1.9rem;
     min-height: $field-min-height;

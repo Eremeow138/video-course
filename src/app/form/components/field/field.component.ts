@@ -1,5 +1,6 @@
 import { Component, Input } from "@angular/core";
 import { AbstractControl } from "@angular/forms";
+import { FieldLengthModificatorType } from "@app/form/types/field-length-modificator.type";
 
 @Component({
   selector: "app-field",
@@ -21,6 +22,13 @@ export class FieldComponent {
 
   @Input()
   public fieldErrors: string[] = null;
+
+  @Input()
+  public lengthModificator: FieldLengthModificatorType = null;
+
+  public get fieldLimitModificatorClass(): string {
+    return this.lengthModificator ? `field__limit--${this.lengthModificator}` : "";
+  }
 
   public get isRequiredVisible(): boolean {
     return !this.isControlValueExist && this.isRequired && this.control.invalid && this.control.touched;
