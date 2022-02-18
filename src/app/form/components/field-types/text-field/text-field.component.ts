@@ -1,4 +1,5 @@
 import { Component } from "@angular/core";
+import { TextLimit } from "@app/form/enums/text-limit.enum";
 import { AbstractFieldComponent } from "../abstract-field/abstract-field.component";
 
 @Component({
@@ -6,4 +7,14 @@ import { AbstractFieldComponent } from "../abstract-field/abstract-field.compone
   templateUrl: "./text-field.component.html",
   styleUrls: ["./text-field.component.scss"]
 })
-export class TextFieldComponent extends AbstractFieldComponent { }
+export class TextFieldComponent extends AbstractFieldComponent {
+  public maxLength = TextLimit.MaxLenght;
+
+  public get errors(): string[] {
+    const errors: string[] = [];
+    if (this.control && this.control.errors && this.control.errors.maxlength) {
+      errors.push("The maximum number of characters has been exceeded");
+    }
+    return errors;
+  }
+}

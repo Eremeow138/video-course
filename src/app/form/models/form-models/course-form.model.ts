@@ -5,6 +5,7 @@ import { AbstractForm } from "./abstract-form.model";
 import { CustomValidators } from "../form-validators/custom-validators.model";
 import { DurationLimit } from "@app/form/enums/duration-limit.enum";
 import { StringLimit } from "@app/form/enums/string-limit.enum";
+import { TextLimit } from "@app/form/enums/text-limit.enum";
 
 export class CourseForm extends AbstractForm {
 
@@ -23,6 +24,7 @@ export class CourseForm extends AbstractForm {
     }
 
     this.get(CourseFormControl.Title).addValidators(Validators.maxLength(StringLimit.MaxLenght));
+    this.get(CourseFormControl.Description).addValidators(Validators.maxLength(TextLimit.MaxLenght));
 
     this.addValidatorsToDurationControl();
 
