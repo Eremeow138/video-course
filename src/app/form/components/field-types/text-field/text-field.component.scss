@@ -11,5 +11,6 @@
 
   &__textarea {
     @include textarea-field;
+    @include scrollbar;
   }
 }
