@@ -33,9 +33,13 @@
     @include field-required-text;
   }
   &__errors-list {
+    @include height-width-100-percent;
     @include flex-column;
+
+    min-height: 1.2rem;
   }
   &__error {
+    margin-top: 0.3rem;
     color: $text-warning-color;
   }
 }
