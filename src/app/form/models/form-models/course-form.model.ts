@@ -4,6 +4,7 @@ import { CourseFormValue } from "../../types/course-form-value";
 import { AbstractForm } from "./abstract-form.model";
 import { CustomValidators } from "../form-validators/custom-validators.model";
 import { DurationLimit } from "@app/form/enums/duration-limit.enum";
+import { StringLimit } from "@app/form/enums/string-limit.enum";
 
 export class CourseForm extends AbstractForm {
 
@@ -21,11 +22,14 @@ export class CourseForm extends AbstractForm {
       }
     }
 
+    this.get(CourseFormControl.Title).addValidators(Validators.maxLength(StringLimit.MaxLenght));
+
     this.addValidatorsToDurationControl();
+
+    this.get(CourseFormControl.Date).addValidators(CustomValidators.dateValidator());
 
     this.get(CourseFormControl.Authors).addValidators(CustomValidators.authorsValidator());
 
-    this.get(CourseFormControl.Date).addValidators(CustomValidators.dateValidator());
   }
 
   private addValidatorsToDurationControl(): void {
