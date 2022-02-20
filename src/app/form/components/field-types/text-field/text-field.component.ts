@@ -8,7 +8,7 @@ import { AbstractFieldComponent } from "../abstract-field/abstract-field.compone
   styleUrls: ["./text-field.component.scss"]
 })
 export class TextFieldComponent extends AbstractFieldComponent {
-  public maxLength = TextLimit.MaxLenght;
+  public maxLength = TextLimit.MaxLength;
 
   public get errors(): string[] {
     const errors: string[] = [];

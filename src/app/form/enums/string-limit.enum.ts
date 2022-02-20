@@ -1,3 +1,3 @@
 export enum StringLimit {
-  MaxLenght = 50
+  MaxLength = 50
 }

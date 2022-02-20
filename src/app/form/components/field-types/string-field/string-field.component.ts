@@ -12,7 +12,7 @@ export class StringFieldComponent extends AbstractFieldComponent {
   @Input()
   public inputType: StringFieldInputType = "text";
 
-  public maxLength = StringLimit.MaxLenght;
+  public maxLength = StringLimit.MaxLength;
 
   public get errors(): string[] {
     const errors: string[] = [];

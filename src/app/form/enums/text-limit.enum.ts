@@ -1,3 +1,3 @@
 export enum TextLimit {
-  MaxLenght = 500
+  MaxLength = 500
 }
