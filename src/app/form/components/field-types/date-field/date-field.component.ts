@@ -24,6 +24,14 @@ export class DateFieldComponent extends AbstractFieldComponent implements OnInit
     this.getConfig();
   }
 
+  public get errors(): string[] {
+    const errors: string[] = [];
+    if (this.control && this.control.errors && this.control.errors.bsDate) {
+      errors.push("The invalid date has been entered");
+    }
+    return errors;
+  }
+
   public getValue(): string {
     try {
       return this.datePipe.transform(this.control.value as string, "MM/dd/yyyy");

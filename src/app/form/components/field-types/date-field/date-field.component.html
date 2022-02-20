@@ -1,6 +1,6 @@
 <div class="date-field">
   <div class="date-field__field-wrapper">
-    <app-field [title]="title" [control]="control" [id]="fieldName" [isRequired]="isRequired">
+    <app-field [title]="title" [control]="control" [id]="fieldName" [isRequired]="isRequired" [fieldErrors]="errors">
       <div class="date-field__content">
         <input appInvalidDateHandler class="date-field__input"
           [ngClass]="{'date-field__input--invalid':control.value && control.invalid && control.touched}"
