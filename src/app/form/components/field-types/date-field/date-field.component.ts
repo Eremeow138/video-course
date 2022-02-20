@@ -1,3 +1,4 @@
+import { DatePipe } from "@angular/common";
 import { ChangeDetectorRef, Component, OnInit } from "@angular/core";
 import { BsDatepickerConfig } from "ngx-bootstrap/datepicker";
 import { AbstractFieldComponent } from "../abstract-field/abstract-field.component";
@@ -6,13 +7,14 @@ import { AbstractFieldComponent } from "../abstract-field/abstract-field.compone
   selector: "app-date-field",
   templateUrl: "./date-field.component.html",
   styleUrls: ["./date-field.component.scss"],
+  providers: [DatePipe]
 })
 export class DateFieldComponent extends AbstractFieldComponent implements OnInit {
 
   public bsConfig: Partial<BsDatepickerConfig>;
   public minDate: Date;
 
-  constructor(protected cd: ChangeDetectorRef) {
+  constructor(protected cd: ChangeDetectorRef, private datePipe: DatePipe) {
     super(cd);
   }
 
@@ -20,6 +22,14 @@ export class DateFieldComponent extends AbstractFieldComponent implements OnInit
     super.ngOnInit();
     this.setMinDate();
     this.getConfig();
+  }
+
+  public getValue(): string {
+    try {
+      return this.datePipe.transform(this.control.value as string, "MM/dd/yyyy");
+    } catch (error) {
+      return this.control.value;
+    }
   }
 
   public setValue(value: Date): void {

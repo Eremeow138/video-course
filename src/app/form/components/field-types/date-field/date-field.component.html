@@ -5,7 +5,7 @@
         <input class="date-field__input"
           [ngClass]="{'date-field__input--invalid':control.value && control.invalid && control.touched}"
           type="text" autocomplete="off" placeholder="{{placeholder}}" id="{{fieldName}}"
-          [ngModel]="control.value | date:'MM/dd/yyyy'" (ngModelChange)="setValue($event)" #dp="bsDatepicker"
+          [ngModel]="getValue()" (ngModelChange)="setValue($event)" #dp="bsDatepicker"
           bsDatepicker [bsConfig]="bsConfig" [minDate]="minDate" placement="right" (blur)=" touchControl()">
         <img (click)=" dp.toggle()" class="date-field__icon" src="assets/icons/calendar.svg" alt="calendar" />
       </div>
