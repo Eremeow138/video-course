@@ -12,6 +12,7 @@ import { TagFieldComponent } from "./components/field-types/tag-field/tag-field.
 import { DateFieldComponent } from "./components/field-types/date-field/date-field.component";
 import { TagComponent } from "./components/field-types/tag-field/tag/tag.component";
 import { IntegerOnlyDirective } from "./directives/integer-only/integer-only.directive";
+import { InvalidDateHandlerDirective } from "./directives/invalid-date-handler/invalid-date-handler.directive";
 
 const COMPONENTS = [StringFieldComponent, TextFieldComponent, DurationFieldComponent, DateFieldComponent, TagFieldComponent];
 
@@ -20,7 +21,8 @@ const COMPONENTS = [StringFieldComponent, TextFieldComponent, DurationFieldCompo
     ...COMPONENTS,
     FieldComponent,
     TagComponent,
-    IntegerOnlyDirective
+    IntegerOnlyDirective,
+    InvalidDateHandlerDirective
   ],
   imports: [
     CommonModule,

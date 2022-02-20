@@ -2,7 +2,7 @@
   <div class="date-field__field-wrapper">
     <app-field [title]="title" [control]="control" [id]="fieldName" [isRequired]="isRequired">
       <div class="date-field__content">
-        <input class="date-field__input"
+        <input appInvalidDateHandler class="date-field__input"
           [ngClass]="{'date-field__input--invalid':control.value && control.invalid && control.touched}"
           type="text" autocomplete="off" placeholder="{{placeholder}}" id="{{fieldName}}"
           [ngModel]="getValue()" (ngModelChange)="setValue($event)" #dp="bsDatepicker"
