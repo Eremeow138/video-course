@@ -24,21 +24,18 @@ export class CourseForm extends AbstractForm {
     }
 
     this.get(CourseFormControl.Title).addValidators(Validators.maxLength(StringLimit.MaxLength));
+
     this.get(CourseFormControl.Description).addValidators(Validators.maxLength(TextLimit.MaxLength));
 
-    this.addValidatorsToDurationControl();
-
-    this.get(CourseFormControl.Date).addValidators(CustomValidators.dateValidator());
-
-    this.get(CourseFormControl.Authors).addValidators(CustomValidators.authorsValidator());
-
-  }
-
-  private addValidatorsToDurationControl(): void {
     this.get(CourseFormControl.Duration).addValidators([
       Validators.pattern("^[0-9]*$"),
       Validators.max(DurationLimit.MaxValue),
       Validators.min(DurationLimit.MinValue)
     ]);
+
+    this.get(CourseFormControl.Date).addValidators(CustomValidators.dateValidator());
+
+    this.get(CourseFormControl.Authors).addValidators(CustomValidators.authorsValidator());
+
   }
 }
