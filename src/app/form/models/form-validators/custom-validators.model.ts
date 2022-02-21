@@ -1,4 +1,5 @@
 import { AbstractControl, ValidationErrors, ValidatorFn } from "@angular/forms";
+import { IDateErrors } from "@app/form/interfaces/date-errors.interface";
 
 
 export class CustomValidators {
@@ -22,13 +23,23 @@ export class CustomValidators {
 
   public static dateValidator(): ValidatorFn {
     return (control: AbstractControl): ValidationErrors | null => {
+
+      const minDate = new Date();
+      minDate.setHours(0, 0, 0, 0);
+
       const date = new Date(control.value as Date);
 
-      if (date && date instanceof Date && !isNaN(date.getTime())) {
-        return null;
+      const errors: IDateErrors = { bsDate: {} };
+
+      if (!(date && date instanceof Date && !isNaN(date.getTime()))) {
+        errors.bsDate.invalid = date;
       }
 
-      return { bsDate: { invalid: date } };
+      if (date < minDate) {
+        errors.bsDate.minDate = minDate;
+      }
+
+      return JSON.stringify(errors.bsDate) === "{}" ? null : errors;
     };
   }
 

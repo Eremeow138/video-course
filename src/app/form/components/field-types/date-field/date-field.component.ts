@@ -26,8 +26,11 @@ export class DateFieldComponent extends AbstractFieldComponent implements OnInit
 
   public get errors(): string[] {
     const errors: string[] = [];
-    if (this.control && this.control.errors && this.control.errors.bsDate) {
+    if (this.control && this.control.errors && this.control.errors.bsDate && this.control.errors.bsDate.invalid) {
       errors.push("The invalid date has been entered");
+    }
+    if (this.control && this.control.errors && this.control.errors.bsDate && this.control.errors.bsDate.minDate) {
+      errors.push("The entered date has expired");
     }
     return errors;
   }
