@@ -10,7 +10,7 @@
   @include height-width-100-percent;
 
   &__field-wrapper {
-    max-width: $secondary-field-max-width;
+    @include height-width-100-percent;
   }
   &__container {
     @include field;
@@ -19,7 +19,20 @@
     padding: 0;
     align-items: flex-start;
     flex-wrap: wrap;
-    cursor: text;
+  }
+  &__tags {
+    @include flex-row;
+    @include scrollbar;
+
+    overflow-x: auto;
+  }
+  &__tag-wrapper {
+    flex-shrink: 0;
+    margin: $tag-margins;
+
+    &:first-child {
+      margin-left: 0.5rem;
+    }
   }
   &__input {
     @include input;
