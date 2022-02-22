@@ -39,10 +39,12 @@
     @include scrollbar;
 
     position: absolute;
-    top: 100%;
-    width: 100%;
+    top: 97%;
+    left: -1px;
+    width: calc(100% + 2px);
     height: min-content;
     max-height: calc(#{$field-min-height} * 3);
+    border: 1px solid $field-border-color;
     overflow-y: overlay;
 
     &--hidden {
@@ -58,10 +60,12 @@
     align-items: center;
     padding: 0 $field-padding;
     background-color: $third-bg-color;
-    border: 1px solid $field-border-color;
     list-style: none;
     cursor: pointer;
 
+    &:not(:first-child) {
+      border-top: 1px solid $field-border-color;
+    }
     &:hover {
       background-color: $third-bg-color-hover;
     }
