@@ -12,17 +12,17 @@ import { AbstractFieldComponent } from "../abstract-field/abstract-field.compone
 })
 export class TagFieldComponent extends AbstractFieldComponent implements OnInit, OnDestroy {
 
-  public authors$: Observable<IAuthor[]>;
+  public hints$: Observable<IAuthor[]>;
 
-  public isAuthorListVisible = false;
+  public isHintListVisible = false;
 
   @HostListener("document:click", ["$event"])
   public onClick(event: Event): void {
     if (this.input.nativeElement.isSameNode(event.target as HTMLElement)) {
       return;
     }
-    if (!this.tagList.nativeElement.isSameNode(event.target as HTMLElement)) {
-      this.hideAuthors();
+    if (!this.hintList.nativeElement.isSameNode(event.target as HTMLElement)) {
+      this.hideHints();
     }
   }
 
@@ -30,8 +30,8 @@ export class TagFieldComponent extends AbstractFieldComponent implements OnInit,
   private input: ElementRef<HTMLInputElement>;
   @ViewChild("tagContainer")
   private tagContainer: ElementRef<HTMLElement>;
-  @ViewChild("tagList")
-  private tagList: ElementRef<HTMLElement>;
+  @ViewChild("hintList")
+  private hintList: ElementRef<HTMLElement>;
 
   private searchString = new Subject<string>();
 
@@ -40,9 +40,9 @@ export class TagFieldComponent extends AbstractFieldComponent implements OnInit,
   }
 
   public ngOnInit(): void {
-    this.authors$ = this.searchString.pipe(
+    this.hints$ = this.searchString.pipe(
       debounceTime(300),
-      tap(() => this.showAuthors()),
+      tap(() => this.showHints()),
       distinctUntilChanged(),
       switchMap((searchString: string) => this.coursesService.searchAuthors(searchString)),
       map(authors => {
@@ -55,21 +55,21 @@ export class TagFieldComponent extends AbstractFieldComponent implements OnInit,
     this.searchString.complete();
   }
 
-  public addAuthor(event: Event): void {
-    const authorElement = event.target as HTMLElement;
-    const addedAuthor = authorElement.textContent;
-    const authors = this.control.value as string[];
+  public addTag(event: Event): void {
+    const hintElement = event.target as HTMLElement;
+    const addedTag = hintElement.textContent;
+    const tags = this.control.value as string[];
 
-    if (addedAuthor && addedAuthor !== "Authors not found" && !authors.includes(addedAuthor)) {
-      this.control.setValue([...this.control.value, addedAuthor]);
+    if (addedTag && addedTag !== "Authors not found" && !tags.includes(addedTag)) {
+      this.control.setValue([...this.control.value, addedTag]);
     }
     this.renderer.setProperty(this.input.nativeElement, "value", "");
-    this.hideAuthors();
+    this.hideHints();
   }
 
-  public removeAuthor(removableAuthor: string): void {
-    const authors = this.control.value as string[];
-    this.control.setValue([...authors.filter(author => author !== removableAuthor)]);
+  public removeTag(removableTag: string): void {
+    const tags = this.control.value as string[];
+    this.control.setValue([...tags.filter(tag => tag !== removableTag)]);
   }
 
   public touchControl(): void {
@@ -88,14 +88,14 @@ export class TagFieldComponent extends AbstractFieldComponent implements OnInit,
     return item;
   }
 
-  public searchAuthors(searchString: string): void {
+  public searchHints(searchString: string): void {
     this.searchString.next(searchString.trim());
   }
 
-  public hideAuthors(): void {
-    this.isAuthorListVisible = false;
+  public hideHints(): void {
+    this.isHintListVisible = false;
   }
-  public showAuthors(): void {
-    this.isAuthorListVisible = true;
+  public showHints(): void {
+    this.isHintListVisible = true;
   }
 }

@@ -35,7 +35,7 @@
       margin-left: 0.5rem;
     }
   }
-  &__authors-list {
+  &__hints {
     @include scrollbar;
 
     position: absolute;
@@ -51,7 +51,7 @@
       display: none;
     }
   }
-  &__author {
+  &__hint {
     @include flex-row;
     @include input-text;
 

@@ -5,14 +5,14 @@
       <div #tagContainer class="tag-field__container" (click)="activateInput($event)">
         <div class="tag-field__tags">
           <div class="tag-field__tag-wrapper" *ngFor="let author of control.value; trackBy: trackByFn">
-            <app-tag [value]="author" (deleteEvent)="removeAuthor($event)"></app-tag>
+            <app-tag [value]="author" (deleteEvent)="removeTag($event)"></app-tag>
           </div>
         </div>
         <input #tagInput type="text" placeholder="{{placeholder}}" class="tag-field__input" id="{{fieldName}}"
-          (blur)="[touchControl()]" (input)="searchAuthors(tagInput.value)" (click)="searchAuthors(tagInput.value)">
-        <ul #tagList (click)="addAuthor($event)" class="tag-field__authors-list"
-          [ngClass]="{'tag-field__authors-list--hidden': !isAuthorListVisible}">
-          <li class="tag-field__author" *ngFor="let author of authors$ | async">{{author.name}}</li>
+          (blur)="[touchControl()]" (input)="searchHints(tagInput.value)" (click)="searchHints(tagInput.value)">
+        <ul #hintList (click)="addTag($event)" class="tag-field__hints"
+          [ngClass]="{'tag-field__hints--hidden': !isHintListVisible}">
+          <li class="tag-field__hint" *ngFor="let hint of hints$ | async">{{hint.name}}</li>
         </ul>
       </div>
     </app-field>
