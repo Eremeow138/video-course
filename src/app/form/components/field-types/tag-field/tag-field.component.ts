@@ -1,8 +1,4 @@
-import { ChangeDetectorRef, Component, ElementRef, HostListener, OnDestroy, OnInit, Renderer2, ViewChild } from "@angular/core";
-import { IAuthor } from "@pages/courses-page/courses/interfaces/course/author.interface";
-import { CoursesService } from "@pages/courses-page/courses/services/courses/courses.service";
-import { Observable, Subject } from "rxjs";
-import { debounceTime, distinctUntilChanged, map, switchMap, tap } from "rxjs/operators";
+import { ChangeDetectorRef, Component, ElementRef, EventEmitter, HostListener, Input, Output, Renderer2, ViewChild } from "@angular/core";
 import { AbstractFieldComponent } from "../abstract-field/abstract-field.component";
 
 @Component({
@@ -10,14 +6,17 @@ import { AbstractFieldComponent } from "../abstract-field/abstract-field.compone
   templateUrl: "./tag-field.component.html",
   styleUrls: ["./tag-field.component.scss"]
 })
-export class TagFieldComponent extends AbstractFieldComponent implements OnInit, OnDestroy {
+export class TagFieldComponent extends AbstractFieldComponent {
+  @Input()
+  public hintsNotFound: string = null;
 
-  public hints$: Observable<IAuthor[]>;
+  @Input()
+  public hints: string[] = [];
 
   public isHintListVisible = false;
 
   @HostListener("document:click", ["$event"])
-  public onClick(event: Event): void {
+  public onClickOutHintList(event: Event): void {
     if (this.input.nativeElement.isSameNode(event.target as HTMLElement)) {
       return;
     }
@@ -26,33 +25,20 @@ export class TagFieldComponent extends AbstractFieldComponent implements OnInit,
     }
   }
 
+  @Output()
+  private searchEvent = new EventEmitter<string>();
+
   @ViewChild("tagInput")
   private input: ElementRef<HTMLInputElement>;
-  @ViewChild("tagContainer")
-  private tagContainer: ElementRef<HTMLElement>;
+
+  @ViewChild("tags")
+  private tags: ElementRef<HTMLElement>;
+
   @ViewChild("hintList")
   private hintList: ElementRef<HTMLElement>;
 
-  private searchString = new Subject<string>();
-
-  constructor(private renderer: Renderer2, cd: ChangeDetectorRef, private coursesService: CoursesService) {
+  constructor(private renderer: Renderer2, cd: ChangeDetectorRef) {
     super(cd);
-  }
-
-  public ngOnInit(): void {
-    this.hints$ = this.searchString.pipe(
-      debounceTime(300),
-      tap(() => this.showHints()),
-      distinctUntilChanged(),
-      switchMap((searchString: string) => this.coursesService.searchAuthors(searchString)),
-      map(authors => {
-        return authors.length ? authors : [{ id: "not-found", name: "Authors not found" }];
-      }),
-    );
-  }
-
-  public ngOnDestroy(): void {
-    this.searchString.complete();
   }
 
   public addTag(event: Event): void {
@@ -60,10 +46,12 @@ export class TagFieldComponent extends AbstractFieldComponent implements OnInit,
     const addedTag = hintElement.textContent;
     const tags = this.control.value as string[];
 
-    if (addedTag && addedTag !== "Authors not found" && !tags.includes(addedTag)) {
+    if (addedTag && addedTag !== this.hintsNotFound && !tags.includes(addedTag)) {
       this.control.setValue([...this.control.value, addedTag]);
+      this.scrollTagsToEnd();
     }
     this.renderer.setProperty(this.input.nativeElement, "value", "");
+
     this.hideHints();
   }
 
@@ -76,26 +64,26 @@ export class TagFieldComponent extends AbstractFieldComponent implements OnInit,
     this.control.markAsTouched();
   }
 
-  public activateInput(event: Event): void {
-    const target = event.target as HTMLElement;
-
-    if (target.className === this.tagContainer.nativeElement.className) {
-      this.input.nativeElement.focus();
-    }
-  }
-
   public trackByFn(index: number, item: any): any {
     return item;
   }
 
   public searchHints(searchString: string): void {
-    this.searchString.next(searchString.trim());
+    this.searchEvent.emit(searchString.trim());
   }
 
   public hideHints(): void {
     this.isHintListVisible = false;
+    this.searchHints(this.input.nativeElement.value);
   }
   public showHints(): void {
     this.isHintListVisible = true;
+  }
+
+  private scrollTagsToEnd(): void {
+    this.tags.nativeElement.scrollTo({
+      left: this.tags.nativeElement.scrollWidth,
+      behavior: "smooth"
+    });
   }
 }

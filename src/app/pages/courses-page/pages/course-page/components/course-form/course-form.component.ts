@@ -2,6 +2,9 @@ import { Component, EventEmitter, Input, OnInit, Output } from "@angular/core";
 import { CourseFormControl } from "@app/form/enums/course-form-control.enum";
 import { CourseForm } from "@app/form/models/form-models/course-form.model";
 import { ICourse } from "@pages/courses-page/courses/interfaces/course/course.interface";
+import { CoursesService } from "@pages/courses-page/courses/services/courses/courses.service";
+import { Observable, Subject } from "rxjs";
+import { debounceTime, distinctUntilChanged, map, switchMap } from "rxjs/operators";
 
 @Component({
   selector: "app-course-form",
@@ -36,13 +39,24 @@ export class CourseFormComponent implements OnInit {
 
   public courseForm: CourseForm = null;
 
+  public authors$: Observable<string[]>;
+
+  public authorsNotFound = "Authors not found";
+
   @Output()
   private cancelEvent = new EventEmitter<void>();
 
-  constructor() { }
+  private searchStringSubject = new Subject<string>();
+
+  constructor(private coursesService: CoursesService) { }
 
   public ngOnInit(): void {
     this.createForm();
+    this.initializeAuthors();
+  }
+
+  public searchHints(searchString: string): void {
+    this.searchStringSubject.next(searchString);
   }
 
   public cancel(): void {
@@ -57,6 +71,17 @@ export class CourseFormComponent implements OnInit {
       [CourseFormControl.Date]: this.course.creationDate,
       [CourseFormControl.Authors]: this.course.authors,
     });
+  }
+
+  private initializeAuthors(): void {
+    this.authors$ = this.searchStringSubject.pipe(
+      debounceTime(300),
+      distinctUntilChanged(),
+      switchMap((searchString: string) => this.coursesService.searchAuthors(searchString)),
+      map(authors => {
+        return authors.length ? authors.map(author => author.name) : [this.authorsNotFound];
+      }),
+    );
   }
 
 }

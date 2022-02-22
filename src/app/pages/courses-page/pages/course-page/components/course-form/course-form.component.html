@@ -25,7 +25,8 @@
       </div>
       <div class="course-form__field-wrapper">
         <app-tag-field [fieldName]="authorsFormControlName" [control]="courseForm.get(authorsFormControlName)"
-          [title]="authorsFormControlName | titlecase" placeholder="Start typing"></app-tag-field>
+          [title]="authorsFormControlName | titlecase" [hints]="authors$ | async" [hintsNotFound]="authorsNotFound"
+          (searchEvent)="searchHints($event)" placeholder="Start typing"></app-tag-field>
       </div>
     </div>
     <div class="course-form__actions">
