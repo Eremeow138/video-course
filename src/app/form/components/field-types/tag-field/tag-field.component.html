@@ -10,7 +10,7 @@
         </div>
         <input #tagInput type="text" placeholder="{{placeholder}}" class="tag-field__input" id="{{fieldName}}"
           (blur)="[touchControl()]" (input)="searchAuthors(tagInput.value)" (click)="searchAuthors(tagInput.value)">
-        <ul (click)="addAuthor($event)" class="tag-field__authors-list"
+        <ul #tagList (click)="addAuthor($event)" class="tag-field__authors-list"
           [ngClass]="{'tag-field__authors-list--hidden': !isAuthorListVisible}">
           <li class="tag-field__author" *ngFor="let author of authors$ | async">{{author.name}}</li>
         </ul>

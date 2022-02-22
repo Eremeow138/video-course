@@ -1,8 +1,8 @@
-import { ChangeDetectorRef, Component, ElementRef, OnDestroy, OnInit, Renderer2, ViewChild } from "@angular/core";
+import { ChangeDetectorRef, Component, ElementRef, HostListener, OnDestroy, OnInit, Renderer2, ViewChild } from "@angular/core";
 import { IAuthor } from "@pages/courses-page/courses/interfaces/course/author.interface";
 import { CoursesService } from "@pages/courses-page/courses/services/courses/courses.service";
 import { Observable, Subject } from "rxjs";
-import { debounceTime, distinctUntilChanged, map, switchMap } from "rxjs/operators";
+import { debounceTime, distinctUntilChanged, map, switchMap, tap } from "rxjs/operators";
 import { AbstractFieldComponent } from "../abstract-field/abstract-field.component";
 
 @Component({
@@ -14,12 +14,24 @@ export class TagFieldComponent extends AbstractFieldComponent implements OnInit,
 
   public authors$: Observable<IAuthor[]>;
 
-  public isAuthorListVisible = true;
+  public isAuthorListVisible = false;
+
+  @HostListener("document:click", ["$event"])
+  public onClick(event: Event): void {
+    if (this.input.nativeElement.isSameNode(event.target as HTMLElement)) {
+      return;
+    }
+    if (!this.tagList.nativeElement.isSameNode(event.target as HTMLElement)) {
+      this.hideAuthors();
+    }
+  }
 
   @ViewChild("tagInput")
   private input: ElementRef<HTMLInputElement>;
   @ViewChild("tagContainer")
   private tagContainer: ElementRef<HTMLElement>;
+  @ViewChild("tagList")
+  private tagList: ElementRef<HTMLElement>;
 
   private searchString = new Subject<string>();
 
@@ -30,11 +42,12 @@ export class TagFieldComponent extends AbstractFieldComponent implements OnInit,
   public ngOnInit(): void {
     this.authors$ = this.searchString.pipe(
       debounceTime(300),
+      tap(() => this.showAuthors()),
       distinctUntilChanged(),
       switchMap((searchString: string) => this.coursesService.searchAuthors(searchString)),
       map(authors => {
         return authors.length ? authors : [{ id: "not-found", name: "Authors not found" }];
-      })
+      }),
     );
   }
 
@@ -76,8 +89,7 @@ export class TagFieldComponent extends AbstractFieldComponent implements OnInit,
   }
 
   public searchAuthors(searchString: string): void {
-    this.showAuthors();
-    this.searchString.next(searchString);
+    this.searchString.next(searchString.trim());
   }
 
   public hideAuthors(): void {
