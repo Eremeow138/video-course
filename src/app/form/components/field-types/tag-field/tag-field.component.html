@@ -4,8 +4,8 @@
       lengthModificator="medium">
       <div #tagContainer class="tag-field__container" (click)="activateInput($event)">
         <div class="tag-field__tags">
-          <div class="tag-field__tag-wrapper" *ngFor="let author of control.value; trackBy: trackByFn">
-            <app-tag [value]="author" (deleteEvent)="removeTag($event)"></app-tag>
+          <div class="tag-field__tag-wrapper" *ngFor="let tag of control.value; trackBy: trackByFn">
+            <app-tag [value]="tag" (deleteEvent)="removeTag($event)"></app-tag>
           </div>
         </div>
         <input #tagInput type="text" placeholder="{{placeholder}}" class="tag-field__input" id="{{fieldName}}"
