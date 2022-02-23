@@ -9,7 +9,9 @@ export class InvalidDateHandlerDirective {
 
   private regex = "^[0-9/]*$";
 
-  private allowedKeys = ["Delete", "Backspace", "Enter", "ArrowLeft", "ArrowUp", "ArrowRight", "ArrowDown", "ControlLeft", "ControlRight"];
+  private allowedKeys = [
+    "Delete", "Backspace", "Enter", "ArrowLeft", "ArrowUp", "ArrowRight", "ArrowDown", "ControlLeft", "ControlRight", "Tab"
+  ];
 
   private cachedValue = this.input.value;
 

@@ -13,7 +13,9 @@ export class IntegerOnlyDirective {
 
   private integerUnsignedRegex = "^[0-9]*$";
 
-  private allowedKeys = ["Delete", "Backspace", "Enter", "ArrowLeft", "ArrowUp", "ArrowRight", "ArrowDown", "ControlLeft", "ControlRight"];
+  private allowedKeys = [
+    "Delete", "Backspace", "Enter", "ArrowLeft", "ArrowUp", "ArrowRight", "ArrowDown", "ControlLeft", "ControlRight", "Tab"
+  ];
 
   @HostListener("keyup", ["$event"])
   private onKeyUp(): void {
