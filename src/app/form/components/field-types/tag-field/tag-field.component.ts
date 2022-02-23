@@ -17,10 +17,10 @@ export class TagFieldComponent extends AbstractFieldComponent {
 
   @HostListener("document:click", ["$event"])
   public onClickOutHintList(event: Event): void {
-    if (this.input.nativeElement.isSameNode(event.target as HTMLElement)) {
+    if (this.input && this.input.nativeElement && this.input.nativeElement.isSameNode(event.target as HTMLElement)) {
       return;
     }
-    if (!this.hintList.nativeElement.isSameNode(event.target as HTMLElement)) {
+    if (this.hintList && this.hintList.nativeElement && !this.hintList.nativeElement.isSameNode(event.target as HTMLElement)) {
       this.hideHints();
     }
   }
