@@ -31,8 +31,8 @@
     flex-shrink: 0;
     margin: $tag-margins;
 
-    &:first-child {
-      margin-left: 0.5rem;
+    &:not(:first-child) {
+      margin-left: 0;
     }
   }
   &__hints {
