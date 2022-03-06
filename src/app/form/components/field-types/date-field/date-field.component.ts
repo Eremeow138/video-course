@@ -1,5 +1,6 @@
 import { DatePipe } from "@angular/common";
 import { ChangeDetectorRef, Component, OnInit } from "@angular/core";
+import { DateLimit } from "@app/form/enums/date-limit.enum";
 import { BsDatepickerConfig } from "ngx-bootstrap/datepicker";
 import { AbstractFieldComponent } from "../abstract-field/abstract-field.component";
 
@@ -13,6 +14,8 @@ export class DateFieldComponent extends AbstractFieldComponent implements OnInit
 
   public bsConfig: Partial<BsDatepickerConfig>;
   public minDate: Date;
+  public maxDate = new Date(DateLimit.MaxDate);
+  public maxDateLenght = DateLimit.MaxDateLenght;
 
   constructor(protected cd: ChangeDetectorRef, private datePipe: DatePipe) {
     super(cd);
@@ -32,6 +35,9 @@ export class DateFieldComponent extends AbstractFieldComponent implements OnInit
       }
       if (this.control.errors.bsDate.minDate) {
         errors.push("The entered date has expired");
+      }
+      if (this.control.errors.bsDate.maxDate) {
+        errors.push("The maximum allowable date has been exceeded");
       }
     }
 
