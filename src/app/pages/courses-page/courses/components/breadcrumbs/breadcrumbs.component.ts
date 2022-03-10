@@ -1,4 +1,4 @@
-import { Component, OnInit } from "@angular/core";
+import { ChangeDetectionStrategy, Component, OnInit } from "@angular/core";
 import { IBreadcrumb } from "@pages/courses-page/courses/interfaces/breadcrumb/breadcrumb.interface";
 import { BreadcrumbService } from "@pages/courses-page/courses/services/breadcrumb/breadcrumb.service";
 import { Observable } from "rxjs";
@@ -7,6 +7,7 @@ import { Observable } from "rxjs";
   selector: "app-breadcrumbs",
   templateUrl: "./breadcrumbs.component.html",
   styleUrls: ["./breadcrumbs.component.scss"],
+  changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class BreadcrumbsComponent implements OnInit {
 
