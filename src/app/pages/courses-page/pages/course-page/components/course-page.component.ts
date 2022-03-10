@@ -1,4 +1,4 @@
-import { Component, OnDestroy, OnInit } from "@angular/core";
+import { ChangeDetectionStrategy, Component, OnDestroy, OnInit } from "@angular/core";
 import { ActivatedRoute, Params, Router } from "@angular/router";
 import { RouterPath } from "@commons/enums/routers.enum";
 import { ICourse } from "@pages/courses-page/courses/interfaces/course/course.interface";
@@ -9,7 +9,8 @@ import { takeUntil } from "rxjs/operators";
 @Component({
   selector: "app-course-page",
   templateUrl: "./course-page.component.html",
-  styleUrls: ["./course-page.component.scss"]
+  styleUrls: ["./course-page.component.scss"],
+  changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class CoursePageComponent implements OnInit, OnDestroy {
 

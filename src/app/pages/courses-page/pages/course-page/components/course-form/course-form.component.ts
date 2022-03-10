@@ -1,4 +1,4 @@
-import { Component, EventEmitter, Input, OnInit, Output } from "@angular/core";
+import { ChangeDetectionStrategy, Component, EventEmitter, Input, OnInit, Output } from "@angular/core";
 import { CourseFormControl } from "@app/form/enums/course-form-control.enum";
 import { CourseForm } from "@app/form/models/form-models/course-form.model";
 import { ICourse } from "@pages/courses-page/courses/interfaces/course/course.interface";
@@ -9,7 +9,8 @@ import { debounceTime, distinctUntilChanged, map, switchMap } from "rxjs/operato
 @Component({
   selector: "app-course-form",
   templateUrl: "./course-form.component.html",
-  styleUrls: ["./course-form.component.scss"]
+  styleUrls: ["./course-form.component.scss"],
+  changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class CourseFormComponent implements OnInit {
 
