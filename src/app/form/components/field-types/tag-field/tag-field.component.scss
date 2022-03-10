@@ -55,10 +55,11 @@
     @include flex-row;
     @include input-text;
 
+    position: relative;
     width: 100%;
     height: $field-min-height;
     align-items: center;
-    padding: 0 $field-padding;
+    padding: 0 $field-padding 0 calc(#{$field-padding} + 0.8rem);
     background-color: $third-bg-color;
     list-style: none;
     cursor: pointer;
@@ -68,6 +69,23 @@
     }
     &:hover {
       background-color: $third-bg-color-hover;
+    }
+    &--selected {
+      background-color: $third-bg-color-hover;
+      cursor: default;
+      pointer-events: none;
+
+      &::before {
+        content: "";
+        position: absolute;
+        left: 0.8rem;
+        width: 0.6rem;
+        height: 1rem;
+        border: solid $primary-border-color;
+        border-width: 0 2px 2px 0;
+        transform: rotate(45deg);
+        box-sizing: border-box;
+      }
     }
   }
   &__input {

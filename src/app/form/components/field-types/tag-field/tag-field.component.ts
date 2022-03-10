@@ -41,13 +41,21 @@ export class TagFieldComponent extends AbstractFieldComponent {
     super(cd);
   }
 
+  public isSelectedHint(hint: string): boolean {
+    return this.control.value.includes(hint);
+  }
+
   public addTag(event: Event): void {
     const hintElement = event.target as HTMLElement;
     const addedTag = hintElement.textContent;
     const tags = this.control.value as string[];
 
+    if (hintElement === this.hintList.nativeElement) {
+      return;
+    }
+
     if (addedTag && addedTag !== this.hintsNotFound && !tags.includes(addedTag)) {
-      this.control.setValue([...this.control.value, addedTag]);
+      this.control.setValue([...tags, addedTag]);
       this.scrollTagsToEnd();
     }
     this.renderer.setProperty(this.input.nativeElement, "value", "");

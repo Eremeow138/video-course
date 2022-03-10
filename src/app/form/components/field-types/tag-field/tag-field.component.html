@@ -13,7 +13,8 @@
           (click)="searchHints(tagInput.value)">
         <ul #hintList *ngIf="hints" (click)="addTag($event)" class="tag-field__hints"
           [ngClass]="{'tag-field__hints--hidden': !isHintListVisible}">
-          <li class="tag-field__hint" *ngFor="let hint of hints; trackBy: trackByFn">{{hint}}</li>
+          <li class="tag-field__hint" *ngFor="let hint of hints; trackBy: trackByFn"
+            [ngClass]="{'tag-field__hint--selected': isSelectedHint(hint)}">{{hint}}</li>
         </ul>
       </div>
     </app-field>
