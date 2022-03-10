@@ -1,4 +1,4 @@
-import { Component, OnInit } from "@angular/core";
+import { ChangeDetectionStrategy, ChangeDetectorRef, Component, OnInit } from "@angular/core";
 import { ModalComponent } from "@modals/enums/modal-component.enum";
 import { IModalData, IModalMetadata } from "@modals/interfaces/modals.interface";
 import { ICourse } from "@pages/courses-page/courses/interfaces/course/course.interface";
@@ -13,6 +13,7 @@ import { ActivatedRoute, Router } from "@angular/router";
   selector: "app-courses-list-page",
   templateUrl: "./courses-list-page.component.html",
   styleUrls: ["./courses-list-page.component.scss"],
+  changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class CoursesListPageComponent implements OnInit {
 
@@ -27,7 +28,8 @@ export class CoursesListPageComponent implements OnInit {
     private modalMapperService: ModalMapperService,
     private modalService: ModalsService,
     private router: Router,
-    private route: ActivatedRoute) { }
+    private route: ActivatedRoute,
+    private cd: ChangeDetectorRef) { }
 
   ngOnInit(): void {
     this.getFreshData();
@@ -95,5 +97,7 @@ export class CoursesListPageComponent implements OnInit {
     } else {
       this.filteredCourses = this.courses;
     }
+
+    this.cd.detectChanges();
   }
 }
