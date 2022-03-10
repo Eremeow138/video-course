@@ -1,4 +1,12 @@
-import { Component, ComponentFactoryResolver, OnDestroy, OnInit, ViewChild } from "@angular/core";
+import {
+  ChangeDetectionStrategy,
+  ChangeDetectorRef,
+  Component,
+  ComponentFactoryResolver,
+  OnDestroy,
+  OnInit,
+  ViewChild
+} from "@angular/core";
 import { ModalHostDirective } from "@modals/directives/modal-host/modal-host.directive";
 import { IModalData } from "@modals/interfaces/modals.interface";
 import { ModalsService } from "@modals/services/modals/modals.service";
@@ -8,7 +16,8 @@ import { takeUntil } from "rxjs/operators";
 @Component({
   selector: "app-modal-host",
   templateUrl: "./modal-host.component.html",
-  styleUrls: ["./modal-host.component.scss"]
+  styleUrls: ["./modal-host.component.scss"],
+  changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class ModalHostComponent implements OnInit, OnDestroy {
 
@@ -20,7 +29,8 @@ export class ModalHostComponent implements OnInit, OnDestroy {
 
   constructor(
     private factoryResolver: ComponentFactoryResolver,
-    private modalsService: ModalsService
+    private modalsService: ModalsService,
+    private cd: ChangeDetectorRef
   ) { }
 
   ngOnInit(): void {
@@ -52,12 +62,14 @@ export class ModalHostComponent implements OnInit, OnDestroy {
       takeUntil(this.unsubscribe$)
     ).subscribe((data: IModalData) => {
       this.showModal(data);
+      this.cd.detectChanges();
     });
 
     this.modalsService.hideModals$.pipe(
       takeUntil(this.unsubscribe$)
     ).subscribe(() => {
       this.hideModals();
+      this.cd.detectChanges();
     });
   }
 
