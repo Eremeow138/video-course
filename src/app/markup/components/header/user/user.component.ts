@@ -1,4 +1,4 @@
-import { Component } from "@angular/core";
+import { ChangeDetectionStrategy, Component } from "@angular/core";
 import { Router } from "@angular/router";
 import { RouterPath } from "@commons/enums/routers.enum";
 import { AuthService } from "@authentication/services/auth/auth.service";
@@ -7,6 +7,7 @@ import { AuthService } from "@authentication/services/auth/auth.service";
   selector: "app-user",
   templateUrl: "./user.component.html",
   styleUrls: ["./user.component.scss"],
+  changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class UserComponent {
   constructor(private authService: AuthService, private router: Router) { }
