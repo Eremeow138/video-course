@@ -1,11 +1,12 @@
-import { Component } from "@angular/core";
+import { ChangeDetectionStrategy, Component } from "@angular/core";
 import { TextLimit } from "@app/form/enums/text-limit.enum";
 import { AbstractFieldComponent } from "../abstract-field/abstract-field.component";
 
 @Component({
   selector: "app-text-field",
   templateUrl: "./text-field.component.html",
-  styleUrls: ["./text-field.component.scss"]
+  styleUrls: ["./text-field.component.scss"],
+  changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class TextFieldComponent extends AbstractFieldComponent {
   public maxLength = TextLimit.MaxLength;

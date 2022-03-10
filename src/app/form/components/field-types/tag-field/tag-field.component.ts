@@ -1,10 +1,22 @@
-import { ChangeDetectorRef, Component, ElementRef, EventEmitter, HostListener, Input, Output, Renderer2, ViewChild } from "@angular/core";
+import {
+  ChangeDetectionStrategy,
+  ChangeDetectorRef,
+  Component,
+  ElementRef,
+  EventEmitter,
+  HostListener,
+  Input,
+  Output,
+  Renderer2,
+  ViewChild
+} from "@angular/core";
 import { AbstractFieldComponent } from "../abstract-field/abstract-field.component";
 
 @Component({
   selector: "app-tag-field",
   templateUrl: "./tag-field.component.html",
-  styleUrls: ["./tag-field.component.scss"]
+  styleUrls: ["./tag-field.component.scss"],
+  changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class TagFieldComponent extends AbstractFieldComponent {
   @Input()

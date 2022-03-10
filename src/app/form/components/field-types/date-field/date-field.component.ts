@@ -1,5 +1,5 @@
 import { DatePipe } from "@angular/common";
-import { ChangeDetectorRef, Component, OnInit } from "@angular/core";
+import { ChangeDetectionStrategy, ChangeDetectorRef, Component, OnInit } from "@angular/core";
 import { DateLimit } from "@app/form/enums/date-limit.enum";
 import { BsDatepickerConfig } from "ngx-bootstrap/datepicker";
 import { AbstractFieldComponent } from "../abstract-field/abstract-field.component";
@@ -8,6 +8,7 @@ import { AbstractFieldComponent } from "../abstract-field/abstract-field.compone
   selector: "app-date-field",
   templateUrl: "./date-field.component.html",
   styleUrls: ["./date-field.component.scss"],
+  changeDetection: ChangeDetectionStrategy.OnPush,
   providers: [DatePipe]
 })
 export class DateFieldComponent extends AbstractFieldComponent implements OnInit {

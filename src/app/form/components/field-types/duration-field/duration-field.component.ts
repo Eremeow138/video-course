@@ -1,11 +1,12 @@
-import { Component } from "@angular/core";
+import { ChangeDetectionStrategy, Component } from "@angular/core";
 import { DurationLimit } from "@app/form/enums/duration-limit.enum";
 import { AbstractFieldComponent } from "../abstract-field/abstract-field.component";
 
 @Component({
   selector: "app-duration-field",
   templateUrl: "./duration-field.component.html",
-  styleUrls: ["./duration-field.component.scss"]
+  styleUrls: ["./duration-field.component.scss"],
+  changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class DurationFieldComponent extends AbstractFieldComponent {
   public minValue = DurationLimit.MinValue;

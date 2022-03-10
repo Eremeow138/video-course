@@ -1,11 +1,12 @@
-import { Component, Input } from "@angular/core";
+import { ChangeDetectionStrategy, Component, Input } from "@angular/core";
 import { AbstractControl } from "@angular/forms";
 import { FieldLengthModificatorType } from "@app/form/types/field-length-modificator.type";
 
 @Component({
   selector: "app-field",
   templateUrl: "./field.component.html",
-  styleUrls: ["./field.component.scss"]
+  styleUrls: ["./field.component.scss"],
+  changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class FieldComponent {
   @Input()
