@@ -78,15 +78,11 @@
       pointer-events: none;
 
       &::before {
+        @include check-mark;
+
         content: "";
         position: absolute;
         left: 0.8rem;
-        width: 0.6rem;
-        height: 1rem;
-        border: solid $primary-border-color;
-        border-width: 0 2px 2px 0;
-        transform: rotate(45deg);
-        box-sizing: border-box;
       }
     }
   }

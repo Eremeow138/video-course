@@ -223,6 +223,14 @@
 
   margin-left: 1rem;
 }
+@mixin check-mark {
+  width: 0.6rem;
+  height: 1rem;
+  border: solid $primary-border-color;
+  border-width: 0 2px 2px 0;
+  transform: rotate(45deg);
+  box-sizing: border-box;
+}
 @mixin scrollbar {
   @-moz-document url-prefix("") {
     scrollbar-color: $scroll-secondary-bg-color $scroll-primary-bg-color;
