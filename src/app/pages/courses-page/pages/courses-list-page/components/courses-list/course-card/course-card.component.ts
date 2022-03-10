@@ -1,10 +1,11 @@
-import { Component, EventEmitter, Input, Output } from "@angular/core";
+import { ChangeDetectionStrategy, Component, EventEmitter, Input, Output } from "@angular/core";
 import { ICourse } from "@pages/courses-page/courses/interfaces/course/course.interface";
 
 @Component({
   selector: "app-course-card",
   templateUrl: "./course-card.component.html",
   styleUrls: ["./course-card.component.scss"],
+  changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class CourseCardComponent {
   @Input()
