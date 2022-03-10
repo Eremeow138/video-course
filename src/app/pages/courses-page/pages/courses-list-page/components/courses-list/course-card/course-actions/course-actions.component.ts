@@ -1,9 +1,10 @@
-import { Component, EventEmitter, Output } from "@angular/core";
+import { ChangeDetectionStrategy, Component, EventEmitter, Output } from "@angular/core";
 
 @Component({
   selector: "app-course-actions",
   templateUrl: "./course-actions.component.html",
   styleUrls: ["./course-actions.component.scss"],
+  changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class CourseActionsComponent {
   @Output()
