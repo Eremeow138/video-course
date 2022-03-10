@@ -45,6 +45,7 @@
     height: min-content;
     max-height: calc(#{$field-min-height} * 3);
     border: 1px solid $field-border-color;
+    overflow-x: hidden;
     overflow-y: overlay;
 
     &--hidden {
@@ -62,6 +63,7 @@
     padding: 0 $field-padding 0 calc(#{$field-padding} + 0.8rem);
     background-color: $third-bg-color;
     list-style: none;
+    white-space: nowrap;
     cursor: pointer;
 
     &:not(:first-child) {
