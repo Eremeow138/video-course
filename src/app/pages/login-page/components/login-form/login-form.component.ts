@@ -1,4 +1,4 @@
-import { Component, OnDestroy, OnInit } from "@angular/core";
+import { ChangeDetectionStrategy, Component, OnDestroy, OnInit } from "@angular/core";
 import { Router } from "@angular/router";
 import { LoginFormControl } from "@app/form/enums/login-form-control.enum";
 import { LoginForm } from "@app/form/models/form-models/login-form.model";
@@ -12,6 +12,7 @@ import { ILoginData } from "@authentication/interfaces/login-data";
   selector: "app-login-form",
   templateUrl: "./login-form.component.html",
   styleUrls: ["./login-form.component.scss"],
+  changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class LoginFormComponent implements OnInit, OnDestroy {
 
