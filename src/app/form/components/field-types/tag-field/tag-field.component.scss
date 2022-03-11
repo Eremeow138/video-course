@@ -60,18 +60,21 @@
     }
   }
   &__hint {
-    @include flex-row;
     @include input-text;
 
+    display: inline-block;
     position: relative;
     width: 100%;
     height: $field-min-height;
-    align-items: center;
-    padding: 0 $field-padding 0 calc(#{$field-padding} + 0.8rem);
+    padding: 0 calc(#{$field-padding} + 1rem) 0 $field-padding;
     background-color: $third-bg-color;
     list-style: none;
     white-space: nowrap;
+    text-overflow: ellipsis;
+    line-height: $field-min-height;
+    vertical-align: middle;
     cursor: pointer;
+    overflow: hidden;
 
     &:not(:first-child) {
       border-top: 1px solid $field-border-color;
@@ -80,17 +83,21 @@
       background-color: $third-bg-color-hover;
     }
     &--selected {
-      background-color: $third-bg-color-hover;
+      background-color: $seventh-bg-color;
       cursor: default;
       pointer-events: none;
+    }
+  }
+  &__check {
+    @include check-mark;
 
-      &::before {
-        @include check-mark;
+    position: absolute;
+    display: none;
+    right: 0.7rem;
+    top: calc(#{$field-min-height} / 2 - #{$icon-size} / 2);
 
-        content: "";
-        position: absolute;
-        left: 0.8rem;
-      }
+    &--visible {
+      display: block;
     }
   }
   &__input {

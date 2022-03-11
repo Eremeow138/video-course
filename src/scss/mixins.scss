@@ -224,12 +224,9 @@
   margin-left: 1rem;
 }
 @mixin check-mark {
-  width: 0.6rem;
-  height: 1rem;
-  border: solid $primary-border-color;
-  border-width: 0 2px 2px 0;
-  transform: rotate(45deg);
-  box-sizing: border-box;
+  @include icon-size($icon-size);
+
+  filter: $icon-third-filter;
 }
 @mixin scrollbar {
   @-moz-document url-prefix("") {

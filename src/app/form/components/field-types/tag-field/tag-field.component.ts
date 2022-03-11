@@ -59,7 +59,7 @@ export class TagFieldComponent extends AbstractFieldComponent {
 
   public addTag(event: Event): void {
     const hintElement = event.target as HTMLElement;
-    const addedTag = hintElement.textContent;
+    const addedTag = hintElement.dataset.content;
     const tags = this.control.value as string[];
 
     if (hintElement === this.hintList.nativeElement) {

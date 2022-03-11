@@ -15,8 +15,11 @@
         </div>
         <ul #hintList *ngIf="hints" (click)="addTag($event)" class="tag-field__hints"
           [ngClass]="{'tag-field__hints--hidden': !isHintListVisible}">
-          <li class="tag-field__hint" *ngFor="let hint of hints; trackBy: trackByFn"
-            [ngClass]="{'tag-field__hint--selected': isSelectedHint(hint)}">{{hint}}</li>
+          <li class="tag-field__hint" *ngFor="let hint of hints; trackBy: trackByFn" attr.data-content="{{hint}}"
+            [ngClass]="{'tag-field__hint--selected': isSelectedHint(hint)}">{{hint}}
+            <img src="assets/icons/check.svg" alt="check" class="tag-field__check"
+              [ngClass]="{'tag-field__check--visible': isSelectedHint(hint)}">
+          </li>
         </ul>
       </div>
     </app-field>
