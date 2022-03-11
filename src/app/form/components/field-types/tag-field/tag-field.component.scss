@@ -13,13 +13,19 @@
     @include height-width-100-percent;
   }
   &__container {
+    position: relative;
+  }
+  &__content {
     @include field;
     @include flex-row;
 
-    position: relative;
     padding: 0;
     align-items: flex-start;
     flex-wrap: wrap;
+
+    &--hints {
+      border-radius: 3px 3px 0 0;
+    }
   }
   &__tags {
     @include flex-row;
@@ -39,12 +45,13 @@
     @include scrollbar;
 
     position: absolute;
-    top: 97%;
-    left: -1px;
-    width: calc(100% + 2px);
+    top: 100%;
+    z-index: 1;
+    width: 100%;
     height: min-content;
     max-height: calc(#{$field-min-height} * 3);
     border: 1px solid $field-border-color;
+    border-top-width: 0;
     overflow-x: hidden;
     overflow-y: overlay;
 

@@ -3,14 +3,16 @@
     <app-field [title]="title" [control]="control" [id]="fieldName" [isRequired]="isRequired"
       lengthModificator="medium">
       <div class="tag-field__container">
-        <div #tags class="tag-field__tags">
-          <div class="tag-field__tag-wrapper" *ngFor="let tag of control.value; trackBy: trackByFn">
-            <app-tag [value]="tag" (deleteEvent)="removeTag($event)"></app-tag>
+        <div class="tag-field__content" [ngClass]="{'tag-field__content--hints': isHintListVisible}">
+          <div #tags class="tag-field__tags">
+            <div class="tag-field__tag-wrapper" *ngFor="let tag of control.value; trackBy: trackByFn">
+              <app-tag [value]="tag" (deleteEvent)="removeTag($event)"></app-tag>
+            </div>
           </div>
+          <input #tagInput type="text" placeholder="{{placeholder}}" class="tag-field__input" id="{{fieldName}}"
+            (focus)="showHints()" (blur)="touchControl()" (input)="searchHints(tagInput.value)"
+            (click)="searchHints(tagInput.value)">
         </div>
-        <input #tagInput type="text" placeholder="{{placeholder}}" class="tag-field__input" id="{{fieldName}}"
-          (focus)="showHints()" (blur)="touchControl()" (input)="searchHints(tagInput.value)"
-          (click)="searchHints(tagInput.value)">
         <ul #hintList *ngIf="hints" (click)="addTag($event)" class="tag-field__hints"
           [ngClass]="{'tag-field__hints--hidden': !isHintListVisible}">
           <li class="tag-field__hint" *ngFor="let hint of hints; trackBy: trackByFn"
