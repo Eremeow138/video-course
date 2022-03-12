@@ -86,6 +86,8 @@
       background-color: $seventh-bg-color;
       padding-right: calc(#{$field-padding} + 2rem);
       cursor: default;
+    }
+    &--pointer-events-none {
       pointer-events: none;
     }
   }
