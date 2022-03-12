@@ -10,7 +10,7 @@
             </div>
           </div>
           <input #tagInput type="text" placeholder="{{placeholder}}" class="tag-field__input" id="{{fieldName}}"
-            (focus)="showHints()" (blur)="touchControl()" (input)="searchHints(tagInput.value)"
+            autocomplete="off" (focus)="showHints()" (blur)="touchControl()" (input)="searchHints(tagInput.value)"
             (click)="searchHints(tagInput.value)">
         </div>
         <ul #hintList *ngIf="hints" (click)="addTag($event)" class="tag-field__hints"
