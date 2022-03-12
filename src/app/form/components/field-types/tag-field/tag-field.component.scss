@@ -66,7 +66,7 @@
     position: relative;
     width: 100%;
     height: $field-min-height;
-    padding: 0 calc(#{$field-padding} + 1rem) 0 $field-padding;
+    padding: 0 $field-padding;
     background-color: $third-bg-color;
     list-style: none;
     white-space: nowrap;
@@ -84,6 +84,7 @@
     }
     &--selected {
       background-color: $seventh-bg-color;
+      padding-right: calc(#{$field-padding} + 2rem);
       cursor: default;
       pointer-events: none;
     }
