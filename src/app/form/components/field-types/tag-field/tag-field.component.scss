@@ -60,21 +60,18 @@
     }
   }
   &__hint {
+    @include flex-row;
     @include input-text;
 
-    display: inline-block;
     position: relative;
     width: 100%;
-    height: $field-min-height;
+    justify-content: space-between;
+    align-items: center;
+    min-height: $field-min-height;
     padding: 0 $field-padding;
     background-color: $third-bg-color;
-    list-style: none;
-    white-space: nowrap;
-    text-overflow: ellipsis;
-    line-height: $field-min-height;
-    vertical-align: middle;
+    line-height: 2.2rem;
     cursor: pointer;
-    overflow: hidden;
 
     &:not(:first-child) {
       border-top: 1px solid $field-border-color;
@@ -84,24 +81,28 @@
     }
     &--selected {
       background-color: $seventh-bg-color;
-      padding-right: calc(#{$field-padding} + 2rem);
       cursor: default;
     }
     &--pointer-events-none {
       pointer-events: none;
     }
   }
+  &__hint-text {
+    @include input-text;
+
+    display: -webkit-box;
+    list-style: none;
+    text-overflow: ellipsis;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    word-break: break-all;
+    overflow: hidden;
+    margin: 1rem 0;
+  }
   &__check {
     @include check-mark;
 
-    position: absolute;
-    display: none;
-    right: 0.7rem;
-    top: calc(#{$field-min-height} / 2 - #{$icon-size} / 2);
-
-    &--visible {
-      display: block;
-    }
+    margin-left: 1.2rem;
   }
   &__input {
     @include input;
