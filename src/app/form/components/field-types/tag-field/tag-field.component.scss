@@ -63,15 +63,15 @@
     @include flex-row;
     @include input-text;
 
-    position: relative;
     width: 100%;
     justify-content: space-between;
     align-items: center;
     min-height: $field-min-height;
-    padding: 0 $field-padding;
+    padding: 1rem $field-padding;
     background-color: $third-bg-color;
     line-height: 2.2rem;
     cursor: pointer;
+    list-style: none;
 
     &:not(:first-child) {
       border-top: 1px solid $field-border-color;
@@ -89,15 +89,6 @@
   }
   &__hint-text {
     @include input-text;
-
-    display: -webkit-box;
-    list-style: none;
-    text-overflow: ellipsis;
-    -webkit-line-clamp: 2;
-    -webkit-box-orient: vertical;
-    word-break: break-word;
-    overflow: hidden;
-    margin: 1rem 0;
   }
   &__check {
     @include check-mark;
