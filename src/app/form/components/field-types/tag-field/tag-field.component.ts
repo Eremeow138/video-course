@@ -78,6 +78,7 @@ export class TagFieldComponent extends AbstractFieldComponent {
   public removeTag(removableTag: string): void {
     const tags = this.control.value as string[];
     this.control.patchValue([...tags.filter(tag => tag !== removableTag)]);
+    this.touchControl();
   }
 
   public touchControl(): void {
