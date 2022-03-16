@@ -20,7 +20,7 @@ import { AbstractFieldComponent } from "../abstract-field/abstract-field.compone
 })
 export class TagFieldComponent extends AbstractFieldComponent {
   @Input()
-  public hintsNotFound: string = null;
+  public hintsNotFound = "";
 
   @Input()
   public hints: string[] = [];
