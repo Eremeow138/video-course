@@ -10,7 +10,8 @@
   @include height-width-100-percent;
 
   &__field-wrapper {
-    @include height-width-100-percent;
+    width: $secondary-field-max-width;
+    height: 100%;
   }
   &__container {
     position: relative;

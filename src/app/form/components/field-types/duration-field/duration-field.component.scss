@@ -14,7 +14,8 @@
   align-items: flex-end;
 
   &__field-wrapper {
-    @include height-width-100-percent;
+    width: $primary-field-max-width;
+    height: 100%;
   }
   &__content {
     @include height-width-100-percent;

@@ -1,7 +1,7 @@
 <div class="duration-field">
   <div class="duration-field__field-wrapper">
     <app-field [title]="title" [control]="control" [id]="fieldName" [isRequired]="isRequired" [fieldErrors]="errors"
-      lengthModificator="short">
+      errorsWidthModificator="long">
       <div class="duration-field__content">
         <div class="duration-field__input-wrapper">
           <input appIntegerOnly [formControl]="control" type="number" max="{{maxValue}}" min="{{minValue}}"

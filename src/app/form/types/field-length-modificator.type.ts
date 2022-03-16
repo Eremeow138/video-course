@@ -1,1 +1,1 @@
-export type FieldLengthModificatorType = "short" | "medium";
+export type FieldLengthModificatorType = "long";

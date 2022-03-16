@@ -24,10 +24,10 @@ export class FieldComponent {
   public fieldErrors: string[] = null;
 
   @Input()
-  public lengthModificator: FieldLengthModificatorType = null;
+  public errorsWidthModificator: FieldLengthModificatorType = null;
 
-  public get fieldLimitModificatorClass(): string {
-    return this.lengthModificator ? `field__limit--${this.lengthModificator}` : "";
+  public get errorsWidthModificatorClass(): string {
+    return this.errorsWidthModificator ? `field__errors-list--${this.errorsWidthModificator}` : "";
   }
 
   public get isRequiredVisible(): boolean {
