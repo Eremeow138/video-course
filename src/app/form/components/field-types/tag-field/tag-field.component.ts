@@ -1,6 +1,5 @@
 import {
   ChangeDetectionStrategy,
-  ChangeDetectorRef,
   Component,
   ElementRef,
   EventEmitter,
@@ -49,8 +48,8 @@ export class TagFieldComponent extends AbstractFieldComponent {
   @ViewChild("hintList")
   private hintList: ElementRef<HTMLElement>;
 
-  constructor(private renderer: Renderer2, cd: ChangeDetectorRef) {
-    super(cd);
+  constructor(private renderer: Renderer2) {
+    super();
   }
 
   public isSelectedHint(hint: string): boolean {

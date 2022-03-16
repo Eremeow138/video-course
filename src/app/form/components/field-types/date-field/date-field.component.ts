@@ -1,5 +1,5 @@
 import { DatePipe } from "@angular/common";
-import { ChangeDetectionStrategy, ChangeDetectorRef, Component, OnInit } from "@angular/core";
+import { ChangeDetectionStrategy, Component, OnInit } from "@angular/core";
 import { DateLimit } from "@app/form/enums/date-limit.enum";
 import { BsDatepickerConfig } from "ngx-bootstrap/datepicker";
 import { AbstractFieldComponent } from "../abstract-field/abstract-field.component";
@@ -18,12 +18,11 @@ export class DateFieldComponent extends AbstractFieldComponent implements OnInit
   public maxDate = new Date(DateLimit.MaxDate);
   public maxDateLenght = DateLimit.MaxDateLenght;
 
-  constructor(protected cd: ChangeDetectorRef, private datePipe: DatePipe) {
-    super(cd);
+  constructor(private datePipe: DatePipe) {
+    super();
   }
 
   public ngOnInit(): void {
-    super.ngOnInit();
     this.setMinDate();
     this.getConfig();
   }
