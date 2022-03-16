@@ -67,7 +67,7 @@ export class TagFieldComponent extends AbstractFieldComponent {
     }
 
     if (addedTag && addedTag !== this.hintsNotFound && !tags.includes(addedTag)) {
-      this.control.setValue([...tags, addedTag]);
+      this.control.patchValue([...tags, addedTag]);
       this.scrollTagsToEnd();
     }
     this.renderer.setProperty(this.input.nativeElement, "value", "");
@@ -77,7 +77,7 @@ export class TagFieldComponent extends AbstractFieldComponent {
 
   public removeTag(removableTag: string): void {
     const tags = this.control.value as string[];
-    this.control.setValue([...tags.filter(tag => tag !== removableTag)]);
+    this.control.patchValue([...tags.filter(tag => tag !== removableTag)]);
   }
 
   public touchControl(): void {
