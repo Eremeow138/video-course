@@ -11,6 +11,7 @@ import { AppComponent } from "./app.component";
 
 import { AppRoutingModule } from "./app-routing.module";
 import { CustomRouteReuseStrategy } from "@app/custom-route-reuse-strategy";
+import { LoaderModule } from "./loader/loader.module";
 
 @NgModule({
   declarations: [AppComponent],
@@ -21,6 +22,7 @@ import { CustomRouteReuseStrategy } from "@app/custom-route-reuse-strategy";
     AppRoutingModule,
     MarkupModule,
     ModalsModule,
+    LoaderModule,
     AuthenticationModule
   ],
   providers: [{
