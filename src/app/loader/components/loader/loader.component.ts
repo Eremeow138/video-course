@@ -1,5 +1,7 @@
-import { ChangeDetectionStrategy } from "@angular/core";
+import { ChangeDetectionStrategy, OnInit } from "@angular/core";
 import { Component } from "@angular/core";
+import { LoaderService } from "@app/loader/services/loader/loader.service";
+import { Observable } from "rxjs";
 
 @Component({
   selector: "app-loader",
@@ -7,8 +9,13 @@ import { Component } from "@angular/core";
   styleUrls: ["./loader.component.scss"],
   changeDetection: ChangeDetectionStrategy.OnPush
 })
-export class LoaderComponent {
+export class LoaderComponent implements OnInit {
 
-  public isVisible = false;
+  public isVisible: Observable<boolean> = null;
 
+  constructor(private loaderService: LoaderService) { }
+
+  ngOnInit(): void {
+    this.isVisible = this.loaderService.isVisibleLoader;
+  }
 }
