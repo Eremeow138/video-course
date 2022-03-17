@@ -9,7 +9,7 @@ import { ChangeDetectionStrategy, Component, EventEmitter, Input, Output } from 
 export class TagComponent {
 
   @Input()
-  public value: string = null;
+  public value = "";
 
   @Output()
   private deleteEvent = new EventEmitter<string>();
