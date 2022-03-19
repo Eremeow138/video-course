@@ -22,7 +22,7 @@ Happy linting! 💖
 */
 module.exports = {
   root: true,
-  ignorePatterns: ["projects/**/*"],
+  ignorePatterns: ["back-end/**/*"],
   parser: "@typescript-eslint/parser",
   overrides: [
     {
