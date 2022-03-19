@@ -16,7 +16,7 @@
   &__overlay {
     @include fixed-position;
 
-    background-color: $modals-overlay-bg-color;
+    background-color: $overlay-bg-color;
     z-index: $modals-overlay-z-index;
   }
 }
