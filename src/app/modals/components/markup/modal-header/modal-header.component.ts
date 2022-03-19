@@ -1,9 +1,10 @@
-import { Component, EventEmitter, Input, Output } from "@angular/core";
+import { ChangeDetectionStrategy, Component, EventEmitter, Input, Output } from "@angular/core";
 
 @Component({
   selector: "app-modal-header",
   templateUrl: "./modal-header.component.html",
-  styleUrls: ["./modal-header.component.scss"]
+  styleUrls: ["./modal-header.component.scss"],
+  changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class ModalHeaderComponent {
 

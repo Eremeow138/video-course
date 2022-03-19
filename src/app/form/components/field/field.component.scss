@@ -1,0 +1,40 @@
+@import "colors";
+@import "variables";
+@import "mixins";
+
+:host {
+  @include height-width-100-percent;
+}
+
+.field {
+  @include height-width-100-percent;
+  @include flex-column;
+
+  &__info {
+    @include flex-row;
+
+    justify-content: space-between;
+    margin-bottom: 1rem;
+  }
+  &__title {
+    @include field-title-text;
+  }
+  &__required {
+    @include field-required-text;
+  }
+  &__errors-list {
+    @include height-width-100-percent;
+    @include flex-column;
+
+    min-height: 1.6rem;
+
+    &--long {
+      width: 125%;
+    }
+  }
+  &__error {
+    margin-top: 0.1rem;
+    color: $text-warning-color;
+    font-size: 1.2rem;
+  }
+}

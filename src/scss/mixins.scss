@@ -31,6 +31,13 @@
   width: $size;
   height: $size;
 }
+@mixin base-animation($animation-name) {
+  animation: $animation-name 1s ease-in-out 0s infinite alternate;
+}
+@mixin svg-center {
+  transform-box: fill-box;
+  transform-origin: center;
+}
 @mixin input-placeholder {
 
   &::placeholder {
@@ -52,6 +59,7 @@
 @mixin input-text {
   font-size: $primary-font-size;
   color: $input-text-color;
+  font-family: inherit;
 }
 @mixin input {
   @include input-text;
@@ -65,10 +73,11 @@
   width: 100%;
   height: min-content;
   min-height: $field-min-height;
-  padding: $field-paddings;
+  padding: 0 $field-padding;
   border: 1px solid $field-border-color;
   border-radius: $field-border-radius;
   background-color: $field-bg-color;
+  transition-property: border-color;
   transition-duration: $primary-duration;
 
   &:hover {
@@ -77,10 +86,21 @@
   &:focus {
     border-color: $field-border-focus-color;
   }
+  &--invalid {
+    border-color: $warning-border-color;
+  }
 }
 @mixin input-field {
   @include input;
   @include field;
+}
+@mixin textarea-field {
+  @include input;
+  @include field;
+
+  resize: none;
+  min-height: $textarea-min-height;
+  padding: $field-padding;
 }
 @mixin default-text {
   font-size: $default-font-size;
@@ -131,6 +151,11 @@
   font-weight: 600;
   color: $secondary-title-color;
 }
+@mixin third-title {
+  font-size: $third-title-font-size;
+  font-weight: 400;
+  color: $primary-title-color;
+}
 @mixin logo-text {
   font-size: $logo-font-size;
   font-weight: 700;
@@ -146,8 +171,19 @@
 }
 @mixin breadcrumbs-text {
   font-size: $primary-font-size;
-  font-weight: 700;
   color: $text-secondary-color;
+  text-decoration: none;
+}
+@mixin breadcrumbs-separator {
+  content: "/";
+  font-size: $primary-font-size;
+  color: $fifth-color;
+  font-weight: 700;
+  margin: 0 0.3rem;
+}
+@mixin breadcrumbs-active-link {
+  font-weight: 700;
+  pointer-events: none;
 }
 @mixin modal-text {
   line-height: 2.4rem;
@@ -167,4 +203,56 @@
 @mixin warning-text {
   font-size: $secondary-font-size;
   color: $text-warning-color;
+}
+@mixin tag {
+  @include flex-row;
+
+  flex-shrink: 0;
+  align-items: center;
+  min-height: $tag-min-height;
+  border-radius: $tag-border-radius;
+  background-color: $tag-bg-color;
+  padding: $tag-paddings;
+}
+@mixin tag-text {
+  color: $tag-text-color;
+  font-size: $tag-font-size;
+  text-overflow: ellipsis;
+  overflow: hidden;
+  white-space: pre;
+  max-width: 250px;
+}
+@mixin tag-button {
+  @include icon-size(1rem);
+
+  margin-left: 1rem;
+}
+@mixin check-mark {
+  @include icon-size($icon-size);
+
+  filter: $icon-third-filter;
+}
+@mixin scrollbar {
+  @-moz-document url-prefix("") {
+    scrollbar-color: $scroll-secondary-bg-color $scroll-primary-bg-color;
+    scrollbar-width: thin;
+  }
+
+  &::-webkit-scrollbar {
+    width: 0.5rem;
+    height: 0.5rem;
+    border-radius: 2rem;
+    background-color: $scroll-primary-bg-color;
+  }
+  &::-webkit-scrollbar-corner {
+    background-color: $scroll-primary-bg-color;
+  }
+  &::-webkit-scrollbar-thumb {
+    border-radius: 2rem;
+    background-color: $scroll-secondary-bg-color;
+
+    &:hover {
+      background-color: $scroll-secondary-bg-hover-color;
+    }
+  }
 }

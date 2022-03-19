@@ -1,0 +1,34 @@
+<div class="not-found-page">
+  <div class="not-found-page__content-wrapper">
+    <div class="not-found-page__content">
+      <div class="not-found-page__main">
+        <div class="not-found-page__cell">
+          <div class="not-found-page__picture">
+            <app-spaceman></app-spaceman>
+          </div>
+        </div>
+        <div class="not-found-page__cell">
+          <div class="not-found-page__information">
+            <div class="not-found-page__title-wrapper">
+              <h1 class="not-found-page__title">404</h1>
+            </div>
+            <div class="not-found-page__subtitle-wrapper">
+              <h2 class="not-found-page__subtitle">UH OH! You're lost.</h2>
+            </div>
+            <div class="not-found-page__description-wrapper">
+              <p class="not-found-page__description">
+                The page you are looking for does not exist. How you got here is a mystery. But you can click the button
+                below to go back to the homepage.
+              </p>
+            </div>
+            <div class="not-found-page__actions">
+              <a class="button button--green not-found-page__button" [routerLink]="['/courses']">
+                <span class="button__text">Go Home</span>
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

@@ -96,7 +96,7 @@
             },
             "dev": {
               "baseHref": "/",
-              "optimization": true,
+              "optimization": false,
               "budgets": [
                 {
                   "type": "anyComponentStyle",

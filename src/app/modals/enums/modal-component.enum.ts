@@ -1,4 +1,4 @@
-export enum ModalComponentEnum {
+export enum ModalComponent {
   Default = "default",
   ConfirmationModal = "confirmationModal"
 }

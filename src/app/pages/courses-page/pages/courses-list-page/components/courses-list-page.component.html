@@ -12,7 +12,7 @@
   <div class="courses-list-page__list-wrapper">
     <div class="courses-list-page__list">
       <app-courses-list [courses]="filteredCourses" (deleteCourseEvent)="showDeleteConfirmationModal($event)"
-        (loadMoreCoursesEvent)="loadMoreCourses()"> </app-courses-list>
+        (editCourseEvent)="redirectToCoursePage($event)" (loadMoreCoursesEvent)="loadMoreCourses()"> </app-courses-list>
     </div>
   </div>
 </div>

@@ -1,0 +1,108 @@
+@import "colors";
+@import "variables";
+@import "mixins";
+
+:host {
+  @include height-width-100-percent;
+}
+
+.tag-field {
+  @include height-width-100-percent;
+
+  &__field-wrapper {
+    width: $secondary-field-max-width;
+    height: 100%;
+  }
+  &__container {
+    position: relative;
+  }
+  &__content {
+    @include field;
+    @include flex-row;
+
+    padding: 0;
+    align-items: flex-start;
+    flex-wrap: wrap;
+
+    &--hints {
+      border-radius: 3px 3px 0 0;
+    }
+  }
+  &__tags {
+    @include flex-row;
+    @include scrollbar;
+
+    overflow-x: auto;
+  }
+  &__tag-wrapper {
+    flex-shrink: 0;
+    margin: $tag-margins;
+
+    &:not(:first-child) {
+      margin-left: 0;
+    }
+  }
+  &__hints {
+    @include scrollbar;
+
+    position: absolute;
+    top: 100%;
+    z-index: 1;
+    width: 100%;
+    height: min-content;
+    max-height: calc(#{$field-min-height} * 3);
+    border: 1px solid $field-border-color;
+    border-top-width: 0;
+    overflow-x: hidden;
+    overflow-y: overlay;
+
+    &--hidden {
+      display: none;
+    }
+  }
+  &__hint {
+    @include flex-row;
+    @include input-text;
+
+    width: 100%;
+    justify-content: space-between;
+    align-items: center;
+    min-height: $field-min-height;
+    padding: 1rem $field-padding;
+    background-color: $third-bg-color;
+    line-height: 2.2rem;
+    cursor: pointer;
+    list-style: none;
+
+    &:not(:first-child) {
+      border-top: 1px solid $field-border-color;
+    }
+    &:hover {
+      background-color: $third-bg-color-hover;
+    }
+    &--selected {
+      background-color: $seventh-bg-color;
+      cursor: default;
+    }
+    &--pointer-events-none {
+      pointer-events: none;
+    }
+  }
+  &__hint-text {
+    @include input-text;
+  }
+  &__check {
+    @include check-mark;
+
+    margin-left: 1.2rem;
+  }
+  &__input {
+    @include input;
+
+    min-height: $field-min-height;
+    padding: 0 $field-padding;
+    flex-grow: 1;
+    border: none;
+    background-color: transparent;
+  }
+}

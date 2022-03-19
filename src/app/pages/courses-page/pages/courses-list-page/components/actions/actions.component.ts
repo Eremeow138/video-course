@@ -1,4 +1,5 @@
 import { Component } from "@angular/core";
+import { RouterPath } from "@commons/enums/routers.enum";
 
 @Component({
   selector: "app-actions",
@@ -6,5 +7,5 @@ import { Component } from "@angular/core";
   styleUrls: ["./actions.component.scss"],
 })
 export class ActionsComponent {
-  constructor() { }
+  public readonly addCourseUrl = RouterPath.CourseCreationPage;
 }

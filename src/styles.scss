@@ -5,5 +5,10 @@
 @import "scss/variables";
 @import "scss/mixins";
 @import "scss/main-styles";
-@import "scss/scrollbar";
 @import "scss/buttons";
+@import "scss/form";
+
+/* Importing Datepicker SCSS file. */
+
+@import "ngx-bootstrap/datepicker/bs-datepicker.css";
+@import "scss/datepicker";

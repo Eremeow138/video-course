@@ -1,0 +1,17 @@
+<div class="duration-field">
+  <div class="duration-field__field-wrapper">
+    <app-field [title]="title" [control]="control" [id]="fieldName" [isRequired]="isRequired" [fieldErrors]="errors"
+      errorsWidthModificator="long">
+      <div class="duration-field__content">
+        <div class="duration-field__input-wrapper">
+          <input appIntegerOnly [formControl]="control" type="number" max="{{maxValue}}" min="{{minValue}}"
+            placeholder="{{placeholder}}" class="duration-field__input" id="{{fieldName}}"
+            [ngClass]="{'duration-field__input--invalid':control.value && control.invalid && control.touched}">
+        </div>
+        <div *ngIf="control.valid" class="duration-field__time-wrapper">
+          <span class="duration-field__time">{{control.value | durationPipe }}</span>
+        </div>
+      </div>
+    </app-field>
+  </div>
+</div>

@@ -1,17 +1,19 @@
-import { Component, OnInit } from "@angular/core";
-import { ModalComponentEnum } from "@modals/enums/modal-component.enum";
+import { ChangeDetectionStrategy, ChangeDetectorRef, Component, OnInit } from "@angular/core";
+import { ModalComponent } from "@modals/enums/modal-component.enum";
 import { IModalData, IModalMetadata } from "@modals/interfaces/modals.interface";
-import { ICourse } from "@pages/courses-page/courses/interfaces/course.interface";
+import { ICourse } from "@pages/courses-page/courses/interfaces/course/course.interface";
 import { ModalMapperService } from "@modals/services/modal-mapper/modal-mapper.service";
 import { ModalsService } from "@modals/services/modals/modals.service";
-import { CoursesService } from "@courses-list-page/services/courses.service";
+import { CoursesService } from "@pages/courses-page/courses/services/courses/courses.service";
 import { takeUntil } from "rxjs/operators";
 import { FilterPipe } from "@courses-list-page/pipes/filter/filter.pipe";
+import { ActivatedRoute, Router } from "@angular/router";
 
 @Component({
   selector: "app-courses-list-page",
   templateUrl: "./courses-list-page.component.html",
   styleUrls: ["./courses-list-page.component.scss"],
+  changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class CoursesListPageComponent implements OnInit {
 
@@ -24,7 +26,10 @@ export class CoursesListPageComponent implements OnInit {
   constructor(
     private coursesService: CoursesService,
     private modalMapperService: ModalMapperService,
-    private modalService: ModalsService) { }
+    private modalService: ModalsService,
+    private router: Router,
+    private route: ActivatedRoute,
+    private cd: ChangeDetectorRef) { }
 
   ngOnInit(): void {
     this.getFreshData();
@@ -38,6 +43,10 @@ export class CoursesListPageComponent implements OnInit {
   public deleteCourse(id: number): void {
     this.coursesService.deleteCourse(id);
     this.getFreshData();
+  }
+
+  public redirectToCoursePage(courseId: number): void {
+    this.router.navigate([courseId], { relativeTo: this.route });
   }
 
   public loadMoreCourses(): void {
@@ -64,7 +73,7 @@ export class CoursesListPageComponent implements OnInit {
       }
     };
 
-    const component = this.modalMapperService.getModalType(ModalComponentEnum.ConfirmationModal);
+    const component = this.modalMapperService.getModalType(ModalComponent.ConfirmationModal);
 
     const data: IModalData = {
       component,
@@ -75,7 +84,7 @@ export class CoursesListPageComponent implements OnInit {
       takeUntil(this.modalService.hideModals$)
     ).subscribe(resultData => {
       const initialResult = resultData.initialResult;
-      this.deleteCourse(initialResult.value);
+      this.deleteCourse(initialResult.value as number);
       this.modalService.hideModals();
     });
   }
@@ -88,5 +97,7 @@ export class CoursesListPageComponent implements OnInit {
     } else {
       this.filteredCourses = this.courses;
     }
+
+    this.cd.detectChanges();
   }
 }

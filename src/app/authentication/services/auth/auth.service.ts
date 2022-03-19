@@ -44,7 +44,7 @@ export class AuthService implements OnDestroy {
     const user = this.users.find(currentUser => currentUser.email === loginData.email && currentUser.password === loginData.password);
 
     if (user) {
-      this.setEmailAndTokenToLocalStorage(user.email, this.token);
+      this.setLoginDataToLocalStorage(user.email);
       this.authenticatedUserEmail = user.email;
     }
     this.isAuthenticatedSubject.next(!!user);
@@ -72,9 +72,9 @@ export class AuthService implements OnDestroy {
     this.logout();
   }
 
-  private setEmailAndTokenToLocalStorage(email: string, token: string = this.token): void {
+  private setLoginDataToLocalStorage(email: string): void {
     localStorage.setItem(this.localStorageEmailKey, email);
-    localStorage.setItem(this.localStorageTokenKey, token);
+    localStorage.setItem(this.localStorageTokenKey, this.token);
   }
 
   private clearLocalStorage(): void {

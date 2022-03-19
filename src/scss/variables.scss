@@ -12,6 +12,7 @@ $primary-shadow: 0 1px 2px 0 $primary-shadow-color,
 
 $primary-title-font-size: 2.4rem;
 $secondary-title-font-size: 1.8rem;
+$third-title-font-size: 15rem;
 
 $logo-font-size: 1.8rem;
 
@@ -41,10 +42,13 @@ $icon-third-filter: invert(56%) sepia(12%) saturate(327%) hue-rotate(189deg)
 
 $btn-primary-font-size: 1.4rem;
 $btn-secondary-font-size: 1.2rem;
+$btn-third-font-size: 2rem;
 $btn-primary-min-height: 3.6rem;
 $btn-secondary-min-height: 2.4rem;
+$btn-third-min-height: 4.8rem;
 $btn-primary-paddings: 0 1.2rem 0 1rem;
 $btn-secondary-paddings: 0 1.2rem 0 0.9rem;
+$btn-third-paddings: 0 1.5rem 0 1.5rem;
 $btn-margin: 1.2rem;
 $btn-primary-icon-size: 1.4rem;
 $btn-secondary-icon-size: 1.2rem;
@@ -60,8 +64,18 @@ $footer-height: 6rem;
 $breadcrumbs-height: 5.6rem;
 
 $field-min-height: 3.6rem;
-$field-border-radius: 3px;
-$field-paddings: 0 1.2rem;
+$textarea-min-height: 10.8rem;
+
+$field-border-radius: $secondary-border-radius;
+$field-padding: 1.2rem;
+$primary-field-max-width: 150px;
+$secondary-field-max-width: 312px;
+
+$tag-min-height: 2.8rem;
+$tag-border-radius: $secondary-border-radius;
+$tag-paddings: 0.2rem 1.2rem 0.2rem 0.8rem;
+$tag-margins: 0.4rem 0.5rem;
+$tag-font-size: $primary-font-size;
 
 $primary-duration: 0.3s;
 
@@ -74,6 +88,7 @@ $window-min-height: 768px;
 $course-card-title-padding: 2rem;
 
 $login-form-max-width: 368px;
+$course-form-max-width: 730px;
 
 $app-z-index: 1;
 $modals-overlay-z-index: 2;

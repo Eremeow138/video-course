@@ -1,0 +1,33 @@
+@import "colors";
+@import "variables";
+@import "mixins";
+
+:host {
+  @include height-width-100-percent;
+}
+
+.date-field {
+  @include height-width-100-percent;
+
+  &__field-wrapper {
+    width: $primary-field-max-width;
+    height: 100%;
+  }
+  &__content {
+    position: relative;
+  }
+  &__input {
+    @include input-field;
+
+    padding-right: calc(#{$icon-size} + 2rem);
+  }
+  &__icon {
+    @include icon-size($icon-size);
+
+    position: absolute;
+    top: calc((#{$field-min-height} - #{$icon-size}) / 2);
+    right: 1rem;
+    cursor: pointer;
+    filter: $icon-third-filter;
+  }
+}

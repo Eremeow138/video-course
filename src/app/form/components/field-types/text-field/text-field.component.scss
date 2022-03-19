@@ -1,0 +1,16 @@
+@import "colors";
+@import "variables";
+@import "mixins";
+
+:host {
+  @include height-width-100-percent;
+}
+
+.text-field {
+  @include height-width-100-percent;
+
+  &__textarea {
+    @include textarea-field;
+    @include scrollbar;
+  }
+}

@@ -1,11 +1,12 @@
-import { Component, EventEmitter, Input, Output } from "@angular/core";
+import { ChangeDetectionStrategy, Component, EventEmitter, Input, Output } from "@angular/core";
 import { IModalButtonsText } from "@modals/interfaces/modals.interface";
 
 
 @Component({
   selector: "app-modal-footer",
   templateUrl: "./modal-footer.component.html",
-  styleUrls: ["./modal-footer.component.scss"]
+  styleUrls: ["./modal-footer.component.scss"],
+  changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class ModalFooterComponent {
 

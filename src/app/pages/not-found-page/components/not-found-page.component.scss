@@ -1,0 +1,79 @@
+@import "variables";
+@import "mixins";
+
+:host {
+  @include height-width-100-percent;
+}
+
+.not-found-page {
+  @include height-width-100-percent;
+
+  &__content-wrapper {
+    @include height-width-100-percent;
+    @include flex-column;
+
+    align-items: center;
+    justify-content: center;
+    padding: $wrapper-padding;
+  }
+  &__content {
+    @include height-width-100-percent;
+
+    max-width: $content-max-width;
+  }
+  &__main {
+    @include height-width-100-percent;
+    @include flex-row;
+  }
+  &__cell {
+    @include flex-row;
+
+    height: 100%;
+    width: 50%;
+    align-items: center;
+    justify-content: flex-start;
+
+    &:not(:first-child) {
+      margin-left: $primary-content-margin;
+    }
+  }
+  &__information {
+    width: 100%;
+    max-width: 450px;
+    height: min-content;
+  }
+  &__picture {
+    width: 100%;
+    height: min-content;
+  }
+  &__title-wrapper {
+    @include height-width-100-percent;
+
+    margin-bottom: $secondary-content-margin;
+  }
+  &__title {
+    @include third-title;
+  }
+  &__subtitle-wrapper {
+    @include height-width-100-percent;
+
+    margin-bottom: $secondary-content-margin;
+  }
+  &__subtitle {
+    @include primary-title;
+  }
+  &__description-wrapper {
+    @include height-width-100-percent;
+
+    margin-bottom: $secondary-content-margin;
+  }
+  &__description {
+    @include description-text;
+  }
+  &__actions {
+    @include flex-row;
+  }
+  &__button {
+    text-decoration: none;
+  }
+}

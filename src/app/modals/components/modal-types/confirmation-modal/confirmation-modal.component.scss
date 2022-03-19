@@ -28,7 +28,7 @@
 
     max-height: 95px;
     padding: $modal-content-paddings;
-    overflow-y: scroll;
+    overflow-y: auto;
   }
   &__footer {
     @include height-width-100-percent;

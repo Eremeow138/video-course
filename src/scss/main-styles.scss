@@ -12,7 +12,7 @@ html {
 }
 
 body {
-  overflow: overlay;
+  overflow: auto;
 
   @-moz-document url-prefix("") {
     overflow: auto;

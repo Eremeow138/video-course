@@ -1,38 +1,44 @@
-import { Component, OnDestroy, OnInit } from "@angular/core";
-import { FormControl, FormGroup, Validators } from "@angular/forms";
+import { ChangeDetectionStrategy, Component, OnDestroy, OnInit } from "@angular/core";
+import { Router } from "@angular/router";
+import { LoginFormControl } from "@app/form/enums/login-form-control.enum";
+import { LoginForm } from "@app/form/models/form-models/login-form.model";
+import { RouterPath } from "@commons/enums/routers.enum";
 import { AuthService } from "@authentication/services/auth/auth.service";
 import { Subject } from "rxjs";
 import { skip, takeUntil } from "rxjs/operators";
+import { ILoginData } from "@authentication/interfaces/login-data";
 
 @Component({
   selector: "app-login-form",
   templateUrl: "./login-form.component.html",
-  styleUrls: ["./login-form.component.scss"]
+  styleUrls: ["./login-form.component.scss"],
+  changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class LoginFormComponent implements OnInit, OnDestroy {
 
   public isVisibleWarning = false;
 
-  public loginForm = new FormGroup({
-    email: new FormControl("", Validators.required),
-    password: new FormControl("", Validators.required)
-  });
+  public emailFormControlName = LoginFormControl.Email;
+  public passwordFormControlName = LoginFormControl.Password;
+
+  public loginForm: LoginForm = null;
 
   private unsubscribe$ = new Subject<void>();
 
-  constructor(private authService: AuthService) { }
+  constructor(private authService: AuthService, private router: Router) { }
 
-  ngOnInit(): void {
-    this.subscribeToAuthentication();
+  public ngOnInit(): void {
+    this.createForm();
+    this.subscribeToEvents();
   }
 
-  ngOnDestroy(): void {
+  public ngOnDestroy(): void {
     this.unsubscribe$.next();
     this.unsubscribe$.complete();
   }
 
   public login(): void {
-    this.authService.login(this.loginForm.getRawValue());
+    this.authService.login(this.loginForm.getRawValue() as ILoginData);
   }
 
   public hideWarning(): void {
@@ -41,12 +47,32 @@ export class LoginFormComponent implements OnInit, OnDestroy {
     }
   }
 
-  private subscribeToAuthentication(): void {
+  public createForm(): void {
+    this.loginForm = new LoginForm({
+      [LoginFormControl.Email]: "",
+      [LoginFormControl.Password]: ""
+    });
+  }
+
+  private navigateToHomePage(isAuthenticated: boolean): void {
+    if (isAuthenticated) {
+      this.router.navigate([RouterPath.CoursesPage]);
+    }
+  }
+
+  private subscribeToEvents(): void {
+    this.loginForm.valueChanges.pipe(
+      takeUntil(this.unsubscribe$)
+    ).subscribe(() => {
+      this.hideWarning();
+    });
+
     this.authService.isAuthenticated$.pipe(
       skip(1),
       takeUntil(this.unsubscribe$)
     ).subscribe(isAuthenticated => {
       this.isVisibleWarning = !isAuthenticated;
+      this.navigateToHomePage(isAuthenticated);
     });
   }
 }

@@ -9,50 +9,8 @@
 .login-form {
   @include height-width-100-percent;
 
-  &__form {
-    @include height-width-100-percent;
-  }
-  &__header {
-    @include flex-row;
-
-    align-items: center;
-    margin-bottom: $primary-content-margin;
-  }
-  &__title-wrapper {
-    flex-grow: 1;
-
-    &:not(:only-child) {
-      padding-right: $wrapper-padding;
-    }
-  }
-  &__title {
-    @include primary-title;
-  }
   &__warning {
     @include warning-text;
-  }
-  &__field-list {
-    width: 100%;
-    height: min-content;
-  }
-  &__field-wrapper {
-
-    &:not(:first-child) {
-      margin-top: 1.2rem;
-    }
-  }
-  &__input {
-    @include input-field;
-  }
-  &__actions {
-    @include flex-row;
-
-    justify-content: space-between;
-    align-items: center;
-    margin-top: $primary-content-margin;
-  }
-  &__buttons-wrapper {
-    @include flex-row;
   }
   &__forgot-password {
     color: $text-link-color;
@@ -65,8 +23,5 @@
     &:active {
       color: $text-link-color-focus;
     }
-  }
-  &__button {
-    padding: 0 2.3rem;
   }
 }

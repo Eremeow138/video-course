@@ -1,0 +1,26 @@
+<div class="tag-field">
+  <div class="tag-field__field-wrapper">
+    <app-field [title]="title" [control]="control" [id]="fieldName" [isRequired]="isRequired">
+      <div class="tag-field__container">
+        <div class="tag-field__content" [ngClass]="{'tag-field__content--hints': isHintListVisible}">
+          <div #tags class="tag-field__tags">
+            <div class="tag-field__tag-wrapper" *ngFor="let tag of control.value; trackBy: trackByFn">
+              <app-tag [value]="tag" (deleteEvent)="removeTag($event)"></app-tag>
+            </div>
+          </div>
+          <input #tagInput type="text" placeholder="{{placeholder}}" class="tag-field__input" id="{{fieldName}}"
+            autocomplete="off" (focus)="showHints()" (blur)="touchControl()" (input)="searchHints(tagInput.value)"
+            (click)="searchHints(tagInput.value)">
+        </div>
+        <ul #hintList *ngIf="hints" (click)="addTag($event)" class="tag-field__hints"
+          [ngClass]="{'tag-field__hints--hidden': !isHintListVisible}">
+          <li class="tag-field__hint" *ngFor="let hint of hints; trackBy: trackByFn"
+            [ngClass]="{'tag-field__hint--selected': isSelectedHint(hint), 'tag-field__hint--pointer-events-none': isSelectedHint(hint) || hint === hintsNotFound}">
+            <p class="tag-field__hint-text">{{hint}}</p>
+            <img *ngIf="isSelectedHint(hint)" src="assets/icons/check.svg" alt="check" class="tag-field__check">
+          </li>
+        </ul>
+      </div>
+    </app-field>
+  </div>
+</div>
