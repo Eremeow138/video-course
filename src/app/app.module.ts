@@ -12,11 +12,13 @@ import { AppComponent } from "./app.component";
 import { AppRoutingModule } from "./app-routing.module";
 import { CustomRouteReuseStrategy } from "@app/custom-route-reuse-strategy";
 import { LoaderModule } from "./loader/loader.module";
+import { HttpClientModule } from "@angular/common/http";
 
 @NgModule({
   declarations: [AppComponent],
   imports: [
     BrowserModule,
+    HttpClientModule,
     BrowserAnimationsModule,
     CommonsModule,
     AppRoutingModule,

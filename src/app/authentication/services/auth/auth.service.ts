@@ -1,30 +1,14 @@
+import { HttpClient, HttpErrorResponse } from "@angular/common/http";
 import { Injectable, OnDestroy } from "@angular/core";
-import { ILoginData } from "@authentication/interfaces/login-data";
+import { ILoginData, IToken } from "@authentication/interfaces/login-data";
 import { BehaviorSubject, Observable } from "rxjs";
 
 @Injectable({
   providedIn: "root"
 })
 export class AuthService implements OnDestroy {
-  private users = [
-    {
-      email: "admin@vc.com",
-      password: "admin",
-      role: "admin"
-    },
-    {
-      email: "user@vc.com",
-      password: "user",
-      role: "user"
-    },
-  ];
-  private localStorageEmailKey = "email";
 
   private localStorageTokenKey = "token";
-
-  private token = "secretToken";
-
-  private authenticatedUserEmail = "";
 
   private isAuthenticatedSubject = new BehaviorSubject<boolean>(false);
 
@@ -32,60 +16,59 @@ export class AuthService implements OnDestroy {
     return this.isAuthenticatedSubject.asObservable();
   }
 
-  constructor() {
+  constructor(private http: HttpClient) {
     this.checkToken();
   }
 
   ngOnDestroy(): void {
     this.isAuthenticatedSubject.complete();
   }
-
+  // TODO replace url to constant
+  public getToken(loginData: ILoginData): Observable<IToken> {
+    return this.http.post<IToken>("http://localhost:3004/auth/login", loginData);
+  }
+  // TODO replace url to constant
   public login(loginData: ILoginData): void {
-    const user = this.users.find(currentUser => currentUser.email === loginData.email && currentUser.password === loginData.password);
 
-    if (user) {
-      this.setLoginDataToLocalStorage(user.email);
-      this.authenticatedUserEmail = user.email;
-    }
-    this.isAuthenticatedSubject.next(!!user);
+    this.getToken(loginData).subscribe(
+      date => {
+        this.setTokenToLocalStorage(date.token);
+        this.isAuthenticatedSubject.next(true);
+      },
+      (error: HttpErrorResponse) => {
+        if (error.status >= 400 && error.status < 500) {
+          this.isAuthenticatedSubject.next(false);
+        } else {
+          throw new Error(error.message);
+        }
+      }
+    );
   }
 
   public logout(): void {
     this.clearLocalStorage();
-    this.authenticatedUserEmail = "";
     this.isAuthenticatedSubject.next(false);
-  }
-
-  public getUserInfo(): string {
-    return this.authenticatedUserEmail;
   }
 
   private checkToken(): void {
     const token = this.getTokenFromLocalStorage();
-    const email = this.getEmailFromLocalStorage();
-
-    if (token && email) {
-      this.authenticatedUserEmail = email;
+    if (token) {
       this.isAuthenticatedSubject.next(true);
       return;
     }
     this.logout();
   }
 
-  private setLoginDataToLocalStorage(email: string): void {
-    localStorage.setItem(this.localStorageEmailKey, email);
-    localStorage.setItem(this.localStorageTokenKey, this.token);
+  private setTokenToLocalStorage(token: string): void {
+    localStorage.setItem(this.localStorageTokenKey, token);
   }
 
   private clearLocalStorage(): void {
-    localStorage.removeItem(this.localStorageEmailKey);
     localStorage.removeItem(this.localStorageTokenKey);
   }
 
   private getTokenFromLocalStorage(): string | null {
     return localStorage.getItem(this.localStorageTokenKey);
   }
-  private getEmailFromLocalStorage(): string | null {
-    return localStorage.getItem(this.localStorageEmailKey);
-  }
+
 }
