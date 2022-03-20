@@ -1,7 +1,8 @@
 /* eslint-disable max-len */
+import { HttpClient, HttpParams } from "@angular/common/http";
 import { Injectable } from "@angular/core";
 import { ICourse } from "@pages/courses-page/courses/interfaces/course/course.interface";
-import { Observable, of } from "rxjs";
+import { Observable } from "rxjs";
 import { IAuthor } from "../../interfaces/course/author.interface";
 
 @Injectable()
@@ -37,57 +38,23 @@ export class CoursesService {
     },
   ];
 
-  private collectionOfAuthors: IAuthor[] = [
-    {
-      id: "5b7a846290d6ff6894377fb5",
-      name: "Decker Albert"
-    },
-    {
-      id: "5b7a84624010db4d640e0099",
-      name: "Vincent Doyle"
-    },
-    {
-      id: "5b7a8462e720a86db64774e7",
-      name: "Padilla Berger"
-    },
-    {
-      id: "5b7a84628298a95c17462193",
-      name: "Carey Jarvis"
-    },
-    {
-      id: "5b7a846284414c93c2a94eb8",
-      name: "Aida Copeland"
-    },
-    {
-      id: "5b7a846205bf3180ca002c82",
-      name: "Wall Sandoval"
-    },
-    {
-      id: "5b7a8462cf7298e6d925d18c",
-      name: "Shelby Hanson"
-    },
-    {
-      id: "5b7a8462c5e867ec6a1a9b00",
-      name: "Jodi Barrett"
-    },
-  ];
-
-  constructor() { }
+  constructor(private http: HttpClient) { }
 
   public getListOfCourses(): ICourse[] {
     return this.collectionOfCourses;
   }
-
+  // TODO replace url to constant
   public getListOfAuthors(): Observable<IAuthor[]> {
-    return of(this.collectionOfAuthors);
+    return this.http.get<IAuthor[]>("http://localhost:3004/authors");
   }
-
+  // TODO replace url to constant
   public searchAuthors(searchString: string): Observable<IAuthor[]> {
-    if (!searchString.trim()) {
-      return of(this.collectionOfAuthors);
+    const treamedSearchString = searchString.trim();
+    if (!treamedSearchString) {
+      return this.getListOfAuthors();
     }
-
-    return of(this.collectionOfAuthors.filter(author => author.name.toLowerCase().includes(searchString.toLowerCase())));
+    const params = new HttpParams().set("textFragment", treamedSearchString);
+    return this.http.get<IAuthor[]>("http://localhost:3004/authors", { params });
   }
 
   public createCourse(
