@@ -50,6 +50,10 @@ export class AuthService implements OnDestroy {
     this.isAuthenticatedSubject.next(false);
   }
 
+  public getTokenFromLocalStorage(): string | null {
+    return localStorage.getItem(this.localStorageTokenKey);
+  }
+
   private checkToken(): void {
     const token = this.getTokenFromLocalStorage();
     if (token) {
@@ -65,10 +69,6 @@ export class AuthService implements OnDestroy {
 
   private clearLocalStorage(): void {
     localStorage.removeItem(this.localStorageTokenKey);
-  }
-
-  private getTokenFromLocalStorage(): string | null {
-    return localStorage.getItem(this.localStorageTokenKey);
   }
 
 }
