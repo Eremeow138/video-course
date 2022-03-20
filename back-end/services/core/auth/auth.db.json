@@ -7,8 +7,8 @@
       "first": "FirstName",
       "last": "LastName"
     },
-    "login": "flastname",
-    "password": "flastname"
+    "login": "user@vc.com",
+    "password": "user"
   },
   {
     "id": 2,
@@ -17,8 +17,8 @@
       "first": "Brock",
       "last": "Beasley"
     },
-    "login": "Morales",
-    "password": "id"
+    "login": "neo@metacorp.com",
+    "password": "one"
   }
 ]
 }
