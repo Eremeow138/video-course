@@ -1,4 +1,6 @@
-import { ChangeDetectionStrategy, Component, EventEmitter, Input, OnInit, Output } from "@angular/core";
+import {
+  ChangeDetectionStrategy, Component, EventEmitter, Input, OnChanges, OnInit, Output
+} from "@angular/core";
 import { CourseFormControl } from "@app/form/enums/course-form-control.enum";
 import { CourseForm } from "@app/form/models/form-models/course-form.model";
 import { ICourse } from "@pages/courses-page/courses/interfaces/course/course.interface";
@@ -12,15 +14,15 @@ import { debounceTime, distinctUntilChanged, map, switchMap } from "rxjs/operato
   styleUrls: ["./course-form.component.scss"],
   changeDetection: ChangeDetectionStrategy.OnPush
 })
-export class CourseFormComponent implements OnInit {
+export class CourseFormComponent implements OnInit, OnChanges {
 
   @Input()
   public course: ICourse = {
     id: null,
-    title: null,
+    name: null,
     description: null,
     duration: null,
-    creationDate: null,
+    date: null,
     authors: [],
     isTopRated: false
   };
@@ -32,7 +34,7 @@ export class CourseFormComponent implements OnInit {
     return "New course";
   }
 
-  public titleFormControlName = CourseFormControl.Title;
+  public titleFormControlName = CourseFormControl.Name;
   public descriptionFormControlName = CourseFormControl.Description;
   public durationFormControlName = CourseFormControl.Duration;
   public dateFormControlName = CourseFormControl.Date;
@@ -46,14 +48,19 @@ export class CourseFormComponent implements OnInit {
 
   @Output()
   private cancelEvent = new EventEmitter<void>();
+  @Output()
+  private saveEvent = new EventEmitter<ICourse>();
 
   private searchStringSubject = new Subject<string>();
 
   constructor(private coursesService: CoursesService) { }
 
   public ngOnInit(): void {
-    this.createForm();
     this.initializeAuthors();
+  }
+
+  ngOnChanges(): void {
+    this.createForm();
   }
 
   public searchHints(searchString: string): void {
@@ -63,14 +70,28 @@ export class CourseFormComponent implements OnInit {
   public cancel(): void {
     this.cancelEvent.emit();
   }
+  public save(): void {
+    const authorsNames = this.courseForm.value.authors as string[];
+
+    this.coursesService.getListOfAuthors()
+      .pipe(
+        map(authors => authors.filter(author => authorsNames.includes(author.name)))
+      ).subscribe(authors => {
+        const formData = { ...this.courseForm.value };
+        formData.authors = authors;
+        const course = formData as ICourse;
+        this.saveEvent.emit(course);
+      });
+
+  }
 
   public createForm(): void {
     this.courseForm = new CourseForm({
-      [CourseFormControl.Title]: this.course.title,
+      [CourseFormControl.Name]: this.course.name,
       [CourseFormControl.Description]: this.course.description,
       [CourseFormControl.Duration]: this.course.duration,
-      [CourseFormControl.Date]: this.course.creationDate,
-      [CourseFormControl.Authors]: this.course.authors,
+      [CourseFormControl.Date]: this.course.date,
+      [CourseFormControl.Authors]: this.course.authors.map(author => author.name),
     });
   }
 

@@ -23,7 +23,7 @@ export class CourseForm extends AbstractForm {
       }
     }
 
-    this.get(CourseFormControl.Title).addValidators(Validators.maxLength(StringLimit.MaxLength));
+    this.get(CourseFormControl.Name).addValidators(Validators.maxLength(StringLimit.MaxLength));
 
     this.get(CourseFormControl.Description).addValidators(Validators.maxLength(TextLimit.MaxLength));
 

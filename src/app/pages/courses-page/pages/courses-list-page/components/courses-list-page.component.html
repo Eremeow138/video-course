@@ -11,8 +11,8 @@
   </div>
   <div class="courses-list-page__list-wrapper">
     <div class="courses-list-page__list">
-      <app-courses-list [courses]="filteredCourses" (deleteCourseEvent)="showDeleteConfirmationModal($event)"
-        (editCourseEvent)="redirectToCoursePage($event)" (loadMoreCoursesEvent)="loadMoreCourses()"> </app-courses-list>
+      <app-courses-list [courses]="courses" [isLoadMoreButtonVisible]="isLoadMoreButtonVisible" (deleteCourseEvent)="showDeleteConfirmationModal($event)"
+        (editCourseEvent)="redirectToCoursePage($event)" (loadMoreCoursesEvent)="getFreshData()"> </app-courses-list>
     </div>
   </div>
 </div>

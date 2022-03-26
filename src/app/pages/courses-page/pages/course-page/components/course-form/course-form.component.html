@@ -34,7 +34,8 @@
         <button type="button" class="button button button--white-gray form__button" (click)="cancel()">
           <span class="button__text button__text--gray">Cancel</span>
         </button>
-        <button [disabled]="courseForm.invalid" type="submit" class="button button--green form__button">
+        <button [disabled]="courseForm.invalid" type="submit" class="button button--green form__button"
+          (click)="save()">
           <span class="button__text">Save</span>
         </button>
       </div>

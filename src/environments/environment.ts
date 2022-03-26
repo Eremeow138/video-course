@@ -7,6 +7,22 @@ export const environment = {
   standalone: false
 };
 
+export const urls = {
+  courses: "http://localhost:3004/courses",
+  authors: "http://localhost:3004/authors"
+};
+
+export const getCourseRequestParams = {
+  startFrom: "start",
+  countOfCourses: "count",
+  searchString: "textFragment",
+  sortKey: "sort"
+};
+
+export const getAuthorsRequestParams = {
+  searchString: "textFragment",
+};
+
 /*
  * For easier debugging in development mode, you can import the following file
  * to ignore zone related error stack frames such as `zone.run`, `zoneDelegate.invokeTask`.

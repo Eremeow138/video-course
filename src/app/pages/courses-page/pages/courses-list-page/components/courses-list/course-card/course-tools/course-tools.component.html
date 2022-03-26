@@ -3,16 +3,12 @@
     <img class="course-tools__icon" src="assets/icons/clock.svg" alt="clock" />
     <span class="course-tools__value">{{
       course.duration | durationPipe
-    }}</span>
+      }}</span>
   </div>
   <div class="course-tools__tool">
-    <img
-      class="course-tools__icon"
-      src="assets/icons/calendar.svg"
-      alt="calendar"
-    />
+    <img class="course-tools__icon" src="assets/icons/calendar.svg" alt="calendar" />
     <span class="course-tools__value">{{
-      course.creationDate | date: "dd/MM/yyyy"
-    }}</span>
+      course.date | date: "dd/MM/yyyy"
+      }}</span>
   </div>
 </div>

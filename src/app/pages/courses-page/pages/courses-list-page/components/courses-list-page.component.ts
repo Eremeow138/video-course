@@ -5,23 +5,28 @@ import { ICourse } from "@pages/courses-page/courses/interfaces/course/course.in
 import { ModalMapperService } from "@modals/services/modal-mapper/modal-mapper.service";
 import { ModalsService } from "@modals/services/modals/modals.service";
 import { CoursesService } from "@pages/courses-page/courses/services/courses/courses.service";
-import { takeUntil } from "rxjs/operators";
-import { FilterPipe } from "@courses-list-page/pipes/filter/filter.pipe";
+import { mergeMap, takeUntil, tap } from "rxjs/operators";
 import { ActivatedRoute, Router } from "@angular/router";
+import { TitleCasePipe } from "@angular/common";
 
 @Component({
   selector: "app-courses-list-page",
   templateUrl: "./courses-list-page.component.html",
   styleUrls: ["./courses-list-page.component.scss"],
+  providers: [TitleCasePipe],
   changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class CoursesListPageComponent implements OnInit {
 
-  public filteredCourses: ICourse[] = [];
+  public courses: ICourse[] = [];
 
-  private filterСache = "";
+  public isLoadMoreButtonVisible = false;
 
-  private courses: ICourse[] = [];
+  private searchCurrentValue = "";
+
+  private startFrom = 0;
+
+  private increment = 3;
 
   constructor(
     private coursesService: CoursesService,
@@ -29,36 +34,45 @@ export class CoursesListPageComponent implements OnInit {
     private modalService: ModalsService,
     private router: Router,
     private route: ActivatedRoute,
-    private cd: ChangeDetectorRef) { }
+    private cd: ChangeDetectorRef,
+    private titleCasePipe: TitleCasePipe) { }
 
   ngOnInit(): void {
     this.getFreshData();
   }
 
   public filter(searchString: string): void {
-    this.filteredCourses = new FilterPipe().transform(this.courses, searchString);
-    this.filterСache = searchString;
+    this.searchCurrentValue = searchString.toLowerCase();
+    this.startFrom = 0;
+    this.courses.length = 0;
+    this.getFreshData();
   }
 
   public deleteCourse(id: number): void {
-    this.coursesService.deleteCourse(id);
-    this.getFreshData();
+    this.coursesService.deleteCourse(id)
+      .pipe(
+        mergeMap(() => {
+          const countOfCourses = this.courses.length;
+          return this.coursesService.getListOfCourses(0, countOfCourses, this.searchCurrentValue);
+        })
+      )
+      .subscribe(
+        courses => {
+          this.courses = [...courses];
+          this.cd.markForCheck();
+        }
+      );
   }
 
   public redirectToCoursePage(courseId: number): void {
     this.router.navigate([courseId], { relativeTo: this.route });
   }
 
-  public loadMoreCourses(): void {
-    this.coursesService.loadMoreCourses();
-    this.getFreshData();
-  }
-
   public showDeleteConfirmationModal(courseId: number): void {
 
     const courseForDeletion = this.courses.find(course => course.id === courseId);
 
-    const titleOfCourseForDeletion = (courseForDeletion).title;
+    const titleOfCourseForDeletion = this.titleCasePipe.transform(courseForDeletion.name);
 
     const modalMetadata: IModalMetadata = {
       title: "Delete course?",
@@ -89,15 +103,18 @@ export class CoursesListPageComponent implements OnInit {
     });
   }
 
-  private getFreshData(): void {
-    this.courses = this.coursesService.getListOfCourses();
-
-    if (this.filterСache) {
-      this.filter(this.filterСache);
-    } else {
-      this.filteredCourses = this.courses;
-    }
-
-    this.cd.detectChanges();
+  public getFreshData(): void {
+    this.coursesService.getListOfCourses(this.startFrom, this.increment, this.searchCurrentValue, "date")
+      .pipe(
+        tap(courses => {
+          this.courses = [...this.courses, ...courses];
+          this.startFrom = this.courses.length;
+        }),
+        mergeMap(() => this.coursesService.getListOfCourses(this.startFrom, 1, this.searchCurrentValue))
+      )
+      .subscribe(courses => {
+        this.isLoadMoreButtonVisible = courses.length > 0;
+        this.cd.markForCheck();
+      });
   }
 }
