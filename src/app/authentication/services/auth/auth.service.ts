@@ -1,6 +1,7 @@
 import { HttpClient, HttpErrorResponse } from "@angular/common/http";
 import { Injectable, OnDestroy } from "@angular/core";
 import { ILoginData, IToken } from "@authentication/interfaces/login-data";
+import { urls } from "@environments/environment";
 import { BehaviorSubject, Observable } from "rxjs";
 
 @Injectable({
@@ -23,11 +24,11 @@ export class AuthService implements OnDestroy {
   ngOnDestroy(): void {
     this.isAuthenticatedSubject.complete();
   }
-  // TODO replace url to constant
+
   public getToken(loginData: ILoginData): Observable<IToken> {
-    return this.http.post<IToken>("http://localhost:3004/auth/login", loginData);
+    return this.http.post<IToken>(urls.login, loginData);
   }
-  // TODO replace url to constant
+
   public login(loginData: ILoginData): void {
 
     this.getToken(loginData).subscribe(

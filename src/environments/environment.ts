@@ -9,7 +9,8 @@ export const environment = {
 
 export const urls = {
   courses: "http://localhost:3004/courses",
-  authors: "http://localhost:3004/authors"
+  authors: "http://localhost:3004/authors",
+  login: "http://localhost:3004/auth/login"
 };
 
 export const getCourseRequestParams = {
