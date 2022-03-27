@@ -14,6 +14,7 @@ import { CustomRouteReuseStrategy } from "@app/custom-route-reuse-strategy";
 import { LoaderModule } from "./loader/loader.module";
 import { HttpClientModule, HTTP_INTERCEPTORS } from "@angular/common/http";
 import { AuthInterceptor } from "./interceptors/auth/auth.interceptor";
+import { LoaderInterceptor } from "./interceptors/loader/loader.interceptor";
 
 @NgModule({
   declarations: [AppComponent],
@@ -36,6 +37,11 @@ import { AuthInterceptor } from "./interceptors/auth/auth.interceptor";
     {
       provide: HTTP_INTERCEPTORS,
       useClass: AuthInterceptor,
+      multi: true,
+    },
+    {
+      provide: HTTP_INTERCEPTORS,
+      useClass: LoaderInterceptor,
       multi: true,
     }
   ],
