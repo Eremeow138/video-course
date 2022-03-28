@@ -1,9 +1,12 @@
 <div class="courses-list">
   <div class="courses-list__cards-wrapper">
-    <app-course-card *ngFor="let course of courses; trackBy: trackByFn" [course]="course"
-      (deleteCourseEvent)="deleteCourse($event)" (editCourseEvent)="editCourse($event)"></app-course-card>
-    <div *ngIf="courses && !courses.length" class="courses-list__no-data-message">No data
-    </div>
+    <app-course-card
+      *ngFor="let course of courses; trackBy: trackByFn"
+      [course]="course"
+      (deleteCourseEvent)="deleteCourse($event)"
+      (editCourseEvent)="editCourse($event)">
+    </app-course-card>
+    <div *ngIf="courses && !courses.length" class="courses-list__no-data-message">No data</div>
   </div>
   <button *ngIf="isLoadMoreButtonVisible" class="courses-list__load-more-button" (click)="loadMoreCourses()">
     Load more
