@@ -1,4 +1,4 @@
-import { ChangeDetectionStrategy, ChangeDetectorRef, Component, OnInit } from "@angular/core";
+import { ChangeDetectionStrategy, ChangeDetectorRef, Component, OnDestroy, OnInit } from "@angular/core";
 import { ModalComponent } from "@modals/enums/modal-component.enum";
 import { IModalData, IModalMetadata } from "@modals/interfaces/modals.interface";
 import { ICourse } from "@pages/courses-page/courses/interfaces/course/course.interface";
@@ -8,6 +8,7 @@ import { CoursesService } from "@pages/courses-page/courses/services/courses/cou
 import { mergeMap, takeUntil, tap } from "rxjs/operators";
 import { ActivatedRoute, Router } from "@angular/router";
 import { TitleCasePipe } from "@angular/common";
+import { Subject } from "rxjs";
 
 @Component({
   selector: "app-courses-list-page",
@@ -16,7 +17,7 @@ import { TitleCasePipe } from "@angular/common";
   providers: [TitleCasePipe],
   changeDetection: ChangeDetectionStrategy.OnPush
 })
-export class CoursesListPageComponent implements OnInit {
+export class CoursesListPageComponent implements OnInit, OnDestroy {
 
   public courses: ICourse[] = [];
 
@@ -27,6 +28,8 @@ export class CoursesListPageComponent implements OnInit {
   private startFrom = 0;
 
   private increment = 3;
+
+  private unsubscribe$ = new Subject<void>();
 
   constructor(
     private coursesService: CoursesService,
@@ -41,6 +44,11 @@ export class CoursesListPageComponent implements OnInit {
     this.getFreshData();
   }
 
+  public ngOnDestroy(): void {
+    this.unsubscribe$.next();
+    this.unsubscribe$.complete();
+  }
+
   public filter(searchString: string): void {
     this.searchCurrentValue = searchString.toLowerCase();
     this.startFrom = 0;
@@ -51,6 +59,7 @@ export class CoursesListPageComponent implements OnInit {
   public deleteCourse(id: number): void {
     this.coursesService.deleteCourse(id)
       .pipe(
+        takeUntil(this.unsubscribe$),
         mergeMap(() => {
           const countOfCourses = this.courses.length;
           return this.coursesService.getListOfCourses(0, countOfCourses, this.searchCurrentValue);
@@ -106,6 +115,7 @@ export class CoursesListPageComponent implements OnInit {
   public getFreshData(): void {
     this.coursesService.getListOfCourses(this.startFrom, this.increment, this.searchCurrentValue, "date")
       .pipe(
+        takeUntil(this.unsubscribe$),
         tap(courses => {
           this.courses = [...this.courses, ...courses];
           this.startFrom = this.courses.length;

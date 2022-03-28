@@ -1,12 +1,12 @@
 import {
-  ChangeDetectionStrategy, Component, EventEmitter, Input, OnChanges, OnInit, Output
+  ChangeDetectionStrategy, Component, EventEmitter, Input, OnChanges, OnDestroy, OnInit, Output
 } from "@angular/core";
 import { CourseFormControl } from "@app/form/enums/course-form-control.enum";
 import { CourseForm } from "@app/form/models/form-models/course-form.model";
 import { ICourse } from "@pages/courses-page/courses/interfaces/course/course.interface";
 import { CoursesService } from "@pages/courses-page/courses/services/courses/courses.service";
 import { Observable, Subject } from "rxjs";
-import { debounceTime, distinctUntilChanged, map, switchMap } from "rxjs/operators";
+import { debounceTime, distinctUntilChanged, map, switchMap, takeUntil } from "rxjs/operators";
 
 @Component({
   selector: "app-course-form",
@@ -14,7 +14,7 @@ import { debounceTime, distinctUntilChanged, map, switchMap } from "rxjs/operato
   styleUrls: ["./course-form.component.scss"],
   changeDetection: ChangeDetectionStrategy.OnPush
 })
-export class CourseFormComponent implements OnInit, OnChanges {
+export class CourseFormComponent implements OnInit, OnChanges, OnDestroy {
 
   @Input()
   public course: ICourse = {
@@ -53,14 +53,21 @@ export class CourseFormComponent implements OnInit, OnChanges {
 
   private searchStringSubject = new Subject<string>();
 
+  private unsubscribe$ = new Subject<void>();
+
   constructor(private coursesService: CoursesService) { }
 
   public ngOnInit(): void {
     this.initializeAuthors();
   }
 
-  ngOnChanges(): void {
+  public ngOnChanges(): void {
     this.createForm();
+  }
+
+  public ngOnDestroy(): void {
+    this.unsubscribe$.next();
+    this.unsubscribe$.complete();
   }
 
   public searchHints(searchString: string): void {
@@ -75,6 +82,7 @@ export class CourseFormComponent implements OnInit, OnChanges {
 
     this.coursesService.getListOfAuthors()
       .pipe(
+        takeUntil(this.unsubscribe$),
         map(authors => authors.filter(author => authorsNames.includes(author.name)))
       ).subscribe(authors => {
         const formData = { ...this.courseForm.value };
@@ -97,6 +105,7 @@ export class CourseFormComponent implements OnInit, OnChanges {
 
   private initializeAuthors(): void {
     this.authors$ = this.searchStringSubject.pipe(
+      takeUntil(this.unsubscribe$),
       debounceTime(300),
       distinctUntilChanged(),
       switchMap((searchString: string) => this.coursesService.searchAuthors(searchString)),

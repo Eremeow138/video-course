@@ -4,6 +4,7 @@ import { RouterPath } from "@commons/enums/routers.enum";
 import { ICourse } from "@pages/courses-page/courses/interfaces/course/course.interface";
 import { CoursesService } from "@pages/courses-page/courses/services/courses/courses.service";
 import { Subject } from "rxjs";
+import { takeUntil } from "rxjs/operators";
 
 @Component({
   selector: "app-course-page",
@@ -39,6 +40,9 @@ export class CoursePageComponent implements OnInit, OnDestroy {
     if (this.route.snapshot.params.id) {
       const courseId = Number(this.route.snapshot.params.id);
       this.coursesService.getCourse(courseId)
+        .pipe(
+          takeUntil(this.unsubscribe$)
+        )
         .subscribe(
           course => {
             this.course = course;
@@ -61,14 +65,26 @@ export class CoursePageComponent implements OnInit, OnDestroy {
 
   public save(course: ICourse): void {
     if (this.isCourseCreationPage) {
-      this.coursesService.createCourse(course).subscribe(() => this.navigateToCoursesListPage());
+      this.coursesService.createCourse(course)
+        .pipe(
+          takeUntil(this.unsubscribe$)
+        )
+        .subscribe(
+          () => this.navigateToCoursesListPage()
+        );
       return;
     }
     const updatedCourse = course;
 
     updatedCourse.id = +this.route.snapshot.params.id;
 
-    this.coursesService.updateCourse(updatedCourse).subscribe(() => this.navigateToCoursesListPage());
+    this.coursesService.updateCourse(updatedCourse)
+      .pipe(
+        takeUntil(this.unsubscribe$)
+      )
+      .subscribe(
+        () => this.navigateToCoursesListPage()
+      );
   }
 
   public navigateToCoursesListPage(): void {
