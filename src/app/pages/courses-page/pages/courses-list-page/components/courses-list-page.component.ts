@@ -29,6 +29,8 @@ export class CoursesListPageComponent implements OnInit, OnDestroy {
 
   private increment = 3;
 
+  private coursesSortKey = "date";
+
   private unsubscribe$ = new Subject<void>();
 
   constructor(
@@ -62,7 +64,7 @@ export class CoursesListPageComponent implements OnInit, OnDestroy {
         takeUntil(this.unsubscribe$),
         switchMap(() => {
           const countOfCourses = this.courses.length;
-          return this.coursesService.getListOfCourses(0, countOfCourses, this.searchCurrentValue);
+          return this.coursesService.getListOfCourses(0, countOfCourses, this.searchCurrentValue, this.coursesSortKey);
         })
       )
       .subscribe(
@@ -113,14 +115,14 @@ export class CoursesListPageComponent implements OnInit, OnDestroy {
   }
 
   public getFreshData(): void {
-    this.coursesService.getListOfCourses(this.startFrom, this.increment, this.searchCurrentValue, "date")
+    this.coursesService.getListOfCourses(this.startFrom, this.increment, this.searchCurrentValue, this.coursesSortKey)
       .pipe(
         takeUntil(this.unsubscribe$),
         tap(courses => {
           this.courses = [...this.courses, ...courses];
           this.startFrom = this.courses.length;
         }),
-        switchMap(() => this.coursesService.getListOfCourses(this.startFrom, 1, this.searchCurrentValue))
+        switchMap(() => this.coursesService.getListOfCourses(this.startFrom, 1, this.searchCurrentValue, this.coursesSortKey))
       )
       .subscribe(courses => {
         this.isLoadMoreButtonVisible = courses.length > 0;
