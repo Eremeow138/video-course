@@ -1,6 +1,7 @@
 import { HttpClient, HttpErrorResponse } from "@angular/common/http";
 import { Injectable, OnDestroy } from "@angular/core";
 import { ILoginData, IToken } from "@authentication/interfaces/login-data";
+import { IUser } from "@authentication/interfaces/user.interface";
 import { urls } from "@environments/environment";
 import { BehaviorSubject, Observable } from "rxjs";
 
@@ -53,6 +54,11 @@ export class AuthService implements OnDestroy {
 
   public getTokenFromLocalStorage(): string | null {
     return localStorage.getItem(this.localStorageTokenKey);
+  }
+
+  public getUserInfo(): Observable<IUser>{
+    const token = this.getTokenFromLocalStorage();
+    return this.http.post<IUser>(urls.userinfo, { token });
   }
 
   private checkToken(): void {

@@ -1,7 +1,7 @@
 <div class="user">
   <button class="button user__button">
     <img class="button__icon user__icon" src="assets/icons/user.svg" />
-    <span class="button__text user__text">User login</span>
+    <span class="button__text user__text">{{userName$ | async}}</span>
   </button>
   <button (click)="logout()" class="button user__button">
     <img class="button__icon user__icon" src="assets/icons/logout.svg" />

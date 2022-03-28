@@ -5,7 +5,8 @@ export const environment = {
 export const urls = {
   courses: "http://localhost:3004/courses",
   authors: "http://localhost:3004/authors",
-  login: "http://localhost:3004/auth/login"
+  login: "http://localhost:3004/auth/login",
+  userinfo: "http://localhost:3004/auth/userinfo",
 };
 
 export const getCourseRequestParams = {
