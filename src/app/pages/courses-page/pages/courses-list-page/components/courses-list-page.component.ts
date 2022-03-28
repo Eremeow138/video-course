@@ -5,7 +5,7 @@ import { ICourse } from "@pages/courses-page/courses/interfaces/course/course.in
 import { ModalMapperService } from "@modals/services/modal-mapper/modal-mapper.service";
 import { ModalsService } from "@modals/services/modals/modals.service";
 import { CoursesService } from "@pages/courses-page/courses/services/courses/courses.service";
-import { mergeMap, takeUntil, tap } from "rxjs/operators";
+import { switchMap, takeUntil, tap } from "rxjs/operators";
 import { ActivatedRoute, Router } from "@angular/router";
 import { TitleCasePipe } from "@angular/common";
 import { Subject } from "rxjs";
@@ -60,7 +60,7 @@ export class CoursesListPageComponent implements OnInit, OnDestroy {
     this.coursesService.deleteCourse(id)
       .pipe(
         takeUntil(this.unsubscribe$),
-        mergeMap(() => {
+        switchMap(() => {
           const countOfCourses = this.courses.length;
           return this.coursesService.getListOfCourses(0, countOfCourses, this.searchCurrentValue);
         })
@@ -120,7 +120,7 @@ export class CoursesListPageComponent implements OnInit, OnDestroy {
           this.courses = [...this.courses, ...courses];
           this.startFrom = this.courses.length;
         }),
-        mergeMap(() => this.coursesService.getListOfCourses(this.startFrom, 1, this.searchCurrentValue))
+        switchMap(() => this.coursesService.getListOfCourses(this.startFrom, 1, this.searchCurrentValue))
       )
       .subscribe(courses => {
         this.isLoadMoreButtonVisible = courses.length > 0;
