@@ -1,8 +1,18 @@
 <div class="string-field">
-  <app-field [title]="title" [control]="control" [id]="fieldName" [isRequired]="isRequired" [fieldErrors]="errors">
-    <input [formControl]="control" [type]="inputType" maxlength="{{maxLength}}" placeholder="{{placeholder}}"
-      class="string-field__input"
+  <app-field
+    [title]="title"
+    [control]="control"
+    [id]="fieldName"
+    [isRequired]="isRequired"
+    [fieldErrors]="errors"
+  >
+    <input class="string-field__input"
+      [formControl]="control"
+      [type]="inputType"
+      maxlength="{{maxLength}}"
+      placeholder="{{placeholder}}"
+      id="{{fieldName}}"
       [ngClass]="{'string-field__input--invalid':control.value && control.invalid && control.touched}"
-      id="{{fieldName}}">
+    >
   </app-field>
 </div>

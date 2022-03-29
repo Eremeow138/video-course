@@ -2,8 +2,13 @@
   <ng-container *ngIf="breadcrumbs$ | async as breadcrumbs">
     <ul *ngIf="breadcrumbs.length" class="breadcrumbs__list">
       <li class="breadcrumbs__item-list" *ngFor="let breadcrumb of breadcrumbs">
-        <a class="breadcrumbs__link" [routerLink]="breadcrumb.url" [routerLinkActive]="['breadcrumbs__link--active']"
-          [routerLinkActiveOptions]="{exact:true}">{{ breadcrumb.label }}</a>
+        <a class="breadcrumbs__link"
+          [routerLink]="breadcrumb.url"
+          [routerLinkActive]="['breadcrumbs__link--active']"
+          [routerLinkActiveOptions]="{exact:true}"
+        >
+          {{ breadcrumb.label }}
+        </a>
       </li>
     </ul>
   </ng-container>
