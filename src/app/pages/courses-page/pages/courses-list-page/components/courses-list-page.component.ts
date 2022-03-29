@@ -44,6 +44,7 @@ export class CoursesListPageComponent implements OnInit, OnDestroy {
 
   ngOnInit(): void {
     this.getFreshData();
+    this.subscribeToCourseUpdating();
   }
 
   public ngOnDestroy(): void {
@@ -123,6 +124,27 @@ export class CoursesListPageComponent implements OnInit, OnDestroy {
           this.startFrom = this.courses.length;
         }),
         switchMap(() => this.coursesService.getListOfCourses(this.startFrom, 1, this.searchCurrentValue, this.coursesSortKey))
+      )
+      .subscribe(courses => {
+        this.isLoadMoreButtonVisible = courses.length > 0;
+        this.cd.markForCheck();
+      });
+  }
+
+  private subscribeToCourseUpdating(): void {
+    this.coursesService.getCoursesUpdateDetector()
+      .pipe(
+        takeUntil(this.unsubscribe$),
+        switchMap(() => {
+          return this.coursesService.getListOfCourses(0, this.courses.length, this.searchCurrentValue, this.coursesSortKey);
+        }),
+        tap(courses => {
+          this.courses = [...courses];
+          this.startFrom = this.courses.length;
+        }),
+        switchMap(() => {
+          return this.coursesService.getListOfCourses(this.startFrom, 1, this.searchCurrentValue, this.coursesSortKey);
+        }),
       )
       .subscribe(courses => {
         this.isLoadMoreButtonVisible = courses.length > 0;

@@ -47,14 +47,12 @@ export class CoursePageComponent implements OnInit, OnDestroy {
           course => {
             this.course = course;
             this.cd.markForCheck();
-
           },
           () => {
             this.navigateToNotFoundPage();
           }
         );
     }
-
 
   }
 
@@ -70,7 +68,10 @@ export class CoursePageComponent implements OnInit, OnDestroy {
           takeUntil(this.unsubscribe$)
         )
         .subscribe(
-          () => this.navigateToCoursesListPage()
+          () => {
+            this.coursesService.detectCoursesUpdating();
+            this.navigateToCoursesListPage();
+          }
         );
       return;
     }
@@ -83,7 +84,10 @@ export class CoursePageComponent implements OnInit, OnDestroy {
         takeUntil(this.unsubscribe$)
       )
       .subscribe(
-        () => this.navigateToCoursesListPage()
+        () => {
+          this.coursesService.detectCoursesUpdating();
+          this.navigateToCoursesListPage();
+        }
       );
   }
 

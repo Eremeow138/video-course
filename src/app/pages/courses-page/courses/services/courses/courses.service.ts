@@ -4,13 +4,23 @@ import { Injectable } from "@angular/core";
 import { urls } from "@environments/environment";
 import { ICourse } from "@pages/courses-page/courses/interfaces/course/course.interface";
 import { getAuthorsRequestParams, getCourseRequestParams } from "@settings/settings";
-import { Observable } from "rxjs";
+import { Observable, Subject } from "rxjs";
 import { IAuthor } from "../../interfaces/course/author.interface";
 
 @Injectable()
 export class CoursesService {
 
+  private coursesHasUpdatedSubject = new Subject<void>();
+
   constructor(private http: HttpClient) { }
+
+  public getCoursesUpdateDetector(): Observable<void>{
+    return this.coursesHasUpdatedSubject.asObservable();
+  }
+
+  public detectCoursesUpdating(): void {
+    this.coursesHasUpdatedSubject.next();
+  }
 
   public getCourse(courseId: number): Observable<ICourse> {
     return this.http.get<ICourse>(`${urls.courses}/${courseId}`);
