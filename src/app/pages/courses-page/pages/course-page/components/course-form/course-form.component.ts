@@ -3,6 +3,7 @@ import {
 } from "@angular/core";
 import { CourseFormControl } from "@app/form/enums/course-form-control.enum";
 import { CourseForm } from "@app/form/models/form-models/course-form.model";
+import { IAuthor } from "@pages/courses-page/courses/interfaces/course/author.interface";
 import { ICourse } from "@pages/courses-page/courses/interfaces/course/course.interface";
 import { CoursesService } from "@pages/courses-page/courses/services/courses/courses.service";
 import { Observable, Subject } from "rxjs";
@@ -85,8 +86,14 @@ export class CourseFormComponent implements OnInit, OnChanges, OnDestroy {
         takeUntil(this.unsubscribe$),
         map(authors => authors.filter(author => authorsNames.includes(author.name)))
       ).subscribe(authors => {
+        const localAuthors = this.course.authors.filter(author => authorsNames.includes(author.name));
         const formData = { ...this.courseForm.value };
-        formData.authors = authors;
+        formData.authors = [...localAuthors, ...authors].reduce((filteredAuthors, author) => {
+          if (!filteredAuthors.find(v => v.name === author.name)) {
+            filteredAuthors.push(author);
+          }
+          return filteredAuthors;
+        }, [] as IAuthor[]);
         const course = formData as ICourse;
         this.saveEvent.emit(course);
       });
