@@ -1,8 +1,9 @@
 /* eslint-disable max-len */
 import { HttpClient, HttpParams } from "@angular/common/http";
 import { Injectable } from "@angular/core";
-import { getAuthorsRequestParams, getCourseRequestParams, urls } from "@environments/environment";
+import { urls } from "@environments/environment";
 import { ICourse } from "@pages/courses-page/courses/interfaces/course/course.interface";
+import { getAuthorsRequestParams, getCourseRequestParams } from "@settings/settings";
 import { Observable } from "rxjs";
 import { IAuthor } from "../../interfaces/course/author.interface";
 

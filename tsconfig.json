@@ -43,6 +43,9 @@
       "@environments/*": [
         "src/environments/*"
       ],
+      "@settings/*": [
+        "src/settings/*"
+      ],
       "@modals/*": [
         "src/app/modals/*"
       ],

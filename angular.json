@@ -62,38 +62,6 @@
             "scripts": []
           },
           "configurations": {
-            "standalone": {
-              "baseHref": "/",
-              "assets": [
-                {
-                  "glob": "**/*",
-                  "input": "src/assets/fonts/",
-                  "output": "/assets/fonts/"
-                },
-                {
-                  "glob": "**/*",
-                  "input": "src/assets/icons/",
-                  "output": "/assets/icons/"
-                },
-                {
-                  "glob": "**/*",
-                  "input": "src/assets/images/",
-                  "output": "/assets/images/"
-                }
-              ],
-              "budgets": [
-                {
-                  "type": "anyComponentStyle",
-                  "maximumWarning": "6kb"
-                }
-              ],
-              "fileReplacements": [
-                {
-                  "replace": "./src/environments/environment.ts",
-                  "with": "./src/environments/environment.standalone.ts"
-                }
-              ]
-            },
             "dev": {
               "baseHref": "/",
               "optimization": false,
@@ -101,12 +69,6 @@
                 {
                   "type": "anyComponentStyle",
                   "maximumWarning": "6kb"
-                }
-              ],
-              "fileReplacements": [
-                {
-                  "replace": "./src/environments/environment.ts",
-                  "with": "./src/environments/environment.dev.ts"
                 }
               ]
             },

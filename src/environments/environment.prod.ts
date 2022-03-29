@@ -1,22 +1,9 @@
 export const environment = {
   production: true,
-  standalone: false
 };
-
 export const urls = {
-  courses: "http://localhost:3004/courses",
-  authors: "http://localhost:3004/authors",
-  login: "http://localhost:3004/auth/login",
-  userinfo: "http://localhost:3004/auth/userinfo",
-};
-
-export const getCourseRequestParams = {
-  startFrom: "start",
-  countOfCourses: "count",
-  searchString: "textFragment",
-  sortKey: "sort"
-};
-
-export const getAuthorsRequestParams = {
-  searchString: "textFragment",
+  courses: "https://abyssinian-mousy-tailor.glitch.me/courses",
+  authors: "https://abyssinian-mousy-tailor.glitch.me/authors",
+  login: "https://abyssinian-mousy-tailor.glitch.me/auth/login",
+  userinfo: "https://abyssinian-mousy-tailor.glitch.me/auth/userinfo",
 };

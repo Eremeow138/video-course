@@ -20,10 +20,8 @@
   "homepage": "https://github.com/Eremeow138/video-course#readme",
   "scripts": {
     "start": "ng serve",
-    "start:standalone": "ng serve --configuration-standalone",
     "watch:dev": "ng build --configuration=dev --watch ",
     "watch:prod": "ng build --configuration=production --watch ",
-    "watch:standalone": "ng build --configuration=standalone --watch ",
     "build": "ng build",
     "build:dev": "ng build --configuration=dev",
     "build:prod": "ng build --configuration=production",
