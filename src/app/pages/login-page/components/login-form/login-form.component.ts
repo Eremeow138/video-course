@@ -1,4 +1,4 @@
-import { ChangeDetectionStrategy, Component, OnDestroy, OnInit } from "@angular/core";
+import { ChangeDetectionStrategy, ChangeDetectorRef, Component, OnDestroy, OnInit } from "@angular/core";
 import { Router } from "@angular/router";
 import { LoginFormControl } from "@app/form/enums/login-form-control.enum";
 import { LoginForm } from "@app/form/models/form-models/login-form.model";
@@ -18,14 +18,14 @@ export class LoginFormComponent implements OnInit, OnDestroy {
 
   public isVisibleWarning = false;
 
-  public emailFormControlName = LoginFormControl.Email;
+  public emailFormControlName = LoginFormControl.Login;
   public passwordFormControlName = LoginFormControl.Password;
 
   public loginForm: LoginForm = null;
 
   private unsubscribe$ = new Subject<void>();
 
-  constructor(private authService: AuthService, private router: Router) { }
+  constructor(private authService: AuthService, private router: Router, private cd: ChangeDetectorRef) { }
 
   public ngOnInit(): void {
     this.createForm();
@@ -49,7 +49,7 @@ export class LoginFormComponent implements OnInit, OnDestroy {
 
   public createForm(): void {
     this.loginForm = new LoginForm({
-      [LoginFormControl.Email]: "",
+      [LoginFormControl.Login]: "",
       [LoginFormControl.Password]: ""
     });
   }
@@ -72,6 +72,9 @@ export class LoginFormComponent implements OnInit, OnDestroy {
       takeUntil(this.unsubscribe$)
     ).subscribe(isAuthenticated => {
       this.isVisibleWarning = !isAuthenticated;
+      if (this.isVisibleWarning) {
+        this.cd.markForCheck();
+      }
       this.navigateToHomePage(isAuthenticated);
     });
   }

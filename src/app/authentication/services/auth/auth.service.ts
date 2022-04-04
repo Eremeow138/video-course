@@ -1,30 +1,16 @@
+import { HttpClient, HttpErrorResponse } from "@angular/common/http";
 import { Injectable, OnDestroy } from "@angular/core";
-import { ILoginData } from "@authentication/interfaces/login-data";
+import { ILoginData, IToken } from "@authentication/interfaces/login-data";
+import { IUser } from "@authentication/interfaces/user.interface";
+import { urls } from "@environments/environment";
 import { BehaviorSubject, Observable } from "rxjs";
 
 @Injectable({
   providedIn: "root"
 })
 export class AuthService implements OnDestroy {
-  private users = [
-    {
-      email: "admin@vc.com",
-      password: "admin",
-      role: "admin"
-    },
-    {
-      email: "user@vc.com",
-      password: "user",
-      role: "user"
-    },
-  ];
-  private localStorageEmailKey = "email";
 
   private localStorageTokenKey = "token";
-
-  private token = "secretToken";
-
-  private authenticatedUserEmail = "";
 
   private isAuthenticatedSubject = new BehaviorSubject<boolean>(false);
 
@@ -32,7 +18,7 @@ export class AuthService implements OnDestroy {
     return this.isAuthenticatedSubject.asObservable();
   }
 
-  constructor() {
+  constructor(private http: HttpClient) {
     this.checkToken();
   }
 
@@ -40,52 +26,56 @@ export class AuthService implements OnDestroy {
     this.isAuthenticatedSubject.complete();
   }
 
-  public login(loginData: ILoginData): void {
-    const user = this.users.find(currentUser => currentUser.email === loginData.email && currentUser.password === loginData.password);
+  public getToken(loginData: ILoginData): Observable<IToken> {
+    return this.http.post<IToken>(urls.login, loginData);
+  }
 
-    if (user) {
-      this.setLoginDataToLocalStorage(user.email);
-      this.authenticatedUserEmail = user.email;
-    }
-    this.isAuthenticatedSubject.next(!!user);
+  public login(loginData: ILoginData): void {
+
+    this.getToken(loginData).subscribe(
+      date => {
+        this.setTokenToLocalStorage(date.token);
+        this.isAuthenticatedSubject.next(true);
+      },
+      (error: HttpErrorResponse) => {
+        if (error.status >= 400 && error.status < 500) {
+          this.isAuthenticatedSubject.next(false);
+        } else {
+          throw new Error(error.message);
+        }
+      }
+    );
   }
 
   public logout(): void {
     this.clearLocalStorage();
-    this.authenticatedUserEmail = "";
     this.isAuthenticatedSubject.next(false);
   }
 
-  public getUserInfo(): string {
-    return this.authenticatedUserEmail;
+  public getTokenFromLocalStorage(): string | null {
+    return localStorage.getItem(this.localStorageTokenKey);
+  }
+
+  public getUserInfo(): Observable<IUser>{
+    const token = this.getTokenFromLocalStorage();
+    return this.http.post<IUser>(urls.userinfo, { token });
   }
 
   private checkToken(): void {
     const token = this.getTokenFromLocalStorage();
-    const email = this.getEmailFromLocalStorage();
-
-    if (token && email) {
-      this.authenticatedUserEmail = email;
+    if (token) {
       this.isAuthenticatedSubject.next(true);
       return;
     }
     this.logout();
   }
 
-  private setLoginDataToLocalStorage(email: string): void {
-    localStorage.setItem(this.localStorageEmailKey, email);
-    localStorage.setItem(this.localStorageTokenKey, this.token);
+  private setTokenToLocalStorage(token: string): void {
+    localStorage.setItem(this.localStorageTokenKey, token);
   }
 
   private clearLocalStorage(): void {
-    localStorage.removeItem(this.localStorageEmailKey);
     localStorage.removeItem(this.localStorageTokenKey);
   }
 
-  private getTokenFromLocalStorage(): string | null {
-    return localStorage.getItem(this.localStorageTokenKey);
-  }
-  private getEmailFromLocalStorage(): string | null {
-    return localStorage.getItem(this.localStorageEmailKey);
-  }
 }

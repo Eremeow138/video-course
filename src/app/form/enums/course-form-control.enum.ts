@@ -1,5 +1,5 @@
 export enum CourseFormControl {
-  Title = "title",
+  Name = "name",
   Description = "description",
   Duration = "duration",
   Date = "date",

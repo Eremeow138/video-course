@@ -6,7 +6,11 @@
     <p *ngFor="let text of metadata.text | stringToStringArray" class="confirmation-modal__text">{{text}}</p>
   </div>
   <div class="confirmation-modal__footer">
-    <app-modal-footer [buttonsText]="metadata.buttonsText" (cancelEvent)="hideModal()" (confirmEvent)="confirm()">
+    <app-modal-footer
+      [buttonsText]="metadata.buttonsText"
+      (cancelEvent)="hideModal()"
+      (confirmEvent)="confirm()"
+    >
     </app-modal-footer>
   </div>
 </div>

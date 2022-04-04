@@ -7,6 +7,6 @@ import { ICourse } from "@courses/interfaces/course/course.interface";
 export class FilterPipe implements PipeTransform {
 
   transform(courses: ICourse[], searchString: string): ICourse[] {
-    return courses.filter(course => course.title.includes(searchString));
+    return courses.filter(course => course.name.includes(searchString));
   }
 }

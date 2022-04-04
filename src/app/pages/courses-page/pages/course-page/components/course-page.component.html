@@ -3,7 +3,12 @@
     <div class="course-page__content">
       <div class="course-page__form-wrapper">
         <div class="course-page__form">
-          <app-course-form [course]="course" (cancelEvent)="navigateToCoursesListPage()"></app-course-form>
+          <app-course-form
+            [course]="course"
+            (cancelEvent)="navigateToCoursesListPage()"
+            (saveEvent)="save($event)"
+          >
+          </app-course-form>
         </div>
       </div>
     </div>

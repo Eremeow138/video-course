@@ -1,7 +1,18 @@
 <div class="text-field">
-  <app-field [title]="title" [control]="control" [id]="fieldName" [isRequired]="isRequired" [fieldErrors]="errors">
-    <textarea [formControl]="control" name="{{fieldName}}" id="{{fieldName}}" maxlength="{{maxLength}}"
-      placeholder="{{placeholder}}" class="text-field__textarea"
-      [ngClass]="{'text-field__textarea--invalid':control.value && control.invalid && control.touched}"></textarea>
+  <app-field
+    [title]="title"
+    [control]="control"
+    [id]="fieldName"
+    [isRequired]="isRequired"
+    [fieldErrors]="errors"
+  >
+    <textarea class="text-field__textarea"
+      [formControl]="control"
+      name="{{fieldName}}"
+      id="{{fieldName}}"
+      maxlength="{{maxLength}}"
+      placeholder="{{placeholder}}"
+      [ngClass]="{'text-field__textarea--invalid':control.value && control.invalid && control.touched}">
+    </textarea>
   </app-field>
 </div>

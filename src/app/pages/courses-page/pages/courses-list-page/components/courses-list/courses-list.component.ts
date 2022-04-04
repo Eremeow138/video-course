@@ -11,6 +11,9 @@ export class CoursesListComponent {
   @Input()
   public courses: ICourse[] = [];
 
+  @Input()
+  public isLoadMoreButtonVisible = false;
+
   @Output()
   private deleteCourseEvent = new EventEmitter<number>();
   @Output()

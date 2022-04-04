@@ -1,27 +1,37 @@
-import { ChangeDetectionStrategy, ChangeDetectorRef, Component, OnInit } from "@angular/core";
+import { ChangeDetectionStrategy, ChangeDetectorRef, Component, OnDestroy, OnInit } from "@angular/core";
 import { ModalComponent } from "@modals/enums/modal-component.enum";
 import { IModalData, IModalMetadata } from "@modals/interfaces/modals.interface";
 import { ICourse } from "@pages/courses-page/courses/interfaces/course/course.interface";
 import { ModalMapperService } from "@modals/services/modal-mapper/modal-mapper.service";
 import { ModalsService } from "@modals/services/modals/modals.service";
 import { CoursesService } from "@pages/courses-page/courses/services/courses/courses.service";
-import { takeUntil } from "rxjs/operators";
-import { FilterPipe } from "@courses-list-page/pipes/filter/filter.pipe";
+import { switchMap, takeUntil, tap } from "rxjs/operators";
 import { ActivatedRoute, Router } from "@angular/router";
+import { TitleCasePipe } from "@angular/common";
+import { Subject } from "rxjs";
 
 @Component({
   selector: "app-courses-list-page",
   templateUrl: "./courses-list-page.component.html",
   styleUrls: ["./courses-list-page.component.scss"],
+  providers: [TitleCasePipe],
   changeDetection: ChangeDetectionStrategy.OnPush
 })
-export class CoursesListPageComponent implements OnInit {
+export class CoursesListPageComponent implements OnInit, OnDestroy {
 
-  public filteredCourses: ICourse[] = [];
+  public courses: ICourse[] = [];
 
-  private filterСache = "";
+  public isLoadMoreButtonVisible = false;
 
-  private courses: ICourse[] = [];
+  private searchCurrentValue = "";
+
+  private startFrom = 0;
+
+  private increment = 3;
+
+  private coursesSortKey = "date";
+
+  private unsubscribe$ = new Subject<void>();
 
   constructor(
     private coursesService: CoursesService,
@@ -29,36 +39,52 @@ export class CoursesListPageComponent implements OnInit {
     private modalService: ModalsService,
     private router: Router,
     private route: ActivatedRoute,
-    private cd: ChangeDetectorRef) { }
+    private cd: ChangeDetectorRef,
+    private titleCasePipe: TitleCasePipe) { }
 
   ngOnInit(): void {
     this.getFreshData();
+    this.subscribeToCourseUpdating();
+  }
+
+  public ngOnDestroy(): void {
+    this.unsubscribe$.next();
+    this.unsubscribe$.complete();
   }
 
   public filter(searchString: string): void {
-    this.filteredCourses = new FilterPipe().transform(this.courses, searchString);
-    this.filterСache = searchString;
+    this.searchCurrentValue = searchString.toLowerCase();
+    this.startFrom = 0;
+    this.courses.length = 0;
+    this.getFreshData();
   }
 
   public deleteCourse(id: number): void {
-    this.coursesService.deleteCourse(id);
-    this.getFreshData();
+    this.coursesService.deleteCourse(id)
+      .pipe(
+        takeUntil(this.unsubscribe$),
+        switchMap(() => {
+          const countOfCourses = this.courses.length;
+          return this.coursesService.getListOfCourses(0, countOfCourses, this.searchCurrentValue, this.coursesSortKey);
+        })
+      )
+      .subscribe(
+        courses => {
+          this.courses = [...courses];
+          this.cd.markForCheck();
+        }
+      );
   }
 
   public redirectToCoursePage(courseId: number): void {
     this.router.navigate([courseId], { relativeTo: this.route });
   }
 
-  public loadMoreCourses(): void {
-    this.coursesService.loadMoreCourses();
-    this.getFreshData();
-  }
-
   public showDeleteConfirmationModal(courseId: number): void {
 
     const courseForDeletion = this.courses.find(course => course.id === courseId);
 
-    const titleOfCourseForDeletion = (courseForDeletion).title;
+    const titleOfCourseForDeletion = this.titleCasePipe.transform(courseForDeletion.name);
 
     const modalMetadata: IModalMetadata = {
       title: "Delete course?",
@@ -89,15 +115,40 @@ export class CoursesListPageComponent implements OnInit {
     });
   }
 
-  private getFreshData(): void {
-    this.courses = this.coursesService.getListOfCourses();
+  public getFreshData(): void {
+    this.coursesService.getListOfCourses(this.startFrom, this.increment, this.searchCurrentValue, this.coursesSortKey)
+      .pipe(
+        takeUntil(this.unsubscribe$),
+        tap(courses => {
+          this.courses = [...this.courses, ...courses];
+          this.startFrom = this.courses.length;
+        }),
+        switchMap(() => this.coursesService.getListOfCourses(this.startFrom, 1, this.searchCurrentValue, this.coursesSortKey))
+      )
+      .subscribe(courses => {
+        this.isLoadMoreButtonVisible = courses.length > 0;
+        this.cd.markForCheck();
+      });
+  }
 
-    if (this.filterСache) {
-      this.filter(this.filterСache);
-    } else {
-      this.filteredCourses = this.courses;
-    }
-
-    this.cd.detectChanges();
+  private subscribeToCourseUpdating(): void {
+    this.coursesService.getCoursesUpdateDetector()
+      .pipe(
+        takeUntil(this.unsubscribe$),
+        switchMap(() => {
+          return this.coursesService.getListOfCourses(0, this.courses.length, this.searchCurrentValue, this.coursesSortKey);
+        }),
+        tap(courses => {
+          this.courses = [...courses];
+          this.startFrom = this.courses.length;
+        }),
+        switchMap(() => {
+          return this.coursesService.getListOfCourses(this.startFrom, 1, this.searchCurrentValue, this.coursesSortKey);
+        }),
+      )
+      .subscribe(courses => {
+        this.isLoadMoreButtonVisible = courses.length > 0;
+        this.cd.markForCheck();
+      });
   }
 }

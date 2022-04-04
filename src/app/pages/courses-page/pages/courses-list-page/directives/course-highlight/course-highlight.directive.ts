@@ -1,10 +1,10 @@
-import { Directive, ElementRef, Input, OnInit, Renderer2 } from "@angular/core";
+import { Directive, ElementRef, Input, OnChanges, Renderer2 } from "@angular/core";
 import { CourseStatus } from "@pages/courses-page/pages/courses-list-page/enums/course-status.enum";
 
 @Directive({
   selector: "[appCourseHighlight]"
 })
-export class CourseHighlightDirective implements OnInit {
+export class CourseHighlightDirective implements OnChanges {
   @Input("appCourseHighlight")
   private creationDate = "";
 
@@ -14,7 +14,7 @@ export class CourseHighlightDirective implements OnInit {
 
   constructor(private elementRef: ElementRef, private renderer: Renderer2) { }
 
-  ngOnInit(): void {
+  ngOnChanges(): void {
     this.changeCourseHighlight();
   }
 

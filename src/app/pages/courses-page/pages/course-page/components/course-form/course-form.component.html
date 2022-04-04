@@ -7,26 +7,47 @@
     </div>
     <div class="form__field-list">
       <div class="form__field-wrapper">
-        <app-string-field [fieldName]="titleFormControlName" [control]="courseForm.get(titleFormControlName)"
-          [title]="titleFormControlName | titlecase" placeholder="Text input">
+        <app-string-field
+          [fieldName]="titleFormControlName"
+          [control]="courseForm.get(titleFormControlName)"
+          [title]="titleFormControlName | titlecase"
+          placeholder="Text input">
         </app-string-field>
       </div>
       <div class="form__field-wrapper">
-        <app-text-field [fieldName]="descriptionFormControlName" [control]="courseForm.get(descriptionFormControlName)"
-          [title]="descriptionFormControlName | titlecase" placeholder="Add description"></app-text-field>
+        <app-text-field
+          [fieldName]="descriptionFormControlName"
+          [control]="courseForm.get(descriptionFormControlName)"
+          [title]="descriptionFormControlName | titlecase"
+          placeholder="Add description">
+        </app-text-field>
       </div>
       <div class="form__field-wrapper">
-        <app-duration-field [fieldName]="durationFormControlName" [control]="courseForm.get(durationFormControlName)"
-          [title]="durationFormControlName | titlecase" placeholder="minutes"></app-duration-field>
+        <app-duration-field
+          [fieldName]="durationFormControlName"
+          [control]="courseForm.get(durationFormControlName)"
+          [title]="durationFormControlName | titlecase"
+          placeholder="minutes">
+        </app-duration-field>
       </div>
       <div class="form__field-wrapper">
-        <app-date-field [fieldName]="dateFormControlName" [control]="courseForm.get(dateFormControlName)"
-          [title]="dateFormControlName | titlecase" placeholder="MM/DD/YYYY"></app-date-field>
+        <app-date-field
+          [fieldName]="dateFormControlName"
+          [control]="courseForm.get(dateFormControlName)"
+          [title]="dateFormControlName | titlecase"
+          placeholder="MM/DD/YYYY">
+        </app-date-field>
       </div>
       <div class="form__field-wrapper">
-        <app-tag-field [fieldName]="authorsFormControlName" [control]="courseForm.get(authorsFormControlName)"
-          [title]="authorsFormControlName | titlecase" [hints]="authors$ | async" [hintsNotFound]="authorsNotFound"
-          (searchEvent)="searchHints($event)" placeholder="Start typing"></app-tag-field>
+        <app-tag-field
+          [fieldName]="authorsFormControlName"
+          [control]="courseForm.get(authorsFormControlName)"
+          [title]="authorsFormControlName | titlecase"
+          [hints]="authors$ | async"
+          [hintsNotFound]="authorsNotFound"
+          (searchEvent)="searchHints($event)"
+          placeholder="Start typing">
+        </app-tag-field>
       </div>
     </div>
     <div class="form__actions form__actions--flex-end">
@@ -34,7 +55,9 @@
         <button type="button" class="button button button--white-gray form__button" (click)="cancel()">
           <span class="button__text button__text--gray">Cancel</span>
         </button>
-        <button [disabled]="courseForm.invalid" type="submit" class="button button--green form__button">
+        <button type="submit" class="button button--green form__button"
+          [disabled]="courseForm.invalid"
+          (click)="save()">
           <span class="button__text">Save</span>
         </button>
       </div>

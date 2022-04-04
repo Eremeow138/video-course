@@ -1,5 +1,5 @@
-import { ChangeDetectionStrategy, Component, OnDestroy, OnInit } from "@angular/core";
-import { ActivatedRoute, Params, Router } from "@angular/router";
+import { ChangeDetectionStrategy, ChangeDetectorRef, Component, OnDestroy, OnInit } from "@angular/core";
+import { ActivatedRoute, Router } from "@angular/router";
 import { RouterPath } from "@commons/enums/routers.enum";
 import { ICourse } from "@pages/courses-page/courses/interfaces/course/course.interface";
 import { CoursesService } from "@pages/courses-page/courses/services/courses/courses.service";
@@ -16,20 +16,44 @@ export class CoursePageComponent implements OnInit, OnDestroy {
 
   public course: ICourse = {
     id: null,
-    title: null,
+    name: null,
     description: null,
     duration: null,
-    creationDate: null,
+    date: null,
     authors: [],
     isTopRated: false
   };
 
   private unsubscribe$ = new Subject<void>();
 
-  constructor(private route: ActivatedRoute, private router: Router, private coursesService: CoursesService) { }
+  private isCourseCreationPage = false;
+
+  constructor(
+    private route: ActivatedRoute,
+    private router: Router,
+    private cd: ChangeDetectorRef,
+    private coursesService: CoursesService) { }
 
   public ngOnInit(): void {
-    this.subscribeToRoute();
+    this.isCourseCreationPage = isNaN(+this.route.snapshot.params.id);
+
+    if (this.route.snapshot.params.id) {
+      const courseId = Number(this.route.snapshot.params.id);
+      this.coursesService.getCourse(courseId)
+        .pipe(
+          takeUntil(this.unsubscribe$)
+        )
+        .subscribe(
+          course => {
+            this.course = course;
+            this.cd.markForCheck();
+          },
+          () => {
+            this.navigateToNotFoundPage();
+          }
+        );
+    }
+
   }
 
   public ngOnDestroy(): void {
@@ -37,29 +61,41 @@ export class CoursePageComponent implements OnInit, OnDestroy {
     this.unsubscribe$.complete();
   }
 
+  public save(course: ICourse): void {
+    if (this.isCourseCreationPage) {
+      this.coursesService.createCourse(course)
+        .pipe(
+          takeUntil(this.unsubscribe$)
+        )
+        .subscribe(
+          () => {
+            this.coursesService.detectCoursesUpdating();
+            this.navigateToCoursesListPage();
+          }
+        );
+      return;
+    }
+    const updatedCourse = course;
+
+    updatedCourse.id = +this.route.snapshot.params.id;
+
+    this.coursesService.updateCourse(updatedCourse)
+      .pipe(
+        takeUntil(this.unsubscribe$)
+      )
+      .subscribe(
+        () => {
+          this.coursesService.detectCoursesUpdating();
+          this.navigateToCoursesListPage();
+        }
+      );
+  }
+
   public navigateToCoursesListPage(): void {
     this.router.navigateByUrl(`/${RouterPath.CoursesListPage}`);
   }
   private navigateToNotFoundPage(): void {
     this.router.navigateByUrl(`/${RouterPath.NotFoundPage}`);
-  }
-
-  private subscribeToRoute(): void {
-    this.route.params.pipe(
-      takeUntil(this.unsubscribe$)
-    ).subscribe(routeParams => this.resolvePage(routeParams));
-  }
-
-  private resolvePage(routeParams: Params): void {
-    if (routeParams.id) {
-      const courseId = Number(routeParams.id);
-      const course = this.coursesService.getCourse(courseId);
-      if (!course) {
-        this.navigateToNotFoundPage();
-        return;
-      }
-      this.course = course;
-    }
   }
 
 }
