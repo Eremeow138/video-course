@@ -1,0 +1,24 @@
+<div *ngIf="course" [appCourseHighlight]="course.date" [ngClass]="{'course-card--top-rated':course.isTopRated}"
+  class="course-card">
+  <div class="course-card__content">
+    <div class="course-card__header">
+      <div class="course-card__title-wrapper">
+        <h3 class="course-card__title">{{ course.name | titlecase}} </h3>
+        <img *ngIf="course.isTopRated" class="course-card__favorite" src="assets/icons/favorite.svg" alt="favorite">
+      </div>
+      <div class="course-card__tools-wrapper">
+        <app-course-tools [course]="course"></app-course-tools>
+      </div>
+    </div>
+    <div class="course-card__body">
+      <div class="course-card__description-wrapper">
+        <p class="course-card__description">
+          {{ course.description }}
+        </p>
+      </div>
+      <div class="course-card__actions-wrapper">
+        <app-course-actions (deleteEvent)="deleteCourse()" (editEvent)="editCourse()"></app-course-actions>
+      </div>
+    </div>
+  </div>
+</div>

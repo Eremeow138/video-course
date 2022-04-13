@@ -1,0 +1,39 @@
+<div class="login-form">
+  <form [formGroup]="loginForm" class="form">
+    <div class="form__header">
+      <div class="form__title-wrapper">
+        <h2 class="form__title">Login</h2>
+      </div>
+      <div *ngIf="isVisibleWarning" class="login-form__warning">Wrong e-mail or password</div>
+    </div>
+    <div class="form__field-list">
+      <div class="form__field-wrapper">
+        <app-string-field
+          [fieldName]="emailFormControlName"
+          [control]="loginForm.get(emailFormControlName)"
+          [title]="emailFormControlName | titlecase"
+          placeholder="Enter email">
+        </app-string-field>
+      </div>
+      <div class="form__field-wrapper">
+        <app-string-field
+          [inputType]="'password'"
+          [fieldName]="passwordFormControlName"
+          [control]="loginForm.get(passwordFormControlName)"
+          [title]="passwordFormControlName | titlecase"
+          placeholder="Enter password">
+        </app-string-field>
+      </div>
+    </div>
+    <div class="form__actions">
+      <a href="#" class="login-form__forgot-password">Forgot password?</a>
+      <div class="form__buttons-wrapper">
+        <button type="submit" class="button button--green form__button"
+          [disabled]="loginForm.invalid"
+          (click)="login()">
+          <span class="button__text">Login</span>
+        </button>
+      </div>
+    </div>
+  </form>
+</div>

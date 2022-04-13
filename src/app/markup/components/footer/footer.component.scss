@@ -1,0 +1,22 @@
+@import "colors";
+@import "variables";
+@import "mixins";
+
+:host {
+  @include height-width-100-percent;
+}
+
+.footer {
+  @include height-width-100-percent;
+
+  &__content {
+    @include flex-row;
+    @include height-width-100-percent;
+
+    align-items: center;
+    justify-content: flex-end;
+  }
+  &__copyright {
+    @include copyright-text;
+  }
+}

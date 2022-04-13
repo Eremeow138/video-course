@@ -1,0 +1,21 @@
+.bs-datepicker {
+  box-shadow: $primary-shadow;
+  margin-left: 1.9rem;
+
+  &-container {
+    padding: 0;
+  }
+  &-head {
+    background-color: $secondary-bg-color;
+  }
+  &-body {
+    background-color: $third-bg-color;
+
+    td span.selected {
+      background-color: $fifth-color;
+    }
+  }
+  .week {
+    color: $sixth-color;
+  }
+}

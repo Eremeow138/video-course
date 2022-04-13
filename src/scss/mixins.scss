@@ -1,0 +1,258 @@
+@mixin all-sides-zero {
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+}
+@mixin absolute-zero-position {
+  @include all-sides-zero;
+  @include height-width-100-percent;
+
+  position: absolute;
+}
+@mixin fixed-position {
+  @include height-width-100-percent;
+
+  position: fixed;
+}
+@mixin flex-row {
+  display: flex;
+  flex-flow: row nowrap;
+}
+@mixin flex-column {
+  display: flex;
+  flex-direction: column;
+}
+@mixin height-width-100-percent {
+  width: 100%;
+  height: 100%;
+}
+@mixin icon-size($size) {
+  width: $size;
+  height: $size;
+}
+@mixin base-animation($animation-name) {
+  animation: $animation-name 1s ease-in-out 0s infinite alternate;
+}
+@mixin svg-center {
+  transform-box: fill-box;
+  transform-origin: center;
+}
+@mixin input-placeholder {
+
+  &::placeholder {
+    @content;
+  }
+  &::-webkit-input-placeholder {
+    @content;
+  }
+  &::-moz-placeholder {
+    @content;
+  }
+  &:-moz-placeholder {
+    @content;
+  }
+  &:-ms-input-placeholder {
+    @content;
+  }
+}
+@mixin input-text {
+  font-size: $primary-font-size;
+  color: $input-text-color;
+  font-family: inherit;
+}
+@mixin input {
+  @include input-text;
+  @include input-placeholder {
+    color: $input-placeholder-color;
+  }
+
+  outline: none;
+}
+@mixin field {
+  width: 100%;
+  height: min-content;
+  min-height: $field-min-height;
+  padding: 0 $field-padding;
+  border: 1px solid $field-border-color;
+  border-radius: $field-border-radius;
+  background-color: $field-bg-color;
+  transition-property: border-color;
+  transition-duration: $primary-duration;
+
+  &:hover {
+    border-color: $field-border-color-hover;
+  }
+  &:focus {
+    border-color: $field-border-focus-color;
+  }
+  &--invalid {
+    border-color: $warning-border-color;
+  }
+}
+@mixin input-field {
+  @include input;
+  @include field;
+}
+@mixin textarea-field {
+  @include input;
+  @include field;
+
+  resize: none;
+  min-height: $textarea-min-height;
+  padding: $field-padding;
+}
+@mixin default-text {
+  font-size: $default-font-size;
+  font-family: $default-font-family;
+  font-weight: 400;
+}
+@mixin tools-text {
+  font-size: $primary-font-size;
+  color: $tools-text-color;
+}
+@mixin description-text {
+  font-size: $primary-font-size;
+  line-height: 1.8rem;
+  color: $text-primary-color;
+}
+@mixin copyright-text {
+  font-size: $secondary-font-size;
+  color: $text-third-color;
+}
+@mixin button-text {
+  font-size: $btn-primary-font-size;
+  font-weight: 600;
+  letter-spacing: -0.1px;
+  color: $btn-text-color;
+}
+@mixin button-icon {
+  @include icon-size($btn-primary-icon-size);
+
+  margin-right: 0.7rem;
+  filter: $icon-primary-filter;
+}
+@mixin button {
+  cursor: pointer;
+  transition-duration: $primary-duration;
+  border: none;
+}
+@mixin load-more-button-text {
+  font-size: $primary-font-size;
+  color: $text-primary-color;
+}
+@mixin primary-title {
+  font-size: $primary-title-font-size;
+  font-weight: 600;
+  color: $primary-title-color;
+}
+@mixin secondary-title {
+  font-size: $secondary-title-font-size;
+  font-weight: 600;
+  color: $secondary-title-color;
+}
+@mixin third-title {
+  font-size: $third-title-font-size;
+  font-weight: 400;
+  color: $primary-title-color;
+}
+@mixin logo-text {
+  font-size: $logo-font-size;
+  font-weight: 700;
+  text-transform: uppercase;
+  color: $text-third-color;
+}
+@mixin content-container {
+  padding: 2.4rem 2.1rem 2.3rem 2.4rem;
+  border: 1px solid $third-bg-color;
+  border-radius: $primary-border-radius;
+  background-color: $third-bg-color;
+  box-shadow: $primary-shadow;
+}
+@mixin breadcrumbs-text {
+  font-size: $primary-font-size;
+  color: $text-secondary-color;
+  text-decoration: none;
+}
+@mixin breadcrumbs-separator {
+  content: "/";
+  font-size: $primary-font-size;
+  color: $fifth-color;
+  font-weight: 700;
+  margin: 0 0.3rem;
+}
+@mixin breadcrumbs-active-link {
+  font-weight: 700;
+  pointer-events: none;
+}
+@mixin modal-text {
+  line-height: 2.4rem;
+  letter-spacing: 0.01rem;
+  color: $text-primary-color;
+  font-size: $primary-font-size;
+}
+@mixin field-title-text {
+  font-size: $primary-font-size;
+  color: $text-primary-color;
+  font-weight: 600;
+}
+@mixin field-required-text {
+  font-size: $secondary-font-size;
+  color: $text-primary-color;
+}
+@mixin warning-text {
+  font-size: $secondary-font-size;
+  color: $text-warning-color;
+}
+@mixin tag {
+  @include flex-row;
+
+  flex-shrink: 0;
+  align-items: center;
+  min-height: $tag-min-height;
+  border-radius: $tag-border-radius;
+  background-color: $tag-bg-color;
+  padding: $tag-paddings;
+}
+@mixin tag-text {
+  color: $tag-text-color;
+  font-size: $tag-font-size;
+  text-overflow: ellipsis;
+  overflow: hidden;
+  white-space: pre;
+  max-width: 250px;
+}
+@mixin tag-button {
+  @include icon-size(1rem);
+
+  margin-left: 1rem;
+}
+@mixin check-mark {
+  @include icon-size($icon-size);
+
+  filter: $icon-third-filter;
+}
+@mixin scrollbar {
+  @-moz-document url-prefix("") {
+    scrollbar-color: $scroll-secondary-bg-color $scroll-primary-bg-color;
+    scrollbar-width: thin;
+  }
+
+  &::-webkit-scrollbar {
+    width: 0.5rem;
+    height: 0.5rem;
+    border-radius: 2rem;
+    background-color: $scroll-primary-bg-color;
+  }
+  &::-webkit-scrollbar-corner {
+    background-color: $scroll-primary-bg-color;
+  }
+  &::-webkit-scrollbar-thumb {
+    border-radius: 2rem;
+    background-color: $scroll-secondary-bg-color;
+
+    &:hover {
+      background-color: $scroll-secondary-bg-hover-color;
+    }
+  }
+}

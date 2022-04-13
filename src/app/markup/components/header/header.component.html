@@ -1,0 +1,10 @@
+<div class="header">
+  <div class="header__content">
+    <div class="header__logo">
+      <app-logo></app-logo>
+    </div>
+    <div *ngIf="isAuthenticated$ | async" class="header__user">
+      <app-user></app-user>
+    </div>
+  </div>
+</div>

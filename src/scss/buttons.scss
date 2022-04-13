@@ -1,0 +1,110 @@
+@import "colors";
+@import "variables";
+@import "mixins";
+
+.button {
+  @include flex-row;
+  @include button;
+
+  height: min-content;
+  align-items: center;
+  min-height: $btn-primary-min-height;
+  padding: $btn-primary-paddings;
+  border-radius: $btn-border-radius;
+  background-color: $btn-primary-bg-color;
+
+  &:not(:first-child) {
+    margin-left: $btn-margin;
+  }
+  &:hover {
+    background-color: $btn-primary-bg-color-hover;
+  }
+  &:active {
+    background-color: $btn-primary-bg-color-focus;
+  }
+  &--small {
+    min-height: $btn-secondary-min-height;
+    padding: $btn-secondary-paddings;
+  }
+  &--green {
+    background-color: $btn-secondary-bg-color;
+
+    &:hover {
+      background-color: $btn-secondary-bg-color-hover;
+    }
+    &:active {
+      background-color: $btn-secondary-bg-color-focus;
+    }
+  }
+  &--white-gray {
+    background-color: $btn-fourth-bg-color;
+    border: 1px solid $btn-primary-border-color;
+
+    &:hover {
+      background-color: $btn-fourth-bg-color-hover;
+      border-color: $btn-primary-border-color-hover;
+    }
+    &:active {
+      background-color: $btn-fourth-bg-color-focus;
+      border-color: $btn-primary-border-color-focus;
+    }
+  }
+  &[disabled] {
+    background-color: $btn-disable-bg-color;
+    cursor: default;
+  }
+  &__text {
+    @include button-text;
+
+    &--small {
+      font-size: $btn-secondary-font-size;
+    }
+    &--gray {
+      color: $btn-secondary-text-color;
+    }
+  }
+  &[disabled] &__text {
+    color: $btn-disable-text-color;
+  }
+  &__icon {
+    @include button-icon;
+
+    &--small {
+      @include icon-size($btn-third-icon-size);
+    }
+  }
+}
+
+.cross-button {
+  @include icon-size(2rem);
+  @include button;
+
+  position: relative;
+  background-color: $btn-third-bg-color;
+
+  &::before {
+    transform: rotate(45deg);
+  }
+  &::after {
+    transform: rotate(-45deg);
+  }
+  &::after,
+  &::before {
+    content: "";
+    position: absolute;
+    left: 0;
+    top: 50%;
+    width: 100%;
+    border-top: 2px solid $tenth-color;
+    margin-top: -1px;
+    transition: all $primary-duration;
+  }
+  &:hover::after,
+  &:hover::before {
+    border-color: darken($tenth-color, 5);
+  }
+  &:active::after,
+  &:active::before {
+    border-color: darken($tenth-color, 15);
+  }
+}

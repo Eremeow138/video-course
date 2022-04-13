@@ -1,0 +1,27 @@
+@import "colors";
+@import "variables";
+@import "mixins";
+
+:host {
+  @include height-width-100-percent;
+}
+
+.login-form {
+  @include height-width-100-percent;
+
+  &__warning {
+    @include warning-text;
+  }
+  &__forgot-password {
+    color: $text-link-color;
+    font-size: $secondary-font-size;
+
+    &:hover {
+      color: $text-link-color-hover;
+      text-decoration: none;
+    }
+    &:active {
+      color: $text-link-color-focus;
+    }
+  }
+}

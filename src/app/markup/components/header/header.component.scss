@@ -1,0 +1,22 @@
+@import "mixins";
+
+:host {
+  @include height-width-100-percent;
+}
+
+.header {
+  @include height-width-100-percent;
+
+  &__content {
+    @include flex-row;
+    @include height-width-100-percent;
+
+    justify-content: space-between;
+  }
+  &__logo {
+    height: 100%;
+  }
+  &__user {
+    height: 100%;
+  }
+}

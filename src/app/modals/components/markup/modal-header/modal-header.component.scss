@@ -1,0 +1,23 @@
+@import "variables";
+@import "mixins";
+
+:host {
+  @include height-width-100-percent;
+}
+
+.modal-header {
+  @include height-width-100-percent;
+  @include flex-row;
+
+  align-items: center;
+
+  &__title-wrapper {
+    @include height-width-100-percent;
+
+    flex-grow: 1;
+    padding-right: $course-card-title-padding;
+  }
+  &__title {
+    @include secondary-title;
+  }
+}

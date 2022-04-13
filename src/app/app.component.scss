@@ -1,0 +1,50 @@
+@import "colors";
+@import "variables";
+@import "mixins";
+
+.app {
+  @include absolute-zero-position;
+  @include flex-column;
+
+  align-items: stretch;
+  min-width: $window-min-width;
+  min-height: $window-min-height;
+  z-index: $app-z-index;
+
+  &__header-wrapper {
+    @include flex-column;
+
+    align-items: center;
+    width: 100%;
+    height: $header-height;
+    background-color: $secondary-bg-color;
+  }
+  &__header {
+    @include height-width-100-percent;
+
+    max-width: 1140px;
+  }
+  &__main {
+    width: 100%;
+    height: calc(100% - #{$header-height} - #{$footer-height});
+  }
+  &__pages-wrapper {
+    @include height-width-100-percent;
+
+    background-color: $primary-bg-color;
+  }
+  &__footer-wrapper {
+    @include flex-column;
+
+    align-items: center;
+    width: 100%;
+    height: $footer-height;
+    padding: $wrapper-paddings;
+    background-color: $secondary-bg-color;
+  }
+  &__footer {
+    @include height-width-100-percent;
+
+    max-width: $content-max-width;
+  }
+}

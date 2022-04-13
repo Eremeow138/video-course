@@ -1,0 +1,66 @@
+/* To learn more about this file see: https://angular.io/config/tsconfig. */
+{
+  "compileOnSave": false,
+  "compilerOptions": {
+    "baseUrl": "./",
+    "noImplicitThis": true,
+    "forceConsistentCasingInFileNames": true,
+    "strict": true,
+    "noImplicitReturns": true,
+    "noFallthroughCasesInSwitch": true,
+    "sourceMap": true,
+    "downlevelIteration": true,
+    "experimentalDecorators": true,
+    "removeComments": true,
+    "moduleResolution": "node",
+    "importHelpers": true,
+    "target": "es2017",
+    "module": "es2020",
+    "strictNullChecks": false,
+    "lib": [
+      "es2018",
+      "dom"
+    ],
+    "typeRoots": [
+      "node_modules/@types"
+    ],
+    "paths": {
+      "@commons/*": [
+        "src/app/commons/*"
+      ],
+      "@markup/*": [
+        "src/app/markup/*"
+      ],
+      "@pages/*": [
+        "src/app/pages/*"
+      ],
+      "@courses-list-page/*": [
+        "src/app/pages/courses-page/pages/courses-list-page/*"
+      ],
+      "@courses/*": [
+        "src/app/pages/courses-page/courses/*"
+      ],
+      "@environments/*": [
+        "src/environments/*"
+      ],
+      "@settings/*": [
+        "src/settings/*"
+      ],
+      "@modals/*": [
+        "src/app/modals/*"
+      ],
+      "@authentication/*": [
+        "src/app/authentication/*"
+      ],
+      "@app/*": [
+        "src/app/*"
+      ],
+    },
+  },
+  "angularCompilerOptions": {
+    "enableI18nLegacyMessageIdFormat": false,
+    "strictInjectionParameters": true,
+    "fullTemplateTypeCheck": true,
+    "strictTemplates": true
+  }
+}

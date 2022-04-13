@@ -1,0 +1,55 @@
+@import "variables";
+@import "mixins";
+
+:host {
+  @include height-width-100-percent;
+}
+
+.courses-list-page {
+  @include height-width-100-percent;
+
+  &__header-wrapper {
+    @include flex-column;
+
+    align-items: center;
+    width: 100%;
+    height: $courses-page-header-height;
+    margin-bottom: $courses-page-header-margin-bottom;
+    padding: $wrapper-paddings;
+  }
+  &__header {
+    @include flex-row;
+    @include height-width-100-percent;
+
+    justify-content: space-between;
+    max-width: $content-max-width;
+  }
+  &__filters {
+    @include flex-row;
+
+    align-items: flex-start;
+    height: 100%;
+  }
+  &__actions {
+    @include flex-row;
+
+    align-items: flex-end;
+    height: 100%;
+  }
+  &__list-wrapper {
+    @include flex-column;
+
+    align-items: center;
+    width: 100%;
+    height: calc(100% - #{$courses-page-header-height} - #{$courses-page-header-margin-bottom});
+    padding: 0 $content-padding;
+  }
+  &__list {
+    @include height-width-100-percent;
+    @include scrollbar;
+
+    overflow-y: overlay;
+    max-width: 1130px;
+    padding: 1rem 1rem 2.1rem;
+  }
+}

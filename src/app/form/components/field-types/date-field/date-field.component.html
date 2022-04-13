@@ -1,0 +1,32 @@
+<div class="date-field">
+  <div class="date-field__field-wrapper">
+    <app-field
+      [title]="title"
+      [control]="control"
+      [id]="fieldName"
+      [isRequired]="isRequired"
+      [fieldErrors]="errors"
+      errorsWidthModificator="long"
+    >
+      <div class="date-field__content">
+        <input type="text" appInvalidDateHandler class="date-field__input"
+          [ngClass]="{'date-field__input--invalid':control.value && control.invalid && control.touched}"
+          #dp="bsDatepicker"
+          bsDatepicker
+          autocomplete="off"
+          placeholder="{{placeholder}}"
+          id="{{fieldName}}"
+          maxlength="{{maxDateLenght}}"
+          placement="right"
+          [ngModel]="getValue()"
+          [bsConfig]="bsConfig"
+          [minDate]="minDate"
+          [maxDate]="maxDate"
+          (blur)=" touchControl()"
+          (ngModelChange)="setValue($event)"
+        >
+        <img (click)=" dp.toggle()" class="date-field__icon" src="assets/icons/calendar.svg" alt="calendar" />
+      </div>
+    </app-field>
+  </div>
+</div>

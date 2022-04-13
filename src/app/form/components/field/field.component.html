@@ -1,0 +1,10 @@
+<div class="field">
+  <div *ngIf="title" class="field__info">
+    <label class="field__title" for="{{id}}">{{title}}:</label>
+    <span *ngIf="isRequiredVisible" class="field__required">*required</span>
+  </div>
+  <ng-content></ng-content>
+  <div class="field__errors-list {{errorsWidthModificatorClass}}">
+    <span class="field__error" *ngFor="let fieldError of fieldErrors">{{fieldError}}</span>
+  </div>
+</div>

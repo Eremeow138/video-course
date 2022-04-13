@@ -1,0 +1,14 @@
+/* You can add global styles to this file, and also import other style files */
+
+@import "scss/fonts";
+@import "scss/colors";
+@import "scss/variables";
+@import "scss/mixins";
+@import "scss/main-styles";
+@import "scss/buttons";
+@import "scss/form";
+
+/* Importing Datepicker SCSS file. */
+
+@import "ngx-bootstrap/datepicker/bs-datepicker.css";
+@import "scss/datepicker";

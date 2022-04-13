@@ -1,0 +1,38 @@
+@import "colors";
+@import "variables";
+@import "mixins";
+
+:host {
+  @include height-width-100-percent;
+}
+
+.breadcrumbs {
+  @include height-width-100-percent;
+
+  &__list {
+    @include flex-row;
+    @include height-width-100-percent;
+  }
+  &__item-list {
+    @include flex-row;
+
+    align-items: center;
+
+    &:not(:last-child)::after {
+      @include breadcrumbs-separator;
+    }
+  }
+  &__link {
+    @include breadcrumbs-text;
+
+    &:not(.breadcrumbs-link-active) {
+      @include height-width-100-percent;
+      @include flex-row;
+
+      align-items: center;
+    }
+    &--active {
+      @include breadcrumbs-active-link;
+    }
+  }
+}

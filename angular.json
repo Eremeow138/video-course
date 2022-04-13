@@ -1,0 +1,178 @@
+{
+  "$schema": "./node_modules/@angular/cli/lib/config/schema.json",
+  "version": 1,
+  "newProjectRoot": "projects",
+  "projects": {
+    "video-course": {
+      "projectType": "application",
+      "schematics": {
+        "@schematics/angular:component": {
+          "style": "scss"
+        },
+        "@schematics/angular:application": {
+          "strict": true
+        }
+      },
+      "root": "",
+      "sourceRoot": "src",
+      "prefix": "app",
+      "architect": {
+        "build": {
+          "builder": "@angular-devkit/build-angular:browser",
+          "options": {
+            "crossOrigin": "use-credentials",
+            "outputPath": "dist",
+            "index": "src/index.html",
+            "main": "src/main.ts",
+            "polyfills": "src/polyfills.ts",
+            "tsConfig": "tsconfig.app.json",
+            "inlineStyleLanguage": "scss",
+            "resourcesOutputPath": "resources",
+            "sourceMap": true,
+            "vendorChunk": true,
+            "namedChunks": true,
+            "aot": false,
+            "buildOptimizer": false,
+            "assets": [
+              {
+                "glob": "**/*",
+                "input": "src/assets/fonts/",
+                "output": "/assets/fonts/"
+              },
+              {
+                "glob": "**/*",
+                "input": "src/assets/icons/",
+                "output": "/assets/icons/"
+              },
+              {
+                "glob": "**/*",
+                "input": "src/assets/images/",
+                "output": "/assets/images/"
+              }
+            ],
+            "styles": [
+              "src/styles.scss"
+            ],
+            "stylePreprocessorOptions": {
+              "includePaths": [
+                "src/scss",
+                "src/app"
+              ]
+            },
+            "scripts": []
+          },
+          "configurations": {
+            "dev": {
+              "baseHref": "/",
+              "optimization": false,
+              "budgets": [
+                {
+                  "type": "anyComponentStyle",
+                  "maximumWarning": "6kb"
+                }
+              ]
+            },
+            "production": {
+              "fileReplacements": [
+                {
+                  "replace": "./src/environments/environment.ts",
+                  "with": "./src/environments/environment.prod.ts"
+                }
+              ],
+              "baseHref": "/",
+              "aot": true,
+              "optimization": true,
+              "outputHashing": "all",
+              "sourceMap": false,
+              "namedChunks": false,
+              "extractLicenses": true,
+              "buildOptimizer": true,
+              "budgets": [
+                {
+                  "type": "initial",
+                  "maximumWarning": "2mb",
+                  "maximumError": "5mb"
+                },
+                {
+                  "type": "anyComponentStyle",
+                  "maximumWarning": "6kb",
+                  "maximumError": "10kb"
+                }
+              ]
+            }
+          },
+          "defaultConfiguration": "production"
+        },
+        "serve": {
+          "builder": "@angular-devkit/build-angular:dev-server",
+          "configurations": {
+            "production": {
+              "browserTarget": "video-course:build:production"
+            },
+            "dev": {
+              "browserTarget": "video-course:build:dev"
+            }
+          },
+          "defaultConfiguration": "dev"
+        },
+        "extract-i18n": {
+          "builder": "@angular-devkit/build-angular:extract-i18n",
+          "options": {
+            "browserTarget": "video-course:build"
+          }
+        },
+        "test": {
+          "builder": "@angular-devkit/build-angular:karma",
+          "options": {
+            "main": "src/test.ts",
+            "polyfills": "src/polyfills.ts",
+            "tsConfig": "tsconfig.spec.json",
+            "karmaConfig": "karma.conf.js",
+            "inlineStyleLanguage": "scss",
+            "assets": [
+              {
+                "glob": "**/*",
+                "input": "src/assets/fonts/",
+                "output": "/assets/fonts/"
+              },
+              {
+                "glob": "**/*",
+                "input": "src/assets/icons/",
+                "output": "/assets/icons/"
+              },
+              {
+                "glob": "**/*",
+                "input": "src/assets/images/",
+                "output": "/assets/images/"
+              }
+            ],
+            "styles": [
+              "src/styles.scss"
+            ],
+            "stylePreprocessorOptions": {
+              "includePaths": [
+                "src/scss",
+                "src/app"
+              ]
+            },
+            "scripts": []
+          }
+        },
+        "lint": {
+          "builder": "@angular-eslint/builder:lint",
+          "options": {
+            "eslintConfig": "./.eslintrc.js",
+            "lintFilePatterns": [
+              "src/**/*.ts",
+              "src/**/*.html"
+            ]
+          }
+        }
+      }
+    }
+  },
+  "defaultProject": "video-course",
+  "cli": {
+    "defaultCollection": "@angular-eslint/schematics"
+  }
+}

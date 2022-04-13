@@ -1,0 +1,66 @@
+@import "colors";
+@import "variables";
+@import "mixins";
+
+:host {
+  @include height-width-100-percent;
+}
+
+.course-card {
+  @include height-width-100-percent;
+  @include content-container;
+
+  &--fresh {
+    border: 1px solid $secondary-border-color;
+  }
+  &--upcoming {
+    border: 1px solid $primary-border-color;
+  }
+  &--top-rated {
+    background-color: $fourth-bg-color;
+  }
+  &__content {
+    @include flex-column;
+    @include height-width-100-percent;
+  }
+  &__header {
+    @include flex-row;
+
+    width: 100%;
+    margin-bottom: $secondary-content-margin;
+  }
+  &__body {
+    @include flex-row;
+
+    width: 100%;
+  }
+  &__title-wrapper {
+    @include flex-row;
+
+    align-items: center;
+    flex-grow: 1;
+    height: 100%;
+    padding-right: $modal-title-padding;
+  }
+  &__title {
+    @include primary-title;
+
+    height: min-content;
+  }
+  &__favorite {
+    @include icon-size($primary-title-font-size);
+
+    margin-left: 0.5rem;
+  }
+  &__tools-wrapper {
+    flex-shrink: 0;
+  }
+  &__description-wrapper {
+    flex-grow: 1;
+    height: 100%;
+    padding-right: $description-padding-right;
+  }
+  &__description {
+    @include description-text;
+  }
+}

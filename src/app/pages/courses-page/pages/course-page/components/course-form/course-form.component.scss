@@ -1,0 +1,11 @@
+@import "colors";
+@import "variables";
+@import "mixins";
+
+:host {
+  @include height-width-100-percent;
+}
+
+.course-form {
+  @include height-width-100-percent;
+}
