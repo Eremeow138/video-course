@@ -13,17 +13,21 @@ import { urls } from "@environments/environment";
 @Injectable()
 export class LoaderInterceptor implements HttpInterceptor {
 
+  private urlExceptions = [urls.authors];
+
   constructor(private loaderService: LoaderService) { }
 
   intercept(request: HttpRequest<unknown>, next: HttpHandler): Observable<HttpEvent<unknown>> {
-    if (request.url !== urls.authors) {
-      this.loaderService.showLoader();
+
+    if(this.urlExceptions.includes(request.url)) {
+      return next.handle(request);
     }
+
+    this.loaderService.setLoading(true, request.urlWithParams);
+
     return next.handle(request).pipe(
       finalize(() => {
-        if (request.url !== urls.authors) {
-          this.loaderService.hideLoader();
-        }
+        this.loaderService.setLoading(false, request.urlWithParams);
       })
     );
   }
