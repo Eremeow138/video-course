@@ -49,8 +49,8 @@ export class LoginFormComponent implements OnInit, OnDestroy {
 
   public createForm(): void {
     this.loginForm = new LoginForm({
-      [LoginFormControl.Login]: "",
-      [LoginFormControl.Password]: ""
+      [LoginFormControl.Login]: "neo@metacorp.com",
+      [LoginFormControl.Password]: "one"
     });
   }
 
